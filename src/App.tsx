@@ -1,6 +1,57 @@
+import { useState } from 'react'
 import './App.css'
 
+const copy = {
+  en: {
+    eyebrow: 'Personal Stylist',
+    title: 'Style That Fits You Perfectly',
+    subcopy:
+      'Upload your photo and body details to receive tailored fit and item recommendations.',
+    sectionTitle: 'Body Profile',
+    sectionHint: 'Enter the basics to start your personalized styling.',
+    photoLabel: 'Your Photo',
+    uploadTitle: 'Upload Photo',
+    uploadHint: 'Front-facing photos work best',
+    genderLabel: 'Gender',
+    woman: 'Woman',
+    man: 'Man',
+    nonbinary: 'Non-binary',
+    height: 'Height (cm)',
+    heightPlaceholder: 'e.g., 170',
+    weight: 'Weight (kg)',
+    weightPlaceholder: 'e.g., 58',
+    cta: 'Start Style Matching',
+    languageLabel: 'Language',
+    languageToggle: 'Switch to Spanish'
+  },
+  es: {
+    eyebrow: 'Personal Stylist',
+    title: 'Estilo que se ajusta perfectamente a ti',
+    subcopy:
+      'Sube tu foto y tus datos corporales para recibir recomendaciones de ajuste e ítems a medida.',
+    sectionTitle: 'Perfil corporal',
+    sectionHint: 'Ingresa lo básico para iniciar tu estilismo personalizado.',
+    photoLabel: 'Tu foto',
+    uploadTitle: 'Subir foto',
+    uploadHint: 'Las fotos de frente funcionan mejor',
+    genderLabel: 'Género',
+    woman: 'Mujer',
+    man: 'Hombre',
+    nonbinary: 'No binario',
+    height: 'Altura (cm)',
+    heightPlaceholder: 'p. ej., 170',
+    weight: 'Peso (kg)',
+    weightPlaceholder: 'p. ej., 58',
+    cta: 'Iniciar matching de estilo',
+    languageLabel: 'Idioma',
+    languageToggle: 'Cambiar a inglés'
+  }
+} as const
+
 function App() {
+  const [language, setLanguage] = useState<'en' | 'es'>('en')
+  const t = copy[language]
+
   return (
     <div className="page">
       <div className="bg-orb orb-a" />
@@ -8,29 +59,39 @@ function App() {
       <div className="bg-grid" />
 
       <main className="shell">
+        <div className="toolbar">
+          <span className="toolbar-label">{t.languageLabel}</span>
+          <button
+            className="toggle"
+            type="button"
+            aria-pressed={language === 'es'}
+            onClick={() => setLanguage((prev) => (prev === 'en' ? 'es' : 'en'))}
+          >
+            <span className="toggle-dot" />
+            <span className="toggle-text">{t.languageToggle}</span>
+          </button>
+        </div>
+
         <header className="hero">
-          <p className="eyebrow">Personal Stylist</p>
-          <h1>Style That Fits You Perfectly</h1>
-          <p className="subcopy">
-            Upload your photo and body details to receive tailored fit and item
-            recommendations.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h1>{t.title}</h1>
+          <p className="subcopy">{t.subcopy}</p>
         </header>
 
         <section className="panel">
-          <h2>Body Profile</h2>
-          <p className="hint">Enter the basics to start your personalized styling.</p>
+          <h2>{t.sectionTitle}</h2>
+          <p className="hint">{t.sectionHint}</p>
 
           <form className="form">
             <label className="field">
-              <span>Your Photo</span>
+              <span>{t.photoLabel}</span>
               <div className="upload">
                 <input type="file" accept="image/*" />
                 <div className="upload-ui">
                   <div className="upload-icon">+</div>
                   <div className="upload-text">
-                    <strong>Upload Photo</strong>
-                    <span>Front-facing photos work best</span>
+                    <strong>{t.uploadTitle}</strong>
+                    <span>{t.uploadHint}</span>
                   </div>
                 </div>
               </div>
@@ -38,34 +99,34 @@ function App() {
 
             <div className="row">
               <label className="field">
-                <span>Gender</span>
+                <span>{t.genderLabel}</span>
                 <div className="segmented">
                   <label className="segment">
                     <input type="radio" name="gender" defaultChecked />
-                    <span>Woman</span>
+                    <span>{t.woman}</span>
                   </label>
                   <label className="segment">
                     <input type="radio" name="gender" />
-                    <span>Man</span>
+                    <span>{t.man}</span>
                   </label>
                   <label className="segment">
                     <input type="radio" name="gender" />
-                    <span>Non-binary</span>
+                    <span>{t.nonbinary}</span>
                   </label>
                 </div>
               </label>
               <label className="field">
-                <span>Height (cm)</span>
-                <input type="number" placeholder="e.g., 170" min={90} max={230} />
+                <span>{t.height}</span>
+                <input type="number" placeholder={t.heightPlaceholder} min={90} max={230} />
               </label>
               <label className="field">
-                <span>Weight (kg)</span>
-                <input type="number" placeholder="e.g., 58" min={25} max={200} />
+                <span>{t.weight}</span>
+                <input type="number" placeholder={t.weightPlaceholder} min={25} max={200} />
               </label>
             </div>
 
             <button className="cta" type="button">
-              Start Style Matching
+              {t.cta}
             </button>
           </form>
         </section>

@@ -50,6 +50,73 @@
   animation: rise 0.8s ease-out;
 }
 
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.toolbar-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+.toggle {
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 999px;
+  padding: 6px 14px 6px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+}
+
+.toggle-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #0f172a;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.toggle-dot::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: scale(0.8);
+  transition: transform 0.2s ease;
+}
+
+.toggle[aria-pressed='true'] .toggle-dot {
+  background: #2563eb;
+}
+
+.toggle[aria-pressed='true'] .toggle-dot::after {
+  transform: scale(1);
+}
+
+.toggle-text {
+  max-width: 140px;
+  text-align: left;
+}
+
 .hero {
   display: grid;
   gap: 10px;
