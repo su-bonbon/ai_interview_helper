@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+3:wght@300;400;600&display=swap");
+
 :root {
+  color-scheme: light;
   font-family: "Source Sans 3", "Noto Sans KR", system-ui, sans-serif;
-  color: #1e1f24;
-  background: #f5f4f0;
+  color: #1f2127;
+  background: #f6f3ee;
+  --ink: #1f2127;
+  --muted: #5a6072;
+  --accent: #f5a524;
+  --accent-2: #1f4aa8;
+  --paper: #ffffff;
+  --sand: #f6f3ee;
+  --shadow: 0 18px 50px rgba(20, 26, 49, 0.12);
 }
 
 * {
@@ -10,36 +20,113 @@
 
 body {
   margin: 0;
+  background: var(--sand);
 }
 
 .page {
   min-height: 100vh;
-  padding: 80px 10vw 64px;
-  background: radial-gradient(circle at top, #fff8e6 0%, #f5f4f0 45%, #e9edf5 100%);
+  padding: 72px 8vw 80px;
+  background: radial-gradient(circle at top left, #fff5dc 0%, #f6f3ee 45%, #e8edf7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0px);
+  opacity: 0.22;
+  z-index: 0;
+}
+
+.page::before {
+  width: 320px;
+  height: 320px;
+  background: #f5a524;
+  top: -120px;
+  right: -80px;
+}
+
+.page::after {
+  width: 260px;
+  height: 260px;
+  background: #1f4aa8;
+  bottom: -140px;
+  left: -100px;
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
-  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.badge {
+  background: #fff3d9;
+  color: #8f5600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lang-stack {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-toggle {
+  border: 1px solid #d5d9e2;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: center;
 }
 
 .eyebrow {
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-size: 12px;
-  color: #6b6f7a;
+  color: var(--muted);
   margin: 0 0 12px;
 }
 
 h1 {
-  font-size: clamp(36px, 5vw, 56px);
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 60px);
   margin: 0 0 16px;
 }
 
 .subtitle {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0 0 28px;
-  color: #3d424f;
+  color: var(--muted);
 }
 
 .actions {
@@ -54,46 +141,217 @@ button {
   padding: 12px 24px;
   font-size: 15px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(19, 25, 47, 0.15);
 }
 
 .primary {
-  background: #1c3faa;
+  background: var(--accent-2);
   color: #fff;
 }
 
 .secondary {
   background: #ffffff;
   border-color: #c8cbd3;
-  color: #1e1f24;
+  color: var(--ink);
 }
 
-.grid {
+.hero-card {
+  background: var(--paper);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.bilingual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid #eceff4;
+}
+
+.bilingual:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+.line {
+  margin: 0;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.mission {
+  margin-top: 80px;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.mission h2 {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+.mission-body {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+.features {
   margin-top: 60px;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.grid article {
+.features article {
   background: #ffffff;
   padding: 22px;
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(26, 30, 48, 0.08);
 }
 
-.grid h2 {
+.features h3 {
   margin: 0 0 10px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.grid p {
+.features p {
   margin: 0;
-  color: #4c5160;
+  color: var(--muted);
   line-height: 1.5;
 }
 
-@media (max-width: 600px) {
+.offer {
+  margin-top: 70px;
+}
+
+.offer h2 {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+.offer-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.offer-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 30px rgba(26, 30, 48, 0.08);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.steps {
+  margin-top: 70px;
+}
+
+.steps h2 {
+  margin: 0 0 24px;
+  font-size: 26px;
+}
+
+.step-list {
+  display: grid;
+  gap: 16px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: start;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(26, 30, 48, 0.08);
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1f4aa8 0%, #4a76d6 100%);
+}
+
+.step h4 {
+  margin: 0 0 6px;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cta {
+  margin-top: 70px;
+  background: linear-gradient(120deg, #1f4aa8 0%, #1a2f6b 100%);
+  color: #ffffff;
+  padding: 32px;
+  border-radius: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cta h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.cta p {
+  margin: 0;
+  max-width: 540px;
+  color: #dbe2ff;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
   .page {
-    padding: 56px 24px 48px;
+    padding: 56px 20px 64px;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
