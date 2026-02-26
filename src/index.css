@@ -1,0 +1,99 @@
+:root {
+  font-family: "Source Sans 3", "Noto Sans KR", system-ui, sans-serif;
+  color: #1e1f24;
+  background: #f5f4f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 80px 10vw 64px;
+  background: radial-gradient(circle at top, #fff8e6 0%, #f5f4f0 45%, #e9edf5 100%);
+}
+
+.hero {
+  max-width: 760px;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6b6f7a;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 28px;
+  color: #3d424f;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #1c3faa;
+  color: #fff;
+}
+
+.secondary {
+  background: #ffffff;
+  border-color: #c8cbd3;
+  color: #1e1f24;
+}
+
+.grid {
+  margin-top: 60px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.grid article {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(26, 30, 48, 0.08);
+}
+
+.grid h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.grid p {
+  margin: 0;
+  color: #4c5160;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 56px 24px 48px;
+  }
+}
