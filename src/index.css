@@ -4,7 +4,32 @@
     radial-gradient(#ffffff 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
-  opacity: 0.1;
+  opacity: 0.08;
+}
+
+.hero-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+.hero-bg {
+  background-image:
+    linear-gradient(135deg, rgba(246, 244, 240, 0.55), rgba(246, 244, 240, 0.25)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.45)
+  );
+  backdrop-filter: blur(4px);
 }
 
 body {

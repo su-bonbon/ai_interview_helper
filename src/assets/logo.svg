@@ -1,0 +1,11 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Citizenship Success logo">
+  <defs>
+    <linearGradient id="shield" x1="16" y1="8" x2="80" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c61f1f"/>
+      <stop offset="1" stop-color="#1f7a3e"/>
+    </linearGradient>
+  </defs>
+  <path d="M48 6L82 16V44C82 63.4 67.9 79.8 48 90C28.1 79.8 14 63.4 14 44V16L48 6Z" fill="url(#shield)"/>
+  <path d="M48 18L52.9 28.7L64.7 30.2L56 37.7L58.5 49.3L48 43.2L37.5 49.3L40 37.7L31.3 30.2L43.1 28.7L48 18Z" fill="#ffffff"/>
+  <circle cx="48" cy="44" r="30" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+</svg>

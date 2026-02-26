@@ -1,0 +1,13 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo option 4">
+  <defs>
+    <linearGradient id="g4" x1="18" y1="10" x2="102" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00c46a"/>
+      <stop offset="1" stop-color="#ff3a3a"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 10L104 24V56C104 81.2 86.6 100.7 60 112C33.4 100.7 16 81.2 16 56V24L60 10Z" fill="url(#g4)"/>
+  <path d="M44 44H76V66C76 76 68 84 58 84C48 84 44 76 44 66V44Z" fill="rgba(255,255,255,0.22)"/>
+  <path d="M50 62L57 69L70 52" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="60" cy="38" r="6" fill="#ffffff"/>
+  <path d="M60 22L64 30L73 31L66 37L68 46L60 41L52 46L54 37L47 31L56 30L60 22Z" fill="#ffffff"/>
+</svg>
