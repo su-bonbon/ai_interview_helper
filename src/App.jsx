@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const copy = {
   en: {
@@ -34,6 +35,7 @@ const copy = {
     offer5: "Interview day checklist",
     offer6: "Fail-safe guide to avoid rejection",
     offer7: "Audio files for pronunciation practice",
+    loginNav: "Member login",
     stepsTitle: "How it works",
     step1Title: "Quick assessment",
     step1Body: "Check your current level and get a tailored path.",
@@ -80,6 +82,7 @@ const copy = {
     offer5: "Lista de verificación del día",
     offer6: "Guía para evitar el rechazo",
     offer7: "Archivos de audio para pronunciación",
+    loginNav: "Iniciar sesión",
     stepsTitle: "Cómo funciona",
     step1Title: "Evaluación rápida",
     step1Body: "Comprueba tu nivel actual y define tu ruta.",
@@ -125,6 +128,9 @@ export default function App() {
             <div className="actions">
               <button className="primary">{t.ctaPrimary}</button>
               <button className="secondary">{t.ctaSecondary}</button>
+              <Link className="ghost" to="/login">
+                {t.loginNav}
+              </Link>
             </div>
           </div>
 
