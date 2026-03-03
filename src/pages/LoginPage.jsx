@@ -42,6 +42,7 @@ const copy = {
     errorPopupClosed: "Google sign-in was closed before finishing.",
     errorPopupCancelled: "Google sign-in was cancelled. Please retry.",
     errorPopupBlocked: "Pop-up blocked. Allow pop-ups and try again.",
+    errorUnauthorizedDomain: "Google sign-in is not allowed on this domain.",
   },
   es: {
     loginTitle: "Inicia sesión",
@@ -73,6 +74,7 @@ const copy = {
     errorPopupClosed: "Se cerró el inicio con Google antes de terminar.",
     errorPopupCancelled: "Se canceló el inicio con Google. Intenta de nuevo.",
     errorPopupBlocked: "El navegador bloqueó el pop-up. Permítelo e intenta otra vez.",
+    errorUnauthorizedDomain: "Google no está autorizado en este dominio.",
   },
 };
 
@@ -177,7 +179,11 @@ export default function LoginPage() {
     } catch (err) {
       console.error("Google auth error:", err);
       const code = err?.code || "";
-      setError(t.error);
+      if (code === "auth/unauthorized-domain") {
+        setError(t.errorUnauthorizedDomain);
+      } else {
+        setError(t.error);
+      }
     } finally {
       setLoading(false);
     }
