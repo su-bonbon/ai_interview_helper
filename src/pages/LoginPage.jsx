@@ -43,6 +43,7 @@ const copy = {
     errorPopupCancelled: "Google sign-in was cancelled. Please retry.",
     errorPopupBlocked: "Pop-up blocked. Allow pop-ups and try again.",
     errorUnauthorizedDomain: "Google sign-in is not allowed on this domain.",
+    errorOffline: "You're offline. We'll sync your account when you're back online.",
   },
   es: {
     loginTitle: "Inicia sesión",
@@ -75,17 +76,43 @@ const copy = {
     errorPopupCancelled: "Se canceló el inicio con Google. Intenta de nuevo.",
     errorPopupBlocked: "El navegador bloqueó el pop-up. Permítelo e intenta otra vez.",
     errorUnauthorizedDomain: "Google no está autorizado en este dominio.",
+    errorOffline: "Estás sin conexión. Sincronizaremos tu cuenta cuando vuelvas.",
   },
 };
 
 async function ensureUserDoc(user) {
   const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
-  if (!userSnap.exists()) {
-    await setDoc(userRef, {
-      email: user.email,
-      isSubscribed: false,
-    });
+  try {
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) {
+      await setDoc(
+        userRef,
+        {
+          email: user.email,
+          isSubscribed: false,
+        },
+        { merge: true }
+      );
+    }
+    return true;
+  } catch (err) {
+    const code = err?.code || "";
+    if (code === "unavailable" || code === "failed-precondition") {
+      try {
+        await setDoc(
+          userRef,
+          {
+            email: user.email,
+            isSubscribed: false,
+          },
+          { merge: true }
+        );
+      } catch (innerErr) {
+        console.error("User doc write failed:", innerErr);
+      }
+      return false;
+    }
+    throw err;
   }
 }
 
@@ -101,12 +128,21 @@ export default function LoginPage() {
   const [info, setInfo] = useState("");
   const [mode, setMode] = useState("login");
 
+  const withTimeout = (promise, ms) =>
+    Promise.race([
+      promise,
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("auth/timeout")), ms)
+      ),
+    ]);
+
   useEffect(() => {
     const consumeRedirect = async () => {
       try {
         const result = await getRedirectResult(auth);
         if (result?.user) {
-          await ensureUserDoc(result.user);
+          const synced = await ensureUserDoc(result.user);
+          if (!synced) setInfo(t.errorOffline);
           navigate("/dashboard");
         }
       } catch (err) {
@@ -130,26 +166,28 @@ export default function LoginPage() {
 
     try {
       if (mode === "login") {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
+        const userCredential = await withTimeout(
+          signInWithEmailAndPassword(auth, email, password),
+          10000
         );
-        await ensureUserDoc(userCredential.user);
+        const synced = await ensureUserDoc(userCredential.user);
+        if (!synced) setInfo(t.errorOffline);
         navigate("/dashboard");
       } else {
-        const userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
+        const userCredential = await withTimeout(
+          createUserWithEmailAndPassword(auth, email, password),
+          10000
         );
-        await ensureUserDoc(userCredential.user);
+        const synced = await ensureUserDoc(userCredential.user);
+        if (!synced) setInfo(t.errorOffline);
         navigate("/dashboard");
       }
     } catch (err) {
       console.error("Firebase auth error:", err);
       const code = err?.code || "";
-      if (code === "auth/invalid-credential" || code === "auth/wrong-password") {
+      if (code === "auth/timeout") {
+        setError("Request timed out. Please try again.");
+      } else if (code === "auth/invalid-credential" || code === "auth/wrong-password") {
         setError(t.errorInvalidCredential);
       } else if (code === "auth/user-not-found") {
         setError(t.errorUserNotFound);
