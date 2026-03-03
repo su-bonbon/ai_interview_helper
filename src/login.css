@@ -176,3 +176,8 @@ body {
   text-align: right;
   margin-top: 6px;
 }
+
+.login-meta.error {
+  color: #c61f1f;
+  font-weight: 600;
+}

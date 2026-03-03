@@ -4,7 +4,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
@@ -87,6 +88,26 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [mode, setMode] = useState("login");
 
+  useEffect(() => {
+    const consumeRedirect = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result?.user) {
+          await ensureUserDoc(result.user);
+        }
+      } catch (err) {
+        console.error("Google redirect error:", err);
+        const code = err?.code || "";
+        if (code === "auth/credential-already-in-use") {
+          setError(t.errorEmailInUse);
+        } else {
+          setError(t.error);
+        }
+      }
+    };
+    consumeRedirect();
+  }, [t.error, t.errorEmailInUse]);
+
   const handleEmailAuth = async (event) => {
     event.preventDefault();
     setError("");
@@ -136,20 +157,11 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
-      const userCredential = await signInWithPopup(auth, provider);
-      await ensureUserDoc(userCredential.user);
+      await signInWithRedirect(auth, provider);
     } catch (err) {
       console.error("Google auth error:", err);
       const code = err?.code || "";
-      if (code === "auth/popup-closed-by-user") {
-        setError(t.errorPopupClosed);
-      } else if (code === "auth/cancelled-popup-request") {
-        setError(t.errorPopupCancelled);
-      } else if (code === "auth/popup-blocked") {
-        setError(t.errorPopupBlocked);
-      } else {
-        setError(t.error);
-      }
+      setError(t.error);
     } finally {
       setLoading(false);
     }
@@ -230,7 +242,7 @@ export default function LoginPage() {
                   : t.signupButton}
             </button>
           </form>
-          {error ? <p className="login-meta">{error}</p> : null}
+          {error ? <p className="login-meta error">{error}</p> : null}
           <div className="login-divider">{t.or}</div>
           <div className="login-socials">
             <button
