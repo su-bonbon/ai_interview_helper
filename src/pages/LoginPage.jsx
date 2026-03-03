@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useOutletContext, useSearchParams } from "react-router-dom";
+import { useNavigate, useOutletContext, useSearchParams } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
   getRedirectResult,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
@@ -24,6 +25,10 @@ const copy = {
     google: "Continue with Google",
     switchToSignup: "Create account",
     switchToLogin: "Sign in",
+    forgot: "Forgot password?",
+    resetSent: "Password reset email sent. Check your inbox.",
+    resetNeedEmail: "Enter your email first.",
+    resetError: "Could not send reset email. Try again.",
     error: "Login failed. Please check your email and password.",
     signupError: "Signup failed. Please try again.",
     loading: "Signing in...",
@@ -51,6 +56,10 @@ const copy = {
     google: "Continuar con Google",
     switchToSignup: "Crear cuenta",
     switchToLogin: "Iniciar sesión",
+    forgot: "¿Olvidaste tu contraseña?",
+    resetSent: "Enviamos el correo de recuperación. Revisa tu bandeja.",
+    resetNeedEmail: "Primero ingresa tu correo.",
+    resetError: "No pudimos enviar el correo. Intenta de nuevo.",
     error: "Error al iniciar sesión. Revisa tu correo y contraseña.",
     signupError: "Error al crear la cuenta. Intenta de nuevo.",
     loading: "Ingresando...",
@@ -81,11 +90,13 @@ async function ensureUserDoc(user) {
 export default function LoginPage() {
   const { lang } = useOutletContext();
   const t = copy[lang];
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const [mode, setMode] = useState("login");
 
   useEffect(() => {
@@ -94,6 +105,7 @@ export default function LoginPage() {
         const result = await getRedirectResult(auth);
         if (result?.user) {
           await ensureUserDoc(result.user);
+          navigate("/dashboard");
         }
       } catch (err) {
         console.error("Google redirect error:", err);
@@ -111,6 +123,7 @@ export default function LoginPage() {
   const handleEmailAuth = async (event) => {
     event.preventDefault();
     setError("");
+    setInfo("");
     setLoading(true);
 
     try {
@@ -121,6 +134,7 @@ export default function LoginPage() {
           password
         );
         await ensureUserDoc(userCredential.user);
+        navigate("/dashboard");
       } else {
         const userCredential = await createUserWithEmailAndPassword(
           auth,
@@ -128,6 +142,7 @@ export default function LoginPage() {
           password
         );
         await ensureUserDoc(userCredential.user);
+        navigate("/dashboard");
       }
     } catch (err) {
       console.error("Firebase auth error:", err);
@@ -154,6 +169,7 @@ export default function LoginPage() {
 
   const handleGoogle = async () => {
     setError("");
+    setInfo("");
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
@@ -168,6 +184,22 @@ export default function LoginPage() {
   };
 
   const isLogin = mode === "login";
+
+  const handleResetPassword = async () => {
+    setError("");
+    setInfo("");
+    if (!email) {
+      setInfo(t.resetNeedEmail);
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setInfo(t.resetSent);
+    } catch (err) {
+      console.error("Password reset error:", err);
+      setError(t.resetError);
+    }
+  };
 
   useEffect(() => {
     const modeParam = searchParams.get("mode");
@@ -242,7 +274,13 @@ export default function LoginPage() {
                   : t.signupButton}
             </button>
           </form>
+          {isLogin ? (
+            <button type="button" className="login-forgot" onClick={handleResetPassword}>
+              {t.forgot}
+            </button>
+          ) : null}
           {error ? <p className="login-meta error">{error}</p> : null}
+          {info ? <p className="login-meta info">{info}</p> : null}
           <div className="login-divider">{t.or}</div>
           <div className="login-socials">
             <button

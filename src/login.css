@@ -181,3 +181,21 @@ body {
   color: #c61f1f;
   font-weight: 600;
 }
+
+.login-meta.info {
+  color: #0b50da;
+  font-weight: 600;
+}
+
+.login-forgot {
+  align-self: flex-end;
+  border: none;
+  background: none;
+  color: #0b50da;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: -4px;
+}
