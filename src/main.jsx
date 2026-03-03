@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Layout from "./components/Layout.jsx";
+import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
 import "./login.css";
 
@@ -20,3 +21,5 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+initAnalytics();

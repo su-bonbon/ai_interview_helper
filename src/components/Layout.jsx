@@ -33,9 +33,9 @@ export default function Layout() {
   return (
     <div className="bg-[#f6f4f0] text-slate-900 font-display">
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 hero-noise" />
-        <div className="absolute -top-40 -right-24 h-72 w-72 rounded-full bg-[#c61f1f]/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-20 h-72 w-72 rounded-full bg-[#1f7a3e]/10 blur-3xl" />
+        <div className="absolute inset-0 hero-noise pointer-events-none" />
+        <div className="absolute -top-40 -right-24 h-72 w-72 rounded-full bg-[#c61f1f]/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-20 h-72 w-72 rounded-full bg-[#1f7a3e]/10 blur-3xl pointer-events-none" />
 
         <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#f6f4f0]/80 backdrop-blur">
           <div className="mx-auto flex max-w-screen-2xl items-center gap-4 px-4 sm:px-6 lg:px-10 py-4">

@@ -13,9 +13,12 @@ const copy = {
     stat1: "100 Civics Questions",
     stat2: "Bilingual Lessons",
     stat3: "Audio Practice",
+    stripTitle: "Trusted by families preparing for USCIS",
+    stripBody: "Clear steps, consistent practice, and real interview flow.",
     sectionTitle: "What you get",
     sectionBody:
       "A complete, affordable toolkit for real interviews and real families.",
+    sectionFoot: "Everything above is included in the $4.99 plan.",
     offer1: "100 Civics Questions (easy mode)",
     offer2: "Real interview simulation script",
     offer3: "Yes/No question explanations",
@@ -34,6 +37,9 @@ const copy = {
     priceTitle: "$4.99/month",
     priceBody: "No hidden fees. Cancel anytime. All resources included.",
     priceCta: "Join for $4.99",
+    finalTitle: "Ready for interview day?",
+    finalBody: "Start with the civics basics, then practice the real flow.",
+    finalCta: "Start now",
   },
   es: {
     heroTag: "Para comunidades mexicanas · $4.99/mes",
@@ -46,8 +52,11 @@ const copy = {
     stat1: "100 Preguntas Cívicas",
     stat2: "Lecciones bilingües",
     stat3: "Práctica de audio",
+    stripTitle: "Con la confianza de familias ante USCIS",
+    stripBody: "Pasos claros, práctica constante y flujo real de entrevista.",
     sectionTitle: "Lo que incluye",
     sectionBody: "Un kit completo y accesible para entrevistas reales.",
+    sectionFoot: "Todo lo anterior está incluido en el plan de $4.99.",
     offer1: "100 preguntas cívicas (modo fácil)",
     offer2: "Guion de simulación real",
     offer3: "Explicaciones de preguntas Sí/No",
@@ -66,6 +75,9 @@ const copy = {
     priceTitle: "$4.99/mes",
     priceBody: "Sin cargos ocultos. Cancela cuando quieras.",
     priceCta: "Unirme por $4.99",
+    finalTitle: "¿Listo para el día de entrevista?",
+    finalBody: "Empieza con civismo y practica el flujo real.",
+    finalCta: "Comenzar ahora",
   },
 };
 
@@ -139,27 +151,41 @@ export default function App() {
         </div>
       </header>
 
+      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pt-10">
+        <div className="flex flex-col gap-3 rounded-[28px] border border-black/5 bg-white/80 p-6 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+            {t.stripTitle}
+          </p>
+          <p className="text-lg font-semibold text-slate-800">{t.stripBody}</p>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-start">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
-            <p className="text-slate-700">{t.sectionBody}</p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {[t.offer1, t.offer2, t.offer3, t.offer4, t.offer5, t.offer6, t.offer7, t.offer8].map(
-                (item, index) => (
-                  <div key={item} className="flex items-start gap-3 py-2">
-                    <span className="material-symbols-outlined text-[#0b50da]">
-                      {offerIcons[index]}
-                    </span>
-                    <span className="text-sm font-semibold text-slate-700">
-                      {item}
-                    </span>
-                  </div>
-                )
-              )}
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-stretch">
+          <div className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col">
+            <div className="space-y-4 flex-1 flex flex-col">
+              <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
+              <p className="text-slate-700">{t.sectionBody}</p>
+              <div className="grid gap-3 sm:grid-cols-2 flex-1">
+                {[t.offer1, t.offer2, t.offer3, t.offer4, t.offer5, t.offer6, t.offer7, t.offer8].map(
+                  (item, index) => (
+                    <div key={item} className="flex items-start gap-3 py-2">
+                      <span className="material-symbols-outlined text-[#0b50da]">
+                        {offerIcons[index]}
+                      </span>
+                      <span className="text-sm font-semibold text-slate-700">
+                        {item}
+                      </span>
+                    </div>
+                  )
+                )}
+              </div>
+              <div className="mt-auto pt-4 border-t border-black/5 text-sm font-semibold text-slate-600">
+                {t.sectionFoot}
+              </div>
             </div>
           </div>
-          <div className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl">
+          <div className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl h-full flex flex-col">
             <h3 className="text-3xl font-black">{t.priceTitle}</h3>
             <p className="mt-2 text-white/80 leading-relaxed">{t.priceBody}</p>
             <div className="mt-6 flex flex-col gap-3">
@@ -218,6 +244,21 @@ export default function App() {
             <h4 className="mt-3 text-lg font-bold">{t.trust3Title}</h4>
             <p className="text-sm text-slate-600 mt-2">{t.trust3Body}</p>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pb-16">
+        <div className="rounded-[28px] border border-black/5 bg-white p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-2xl font-black">{t.finalTitle}</h3>
+            <p className="text-slate-600 mt-2">{t.finalBody}</p>
+          </div>
+          <Link
+            to="/login"
+            className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-8 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25"
+          >
+            {t.finalCta}
+          </Link>
         </div>
       </section>
     </>
