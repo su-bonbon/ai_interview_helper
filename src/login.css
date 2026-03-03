@@ -42,6 +42,35 @@ body {
   backdrop-filter: blur(6px);
 }
 
+.login-tabs {
+  display: inline-flex;
+  gap: 8px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  padding: 4px;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.login-tab {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.login-tab.is-active {
+  background: #0b50da;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(11, 80, 218, 0.25);
+}
+
 .login-panel h1 {
   font-size: clamp(26px, 3.6vw, 32px);
   margin: 0;
@@ -82,6 +111,8 @@ body {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(11, 80, 218, 0.22);
+  padding: 0 20px;
+  font-size: 14px;
 }
 
 .login-divider {
@@ -105,21 +136,43 @@ body {
 .login-socials {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .login-socials button {
-  height: 40px;
+  height: 44px;
   border-radius: 999px;
   border: 1px solid #e5e7eb;
   background: white;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.login-google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.google-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+}
+
+.google-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .login-meta {
   font-size: 11px;
   color: #6b7280;
   line-height: 1.5;
+  text-align: right;
+  margin-top: 6px;
 }
