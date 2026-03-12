@@ -16,6 +16,10 @@ const copy = {
     unlockedTitle: "Interview dashboard",
     unlockedBody:
       "You have full access to questions, answers, and guided practice.",
+    confidenceLabel: "Confidence",
+    practiceLabel: "Practice sessions",
+    daysLabel: "Days to interview",
+    hardLabel: "Hard questions marked",
     card1Title: "Civics (Easy Mode)",
     card1Body: "100 questions with simplified explanations.",
     card2Title: "Real Interview Script",
@@ -40,6 +44,10 @@ const copy = {
     unlockedTitle: "Panel de entrevista",
     unlockedBody:
       "Tienes acceso completo a preguntas, respuestas y práctica guiada.",
+    confidenceLabel: "Confianza",
+    practiceLabel: "Sesiones de práctica",
+    daysLabel: "Días para la entrevista",
+    hardLabel: "Preguntas difíciles marcadas",
     card1Title: "Cívica (modo fácil)",
     card1Body: "100 preguntas con explicación simple.",
     card2Title: "Guion de entrevista real",
@@ -61,6 +69,11 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [confidence, setConfidence] = useState(0.72);
+  const [practiceCount, setPracticeCount] = useState(12);
+  const [daysToInterview, setDaysToInterview] = useState(18);
+  const [hardChecked, setHardChecked] = useState(18);
+  const [hardTotal, setHardTotal] = useState(60);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -91,47 +104,91 @@ export default function Dashboard() {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">{t.unlockedTitle}</h2>
           <p className="text-slate-600">{t.unlockedBody}</p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#ffefe8] to-[#fff7f0] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#ff6b3d] text-white flex items-center justify-center">
+
+          <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
+            <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-semibold text-slate-700">{t.confidenceLabel}</p>
+                <p className="text-sm font-bold text-slate-800">
+                  {Math.round(confidence * 100)}%
+                </p>
+              </div>
+              <div className="mt-3 h-3 w-full rounded-full bg-slate-100 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-[#0b50da] via-[#00a86b] to-[#ff6b3d]"
+                  style={{ width: `${Math.round(confidence * 100)}%` }}
+                />
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3 text-center">
+                <div className="rounded-xl bg-[#f3f6ff] p-3">
+                  <p className="text-xs text-slate-500">{t.practiceLabel}</p>
+                  <p className="text-lg font-bold text-slate-800">{practiceCount}</p>
+                </div>
+                <div className="rounded-xl bg-[#f0fff6] p-3">
+                  <p className="text-xs text-slate-500">{t.daysLabel}</p>
+                  <p className="text-lg font-bold text-slate-800">{daysToInterview}</p>
+                </div>
+                <div className="rounded-xl bg-[#fff4ec] p-3">
+                  <p className="text-xs text-slate-500">{t.hardLabel}</p>
+                  <p className="text-lg font-bold text-slate-800">
+                    {Math.round((hardChecked / hardTotal) * 100)}%
+                  </p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs text-slate-500">
+                {hardChecked} / {hardTotal} marked as hard
+              </p>
+            </div>
+            <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-[#0b50da] to-[#0a2f6b] p-5 text-white">
+              <p className="text-sm font-semibold text-white/80">Next milestone</p>
+              <p className="mt-2 text-2xl font-black">Mock Interview #3</p>
+              <p className="mt-2 text-sm text-white/80">Keep a steady rhythm to raise confidence.</p>
+              <button className="mt-5 h-10 rounded-xl bg-white text-[#0b50da] font-bold px-4">
+                Start practice
+              </button>
+            </div>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#ffefe8] to-[#fff7f0] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#ff6b3d] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">menu_book</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card1Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card1Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card1Body}</p>
             </button>
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e7f0ff] to-[#f5f9ff] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#0b50da] text-white flex items-center justify-center">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e7f0ff] to-[#f5f9ff] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#0b50da] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">assignment_turned_in</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card2Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card2Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card2Body}</p>
             </button>
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e9fff3] to-[#f4fff9] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#00a86b] text-white flex items-center justify-center">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e9fff3] to-[#f4fff9] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#00a86b] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">help</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card3Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card3Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card3Body}</p>
             </button>
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#fff3e6] to-[#fff8f2] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#ff9f1c] text-white flex items-center justify-center">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#fff3e6] to-[#fff8f2] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#ff9f1c] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">psychology</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card4Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card4Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card4Body}</p>
             </button>
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#f1f0ff] to-[#faf8ff] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#6a5cff] text-white flex items-center justify-center">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#f1f0ff] to-[#faf8ff] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#6a5cff] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">checklist</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card5Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card5Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card5Body}</p>
             </button>
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e9f7ff] to-[#f4fbff] p-4 border border-black/5 hover:shadow-md transition">
-              <div className="h-10 w-10 rounded-xl bg-[#1b9aaa] text-white flex items-center justify-center">
+            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e9f7ff] to-[#f4fbff] p-5 border border-black/5 hover:shadow-md transition">
+              <div className="h-11 w-11 rounded-xl bg-[#1b9aaa] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">graphic_eq</span>
               </div>
-              <p className="mt-4 text-sm font-semibold text-slate-800">{t.card6Title}</p>
+              <p className="mt-5 text-sm font-semibold text-slate-800">{t.card6Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card6Body}</p>
             </button>
           </div>
