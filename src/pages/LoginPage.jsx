@@ -82,31 +82,36 @@ const copy = {
 
 async function ensureUserDoc(user) {
   const userRef = doc(db, "users", user.uid);
+  const defaults = {
+    email: user.email,
+    isSubscribed: false,
+    interviewDate: null,
+    interviewTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
+    practiceCount: 0,
+    confidence: 0,
+    hardQuestionsChecked: 0,
+    hardQuestionsTotal: 0,
+  };
   try {
     const userSnap = await getDoc(userRef);
     if (!userSnap.exists()) {
-      await setDoc(
-        userRef,
-        {
-          email: user.email,
-          isSubscribed: false,
-        },
-        { merge: true }
-      );
+      await setDoc(userRef, defaults, { merge: true });
+    } else {
+      const data = userSnap.data() || {};
+      const missing = {};
+      Object.keys(defaults).forEach((key) => {
+        if (!(key in data)) missing[key] = defaults[key];
+      });
+      if (Object.keys(missing).length > 0) {
+        await setDoc(userRef, missing, { merge: true });
+      }
     }
     return true;
   } catch (err) {
     const code = err?.code || "";
     if (code === "unavailable" || code === "failed-precondition") {
       try {
-        await setDoc(
-          userRef,
-          {
-            email: user.email,
-            isSubscribed: false,
-          },
-          { merge: true }
-        );
+        await setDoc(userRef, defaults, { merge: true });
       } catch (innerErr) {
         console.error("User doc write failed:", innerErr);
       }
