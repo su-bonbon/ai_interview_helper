@@ -26,6 +26,9 @@ const copy = {
     interviewPromptLabel: "Interview date",
     interviewPromptCta: "Save date",
     interviewPromptSkip: "I'll add it later",
+    calendarTitle: "Interview calendar",
+    calendarSubtitle: "Your interview date is highlighted.",
+    calendarEmpty: "Set your interview date to highlight it.",
     card1Title: "Civics (Easy Mode)",
     card1Body: "100 questions with simplified explanations.",
     card2Title: "Real Interview Script",
@@ -60,6 +63,9 @@ const copy = {
     interviewPromptLabel: "Fecha de entrevista",
     interviewPromptCta: "Guardar fecha",
     interviewPromptSkip: "Lo agregaré después",
+    calendarTitle: "Calendario de entrevista",
+    calendarSubtitle: "Tu fecha de entrevista está resaltada.",
+    calendarEmpty: "Agrega tu fecha para resaltarla.",
     card1Title: "Cívica (modo fácil)",
     card1Body: "100 preguntas con explicación simple.",
     card2Title: "Guion de entrevista real",
@@ -88,6 +94,27 @@ export default function Dashboard() {
   const [hardTotal, setHardTotal] = useState(60);
   const [interviewDate, setInterviewDate] = useState("");
   const [showInterviewPrompt, setShowInterviewPrompt] = useState(false);
+  const today = new Date();
+  const parseLocalDate = (value) => {
+    if (!value) return null;
+    if (typeof value?.toDate === "function") return value.toDate();
+    if (value instanceof Date) return value;
+    if (typeof value === "string") {
+      const [y, m, d] = value.split("-").map(Number);
+      if (!y || !m || !d) return null;
+      return new Date(y, m - 1, d);
+    }
+    return null;
+  };
+
+  const interviewDateObj = parseLocalDate(interviewDate);
+  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+  const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  const startDay = monthStart.getDay();
+  const daysInMonth = monthEnd.getDate();
+  const calendarCells = Array.from({ length: startDay + daysInMonth }, (_, i) =>
+    i < startDay ? null : i - startDay + 1
+  );
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -100,15 +127,32 @@ export default function Dashboard() {
         const data = snap.exists() ? snap.data() : null;
         setIsSubscribed(Boolean(data?.isSubscribed));
         if (data?.interviewDate) {
-          const dateValue =
-            typeof data.interviewDate?.toDate === "function"
-              ? data.interviewDate.toDate()
-              : new Date(data.interviewDate);
-          const iso = dateValue.toISOString().slice(0, 10);
-          setInterviewDate(iso);
-          const diff =
-            Math.ceil((dateValue.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
-          setDaysToInterview(Math.max(diff, 0));
+          const dateValue = parseLocalDate(data.interviewDate);
+          if (dateValue) {
+            const iso = new Date(
+              dateValue.getFullYear(),
+              dateValue.getMonth(),
+              dateValue.getDate()
+            )
+              .toISOString()
+              .slice(0, 10);
+            setInterviewDate(iso);
+            const todayLocal = new Date(
+              today.getFullYear(),
+              today.getMonth(),
+              today.getDate()
+            );
+            const interviewLocal = new Date(
+              dateValue.getFullYear(),
+              dateValue.getMonth(),
+              dateValue.getDate()
+            );
+            const diff = Math.ceil(
+              (interviewLocal.getTime() - todayLocal.getTime()) /
+                (1000 * 60 * 60 * 24)
+            );
+            setDaysToInterview(Math.max(diff, 0));
+          }
         } else if (data?.isSubscribed) {
           setShowInterviewPrompt(true);
         }
@@ -132,7 +176,7 @@ export default function Dashboard() {
           <h2 className="text-2xl font-bold">{t.unlockedTitle}</h2>
           <p className="text-slate-600">{t.unlockedBody}</p>
 
-          <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
+          <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr_1fr]">
             <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-slate-700">{t.confidenceLabel}</p>
@@ -165,6 +209,71 @@ export default function Dashboard() {
               <p className="mt-3 text-xs text-slate-500">
                 {hardChecked} / {hardTotal} marked as hard
               </p>
+            </div>
+            <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-slate-700">
+                    {t.calendarTitle}
+                  </p>
+                  <p className="text-xs text-slate-500">{t.calendarSubtitle}</p>
+                </div>
+                <div className="h-9 w-9 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
+                  <span className="material-symbols-outlined">calendar_month</span>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs text-slate-500">
+                {["S", "M", "T", "W", "T", "F", "S"].map((day) => (
+                  <span key={day}>{day}</span>
+                ))}
+              </div>
+              <div className="mt-2 grid grid-cols-7 gap-2 text-center text-xs">
+                {calendarCells.map((day, idx) => {
+                  const isToday =
+                    day &&
+                    day === today.getDate() &&
+                    today.getMonth() === monthStart.getMonth();
+                  const isInterview =
+                    day &&
+                    interviewDateObj &&
+                    day === interviewDateObj.getDate() &&
+                    interviewDateObj.getMonth() === monthStart.getMonth() &&
+                    interviewDateObj.getFullYear() === monthStart.getFullYear();
+                  return (
+                    <span
+                      key={`${day ?? "x"}-${idx}`}
+                      className={`relative h-7 w-7 flex items-center justify-center ${
+                        isInterview
+                          ? "text-slate-900 font-bold"
+                          : isToday
+                            ? "bg-[#0b50da]/10 text-[#0b50da] font-semibold rounded-full"
+                            : "text-slate-600"
+                      }`}
+                    >
+                      {isInterview ? (
+                        <span
+                          className="absolute inset-0"
+                          style={{
+                            background: "#f5e200",
+                            clipPath:
+                              "polygon(50% 0%, 62% 35%, 98% 35%, 68% 57%, 79% 92%, 50% 72%, 21% 92%, 32% 57%, 2% 35%, 38% 35%)",
+                          }}
+                        />
+                      ) : null}
+                      <span className="relative z-10">{day ?? ""}</span>
+                    </span>
+                  );
+                })}
+              </div>
+              {interviewDate ? (
+                <p className="mt-3 text-xs text-slate-500">
+                  {interviewDate}
+                </p>
+              ) : (
+                <p className="mt-3 text-xs text-slate-500">
+                  {t.calendarEmpty}
+                </p>
+              )}
             </div>
             <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-[#0b50da] to-[#0a2f6b] p-5 text-white">
               <p className="text-sm font-semibold text-white/80">Next milestone</p>
