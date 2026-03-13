@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
 
 const copy = {
@@ -20,6 +20,12 @@ const copy = {
     practiceLabel: "Practice sessions",
     daysLabel: "Days to interview",
     hardLabel: "Hard questions marked",
+    interviewPromptTitle: "Add your interview date",
+    interviewPromptBody:
+      "This helps us calculate your D‑day and tailor your practice plan.",
+    interviewPromptLabel: "Interview date",
+    interviewPromptCta: "Save date",
+    interviewPromptSkip: "I'll add it later",
     card1Title: "Civics (Easy Mode)",
     card1Body: "100 questions with simplified explanations.",
     card2Title: "Real Interview Script",
@@ -48,6 +54,12 @@ const copy = {
     practiceLabel: "Sesiones de práctica",
     daysLabel: "Días para la entrevista",
     hardLabel: "Preguntas difíciles marcadas",
+    interviewPromptTitle: "Agrega tu fecha de entrevista",
+    interviewPromptBody:
+      "Esto nos ayuda a calcular tu D‑day y ajustar tu plan.",
+    interviewPromptLabel: "Fecha de entrevista",
+    interviewPromptCta: "Guardar fecha",
+    interviewPromptSkip: "Lo agregaré después",
     card1Title: "Cívica (modo fácil)",
     card1Body: "100 preguntas con explicación simple.",
     card2Title: "Guion de entrevista real",
@@ -74,6 +86,8 @@ export default function Dashboard() {
   const [daysToInterview, setDaysToInterview] = useState(18);
   const [hardChecked, setHardChecked] = useState(18);
   const [hardTotal, setHardTotal] = useState(60);
+  const [interviewDate, setInterviewDate] = useState("");
+  const [showInterviewPrompt, setShowInterviewPrompt] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -85,6 +99,19 @@ export default function Dashboard() {
         const snap = await getDoc(doc(db, "users", user.uid));
         const data = snap.exists() ? snap.data() : null;
         setIsSubscribed(Boolean(data?.isSubscribed));
+        if (data?.interviewDate) {
+          const dateValue =
+            typeof data.interviewDate?.toDate === "function"
+              ? data.interviewDate.toDate()
+              : new Date(data.interviewDate);
+          const iso = dateValue.toISOString().slice(0, 10);
+          setInterviewDate(iso);
+          const diff =
+            Math.ceil((dateValue.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+          setDaysToInterview(Math.max(diff, 0));
+        } else if (data?.isSubscribed) {
+          setShowInterviewPrompt(true);
+        }
       } catch (err) {
         console.error("Dashboard load error:", err);
       } finally {
@@ -206,6 +233,46 @@ export default function Dashboard() {
               <button className="mt-5 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25">
                 {t.lockedCta}
               </button>
+            </div>
+          </div>
+        ) : showInterviewPrompt ? (
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center">
+            <div className="text-center max-w-sm px-6">
+              <h3 className="text-xl font-bold">{t.interviewPromptTitle}</h3>
+              <p className="text-slate-600 mt-2">{t.interviewPromptBody}</p>
+              <div className="mt-4 text-left">
+                <label className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                  {t.interviewPromptLabel}
+                </label>
+                <input
+                  type="date"
+                  className="mt-2 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  value={interviewDate}
+                  onChange={(e) => setInterviewDate(e.target.value)}
+                />
+              </div>
+              <div className="mt-5 flex flex-col gap-2">
+                <button
+                  className="h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25"
+                  onClick={async () => {
+                    if (!interviewDate) return;
+                    const user = auth.currentUser;
+                    if (!user) return;
+                    await updateDoc(doc(db, "users", user.uid), {
+                      interviewDate,
+                    });
+                    setShowInterviewPrompt(false);
+                  }}
+                >
+                  {t.interviewPromptCta}
+                </button>
+                <button
+                  className="h-11 rounded-xl border border-slate-200 bg-white px-6 text-slate-700 font-semibold"
+                  onClick={() => setShowInterviewPrompt(false)}
+                >
+                  {t.interviewPromptSkip}
+                </button>
+              </div>
             </div>
           </div>
         ) : null}
