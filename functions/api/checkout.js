@@ -1,6 +1,6 @@
 export async function onRequestPost({ request, env }) {
   const token = env.POLAR_KEY;
-  const productId = env.POLAR_PRODUCT_ID || "e53acd75-8f64-4864-85f9-31efc2fce059";
+  const productId = env.POLAR_PRODUCT_ID || "85129419-e882-4a32-a39f-1c0e9056d644";
   const appUrl = env.APP_URL || "https://yourinterview.pages.dev";
 
   if (!token) {
