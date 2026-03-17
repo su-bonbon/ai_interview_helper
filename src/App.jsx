@@ -1,9 +1,11 @@
 import { Link, useOutletContext } from "react-router-dom";
+import { createPolarCheckout } from "./lib/polarCheckout.js";
+import { auth } from "./lib/firebase.js";
 import { copy as layoutCopy } from "./components/Layout.jsx";
 
 const copy = {
   en: {
-    heroTag: "For Mexican communities · $4.99/month",
+    heroTag: "Bilingual U.S. citizenship prep · lifetime access",
     heroTitle: "U.S. Citizenship",
     heroTitleAccent: "Interview Prep",
     heroBody:
@@ -34,15 +36,15 @@ const copy = {
     trust2Body: "Reviewed by certified immigration consultants.",
     trust3Title: "Community-first",
     trust3Body: "Designed for Mexican families navigating USCIS.",
-    priceTitle: "$4.99/month",
-    priceBody: "No hidden fees. Cancel anytime. All resources included.",
-    priceCta: "Join for $4.99",
+    priceTitle: "$4.99 lifetime access",
+    priceBody: "One payment for lifetime access. All resources included.",
+    priceCta: "Get full access",
     finalTitle: "Ready for interview day?",
     finalBody: "Start with the civics basics, then practice the real flow.",
     finalCta: "Start now",
   },
   es: {
-    heroTag: "Para comunidades mexicanas · $4.99/mes",
+    heroTag: "Preparación bilingüe · acceso de por vida",
     heroTitle: "Preparación",
     heroTitleAccent: "Ciudadanía EE. UU.",
     heroBody:
@@ -72,9 +74,9 @@ const copy = {
     trust2Body: "Revisado por consultores certificados.",
     trust3Title: "Primero la comunidad",
     trust3Body: "Diseñado para familias mexicanas ante USCIS.",
-    priceTitle: "$4.99/mes",
-    priceBody: "Sin cargos ocultos. Cancela cuando quieras.",
-    priceCta: "Unirme por $4.99",
+    priceTitle: "$4.99 acceso de por vida",
+    priceBody: "Un pago para acceso de por vida. Todo incluido.",
+    priceCta: "Acceso completo",
     finalTitle: "¿Listo para el día de entrevista?",
     finalBody: "Empieza con civismo y practica el flujo real.",
     finalCta: "Comenzar ahora",
@@ -96,6 +98,18 @@ export default function App() {
   const { lang } = useOutletContext();
   const t = copy[lang];
   const navCopy = layoutCopy[lang];
+  const handleCheckout = async () => {
+    const user = auth.currentUser;
+    try {
+      const { url } = await createPolarCheckout({
+        customerEmail: user?.email || undefined,
+        externalCustomerId: user?.uid || undefined,
+      });
+      if (url) window.location.href = url;
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -104,7 +118,7 @@ export default function App() {
           <div className="space-y-6 max-w-2xl">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em]">
               <span className="h-2 w-2 rounded-full bg-[#c61f1f]" />
-              {t.heroTag} <span className="text-base">🇺🇸 🇲🇽</span>
+              {t.heroTag}
             </span>
             <h1 className="text-4xl font-black tracking-tight sm:text-5xl">
               {t.heroTitle}{" "}
@@ -189,12 +203,13 @@ export default function App() {
             <h3 className="text-3xl font-black">{t.priceTitle}</h3>
             <p className="mt-2 text-white/80 leading-relaxed">{t.priceBody}</p>
             <div className="mt-6 flex flex-col gap-3">
-              <Link
-                to="/login"
+              <button
+                type="button"
+                onClick={handleCheckout}
                 className="h-12 rounded-xl bg-white text-[#0b50da] font-bold flex items-center justify-center"
               >
                 {t.priceCta}
-              </Link>
+              </button>
               <Link
                 to="/login"
                 className="h-12 rounded-xl border border-white/40 flex items-center justify-center text-white font-semibold"

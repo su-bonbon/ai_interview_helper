@@ -8,8 +8,9 @@ export const copy = {
   en: {
     navTitle: "Citizenship Success",
     navToggle: "Español",
-    navLogin: "Member login",
+    navLogin: "Login",
     navLogout: "Sign out",
+    navDashboard: "Dashboard",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacy",
     footerTerms: "Terms",
@@ -19,8 +20,9 @@ export const copy = {
   es: {
     navTitle: "Citizenship Success",
     navToggle: "English",
-    navLogin: "Iniciar sesión",
+    navLogin: "Login",
     navLogout: "Cerrar sesión",
+    navDashboard: "Panel",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacidad",
     footerTerms: "Términos",
@@ -56,6 +58,14 @@ export default function Layout() {
               <h2 className="text-lg font-bold tracking-tight">{t.navTitle}</h2>
             </Link>
             <div className="flex items-center gap-4 text-sm font-semibold ml-auto">
+              {isAuthed ? (
+                <Link
+                  to="/dashboard"
+                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
+                >
+                  {t.navDashboard}
+                </Link>
+              ) : null}
               {isAuthed ? (
                 <button
                   type="button"
