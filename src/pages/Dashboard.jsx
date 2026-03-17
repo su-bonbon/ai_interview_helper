@@ -3,6 +3,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
+import { createPolarCheckout } from "../lib/polarCheckout.js";
 
 const copy = {
   en: {
@@ -94,6 +95,8 @@ export default function Dashboard() {
   const [hardTotal, setHardTotal] = useState(60);
   const [interviewDate, setInterviewDate] = useState("");
   const [showInterviewPrompt, setShowInterviewPrompt] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
   const today = new Date();
   const parseLocalDate = (value) => {
     if (!value) return null;
@@ -165,6 +168,24 @@ export default function Dashboard() {
 
     return () => unsubscribe();
   }, [navigate]);
+
+  const handleCheckout = async () => {
+    setCheckoutError("");
+    setCheckoutLoading(true);
+    try {
+      const user = auth.currentUser;
+      const { url } = await createPolarCheckout({
+        customerEmail: user?.email || undefined,
+        externalCustomerId: user?.uid || undefined,
+      });
+      if (url) window.location.href = url;
+    } catch (err) {
+      setCheckoutError("Checkout failed. Please try again.");
+      console.error(err);
+    } finally {
+      setCheckoutLoading(false);
+    }
+  };
 
   return (
     <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-16">
@@ -339,9 +360,16 @@ export default function Dashboard() {
             <div className="text-center max-w-sm px-6">
               <h3 className="text-xl font-bold">{t.lockedTitle}</h3>
               <p className="text-slate-600 mt-2">{t.lockedBody}</p>
-              <button className="mt-5 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25">
-                {t.lockedCta}
+              <button
+                className="mt-5 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25"
+                onClick={handleCheckout}
+                disabled={checkoutLoading}
+              >
+                {checkoutLoading ? "Starting checkout..." : t.lockedCta}
               </button>
+              {checkoutError ? (
+                <p className="mt-3 text-xs text-red-600">{checkoutError}</p>
+              ) : null}
             </div>
           </div>
         ) : showInterviewPrompt ? (
