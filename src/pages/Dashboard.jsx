@@ -216,7 +216,7 @@ export default function Dashboard() {
           <p className="text-slate-600">{t.unlockedBody}</p>
 
           <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr_1fr]">
-            <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
+            <div className={`rounded-2xl border border-black/5 bg-white/90 p-5 ${!isSubscribed ? "opacity-60" : ""}`}>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-slate-700">{t.confidenceLabel}</p>
                 <p className="text-sm font-bold text-slate-800">
@@ -249,7 +249,7 @@ export default function Dashboard() {
                 {hardChecked} / {hardTotal} marked as hard
               </p>
             </div>
-            <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
+            <div className={`rounded-2xl border border-black/5 bg-white/90 p-5 ${!isSubscribed ? "opacity-60 blur-[0.5px]" : ""}`}>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-semibold text-slate-700">

@@ -92,6 +92,34 @@ async function updateUserSubscription(env, uid, isSubscribed) {
   }
 }
 
+async function logWebhookEvent(env, payload) {
+  const token = await getAccessToken(env);
+  const url = `https://firestore.googleapis.com/v1/projects/${env.FIREBASE_PROJECT_ID}/databases/(default)/documents/webhook_logs`;
+  const data = payload?.data || {};
+  const externalId =
+    data?.customer?.external_customer_id ||
+    data?.external_customer_id ||
+    data?.customer_external_id ||
+    "";
+  const body = {
+    fields: {
+      type: { stringValue: payload?.type || "" },
+      created_at: { stringValue: new Date().toISOString() },
+      external_customer_id: { stringValue: externalId },
+      raw_id: { stringValue: data?.id || "" },
+    },
+  };
+
+  await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+}
+
 export async function onRequestPost({ request, env }) {
   const secret = env.POLAR_WEBHOOK_SECRET;
   if (!secret) {
@@ -127,11 +155,17 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
+    await logWebhookEvent(env, payload);
+
     if (type === "order.paid" || type === "subscription.active") {
       await updateUserSubscription(env, externalId, true);
     }
 
-    if (type === "subscription.canceled" || type === "subscription.revoked") {
+    if (
+      type === "subscription.canceled" ||
+      type === "subscription.revoked" ||
+      type === "order.refunded"
+    ) {
       await updateUserSubscription(env, externalId, false);
     }
   } catch (err) {

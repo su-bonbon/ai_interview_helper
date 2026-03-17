@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo1.png";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../lib/firebase.js";
 
 export const copy = {
   en: {
     navTitle: "Citizenship Success",
     navToggle: "Español",
     navLogin: "Member login",
+    navLogout: "Sign out",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacy",
     footerTerms: "Terms",
@@ -17,6 +20,7 @@ export const copy = {
     navTitle: "Citizenship Success",
     navToggle: "English",
     navLogin: "Iniciar sesión",
+    navLogout: "Cerrar sesión",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacidad",
     footerTerms: "Términos",
@@ -29,6 +33,14 @@ export default function Layout() {
   const [lang, setLang] = useState("en");
   const t = copy[lang];
   const isEnglish = lang === "en";
+  const [isAuthed, setIsAuthed] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthed(Boolean(user));
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="bg-[#f6f4f0] text-slate-900 font-display">
@@ -44,12 +56,25 @@ export default function Layout() {
               <h2 className="text-lg font-bold tracking-tight">{t.navTitle}</h2>
             </Link>
             <div className="flex items-center gap-4 text-sm font-semibold ml-auto">
-              <Link
-                to="/login"
-                className="text-slate-600 hover:text-[#0b50da] transition-colors"
-              >
-                {t.navLogin}
-              </Link>
+              {isAuthed ? (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await signOut(auth);
+                    window.location.href = "/";
+                  }}
+                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
+                >
+                  {t.navLogout}
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
+                >
+                  {t.navLogin}
+                </Link>
+              )}
               <button
                 type="button"
                 onClick={() => setLang(isEnglish ? "es" : "en")}
