@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, useSearchParams } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
@@ -86,6 +86,7 @@ export default function Dashboard() {
   const { lang } = useOutletContext();
   const t = copy[lang];
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [confidence, setConfidence] = useState(0.72);
@@ -119,55 +120,72 @@ export default function Dashboard() {
     i < startDay ? null : i - startDay + 1
   );
 
+  const loadUserData = async (user) => {
+    try {
+      const snap = await getDoc(doc(db, "users", user.uid));
+      const data = snap.exists() ? snap.data() : null;
+      setIsSubscribed(Boolean(data?.isSubscribed));
+      if (data?.interviewDate) {
+        const dateValue = parseLocalDate(data.interviewDate);
+        if (dateValue) {
+          const iso = new Date(
+            dateValue.getFullYear(),
+            dateValue.getMonth(),
+            dateValue.getDate()
+          )
+            .toISOString()
+            .slice(0, 10);
+          setInterviewDate(iso);
+          const todayLocal = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate()
+          );
+          const interviewLocal = new Date(
+            dateValue.getFullYear(),
+            dateValue.getMonth(),
+            dateValue.getDate()
+          );
+          const diff = Math.ceil(
+            (interviewLocal.getTime() - todayLocal.getTime()) /
+              (1000 * 60 * 60 * 24)
+          );
+          setDaysToInterview(Math.max(diff, 0));
+        }
+      } else if (data?.isSubscribed) {
+        setShowInterviewPrompt(true);
+      }
+    } catch (err) {
+      console.error("Dashboard load error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (!user) {
         navigate("/login");
         return;
       }
-      try {
-        const snap = await getDoc(doc(db, "users", user.uid));
-        const data = snap.exists() ? snap.data() : null;
-        setIsSubscribed(Boolean(data?.isSubscribed));
-        if (data?.interviewDate) {
-          const dateValue = parseLocalDate(data.interviewDate);
-          if (dateValue) {
-            const iso = new Date(
-              dateValue.getFullYear(),
-              dateValue.getMonth(),
-              dateValue.getDate()
-            )
-              .toISOString()
-              .slice(0, 10);
-            setInterviewDate(iso);
-            const todayLocal = new Date(
-              today.getFullYear(),
-              today.getMonth(),
-              today.getDate()
-            );
-            const interviewLocal = new Date(
-              dateValue.getFullYear(),
-              dateValue.getMonth(),
-              dateValue.getDate()
-            );
-            const diff = Math.ceil(
-              (interviewLocal.getTime() - todayLocal.getTime()) /
-                (1000 * 60 * 60 * 24)
-            );
-            setDaysToInterview(Math.max(diff, 0));
-          }
-        } else if (data?.isSubscribed) {
-          setShowInterviewPrompt(true);
-        }
-      } catch (err) {
-        console.error("Dashboard load error:", err);
-      } finally {
-        setLoading(false);
-      }
+      await loadUserData(user);
     });
 
     return () => unsubscribe();
   }, [navigate]);
+
+  useEffect(() => {
+    const status = searchParams.get("checkout");
+    if (status === "success") {
+      const user = auth.currentUser;
+      if (user) {
+        setLoading(true);
+        loadUserData(user).then(() => {
+          setSearchParams({}, { replace: true });
+        });
+      }
+    }
+  }, [searchParams, setSearchParams]);
 
   const handleCheckout = async () => {
     setCheckoutError("");
