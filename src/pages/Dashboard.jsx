@@ -198,7 +198,9 @@ export default function Dashboard() {
       });
       if (url) window.location.href = url;
     } catch (err) {
-      setCheckoutError("Checkout failed. Please try again.");
+      const message =
+        err instanceof Error ? err.message : "Checkout failed. Please try again.";
+      setCheckoutError(message);
       console.error(err);
     } finally {
       setCheckoutLoading(false);
