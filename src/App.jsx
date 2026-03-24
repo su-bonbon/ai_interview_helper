@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
 import { createPolarCheckout } from "./lib/polarCheckout.js";
 import { auth } from "./lib/firebase.js";
 import { copy as layoutCopy } from "./components/Layout.jsx";
@@ -111,37 +112,57 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    const targets = document.querySelectorAll("[data-reveal]");
+    if (!targets.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <header className="hero-bg mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pt-16 pb-12 rounded-[32px] mt-10">
         <div className="hero-overlay rounded-[32px] p-8 sm:p-12">
           <div className="space-y-6 max-w-2xl">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em]">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] reveal reveal-1 float-soft">
               <span className="h-2 w-2 rounded-full bg-[#c61f1f]" />
               {t.heroTag}
             </span>
-            <h1 className="text-4xl font-black tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl reveal reveal-2">
               {t.heroTitle}{" "}
               <span className="text-[#0b50da]">{t.heroTitleAccent}</span>
             </h1>
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-lg text-slate-700 leading-relaxed reveal reveal-3">
               {t.heroBody}
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row reveal reveal-4">
               <Link
                 to="/login"
-                className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-6 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25 hover:translate-y-[-1px] transition"
+                className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-6 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25 hover:translate-y-[-1px] transition hover-lift"
               >
                 {t.heroPrimary}
               </Link>
               <Link
                 to="/login"
-                className="inline-flex h-12 items-center justify-center rounded-xl border border-black/10 bg-white px-6 text-base font-bold text-slate-800 hover:border-black/20 transition"
+                className="inline-flex h-12 items-center justify-center rounded-xl border border-black/10 bg-white px-6 text-base font-bold text-slate-800 hover:border-black/20 transition hover-lift"
               >
                 {t.heroSecondary}
               </Link>
             </div>
-            <div className="flex flex-wrap gap-4 text-sm font-semibold text-slate-700">
+            <div className="flex flex-wrap gap-4 text-sm font-semibold text-slate-700 reveal reveal-5">
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-lg text-[#1f7a3e]">
                   verified
@@ -166,7 +187,7 @@ export default function App() {
       </header>
 
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pt-10">
-        <div className="flex flex-col gap-3 rounded-[28px] border border-black/5 bg-white/80 p-6 shadow-sm">
+        <div className="flex flex-col gap-3 rounded-[28px] border border-black/5 bg-white/80 p-6 shadow-sm reveal hover-lift">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
             {t.stripTitle}
           </p>
@@ -176,7 +197,10 @@ export default function App() {
 
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-stretch">
-          <div className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col">
+          <div
+            className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal-on-scroll"
+            data-reveal
+          >
             <div className="space-y-4 flex-1 flex flex-col">
               <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
               <p className="text-slate-700">{t.sectionBody}</p>
@@ -199,7 +223,10 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl h-full flex flex-col">
+          <div
+            className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl h-full flex flex-col hover-lift reveal-on-scroll"
+            data-reveal
+          >
             <h3 className="text-3xl font-black">{t.priceTitle}</h3>
             <p className="mt-2 text-white/80 leading-relaxed">{t.priceBody}</p>
             <div className="mt-6 flex flex-col gap-3">
@@ -236,23 +263,23 @@ export default function App() {
       </section>
 
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-16">
-        <h2 className="text-2xl font-bold">{t.trustTitle}</h2>
+        <h2 className="text-2xl font-bold reveal">{t.trustTitle}</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="p-2">
+          <div className="p-2 reveal reveal-2">
             <span className="material-symbols-outlined text-[#0b50da] text-3xl">
               g_translate
             </span>
             <h4 className="mt-3 text-lg font-bold">{t.trust1Title}</h4>
             <p className="text-sm text-slate-600 mt-2">{t.trust1Body}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 reveal reveal-3">
             <span className="material-symbols-outlined text-[#0b50da] text-3xl">
               verified_user
             </span>
             <h4 className="mt-3 text-lg font-bold">{t.trust2Title}</h4>
             <p className="text-sm text-slate-600 mt-2">{t.trust2Body}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 reveal reveal-4">
             <span className="material-symbols-outlined text-[#0b50da] text-3xl">
               diversity_3
             </span>
@@ -263,14 +290,14 @@ export default function App() {
       </section>
 
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pb-16">
-        <div className="rounded-[28px] border border-black/5 bg-white p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="rounded-[28px] border border-black/5 bg-white p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between reveal hover-lift">
           <div>
             <h3 className="text-2xl font-black">{t.finalTitle}</h3>
             <p className="text-slate-600 mt-2">{t.finalBody}</p>
           </div>
           <Link
             to="/login"
-            className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-8 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25"
+            className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-8 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25 hover-lift"
           >
             {t.finalCta}
           </Link>

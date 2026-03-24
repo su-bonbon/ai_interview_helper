@@ -21,6 +21,7 @@
   background-position: center;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+  animation: heroDrift 18s ease-in-out infinite;
 }
 
 .hero-overlay {
@@ -34,4 +35,99 @@
 
 body {
   min-height: max(884px, 100dvh);
+}
+
+@keyframes heroDrift {
+  0% {
+    background-position: 50% 45%;
+  }
+  50% {
+    background-position: 55% 50%;
+  }
+  100% {
+    background-position: 50% 45%;
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: revealUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal-1 {
+  animation-delay: 0.05s;
+}
+
+.reveal-2 {
+  animation-delay: 0.12s;
+}
+
+.reveal-3 {
+  animation-delay: 0.2s;
+}
+
+.reveal-4 {
+  animation-delay: 0.28s;
+}
+
+.reveal-5 {
+  animation-delay: 0.36s;
+}
+
+.float-soft {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg,
+  .reveal,
+  .float-soft {
+    animation: none;
+  }
+
+  .hover-lift,
+  .reveal-on-scroll {
+    transition: none;
+  }
 }
