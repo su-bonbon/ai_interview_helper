@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { createPolarCheckout } from "./lib/polarCheckout.js";
 import { auth } from "./lib/firebase.js";
 import { copy as layoutCopy } from "./components/Layout.jsx";
+import checkoutImage from "./assets/checkout.jpeg";
 
 const copy = {
   en: {
@@ -265,7 +266,7 @@ export default function App() {
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/src/assets/checkout.jpeg')" }}
+              style={{ backgroundImage: `url(${checkoutImage})` }}
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent" />
