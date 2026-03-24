@@ -196,7 +196,7 @@ export default function App() {
       </section>
 
       <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-stretch">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1fr_0.85fr] items-stretch">
           <div
             className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal-on-scroll"
             data-reveal
@@ -257,6 +257,26 @@ export default function App() {
                 <span>Checklist & reminders</span>
                 <span className="font-semibold">Included</span>
               </div>
+            </div>
+          </div>
+          <div
+            className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 shadow-sm hover-lift reveal-on-scroll min-h-[320px]"
+            data-reveal
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url('/src/assets/checkout.jpeg')" }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent" />
+            <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
+                Secure checkout
+              </p>
+              <h3 className="mt-2 text-2xl font-black">One payment</h3>
+              <p className="mt-2 text-sm text-white/80">
+                Lifetime access to every interview resource.
+              </p>
             </div>
           </div>
         </div>
