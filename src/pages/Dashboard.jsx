@@ -326,7 +326,10 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <button className="group text-left rounded-2xl bg-gradient-to-br from-[#ffefe8] to-[#fff7f0] p-5 border border-black/5 hover:shadow-md transition">
+            <button
+              className="group text-left rounded-2xl bg-gradient-to-br from-[#ffefe8] to-[#fff7f0] p-5 border border-black/5 hover:shadow-md transition"
+              onClick={() => navigate("/civics")}
+            >
               <div className="h-11 w-11 rounded-xl bg-[#ff6b3d] text-white flex items-center justify-center">
                 <span className="material-symbols-outlined">menu_book</span>
               </div>

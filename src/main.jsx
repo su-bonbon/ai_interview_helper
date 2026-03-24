@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import CivicsQuestions from "./pages/CivicsQuestions.jsx";
 import Layout from "./components/Layout.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
@@ -18,6 +19,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/civics" element={<CivicsQuestions />} />
         </Route>
       </Routes>
     </BrowserRouter>
