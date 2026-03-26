@@ -18,6 +18,7 @@ const copy = {
     cardLabel: "Question",
     showAnswer: "Show answer",
     hideAnswer: "Hide answer",
+    tapHint: "Tap the card to reveal the answer.",
     markHard: "Mark as hard",
     unmarkHard: "Unmark hard",
     progressLabel: "Progress",
@@ -41,6 +42,7 @@ const copy = {
     cardLabel: "Pregunta",
     showAnswer: "Mostrar respuesta",
     hideAnswer: "Ocultar respuesta",
+    tapHint: "Toca la tarjeta para ver la respuesta.",
     markHard: "Marcar difícil",
     unmarkHard: "Quitar difícil",
     progressLabel: "Progreso",
@@ -132,6 +134,31 @@ export default function CivicsQuestions() {
       return matchesSearch && matchesDifficulty;
     });
   }, [questions, search, difficulty]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement) {
+        const tag = target.tagName.toLowerCase();
+        if (tag === "input" || tag === "textarea") return;
+      }
+
+      if (event.key === "ArrowRight") {
+        setCurrentIndex((prev) =>
+          Math.min(prev + 1, filteredQuestions.length - 1)
+        );
+        setShowAnswer(false);
+      }
+
+      if (event.key === "ArrowLeft") {
+        setCurrentIndex((prev) => Math.max(prev - 1, 0));
+        setShowAnswer(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [filteredQuestions.length]);
 
   const currentQuestion = filteredQuestions[currentIndex];
 
@@ -229,61 +256,53 @@ export default function CivicsQuestions() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[320px] relative overflow-hidden">
+          <div
+            className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[320px] relative overflow-hidden flip-card ${
+              showAnswer ? "is-flipped" : ""
+            }`}
+            role="button"
+            tabIndex={0}
+            onClick={() => setShowAnswer((prev) => !prev)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setShowAnswer((prev) => !prev);
+              }
+            }}
+          >
             {loading ? (
               <p className="text-slate-500">{t.loading}</p>
             ) : currentQuestion ? (
-              <>
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
-                  <span>{t.cardLabel}</span>
-                  <span>
-                    {currentIndex + 1} / {filteredQuestions.length || 0}
-                  </span>
+              <div className="flip-card-inner">
+                <div className="flip-card-face">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
+                    <span>{t.cardLabel}</span>
+                    <span>
+                      {currentIndex + 1} / {filteredQuestions.length || 0}
+                    </span>
+                  </div>
+                  <div className="mt-6 space-y-4">
+                    <h2 className="text-2xl font-bold text-slate-900">
+                      {currentQuestion.question || currentQuestion.prompt}
+                    </h2>
+                    <p className="text-sm text-slate-400">{t.tapHint}</p>
+                  </div>
                 </div>
-                <div className="mt-6 space-y-4">
-                  <h2 className="text-2xl font-bold text-slate-900">
-                    {currentQuestion.question || currentQuestion.prompt}
-                  </h2>
-                  {showAnswer ? (
-                    <p className="text-lg text-slate-600">
+                <div className="flip-card-face flip-card-back">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
+                    <span>{t.hideAnswer}</span>
+                    <span>
+                      {currentIndex + 1} / {filteredQuestions.length || 0}
+                    </span>
+                  </div>
+                  <div className="mt-6 space-y-4">
+                    <h2 className="text-2xl font-bold text-slate-900">
                       {currentQuestion.answer || currentQuestion.response}
-                    </p>
-                  ) : (
-                    <p className="text-sm text-slate-400">
-                      Tap to reveal the answer.
-                    </p>
-                  )}
+                    </h2>
+                    <p className="text-sm text-slate-400">{t.tapHint}</p>
+                  </div>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setShowAnswer((prev) => !prev)}
-                    className="h-11 rounded-xl bg-[#0b50da] px-6 text-white font-semibold shadow-lg shadow-[#0b50da]/20"
-                  >
-                    {showAnswer ? t.hideAnswer : t.showAnswer}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleToggleHard}
-                    className="h-11 rounded-xl border border-black/10 bg-white px-6 text-slate-700 font-semibold"
-                  >
-                    {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                      ? t.unmarkHard
-                      : t.markHard}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setCurrentIndex((prev) =>
-                        Math.min(prev + 1, filteredQuestions.length - 1)
-                      )
-                    }
-                    className="h-11 rounded-xl border border-black/5 bg-slate-900 text-white px-6 font-semibold"
-                  >
-                    Next
-                  </button>
-                </div>
-              </>
+              </div>
             ) : (
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">{t.emptyTitle}</h3>
@@ -292,7 +311,51 @@ export default function CivicsQuestions() {
             )}
           </div>
 
-          <div className="rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                handleToggleHard();
+              }}
+              className="h-11 rounded-xl border border-black/10 bg-white px-6 text-slate-700 font-semibold"
+            >
+              {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                ? t.unmarkHard
+                : t.markHard}
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setCurrentIndex((prev) => Math.max(prev - 1, 0));
+                setShowAnswer(false);
+              }}
+              className="h-11 rounded-xl border border-black/5 bg-white px-5 text-slate-700 font-semibold flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-base">
+                arrow_back
+              </span>
+              Prev
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setCurrentIndex((prev) =>
+                  Math.min(prev + 1, filteredQuestions.length - 1)
+                );
+              }}
+              className="h-11 rounded-xl border border-black/5 bg-slate-900 text-white px-5 font-semibold flex items-center gap-2"
+            >
+              Next
+              <span className="material-symbols-outlined text-base">
+                arrow_forward
+              </span>
+            </button>
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
               <span>{t.progressLabel}</span>
               <span>
