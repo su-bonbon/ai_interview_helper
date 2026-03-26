@@ -257,7 +257,7 @@ export default function CivicsQuestions() {
           </div>
 
           <div
-            className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[320px] relative overflow-hidden flip-card ${
+            className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[420px] relative overflow-hidden flip-card ${
               showAnswer ? "is-flipped" : ""
             }`}
             role="button"
@@ -277,10 +277,10 @@ export default function CivicsQuestions() {
                 setCurrentIndex((prev) => Math.max(prev - 1, 0));
                 setShowAnswer(false);
               }}
-              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-slate-600 shadow-sm border border-black/5 flex items-center justify-center hover:bg-white"
+              className="group absolute left-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
               aria-label="Previous"
             >
-              <span className="material-symbols-outlined text-base">
+              <span className="material-symbols-outlined text-lg transition group-hover:-translate-x-0.5">
                 arrow_back_ios
               </span>
             </button>
@@ -293,10 +293,10 @@ export default function CivicsQuestions() {
                 );
                 setShowAnswer(false);
               }}
-              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-slate-900 text-white shadow-sm border border-black/5 flex items-center justify-center hover:bg-slate-800"
+              className="group absolute right-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
               aria-label="Next"
             >
-              <span className="material-symbols-outlined text-base">
+              <span className="material-symbols-outlined text-lg transition group-hover:translate-x-0.5">
                 arrow_forward_ios
               </span>
             </button>
@@ -328,17 +328,20 @@ export default function CivicsQuestions() {
                         : "star_outline"}
                     </span>
                   </button>
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
+                  <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                     <span>{t.cardLabel}</span>
                     <span>
                       {currentIndex + 1} / {filteredQuestions.length || 0}
                     </span>
                   </div>
-                  <div className="mt-6 space-y-4">
-                    <h2 className="text-2xl font-bold text-slate-900">
+                  <div className="mt-8 flex h-[240px] items-center px-8">
+                    <h2 className="text-3xl font-black text-slate-900 leading-tight">
                       {currentQuestion.question || currentQuestion.prompt}
                     </h2>
-                    <p className="text-sm text-slate-400">{t.tapHint}</p>
+                  </div>
+                  <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                    <span>{t.tapHint}</span>
+                    <span className="uppercase tracking-[0.3em]">tap</span>
                   </div>
                 </div>
                 <div className="flip-card-face flip-card-back relative">
@@ -365,17 +368,20 @@ export default function CivicsQuestions() {
                         : "star_outline"}
                     </span>
                   </button>
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
+                  <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                     <span>{t.hideAnswer}</span>
                     <span>
                       {currentIndex + 1} / {filteredQuestions.length || 0}
                     </span>
                   </div>
-                  <div className="mt-6 space-y-4">
-                    <h2 className="text-2xl font-bold text-slate-900">
+                  <div className="mt-8 flex h-[240px] items-center px-8">
+                    <h2 className="text-3xl font-black text-slate-900 leading-tight">
                       {currentQuestion.answer || currentQuestion.response}
                     </h2>
-                    <p className="text-sm text-slate-400">{t.tapHint}</p>
+                  </div>
+                  <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                    <span>{t.tapHint}</span>
+                    <span className="uppercase tracking-[0.3em]">tap</span>
                   </div>
                 </div>
               </div>
@@ -387,7 +393,7 @@ export default function CivicsQuestions() {
             )}
           </div>
 
-          <div className="mt-6 rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
+          <div className="mt-8 rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
               <span>{t.progressLabel}</span>
               <span>
