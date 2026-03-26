@@ -270,11 +270,64 @@ export default function CivicsQuestions() {
               }
             }}
           >
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setCurrentIndex((prev) => Math.max(prev - 1, 0));
+                setShowAnswer(false);
+              }}
+              className="absolute left-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-slate-600 shadow-sm border border-black/5 flex items-center justify-center hover:bg-white"
+              aria-label="Previous"
+            >
+              <span className="material-symbols-outlined text-base">
+                arrow_back_ios
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setCurrentIndex((prev) =>
+                  Math.min(prev + 1, filteredQuestions.length - 1)
+                );
+                setShowAnswer(false);
+              }}
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-slate-900 text-white shadow-sm border border-black/5 flex items-center justify-center hover:bg-slate-800"
+              aria-label="Next"
+            >
+              <span className="material-symbols-outlined text-base">
+                arrow_forward_ios
+              </span>
+            </button>
             {loading ? (
               <p className="text-slate-500">{t.loading}</p>
             ) : currentQuestion ? (
               <div className="flip-card-inner">
-                <div className="flip-card-face">
+                <div className="flip-card-face relative">
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleToggleHard();
+                    }}
+                    className={`absolute right-3 top-3 flex items-center justify-center transition ${
+                      currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                        : "text-slate-300"
+                    }`}
+                    aria-label={
+                      currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? t.unmarkHard
+                        : t.markHard
+                    }
+                  >
+                    <span className="material-symbols-outlined text-2xl">
+                      {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? "star"
+                        : "star_outline"}
+                    </span>
+                  </button>
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
                     <span>{t.cardLabel}</span>
                     <span>
@@ -288,7 +341,30 @@ export default function CivicsQuestions() {
                     <p className="text-sm text-slate-400">{t.tapHint}</p>
                   </div>
                 </div>
-                <div className="flip-card-face flip-card-back">
+                <div className="flip-card-face flip-card-back relative">
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleToggleHard();
+                    }}
+                    className={`absolute right-3 top-3 flex items-center justify-center transition ${
+                      currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                        : "text-slate-300"
+                    }`}
+                    aria-label={
+                      currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? t.unmarkHard
+                        : t.markHard
+                    }
+                  >
+                    <span className="material-symbols-outlined text-2xl">
+                      {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                        ? "star"
+                        : "star_outline"}
+                    </span>
+                  </button>
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
                     <span>{t.hideAnswer}</span>
                     <span>
@@ -309,50 +385,6 @@ export default function CivicsQuestions() {
                 <p className="text-sm text-slate-500">{t.emptyBody}</p>
               </div>
             )}
-          </div>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                handleToggleHard();
-              }}
-              className="h-11 rounded-xl border border-black/10 bg-white px-6 text-slate-700 font-semibold"
-            >
-              {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                ? t.unmarkHard
-                : t.markHard}
-            </button>
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                setCurrentIndex((prev) => Math.max(prev - 1, 0));
-                setShowAnswer(false);
-              }}
-              className="h-11 rounded-xl border border-black/5 bg-white px-5 text-slate-700 font-semibold flex items-center gap-2"
-            >
-              <span className="material-symbols-outlined text-base">
-                arrow_back
-              </span>
-              Prev
-            </button>
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                setCurrentIndex((prev) =>
-                  Math.min(prev + 1, filteredQuestions.length - 1)
-                );
-              }}
-              className="h-11 rounded-xl border border-black/5 bg-slate-900 text-white px-5 font-semibold flex items-center gap-2"
-            >
-              Next
-              <span className="material-symbols-outlined text-base">
-                arrow_forward
-              </span>
-            </button>
           </div>
 
           <div className="mt-6 rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
