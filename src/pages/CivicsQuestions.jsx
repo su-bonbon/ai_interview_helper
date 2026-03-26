@@ -23,6 +23,15 @@ const copy = {
     unmarkHard: "Unmark hard",
     progressLabel: "Progress",
     listTitle: "Question list",
+    learnTitle: "Learn mode",
+    learnBody: "Try answering, reveal, and self‑grade.",
+    testTitle: "Timed test",
+    testBody: "30 random questions including all marked hard ones.",
+    revealAnswer: "Reveal answer",
+    correct: "Correct",
+    incorrect: "Incorrect",
+    score: "Score",
+    timeLabel: "Time",
     loading: "Loading questions...",
     lockedTitle: "Unlock civics questions",
     lockedBody: "Activate your subscription to access all civics questions.",
@@ -47,6 +56,15 @@ const copy = {
     unmarkHard: "Quitar difícil",
     progressLabel: "Progreso",
     listTitle: "Lista de preguntas",
+    learnTitle: "Modo aprender",
+    learnBody: "Responde, revela y auto‑evalúa.",
+    testTitle: "Examen cronometrado",
+    testBody: "30 preguntas aleatorias con todas las difíciles.",
+    revealAnswer: "Mostrar respuesta",
+    correct: "Correcto",
+    incorrect: "Incorrecto",
+    score: "Puntaje",
+    timeLabel: "Tiempo",
     loading: "Cargando preguntas...",
     lockedTitle: "Activa las preguntas",
     lockedBody: "Activa tu suscripción para acceder a todas las preguntas.",
@@ -78,6 +96,13 @@ export default function CivicsQuestions() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
+  const [activeTab, setActiveTab] = useState("Flashcards");
+  const [testAnswerVisible, setTestAnswerVisible] = useState(false);
+  const [testScore, setTestScore] = useState({ correct: 0, incorrect: 0 });
+  const [testQuestions, setTestQuestions] = useState([]);
+  const [testIndex, setTestIndex] = useState(0);
+  const [testShowAnswer, setTestShowAnswer] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(10);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -136,6 +161,7 @@ export default function CivicsQuestions() {
   }, [questions, search, difficulty]);
 
   useEffect(() => {
+    if (activeTab !== "Flashcards") return;
     const handleKeyDown = (event) => {
       const target = event.target;
       if (target instanceof HTMLElement) {
@@ -158,9 +184,10 @@ export default function CivicsQuestions() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [filteredQuestions.length]);
+  }, [activeTab, filteredQuestions.length]);
 
   const currentQuestion = filteredQuestions[currentIndex];
+  const currentTestQuestion = testQuestions[testIndex];
 
   const handleToggleHard = () => {
     if (!currentQuestion?.id) return;
@@ -195,7 +222,63 @@ export default function CivicsQuestions() {
   useEffect(() => {
     setCurrentIndex(0);
     setShowAnswer(false);
+    setTestAnswerVisible(false);
+    setTestShowAnswer(false);
   }, [search, difficulty]);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+    setShowAnswer(false);
+    setTestAnswerVisible(false);
+    setTestShowAnswer(false);
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (activeTab !== "Test") return;
+    if (!filteredQuestions.length) {
+      setTestQuestions([]);
+      setTestIndex(0);
+      setTimeLeft(10);
+      return;
+    }
+
+    const hardIds = new Set(hardSet);
+    const hardItems = filteredQuestions.filter((item) => hardIds.has(item.id));
+    const remaining = filteredQuestions.filter((item) => !hardIds.has(item.id));
+    const shuffled = [...remaining].sort(() => Math.random() - 0.5);
+    const combined = [...hardItems, ...shuffled].slice(0, 30);
+
+    setTestQuestions(combined);
+    setTestIndex(0);
+    setTimeLeft(10);
+    setTestShowAnswer(false);
+  }, [activeTab, filteredQuestions, hardSet]);
+
+  useEffect(() => {
+    if (activeTab !== "Test" || !testQuestions.length) return;
+    if (testIndex >= testQuestions.length) return;
+
+    setTimeLeft(10);
+    const interval = window.setInterval(() => {
+      setTimeLeft((prev) => {
+        const next = Math.max(prev - 0.1, 0);
+        if (next === 0) {
+          setTestIndex((idx) =>
+            Math.min(idx + 1, testQuestions.length - 1)
+          );
+          setTestShowAnswer(false);
+          return 10;
+        }
+        return Number(next.toFixed(1));
+      });
+    }, 100);
+
+    return () => window.clearInterval(interval);
+  }, [activeTab, testIndex, testQuestions.length]);
+
+  const progressTotal =
+    activeTab === "Test" ? testQuestions.length : filteredQuestions.length;
+  const progressIndex = activeTab === "Test" ? testIndex : currentIndex;
 
   return (
     <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
@@ -206,23 +289,28 @@ export default function CivicsQuestions() {
       </div>
 
       <div className="mt-8 flex flex-wrap gap-2">
-        {t.tabs.map((tab, idx) => (
-          <button
-            key={tab}
-            className={`rounded-full px-4 py-2 text-xs font-semibold ${
-              idx === 0
-                ? "bg-[#0b50da] text-white shadow-lg shadow-[#0b50da]/20"
-                : "bg-white text-slate-600 border border-black/5"
-            }`}
-            type="button"
-          >
-            {tab}
-          </button>
-        ))}
+        {t.tabs.map((tab, idx) => {
+          const isActive = tab === activeTab;
+          return (
+            <button
+              key={tab}
+              className={`rounded-full px-4 py-2 text-xs font-semibold ${
+                isActive
+                  ? "bg-[#0b50da] text-white shadow-lg shadow-[#0b50da]/20"
+                  : "bg-white text-slate-600 border border-black/5 hover:border-[#0b50da]/40"
+              }`}
+              type="button"
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          );
+        })}
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="space-y-6">
+      <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-stretch">
+        <div className="flex flex-col h-full min-h-full self-stretch">
+          <div className="space-y-6 flex-1">
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex-1 min-w-[220px]">
               <input
@@ -256,149 +344,312 @@ export default function CivicsQuestions() {
             </div>
           </div>
 
-          <div
-            className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[420px] relative overflow-hidden flip-card ${
-              showAnswer ? "is-flipped" : ""
-            }`}
-            role="button"
-            tabIndex={0}
-            onClick={() => setShowAnswer((prev) => !prev)}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setShowAnswer((prev) => !prev);
-              }
-            }}
-          >
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                setCurrentIndex((prev) => Math.max(prev - 1, 0));
-                setShowAnswer(false);
-              }}
-              className="group absolute left-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
-              aria-label="Previous"
-            >
-              <span className="material-symbols-outlined text-lg transition group-hover:-translate-x-0.5">
-                arrow_back_ios
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                setCurrentIndex((prev) =>
-                  Math.min(prev + 1, filteredQuestions.length - 1)
-                );
-                setShowAnswer(false);
-              }}
-              className="group absolute right-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
-              aria-label="Next"
-            >
-              <span className="material-symbols-outlined text-lg transition group-hover:translate-x-0.5">
-                arrow_forward_ios
-              </span>
-            </button>
-            {loading ? (
-              <p className="text-slate-500">{t.loading}</p>
-            ) : currentQuestion ? (
-              <div className="flip-card-inner">
-                <div className="flip-card-face relative">
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      handleToggleHard();
-                    }}
-                    className={`absolute right-3 top-3 flex items-center justify-center transition ${
-                      currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
-                        : "text-slate-300"
-                    }`}
-                    aria-label={
-                      currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? t.unmarkHard
-                        : t.markHard
-                    }
-                  >
-                    <span className="material-symbols-outlined text-2xl">
-                      {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? "star"
-                        : "star_outline"}
-                    </span>
-                  </button>
-                  <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
-                    <span>{t.cardLabel}</span>
-                    <span>
-                      {currentIndex + 1} / {filteredQuestions.length || 0}
-                    </span>
+          {activeTab === "Flashcards" ? (
+            <>
+              <div
+                className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[420px] relative overflow-hidden flip-card ${
+                  showAnswer ? "is-flipped" : ""
+                }`}
+                role="button"
+                tabIndex={0}
+                onClick={() => setShowAnswer((prev) => !prev)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setShowAnswer((prev) => !prev);
+                  }
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+                    setShowAnswer(false);
+                  }}
+                  className="group absolute left-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
+                  aria-label="Previous"
+                >
+                  <span className="material-symbols-outlined text-lg transition group-hover:-translate-x-0.5">
+                    arrow_back_ios
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setCurrentIndex((prev) =>
+                      Math.min(prev + 1, filteredQuestions.length - 1)
+                    );
+                    setShowAnswer(false);
+                  }}
+                  className="group absolute right-5 top-1/2 z-10 -translate-y-1/2 h-11 w-11 text-slate-500 flex items-center justify-center transition hover:-translate-y-[52%] hover:text-slate-900"
+                  aria-label="Next"
+                >
+                  <span className="material-symbols-outlined text-lg transition group-hover:translate-x-0.5">
+                    arrow_forward_ios
+                  </span>
+                </button>
+                {loading ? (
+                  <p className="text-slate-500">{t.loading}</p>
+                ) : currentQuestion ? (
+                  <div className="flip-card-inner">
+                    <div className="flip-card-face relative">
+                      <button
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleToggleHard();
+                        }}
+                        className={`absolute right-3 top-3 flex items-center justify-center transition ${
+                          currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                            : "text-slate-300"
+                        }`}
+                        aria-label={
+                          currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? t.unmarkHard
+                            : t.markHard
+                        }
+                      >
+                        <span className="material-symbols-outlined text-2xl">
+                          {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? "star"
+                            : "star_outline"}
+                        </span>
+                      </button>
+                      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
+                        <span>{t.cardLabel}</span>
+                        <span>
+                          {currentIndex + 1} / {filteredQuestions.length || 0}
+                        </span>
+                      </div>
+                      <div className="mt-8 flex h-[240px] items-center px-8">
+                        <h2 className="text-3xl font-black text-slate-900 leading-tight">
+                          {currentQuestion.question || currentQuestion.prompt}
+                        </h2>
+                      </div>
+                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                        <span>{t.tapHint}</span>
+                        <span className="uppercase tracking-[0.3em]">tap</span>
+                      </div>
+                    </div>
+                    <div className="flip-card-face flip-card-back relative">
+                      <button
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleToggleHard();
+                        }}
+                        className={`absolute right-3 top-3 flex items-center justify-center transition ${
+                          currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                            : "text-slate-300"
+                        }`}
+                        aria-label={
+                          currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? t.unmarkHard
+                            : t.markHard
+                        }
+                      >
+                        <span className="material-symbols-outlined text-2xl">
+                          {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                            ? "star"
+                            : "star_outline"}
+                        </span>
+                      </button>
+                      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
+                        <span>{t.hideAnswer}</span>
+                        <span>
+                          {currentIndex + 1} / {filteredQuestions.length || 0}
+                        </span>
+                      </div>
+                      <div className="mt-8 flex h-[240px] items-center px-8">
+                        <h2 className="text-3xl font-black text-slate-900 leading-tight">
+                          {currentQuestion.answer || currentQuestion.response}
+                        </h2>
+                      </div>
+                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                        <span>{t.tapHint}</span>
+                        <span className="uppercase tracking-[0.3em]">tap</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-8 flex h-[240px] items-center px-8">
-                    <h2 className="text-3xl font-black text-slate-900 leading-tight">
-                      {currentQuestion.question || currentQuestion.prompt}
-                    </h2>
+                ) : (
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold">{t.emptyTitle}</h3>
+                    <p className="text-sm text-slate-500">{t.emptyBody}</p>
                   </div>
-                  <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
-                    <span>{t.tapHint}</span>
-                    <span className="uppercase tracking-[0.3em]">tap</span>
-                  </div>
+                )}
+              </div>
+            </>
+          ) : activeTab === "Learn" ? (
+            <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                    {t.learnTitle}
+                  </p>
+                  <p className="text-sm text-slate-500 mt-2">{t.learnBody}</p>
                 </div>
-                <div className="flip-card-face flip-card-back relative">
+                <span className="text-xs text-slate-400">
+                  {t.score}: {testScore.correct} /{" "}
+                  {testScore.correct + testScore.incorrect}
+                </span>
+              </div>
+              <div className="mt-8 rounded-2xl border border-black/5 bg-slate-50 p-6">
+                <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                  {t.cardLabel}
+                </p>
+                <p className="mt-3 text-2xl font-bold text-slate-900">
+                  {currentQuestion?.question ||
+                    currentQuestion?.prompt ||
+                    t.emptyTitle}
+                </p>
+                {testAnswerVisible ? (
+                  <p className="mt-4 text-base text-slate-600">
+                    {currentQuestion?.answer || currentQuestion?.response}
+                  </p>
+                ) : (
                   <button
                     type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      handleToggleHard();
-                    }}
-                    className={`absolute right-3 top-3 flex items-center justify-center transition ${
-                      currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
-                        : "text-slate-300"
-                    }`}
-                    aria-label={
-                      currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? t.unmarkHard
-                        : t.markHard
-                    }
+                    onClick={() => setTestAnswerVisible(true)}
+                    className="mt-6 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-semibold shadow-lg shadow-[#0b50da]/20"
                   >
-                    <span className="material-symbols-outlined text-2xl">
-                      {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                        ? "star"
-                        : "star_outline"}
-                    </span>
+                    {t.revealAnswer}
                   </button>
-                  <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
-                    <span>{t.hideAnswer}</span>
-                    <span>
-                      {currentIndex + 1} / {filteredQuestions.length || 0}
-                    </span>
-                  </div>
-                  <div className="mt-8 flex h-[240px] items-center px-8">
-                    <h2 className="text-3xl font-black text-slate-900 leading-tight">
-                      {currentQuestion.answer || currentQuestion.response}
-                    </h2>
-                  </div>
-                  <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
-                    <span>{t.tapHint}</span>
-                    <span className="uppercase tracking-[0.3em]">tap</span>
+                )}
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTestScore((prev) => ({
+                        ...prev,
+                        correct: prev.correct + 1,
+                      }));
+                      setTestAnswerVisible(false);
+                      setCurrentIndex((prev) =>
+                        Math.min(prev + 1, filteredQuestions.length - 1)
+                      );
+                    }}
+                    className="h-10 rounded-xl border border-green-200 bg-green-50 px-5 text-green-700 font-semibold"
+                  >
+                    {t.correct}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTestScore((prev) => ({
+                        ...prev,
+                        incorrect: prev.incorrect + 1,
+                      }));
+                      setTestAnswerVisible(false);
+                      setCurrentIndex((prev) =>
+                        Math.min(prev + 1, filteredQuestions.length - 1)
+                      );
+                    }}
+                    className="h-10 rounded-xl border border-red-200 bg-red-50 px-5 text-red-600 font-semibold"
+                  >
+                    {t.incorrect}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                    {t.testTitle}
+                  </p>
+                  <p className="text-sm text-slate-500 mt-2">{t.testBody}</p>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-slate-500">
+                  <span>{t.timeLabel}</span>
+                  <div
+                    className="h-10 w-10 rounded-full grid place-items-center text-[11px] font-semibold text-slate-700"
+                    style={{
+                      background: `conic-gradient(#0b50da ${
+                        (timeLeft / 10) * 360
+                      }deg, #e2e8f0 0deg)`,
+                    }}
+                  >
+                    <div className="h-7 w-7 rounded-full bg-white grid place-items-center">
+                      {Math.ceil(timeLeft)}
+                    </div>
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold">{t.emptyTitle}</h3>
-                <p className="text-sm text-slate-500">{t.emptyBody}</p>
+
+              <div
+                className={`mt-8 rounded-2xl border border-black/5 bg-slate-50 p-6 min-h-[300px] relative overflow-hidden flip-card ${
+                  testShowAnswer ? "is-flipped" : ""
+                }`}
+                role="button"
+                tabIndex={0}
+                onClick={() => setTestShowAnswer((prev) => !prev)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setTestShowAnswer((prev) => !prev);
+                  }
+                }}
+              >
+                {currentTestQuestion ? (
+                  <div className="flip-card-inner">
+                    <div className="flip-card-face">
+                      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
+                        <span>{t.cardLabel}</span>
+                        <span>
+                          {testIndex + 1} / {testQuestions.length || 0}
+                        </span>
+                      </div>
+                      <div className="mt-8 flex h-[180px] items-center">
+                        <h2 className="text-2xl font-bold text-slate-900 leading-tight">
+                          {currentTestQuestion.question ||
+                            currentTestQuestion.prompt}
+                        </h2>
+                      </div>
+                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                        <span>{t.tapHint}</span>
+                        <span className="uppercase tracking-[0.3em]">tap</span>
+                      </div>
+                    </div>
+                    <div className="flip-card-face flip-card-back">
+                      <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
+                        <span>{t.hideAnswer}</span>
+                        <span>
+                          {testIndex + 1} / {testQuestions.length || 0}
+                        </span>
+                      </div>
+                      <div className="mt-8 flex h-[180px] items-center">
+                        <h2 className="text-2xl font-bold text-slate-900 leading-tight">
+                          {currentTestQuestion.answer ||
+                            currentTestQuestion.response}
+                        </h2>
+                      </div>
+                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                        <span>{t.tapHint}</span>
+                        <span className="uppercase tracking-[0.3em]">tap</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold">{t.emptyTitle}</h3>
+                    <p className="text-sm text-slate-500">{t.emptyBody}</p>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
+          )}
           </div>
 
-          <div className="mt-8 rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
+          <div className="mt-auto rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
               <span>{t.progressLabel}</span>
               <span>
-                {Math.min(currentIndex + 1, filteredQuestions.length)} /{" "}
-                {filteredQuestions.length}
+                {Math.min(progressIndex + 1, progressTotal)} / {progressTotal}
               </span>
             </div>
             <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
@@ -406,10 +657,8 @@ export default function CivicsQuestions() {
                 className="h-2 rounded-full bg-[#0b50da]"
                 style={{
                   width: `${
-                    filteredQuestions.length
-                      ? Math.round(
-                          ((currentIndex + 1) / filteredQuestions.length) * 100
-                        )
+                    progressTotal
+                      ? Math.round(((progressIndex + 1) / progressTotal) * 100)
                       : 0
                   }%`,
                 }}
@@ -418,7 +667,7 @@ export default function CivicsQuestions() {
           </div>
         </div>
 
-        <aside className="rounded-3xl border border-black/5 bg-white p-6 shadow-sm h-full">
+        <aside className="rounded-3xl border border-black/5 bg-white p-6 shadow-sm h-full flex flex-col self-stretch">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold">{t.listTitle}</h3>
             <span className="text-xs text-slate-400">
