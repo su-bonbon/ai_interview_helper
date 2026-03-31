@@ -178,3 +178,15 @@ body {
     transition: none;
   }
 }
+
+.path-draw {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: pathDraw 1.6s ease forwards;
+}
+
+@keyframes pathDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

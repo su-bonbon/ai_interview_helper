@@ -39,11 +39,20 @@ const copy = {
     trust3Title: "Community-first",
     trust3Body: "Designed for Mexican families navigating USCIS.",
     priceTitle: "$4.99 lifetime access",
-    priceBody: "One payment for lifetime access. All resources included.",
+    priceBody:
+      "One payment gives you lifetime access to every study module, interview script, checklist, and pronunciation drill—everything is included.",
     priceCta: "Get full access",
     finalTitle: "Ready for interview day?",
     finalBody: "Start with the civics basics, then practice the real flow.",
     finalCta: "Start now",
+    pathTitle: "Success path",
+    pathBody: "A clear, focused sequence that builds confidence fast.",
+    pathStep1Title: "Learn the civics",
+    pathStep1Body: "Master the 100 questions with bilingual explanations.",
+    pathStep2Title: "Practice the real flow",
+    pathStep2Body: "Simulate the interview with scripted prompts.",
+    pathStep3Title: "Pass with confidence",
+    pathStep3Body: "Review checklists, curveballs, and day‑of tips.",
   },
   es: {
     heroTag: "Preparación bilingüe · acceso de por vida",
@@ -77,11 +86,20 @@ const copy = {
     trust3Title: "Primero la comunidad",
     trust3Body: "Diseñado para familias mexicanas ante USCIS.",
     priceTitle: "$4.99 acceso de por vida",
-    priceBody: "Un pago para acceso de por vida. Todo incluido.",
+    priceBody:
+      "Un pago te da acceso de por vida a todos los módulos, guiones, listas y audios—todo está incluido.",
     priceCta: "Acceso completo",
     finalTitle: "¿Listo para el día de entrevista?",
     finalBody: "Empieza con civismo y practica el flujo real.",
     finalCta: "Comenzar ahora",
+    pathTitle: "Ruta al éxito",
+    pathBody: "Una secuencia clara para ganar confianza rápido.",
+    pathStep1Title: "Aprende civismo",
+    pathStep1Body: "Domina las 100 preguntas con explicación bilingüe.",
+    pathStep2Title: "Practica el flujo real",
+    pathStep2Body: "Simula la entrevista con guiones reales.",
+    pathStep3Title: "Aprueba con confianza",
+    pathStep3Body: "Revisa checklist, trampas y tips del día.",
   },
 };
 
@@ -100,6 +118,7 @@ export default function App() {
   const { lang } = useOutletContext();
   const t = copy[lang];
   const navCopy = layoutCopy[lang];
+  const pageWidth = "mx-auto max-w-screen-2xl px-3 sm:px-4 lg:px-6";
   const handleCheckout = async () => {
     const user = auth.currentUser;
     try {
@@ -134,17 +153,19 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <header className="hero-bg mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pt-16 pb-12 rounded-[32px] mt-10">
-        <div className="hero-overlay rounded-[32px] p-8 sm:p-12">
-          <div className="space-y-6 max-w-2xl">
+    <div className={pageWidth}>
+      <header className="hero-bg w-full pt-14 pb-12 rounded-[28px] mt-10 mb-12 flex items-center justify-center">
+        <div className="hero-overlay rounded-[28px] p-8 sm:p-12 w-[90%]">
+          <div className="space-y-6 max-w-xl">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] reveal reveal-1 float-soft">
               <span className="h-2 w-2 rounded-full bg-[#c61f1f]" />
               {t.heroTag}
             </span>
-            <h1 className="text-4xl font-black tracking-tight sm:text-5xl reveal reveal-2">
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl reveal reveal-2 whitespace-nowrap">
               {t.heroTitle}{" "}
-              <span className="text-[#0b50da]">{t.heroTitleAccent}</span>
+              <span className="text-[#0b50da] sm:whitespace-nowrap">
+                {t.heroTitleAccent}
+              </span>
             </h1>
             <p className="text-lg text-slate-700 leading-relaxed reveal reveal-3">
               {t.heroBody}
@@ -187,21 +208,63 @@ export default function App() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pt-10">
-        <div className="flex flex-col gap-3 rounded-[28px] border border-black/5 bg-white/80 p-6 shadow-sm reveal hover-lift">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
-            {t.stripTitle}
-          </p>
-          <p className="text-lg font-semibold text-slate-800">{t.stripBody}</p>
+      <section className="w-full pt-14 pb-12">
+        <div className="p-0">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-3xl font-black">{t.pathTitle}</h2>
+            <p className="text-slate-600">{t.pathBody}</p>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: t.pathStep1Title,
+                body: t.pathStep1Body,
+                icon: "menu_book",
+                color: "text-[#0b50da]",
+                bg: "bg-[#0b50da]/10",
+              },
+              {
+                title: t.pathStep2Title,
+                body: t.pathStep2Body,
+                icon: "record_voice_over",
+                color: "text-[#00a86b]",
+                bg: "bg-[#00a86b]/10",
+              },
+              {
+                title: t.pathStep3Title,
+                body: t.pathStep3Body,
+                icon: "verified",
+                color: "text-[#ff6b3d]",
+                bg: "bg-[#ff6b3d]/10",
+              },
+            ].map((step, idx) => (
+              <div key={step.title} className="relative flex gap-4">
+                {idx < 2 ? (
+                  <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 md:block" />
+                ) : null}
+                <div
+                  className={`h-12 w-12 rounded-2xl ${step.bg} ${step.color} flex items-center justify-center`}
+                >
+                  <span className="material-symbols-outlined text-2xl">
+                    {step.icon}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                    Step {idx + 1}
+                  </p>
+                  <h3 className="text-lg font-bold mt-2">{step.title}</h3>
+                  <p className="text-sm text-slate-600 mt-2">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
+      <section className="w-full py-12">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr_0.85fr] items-stretch">
-          <div
-            className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal-on-scroll"
-            data-reveal
-          >
+          <div className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal">
             <div className="space-y-4 flex-1 flex flex-col">
               <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
               <p className="text-slate-700">{t.sectionBody}</p>
@@ -224,13 +287,12 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div
-            className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl h-full flex flex-col hover-lift reveal-on-scroll"
-            data-reveal
-          >
-            <h3 className="text-3xl font-black">{t.priceTitle}</h3>
-            <p className="mt-2 text-white/80 leading-relaxed">{t.priceBody}</p>
-            <div className="mt-6 flex flex-col gap-3">
+          <div className="rounded-3xl border border-black/10 bg-[#0b50da] p-8 text-white shadow-2xl h-full flex flex-col hover-lift reveal">
+            <div className="space-y-3">
+              <h3 className="text-3xl font-black">{t.priceTitle}</h3>
+              <p className="text-white/80 leading-relaxed">{t.priceBody}</p>
+            </div>
+            <div className="mt-8 flex flex-col gap-3">
               <button
                 type="button"
                 onClick={handleCheckout}
@@ -245,7 +307,7 @@ export default function App() {
                 {navCopy.navLogin}
               </Link>
             </div>
-            <div className="mt-8 grid gap-3 rounded-2xl bg-white/10 p-4 text-sm">
+            <div className="mt-auto grid gap-3 rounded-2xl bg-white/10 p-4 text-sm">
               <div className="flex items-center justify-between">
                 <span>Audio drills</span>
                 <span className="font-semibold">Included</span>
@@ -260,10 +322,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div
-            className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 shadow-sm hover-lift reveal-on-scroll min-h-[320px]"
-            data-reveal
-          >
+          <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 shadow-sm hover-lift reveal min-h-[320px]">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${checkoutImage})` }}
@@ -283,7 +342,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-16">
+      <section className="w-full py-12">
         <h2 className="text-2xl font-bold reveal">{t.trustTitle}</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="p-2 reveal reveal-2">
@@ -310,7 +369,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 pb-16">
+      <section className="w-full pb-14">
         <div className="rounded-[28px] border border-black/5 bg-white p-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between reveal hover-lift">
           <div>
             <h3 className="text-2xl font-black">{t.finalTitle}</h3>
@@ -324,6 +383,6 @@ export default function App() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -5,6 +5,9 @@ import App from "./App.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import CivicsQuestions from "./pages/CivicsQuestions.jsx";
+import Privacy from "./pages/Privacy.jsx";
+import Terms from "./pages/Terms.jsx";
+import Contact from "./pages/Contact.jsx";
 import Layout from "./components/Layout.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
@@ -20,6 +23,9 @@ root.render(
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/civics" element={<CivicsQuestions />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>

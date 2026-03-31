@@ -110,15 +110,15 @@ export default function Layout() {
               <span className="text-xl font-black">{t.footerTitle}</span>
             </div>
             <div className="flex gap-6 text-sm font-semibold text-slate-500">
-              <button className="hover:text-[#0b50da] transition-colors">
+              <Link to="/privacy" className="hover:text-[#0b50da] transition-colors">
                 {t.footerPrivacy}
-              </button>
-              <button className="hover:text-[#0b50da] transition-colors">
+              </Link>
+              <Link to="/terms" className="hover:text-[#0b50da] transition-colors">
                 {t.footerTerms}
-              </button>
-              <button className="hover:text-[#0b50da] transition-colors">
+              </Link>
+              <Link to="/contact" className="hover:text-[#0b50da] transition-colors">
                 {t.footerContact}
-              </button>
+              </Link>
             </div>
             <p className="text-xs text-slate-400">{t.footerNote}</p>
           </div>
