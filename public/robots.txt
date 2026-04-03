@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourinterview.pages.dev/sitemap.xml
+Sitemap: https://usinterviewprep.com/sitemap.xml
