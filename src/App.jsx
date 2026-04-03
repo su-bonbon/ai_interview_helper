@@ -154,14 +154,14 @@ export default function App() {
 
   return (
     <div className={pageWidth}>
-      <header className="hero-bg w-full pt-14 pb-12 rounded-[28px] mt-10 mb-12 flex items-center justify-center">
-        <div className="hero-overlay rounded-[28px] p-8 sm:p-12 w-[90%]">
+      <header className="hero-bg w-full pt-12 sm:pt-14 pb-10 sm:pb-12 rounded-[24px] sm:rounded-[28px] mt-8 sm:mt-10 mb-12 flex items-center justify-center">
+        <div className="hero-overlay rounded-[24px] sm:rounded-[28px] p-6 sm:p-12 w-full sm:w-[90%]">
           <div className="space-y-6 max-w-xl">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] reveal reveal-1 float-soft">
               <span className="h-2 w-2 rounded-full bg-[#c61f1f]" />
               {t.heroTag}
             </span>
-            <h1 className="text-4xl font-black tracking-tight sm:text-5xl reveal reveal-2 whitespace-nowrap">
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl reveal reveal-2 sm:whitespace-nowrap">
               {t.heroTitle}{" "}
               <span className="text-[#0b50da] sm:whitespace-nowrap">
                 {t.heroTitleAccent}
@@ -208,7 +208,7 @@ export default function App() {
         </div>
       </header>
 
-      <section className="w-full pt-14 pb-12">
+      <section className="w-full pt-12 sm:pt-14 pb-12">
         <div className="p-0">
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl font-black">{t.pathTitle}</h2>
@@ -238,12 +238,12 @@ export default function App() {
                 bg: "bg-[#ff6b3d]/10",
               },
             ].map((step, idx) => (
-              <div key={step.title} className="relative flex gap-4">
+              <div key={step.title} className="relative flex gap-4 items-start w-full">
                 {idx < 2 ? (
                   <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 md:block" />
                 ) : null}
                 <div
-                  className={`h-12 w-12 rounded-2xl ${step.bg} ${step.color} flex items-center justify-center`}
+                  className={`h-12 w-12 min-w-[48px] rounded-2xl ${step.bg} ${step.color} flex items-center justify-center`}
                 >
                   <span className="material-symbols-outlined text-2xl">
                     {step.icon}
@@ -263,7 +263,7 @@ export default function App() {
       </section>
 
       <section className="w-full py-12">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1fr_0.85fr] items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1fr_1fr_0.85fr] items-stretch">
           <div className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal">
             <div className="space-y-4 flex-1 flex flex-col">
               <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
@@ -322,7 +322,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 shadow-sm hover-lift reveal min-h-[320px]">
+          <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/80 shadow-sm hover-lift reveal min-h-[260px] sm:min-h-[320px]">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${checkoutImage})` }}

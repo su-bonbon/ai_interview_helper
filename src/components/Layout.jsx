@@ -52,12 +52,12 @@ export default function Layout() {
         <div className="absolute -bottom-40 -left-20 h-72 w-72 rounded-full bg-[#1f7a3e]/10 blur-3xl pointer-events-none" />
 
         <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#f6f4f0]/80 backdrop-blur">
-          <div className="mx-auto flex max-w-screen-2xl items-center gap-4 px-4 sm:px-6 lg:px-10 py-4">
+          <div className="mx-auto flex max-w-screen-2xl items-center gap-4 px-3 sm:px-6 lg:px-10 py-4">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Citizenship Success" className="h-12 w-12" />
-              <h2 className="text-lg font-bold tracking-tight">{t.navTitle}</h2>
+              <img src={logo} alt="Citizenship Success" className="h-10 w-10 sm:h-12 sm:w-12" />
+              <h2 className="text-base sm:text-lg font-bold tracking-tight">{t.navTitle}</h2>
             </Link>
-            <div className="flex items-center gap-4 text-sm font-semibold ml-auto">
+            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold ml-auto">
               {isAuthed ? (
                 <Link
                   to="/dashboard"
@@ -102,7 +102,7 @@ export default function Layout() {
         <Outlet context={{ lang }} />
 
         <footer className="border-t border-black/5 bg-white">
-          <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-6 px-4 sm:px-6 lg:px-10 py-10 text-center">
+          <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-6 px-3 sm:px-6 lg:px-10 py-10 text-center">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-3xl text-[#0b50da]">
                 notifications_active
