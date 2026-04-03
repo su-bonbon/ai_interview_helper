@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
+  signInWithPopup,
   getRedirectResult,
   sendPasswordResetEmail,
 } from "firebase/auth";
@@ -218,14 +219,42 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithRedirect(auth, provider);
+      provider.setCustomParameters({ prompt: "select_account" });
+      const result = await signInWithPopup(auth, provider);
+      if (result?.user) {
+        const synced = await ensureUserDoc(result.user);
+        if (!synced) setInfo(t.errorOffline);
+        navigate("/dashboard");
+      }
     } catch (err) {
       console.error("Google auth error:", err);
       const code = err?.code || "";
       if (code === "auth/unauthorized-domain") {
         setError(t.errorUnauthorizedDomain);
+      } else if (code === "auth/popup-closed-by-user") {
+        setError(t.errorPopupClosed);
+      } else if (code === "auth/popup-blocked") {
+        setError(t.errorPopupBlocked);
+      } else if (code === "auth/cancelled-popup-request") {
+        setError(t.errorPopupCancelled);
+      } else if (code === "auth/network-request-failed") {
+        setError(t.errorOffline);
       } else {
         setError(t.error);
+      }
+      // Fallback to redirect if popup flow is blocked by browser policies.
+      if (
+        [
+          "auth/popup-blocked",
+          "auth/popup-closed-by-user",
+          "auth/cancelled-popup-request",
+          "auth/network-request-failed",
+          "auth/operation-not-supported-in-this-environment",
+          "auth/internal-error",
+        ].includes(code)
+      ) {
+        setInfo("Redirecting to Google sign-in...");
+        await signInWithRedirect(auth, provider);
       }
     } finally {
       setLoading(false);

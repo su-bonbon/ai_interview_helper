@@ -264,8 +264,8 @@ export default function Dashboard() {
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-7 gap-2 text-center text-xs text-slate-500">
-                {["S", "M", "T", "W", "T", "F", "S"].map((day) => (
-                  <span key={day}>{day}</span>
+                {["S", "M", "T", "W", "T", "F", "S"].map((day, idx) => (
+                  <span key={`${day}-${idx}`}>{day}</span>
                 ))}
               </div>
               <div className="mt-2 grid grid-cols-7 gap-2 text-center text-xs">

@@ -7,9 +7,34 @@ export async function createPolarCheckout({ customerEmail, externalCustomerId })
     body: JSON.stringify({ customerEmail, externalCustomerId }),
   });
 
-  const data = await response.json();
+  const contentType = response.headers.get("content-type") || "";
+  const rawText = await response.text();
+  let data = null;
+
+  if (rawText) {
+    if (contentType.includes("application/json")) {
+      data = JSON.parse(rawText);
+    } else {
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        data = { error: rawText };
+      }
+    }
+  }
+
   if (!response.ok) {
-    throw new Error(data?.error ? JSON.stringify(data.error) : "Checkout failed");
+    const message =
+      data?.error
+        ? typeof data.error === "string"
+          ? data.error
+          : JSON.stringify(data.error)
+        : `Checkout failed (${response.status})`;
+    throw new Error(message);
+  }
+
+  if (!data) {
+    throw new Error("Checkout failed (empty response).");
   }
 
   return data;
