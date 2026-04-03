@@ -214,7 +214,7 @@ export default function App() {
             <h2 className="text-3xl font-black">{t.pathTitle}</h2>
             <p className="text-slate-600">{t.pathBody}</p>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 title: t.pathStep1Title,
@@ -240,7 +240,7 @@ export default function App() {
             ].map((step, idx) => (
               <div key={step.title} className="relative flex gap-4 items-start w-full">
                 {idx < 2 ? (
-                  <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 md:block" />
+                  <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 lg:block" />
                 ) : null}
                 <div
                   className={`h-12 w-12 min-w-[48px] rounded-2xl ${step.bg} ${step.color} flex items-center justify-center`}
@@ -263,7 +263,7 @@ export default function App() {
       </section>
 
       <section className="w-full py-12">
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1fr_1fr_0.85fr] items-stretch">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3 items-stretch">
           <div className="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm h-full flex flex-col hover-lift reveal">
             <div className="space-y-4 flex-1 flex flex-col">
               <h2 className="text-3xl font-black">{t.sectionTitle}</h2>
@@ -292,7 +292,7 @@ export default function App() {
               <h3 className="text-3xl font-black">{t.priceTitle}</h3>
               <p className="text-white/80 leading-relaxed">{t.priceBody}</p>
             </div>
-            <div className="mt-8 flex flex-col gap-3">
+            <div className="mt-8 flex flex-col gap-3 pb-4 sm:pb-0">
               <button
                 type="button"
                 onClick={handleCheckout}
@@ -344,7 +344,7 @@ export default function App() {
 
       <section className="w-full py-12">
         <h2 className="text-2xl font-bold reveal">{t.trustTitle}</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <div className="mt-6 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div className="p-2 reveal reveal-2">
             <span className="material-symbols-outlined text-[#0b50da] text-3xl">
               g_translate
