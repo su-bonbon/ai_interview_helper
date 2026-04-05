@@ -1,0 +1,66 @@
+{
+  "en": [
+    {
+      "q": "Who is this for?",
+      "a": "This program is designed for people preparing for the U.S. citizenship interview who want a clear, structured, and bilingual study plan. It is especially helpful if you feel overwhelmed by the process, want step‑by‑step guidance, or need consistent practice in both civics and English.",
+      "image": "qna1.jpg"
+    },
+    {
+      "q": "When should I start preparing?",
+      "a": "The earlier you start, the better. Ideally, begin studying as soon as you file your application or receive your interview notice. Starting early gives you time to build confidence, review material multiple times, and practice the interview flow without rushing at the last minute.",
+      "image": "qna2.jpg"
+    },
+    {
+      "q": "Why do I need this?",
+      "a": "The citizenship interview combines civics knowledge, reading, writing, and conversational English. Many applicants struggle not because they don’t know the answers, but because they haven’t practiced the format. A structured program reduces anxiety, improves recall under pressure, and helps you respond clearly and consistently.",
+      "image": "qna3.jpg"
+    },
+    {
+      "q": "What is the civics test?",
+      "a": "The civics test covers U.S. history and government. During the interview, the officer can ask up to 10 questions from the official list of 100 civics questions. You must answer at least 6 correctly to pass. Our practice set mirrors the official list and helps you understand the meaning behind each question.",
+      "image": "qna4.jpg"
+    },
+    {
+      "q": "What is the reading test?",
+      "a": "The reading test evaluates basic English reading skills. The officer will ask you to read one out of three sentences in English. You need to read at least one correctly. We include reading practice so you get comfortable with the types of sentences used in the interview.",
+      "image": "qna5.jpg"
+    },
+    {
+      "q": "What is the writing test?",
+      "a": "The writing test evaluates basic English writing skills. You will write one out of three sentences dictated by the officer. You need to write at least one correctly. We provide writing prompts and examples so you can practice spelling, capitalization, and simple sentence structure.",
+      "image": "qna7.jpg"
+    }
+  ],
+  "es": [
+    {
+      "q": "¿Para quién es?",
+      "a": "Este programa está diseñado para personas que se preparan para la entrevista de ciudadanía y desean un plan de estudio claro, estructurado y bilingüe. Es ideal si te sientes abrumado, quieres pasos concretos o necesitas práctica constante en civismo e inglés.",
+      "image": "qna8.jpg"
+    },
+    {
+      "q": "¿Cuándo debo empezar?",
+      "a": "Mientras antes empieces, mejor. Lo ideal es comenzar al presentar la solicitud o al recibir la cita. Empezar temprano te permite repasar varias veces y practicar el flujo de la entrevista sin prisa.",
+      "image": "qna9.jpg"
+    },
+    {
+      "q": "¿Por qué lo necesito?",
+      "a": "La entrevista combina civismo, lectura, escritura y conversación en inglés. Muchas personas fallan no por falta de conocimiento, sino por falta de práctica en el formato. Un programa estructurado reduce la ansiedad y mejora la claridad al responder.",
+      "image": "qna10.jpg"
+    },
+    {
+      "q": "¿Qué es el examen de civismo?",
+      "a": "Cubre historia y gobierno de EE. UU. El oficial puede hacer hasta 10 preguntas de la lista oficial de 100. Debes responder al menos 6 correctamente. Aquí practicamos esas preguntas y el significado de cada una.",
+      "image": "qna11.jpg"
+    },
+    {
+      "q": "¿Qué es la prueba de lectura?",
+      "a": "Evalúa lectura básica en inglés. El oficial te pedirá leer 1 de 3 oraciones. Debes leer al menos una correctamente. Incluimos práctica para familiarizarte con el formato.",
+      "image": "qna12.jpg"
+    },
+    {
+      "q": "¿Qué es la prueba de escritura?",
+      "a": "Evalúa escritura básica en inglés. Escribirás 1 de 3 oraciones dictadas por el oficial. Debes escribir al menos una correctamente. Ofrecemos ejemplos para practicar ortografía y estructura simple.",
+      "image": "qna2.jpg"
+    }
+  ]
+}

@@ -11,10 +11,12 @@ export const copy = {
     navLogin: "Login",
     navLogout: "Sign out",
     navDashboard: "Dashboard",
+    navFaq: "FAQ",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacy",
     footerTerms: "Terms",
     footerContact: "Contact",
+    footerFaq: "FAQ",
     footerNote: "© 2024 Citizenship Success. Helping families bridge borders.",
   },
   es: {
@@ -23,10 +25,12 @@ export const copy = {
     navLogin: "Login",
     navLogout: "Cerrar sesión",
     navDashboard: "Panel",
+    navFaq: "FAQ",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacidad",
     footerTerms: "Términos",
     footerContact: "Contacto",
+    footerFaq: "Preguntas",
     footerNote: "© 2024 Citizenship Success. Apoyando a las familias.",
   },
 };
@@ -58,6 +62,12 @@ export default function Layout() {
               <h2 className="text-base sm:text-lg font-bold tracking-tight">{t.navTitle}</h2>
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold ml-auto">
+              <Link
+                to="/faq"
+                className="text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navFaq}
+              </Link>
               {isAuthed ? (
                 <Link
                   to="/dashboard"
@@ -115,6 +125,9 @@ export default function Layout() {
               </Link>
               <Link to="/terms" className="hover:text-[#0b50da] transition-colors">
                 {t.footerTerms}
+              </Link>
+              <Link to="/faq" className="hover:text-[#0b50da] transition-colors">
+                {t.footerFaq}
               </Link>
               <Link to="/contact" className="hover:text-[#0b50da] transition-colors">
                 {t.footerContact}

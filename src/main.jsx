@@ -8,6 +8,7 @@ import CivicsQuestions from "./pages/CivicsQuestions.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import Terms from "./pages/Terms.jsx";
 import Contact from "./pages/Contact.jsx";
+import Faq from "./pages/Faq.jsx";
 import Layout from "./components/Layout.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
@@ -26,6 +27,7 @@ root.render(
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
         </Route>
       </Routes>
     </BrowserRouter>
