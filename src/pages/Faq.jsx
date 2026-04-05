@@ -73,7 +73,7 @@ export default function Faq() {
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] items-stretch">
-        <div className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm min-h-[560px] h-full flex flex-col">
+        <div className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm min-h-[560px] max-h-[680px] h-full flex flex-col">
           <div className="flex items-center gap-2 rounded-2xl border border-black/5 bg-slate-50 px-4 py-3 text-sm">
             <span className="material-symbols-outlined text-base text-slate-400">
               search

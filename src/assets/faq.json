@@ -1,66 +1,106 @@
 {
   "en": [
     {
-      "q": "Who is this for?",
-      "a": "This program is designed for people preparing for the U.S. citizenship interview who want a clear, structured, and bilingual study plan. It is especially helpful if you feel overwhelmed by the process, want step‑by‑step guidance, or need consistent practice in both civics and English.",
+      "q": "Who is this program designed for?",
+      "a": "This program is specifically designed for U.S. citizenship applicants who want to feel fully prepared, confident, and in control during their interview. It is ideal for those who feel overwhelmed by the process, are unsure what to expect, or want structured, step-by-step guidance in both English and Spanish.",
       "image": "qna1.jpg"
     },
     {
-      "q": "When should I start preparing?",
-      "a": "The earlier you start, the better. Ideally, begin studying as soon as you file your application or receive your interview notice. Starting early gives you time to build confidence, review material multiple times, and practice the interview flow without rushing at the last minute.",
+      "q": "When should I start preparing for the interview?",
+      "a": "You should start as early as possible, ideally right after submitting your N-400 application. Early preparation allows you to move beyond memorization and build real confidence through repetition and realistic practice.",
       "image": "qna2.jpg"
     },
     {
-      "q": "Why do I need this?",
-      "a": "The citizenship interview combines civics knowledge, reading, writing, and conversational English. Many applicants struggle not because they don’t know the answers, but because they haven’t practiced the format. A structured program reduces anxiety, improves recall under pressure, and helps you respond clearly and consistently.",
+      "q": "What happens during the actual citizenship interview?",
+      "a": "During the interview, a USCIS officer will review your N-400 application, ask questions about your background, and test your English and civics knowledge. The interview includes speaking, reading, writing, and civics questions. Understanding this flow in advance helps you stay calm and perform confidently.",
       "image": "qna3.jpg"
     },
     {
-      "q": "What is the civics test?",
-      "a": "The civics test covers U.S. history and government. During the interview, the officer can ask up to 10 questions from the official list of 100 civics questions. You must answer at least 6 correctly to pass. Our practice set mirrors the official list and helps you understand the meaning behind each question.",
+      "q": "What kind of questions will the officer ask about my application?",
+      "a": "The officer will ask questions directly from your N-400 form, including your personal information, travel history, employment, and eligibility. Many applicants find this part challenging because it requires clear and accurate answers in English. Our program prepares you for these real interview questions so you can respond naturally and confidently.",
       "image": "qna4.jpg"
     },
     {
-      "q": "What is the reading test?",
-      "a": "The reading test evaluates basic English reading skills. The officer will ask you to read one out of three sentences in English. You need to read at least one correctly. We include reading practice so you get comfortable with the types of sentences used in the interview.",
+      "q": "What does the civics test include?",
+      "a": "The civics test covers U.S. history and government. You may be asked up to 10 questions, and you must answer at least 6 correctly. Our program helps you understand and retain all 100 official questions with clear explanations and repetition.",
       "image": "qna5.jpg"
     },
     {
-      "q": "What is the writing test?",
-      "a": "The writing test evaluates basic English writing skills. You will write one out of three sentences dictated by the officer. You need to write at least one correctly. We provide writing prompts and examples so you can practice spelling, capitalization, and simple sentence structure.",
+      "q": "What should I expect in the reading and writing tests?",
+      "a": "You will be asked to read one sentence and write one sentence correctly in English. While the sentences are simple, many applicants struggle under pressure. We provide realistic practice to help you perform with confidence and accuracy.",
+      "image": "qna6.jpg"
+    },
+    {
+      "q": "What if I make a mistake during the interview?",
+      "a": "Making small mistakes is normal and does not automatically mean you will fail. Officers are evaluating your overall ability to understand and respond. Our program trains you to stay calm, recover quickly, and continue answering with confidence.",
       "image": "qna7.jpg"
+    },
+    {
+      "q": "Can I take the interview in Spanish?",
+      "a": "Some applicants may qualify to take the civics test in their native language based on age and residency requirements. However, most applicants must complete parts of the interview in English. Our bilingual approach ensures you fully understand the material while preparing for English responses.",
+      "image": "qna8.jpg"
+    },
+    {
+      "q": "How is this program different from free resources?",
+      "a": "Unlike scattered free resources, this program provides a complete, structured system that simulates the real interview experience. It combines civics, English, and application-based questions into one guided process, helping you build confidence—not just knowledge.",
+      "image": "qna9.jpg"
+    },
+    {
+      "q": "How much time should I study each day?",
+      "a": "Consistent daily practice is more effective than long, irregular sessions. Even 20–30 minutes per day can lead to strong results when combined with structured guidance and repetition.",
+      "image": "qna10.jpg"
     }
   ],
   "es": [
     {
-      "q": "¿Para quién es?",
-      "a": "Este programa está diseñado para personas que se preparan para la entrevista de ciudadanía y desean un plan de estudio claro, estructurado y bilingüe. Es ideal si te sientes abrumado, quieres pasos concretos o necesitas práctica constante en civismo e inglés.",
+      "q": "¿Para quién está diseñado este programa?",
+      "a": "Este programa está diseñado para solicitantes de ciudadanía que desean sentirse preparados, seguros y con control durante su entrevista. Es ideal para quienes se sienten abrumados o no saben qué esperar.",
+      "image": "qna1.jpg"
+    },
+    {
+      "q": "¿Cuándo debo comenzar a prepararme?",
+      "a": "Debes comenzar lo antes posible, idealmente después de enviar tu solicitud N-400. Empezar temprano te ayuda a desarrollar confianza real, no solo memorizar.",
+      "image": "qna2.jpg"
+    },
+    {
+      "q": "¿Qué sucede durante la entrevista de ciudadanía?",
+      "a": "El oficial revisará tu solicitud N-400, hará preguntas personales y evaluará tu inglés y conocimientos de civismo. Conocer este proceso reduce la ansiedad.",
+      "image": "qna3.jpg"
+    },
+    {
+      "q": "¿Qué tipo de preguntas harán sobre mi solicitud?",
+      "a": "El oficial hará preguntas basadas en tu formulario N-400, incluyendo historial personal, viajes y trabajo. Practicar estas preguntas es clave para responder con confianza.",
+      "image": "qna4.jpg"
+    },
+    {
+      "q": "¿Qué incluye el examen de civismo?",
+      "a": "Incluye preguntas sobre historia y gobierno de EE.UU. Debes responder correctamente al menos 6 de 10 preguntas.",
+      "image": "qna5.jpg"
+    },
+    {
+      "q": "¿Qué debo esperar en lectura y escritura?",
+      "a": "Leerás una oración y escribirás otra correctamente. Practicar reduce errores bajo presión.",
+      "image": "qna6.jpg"
+    },
+    {
+      "q": "¿Qué pasa si cometo un error?",
+      "a": "Errores pequeños son normales. Lo importante es tu capacidad general de comunicarte.",
+      "image": "qna7.jpg"
+    },
+    {
+      "q": "¿Puedo hacer la entrevista en español?",
+      "a": "Algunos solicitantes califican para usar su idioma nativo, pero la mayoría necesita inglés.",
       "image": "qna8.jpg"
     },
     {
-      "q": "¿Cuándo debo empezar?",
-      "a": "Mientras antes empieces, mejor. Lo ideal es comenzar al presentar la solicitud o al recibir la cita. Empezar temprano te permite repasar varias veces y practicar el flujo de la entrevista sin prisa.",
+      "q": "¿En qué se diferencia este programa?",
+      "a": "Ofrece una estructura completa y práctica realista, no recursos dispersos.",
       "image": "qna9.jpg"
     },
     {
-      "q": "¿Por qué lo necesito?",
-      "a": "La entrevista combina civismo, lectura, escritura y conversación en inglés. Muchas personas fallan no por falta de conocimiento, sino por falta de práctica en el formato. Un programa estructurado reduce la ansiedad y mejora la claridad al responder.",
+      "q": "¿Cuánto debo estudiar al día?",
+      "a": "20–30 minutos diarios con consistencia es suficiente para ver progreso.",
       "image": "qna10.jpg"
-    },
-    {
-      "q": "¿Qué es el examen de civismo?",
-      "a": "Cubre historia y gobierno de EE. UU. El oficial puede hacer hasta 10 preguntas de la lista oficial de 100. Debes responder al menos 6 correctamente. Aquí practicamos esas preguntas y el significado de cada una.",
-      "image": "qna11.jpg"
-    },
-    {
-      "q": "¿Qué es la prueba de lectura?",
-      "a": "Evalúa lectura básica en inglés. El oficial te pedirá leer 1 de 3 oraciones. Debes leer al menos una correctamente. Incluimos práctica para familiarizarte con el formato.",
-      "image": "qna12.jpg"
-    },
-    {
-      "q": "¿Qué es la prueba de escritura?",
-      "a": "Evalúa escritura básica en inglés. Escribirás 1 de 3 oraciones dictadas por el oficial. Debes escribir al menos una correctamente. Ofrecemos ejemplos para practicar ortografía y estructura simple.",
-      "image": "qna2.jpg"
     }
   ]
 }
