@@ -11,7 +11,7 @@ const copy = {
     heroTitle: "U.S. Citizenship",
     heroTitleAccent: "Interview Prep",
     heroBody:
-      "Focused, bilingual preparation for the U.S. citizenship interview—built to serve Mexican communities with clarity, confidence, and cultural context.",
+      "Focused, bilingual preparation for the U.S. citizenship interview—built for immigrant communities with clarity, confidence, and cultural context.",
     heroPrimary: "Start Interview Prep",
     heroSecondary: "View Study Guides",
     stat1: "100 Civics Questions",
@@ -37,7 +37,7 @@ const copy = {
     trust2Title: "Expert Verified",
     trust2Body: "Reviewed by certified immigration consultants.",
     trust3Title: "Community-first",
-    trust3Body: "Designed for Mexican families navigating USCIS.",
+    trust3Body: "Designed for families navigating USCIS.",
     priceTitle: "$4.99 lifetime access",
     priceBody:
       "One payment gives you lifetime access to every study module, interview script, checklist, and pronunciation drill—everything is included.",
@@ -59,7 +59,7 @@ const copy = {
     heroTitle: "Preparación",
     heroTitleAccent: "Ciudadanía EE. UU.",
     heroBody:
-      "Preparación bilingüe y enfocada para la entrevista de ciudadanía de EE. UU., pensada para comunidades mexicanas.",
+      "Preparación bilingüe y enfocada para la entrevista de ciudadanía de EE. UU., pensada para comunidades inmigrantes.",
     heroPrimary: "Comenzar preparación",
     heroSecondary: "Ver guías de estudio",
     stat1: "100 Preguntas Cívicas",
@@ -84,7 +84,7 @@ const copy = {
     trust2Title: "Verificado",
     trust2Body: "Revisado por consultores certificados.",
     trust3Title: "Primero la comunidad",
-    trust3Body: "Diseñado para familias mexicanas ante USCIS.",
+    trust3Body: "Diseñado para familias ante USCIS.",
     priceTitle: "$4.99 acceso de por vida",
     priceBody:
       "Un pago te da acceso de por vida a todos los módulos, guiones, listas y audios—todo está incluido.",

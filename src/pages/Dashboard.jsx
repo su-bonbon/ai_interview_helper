@@ -125,6 +125,9 @@ export default function Dashboard() {
       const snap = await getDoc(doc(db, "users", user.uid));
       const data = snap.exists() ? snap.data() : null;
       setIsSubscribed(Boolean(data?.isSubscribed));
+      if (typeof data?.confidence === "number") {
+        setConfidence(Math.min(Math.max(data.confidence, 0), 1));
+      }
       if (data?.interviewDate) {
         const dateValue = parseLocalDate(data.interviewDate);
         if (dateValue) {
@@ -251,7 +254,13 @@ export default function Dashboard() {
                 {hardChecked} / {hardTotal} marked as hard
               </p>
             </div>
-            <div className={`rounded-2xl border border-black/5 bg-white/90 p-5 ${!isSubscribed ? "opacity-60 blur-[0.5px]" : ""}`}>
+            <button
+              type="button"
+              onClick={() => {
+                if (isSubscribed) setShowInterviewPrompt(true);
+              }}
+              className={`rounded-2xl border border-black/5 bg-white/90 p-5 text-left ${!isSubscribed ? "opacity-60 blur-[0.5px] cursor-default" : "hover:shadow-sm transition"}`}
+            >
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-semibold text-slate-700">
@@ -315,7 +324,7 @@ export default function Dashboard() {
                   {t.calendarEmpty}
                 </p>
               )}
-            </div>
+            </button>
             <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-[#0b50da] to-[#0a2f6b] p-5 text-white">
               <p className="text-sm font-semibold text-white/80">Next milestone</p>
               <p className="mt-2 text-2xl font-black">Mock Interview #3</p>
@@ -396,7 +405,7 @@ export default function Dashboard() {
             </div>
           </div>
         ) : showInterviewPrompt ? (
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center">
+          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-50">
             <div className="text-center max-w-sm px-6">
               <h3 className="text-xl font-bold">{t.interviewPromptTitle}</h3>
               <p className="text-slate-600 mt-2">{t.interviewPromptBody}</p>

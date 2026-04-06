@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { collection, getDocs, query, where, limit, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, query, where, limit, doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
 import { createPolarCheckout } from "../lib/polarCheckout.js";
 
@@ -13,7 +13,6 @@ const copy = {
     searchPlaceholder: "Search questions",
     filterAll: "All",
     filterEasy: "Easy",
-    filterMedium: "Medium",
     filterHard: "Hard",
     cardLabel: "Question",
     showAnswer: "Show answer",
@@ -46,7 +45,6 @@ const copy = {
     searchPlaceholder: "Buscar preguntas",
     filterAll: "Todas",
     filterEasy: "Fácil",
-    filterMedium: "Medio",
     filterHard: "Difícil",
     cardLabel: "Pregunta",
     showAnswer: "Mostrar respuesta",
@@ -99,6 +97,7 @@ export default function CivicsQuestions() {
   const [activeTab, setActiveTab] = useState("Flashcards");
   const [testAnswerVisible, setTestAnswerVisible] = useState(false);
   const [testScore, setTestScore] = useState({ correct: 0, incorrect: 0 });
+  const [practiceCount, setPracticeCount] = useState(0);
   const [testQuestions, setTestQuestions] = useState([]);
   const [testIndex, setTestIndex] = useState(0);
   const [testShowAnswer, setTestShowAnswer] = useState(false);
@@ -113,6 +112,9 @@ export default function CivicsQuestions() {
       try {
         const snap = await getDoc(doc(db, "users", user.uid));
         setIsSubscribed(Boolean(snap.data()?.isSubscribed));
+        if (typeof snap.data()?.practiceCount === "number") {
+          setPracticeCount(snap.data().practiceCount);
+        }
       } catch (err) {
         console.error("User load error:", err);
       }
@@ -219,6 +221,29 @@ export default function CivicsQuestions() {
     }
   };
 
+  const updateConfidence = async ({ correctDelta, incorrectDelta }) => {
+    const user = auth.currentUser;
+    if (!user) return;
+    const nextCorrect = testScore.correct + correctDelta;
+    const nextIncorrect = testScore.incorrect + incorrectDelta;
+    const total = nextCorrect + nextIncorrect;
+    const correctRate = total > 0 ? nextCorrect / total : 0;
+    const nextPracticeCount = practiceCount + 1;
+    const practiceConsistency = Math.min(nextPracticeCount / 10, 1);
+    const confidence = (correctRate * 0.7) + (practiceConsistency * 0.3);
+
+    setPracticeCount(nextPracticeCount);
+
+    try {
+      await updateDoc(doc(db, "users", user.uid), {
+        practiceCount: nextPracticeCount,
+        confidence,
+      });
+    } catch (err) {
+      console.error("Confidence update error:", err);
+    }
+  };
+
   useEffect(() => {
     setCurrentIndex(0);
     setShowAnswer(false);
@@ -309,8 +334,8 @@ export default function CivicsQuestions() {
       </div>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-stretch">
-        <div className="flex flex-col h-full min-h-full self-stretch">
-          <div className="space-y-6 flex-1">
+        <div className="space-y-6">
+          <div className="space-y-6">
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex-1 min-w-[220px]">
               <input
@@ -325,7 +350,6 @@ export default function CivicsQuestions() {
               {[
                 { key: "all", label: t.filterAll },
                 { key: "easy", label: t.filterEasy },
-                { key: "medium", label: t.filterMedium },
                 { key: "hard", label: t.filterHard },
               ].map((item) => (
                 <button
@@ -395,83 +419,85 @@ export default function CivicsQuestions() {
                 ) : currentQuestion ? (
                   <div className="flip-card-inner">
                     <div className="flip-card-face relative">
-                      <button
-                        type="button"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          handleToggleHard();
-                        }}
-                        className={`absolute right-3 top-3 flex items-center justify-center transition ${
-                          currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
-                            : "text-slate-300"
-                        }`}
-                        aria-label={
-                          currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? t.unmarkHard
-                            : t.markHard
-                        }
-                      >
-                        <span className="material-symbols-outlined text-2xl">
-                          {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? "star"
-                            : "star_outline"}
-                        </span>
-                      </button>
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.cardLabel}</span>
-                        <span>
-                          {currentIndex + 1} / {filteredQuestions.length || 0}
-                        </span>
+                        <div className="flex items-center gap-3">
+                          <span>
+                            {currentIndex + 1} / {filteredQuestions.length || 0}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              handleToggleHard();
+                            }}
+                            className={`flex items-center justify-center transition ${
+                              currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                                : "text-slate-300"
+                            }`}
+                            aria-label={
+                              currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? t.unmarkHard
+                                : t.markHard
+                            }
+                          >
+                            <span className="material-symbols-outlined text-xl">
+                              {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? "star"
+                                : "star_outline"}
+                            </span>
+                          </button>
+                        </div>
                       </div>
-                      <div className="mt-8 flex h-[240px] items-center px-8">
+                      <div className="flex h-[260px] items-center justify-center px-10 text-center">
                         <h2 className="text-3xl font-black text-slate-900 leading-tight">
                           {currentQuestion.question || currentQuestion.prompt}
                         </h2>
                       </div>
-                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                      <div className="mt-auto flex items-center justify-center text-xs text-slate-400">
                         <span>{t.tapHint}</span>
-                        <span className="uppercase tracking-[0.3em]">tap</span>
                       </div>
                     </div>
                     <div className="flip-card-face flip-card-back relative">
-                      <button
-                        type="button"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          handleToggleHard();
-                        }}
-                        className={`absolute right-3 top-3 flex items-center justify-center transition ${
-                          currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
-                            : "text-slate-300"
-                        }`}
-                        aria-label={
-                          currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? t.unmarkHard
-                            : t.markHard
-                        }
-                      >
-                        <span className="material-symbols-outlined text-2xl">
-                          {currentQuestion?.id && hardSet.has(currentQuestion.id)
-                            ? "star"
-                            : "star_outline"}
-                        </span>
-                      </button>
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.hideAnswer}</span>
-                        <span>
-                          {currentIndex + 1} / {filteredQuestions.length || 0}
-                        </span>
+                        <div className="flex items-center gap-3">
+                          <span>
+                            {currentIndex + 1} / {filteredQuestions.length || 0}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              handleToggleHard();
+                            }}
+                            className={`flex items-center justify-center transition ${
+                              currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? "text-[#f5b301] drop-shadow-[0_4px_10px_rgba(245,179,1,0.45)]"
+                                : "text-slate-300"
+                            }`}
+                            aria-label={
+                              currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? t.unmarkHard
+                                : t.markHard
+                            }
+                          >
+                            <span className="material-symbols-outlined text-xl">
+                              {currentQuestion?.id && hardSet.has(currentQuestion.id)
+                                ? "star"
+                                : "star_outline"}
+                            </span>
+                          </button>
+                        </div>
                       </div>
-                      <div className="mt-8 flex h-[240px] items-center px-8">
+                      <div className="flex h-[260px] items-center justify-center px-10 text-center">
                         <h2 className="text-3xl font-black text-slate-900 leading-tight">
                           {currentQuestion.answer || currentQuestion.response}
                         </h2>
                       </div>
-                      <div className="mt-auto flex items-center justify-between text-xs text-slate-400">
+                      <div className="mt-auto flex items-center justify-center text-xs text-slate-400">
                         <span>{t.tapHint}</span>
-                        <span className="uppercase tracking-[0.3em]">tap</span>
                       </div>
                     </div>
                   </div>
@@ -527,6 +553,7 @@ export default function CivicsQuestions() {
                         ...prev,
                         correct: prev.correct + 1,
                       }));
+                      updateConfidence({ correctDelta: 1, incorrectDelta: 0 });
                       setTestAnswerVisible(false);
                       setCurrentIndex((prev) =>
                         Math.min(prev + 1, filteredQuestions.length - 1)
@@ -543,6 +570,7 @@ export default function CivicsQuestions() {
                         ...prev,
                         incorrect: prev.incorrect + 1,
                       }));
+                      updateConfidence({ correctDelta: 0, incorrectDelta: 1 });
                       setTestAnswerVisible(false);
                       setCurrentIndex((prev) =>
                         Math.min(prev + 1, filteredQuestions.length - 1)
@@ -645,7 +673,7 @@ export default function CivicsQuestions() {
           )}
           </div>
 
-          <div className="mt-auto rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
+          <div className="rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
               <span>{t.progressLabel}</span>
               <span>
