@@ -128,6 +128,12 @@ export default function Dashboard() {
       if (typeof data?.confidence === "number") {
         setConfidence(Math.min(Math.max(data.confidence, 0), 1));
       }
+      if (typeof data?.hardQuestionsChecked === "number") {
+        setHardChecked(data.hardQuestionsChecked);
+      }
+      if (typeof data?.hardQuestionsTotal === "number") {
+        setHardTotal(data.hardQuestionsTotal);
+      }
       if (data?.interviewDate) {
         const dateValue = parseLocalDate(data.interviewDate);
         if (dateValue) {

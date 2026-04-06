@@ -147,6 +147,15 @@ export default function CivicsQuestions() {
     return () => unsubscribe();
   }, [lang, navigate]);
 
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (!user || !questions.length) return;
+    const hardQuestionsTotal = questions.length;
+    updateDoc(doc(db, "users", user.uid), { hardQuestionsTotal }).catch((err) => {
+      console.error("Hard total update error:", err);
+    });
+  }, [questions.length]);
+
   const filteredQuestions = useMemo(() => {
     return questions.filter((item) => {
       const questionText = String(item.question || item.prompt || "");
@@ -191,7 +200,7 @@ export default function CivicsQuestions() {
   const currentQuestion = filteredQuestions[currentIndex];
   const currentTestQuestion = testQuestions[testIndex];
 
-  const handleToggleHard = () => {
+  const handleToggleHard = async () => {
     if (!currentQuestion?.id) return;
     const next = new Set(hardSet);
     if (next.has(currentQuestion.id)) {
@@ -200,6 +209,19 @@ export default function CivicsQuestions() {
       next.add(currentQuestion.id);
     }
     setHardSet(next);
+
+    const user = auth.currentUser;
+    if (!user) return;
+    const hardQuestionsChecked = next.size;
+    const hardQuestionsTotal = filteredQuestions.length;
+    try {
+      await updateDoc(doc(db, "users", user.uid), {
+        hardQuestionsChecked,
+        hardQuestionsTotal,
+      });
+    } catch (err) {
+      console.error("Hard questions update error:", err);
+    }
   };
 
   const handleCheckout = async () => {
