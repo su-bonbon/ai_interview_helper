@@ -1,6 +1,6 @@
 [
   {
-    "id": "q001",
+    "id": "en_q001",
     "question": "What is the supreme law of the land?",
     "answer": "The Constitution.",
     "category": "Civics",
@@ -8,95 +8,31 @@
     "lang": "en"
   },
   {
-    "id": "q001_es",
-    "question": "¿Cuál es la ley suprema del país?",
-    "answer": "La Constitución.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q002",
+    "id": "en_q002",
     "question": "What does the Constitution do?",
-    "answer": "Sets up the government, defines the government, and protects basic rights.",
+    "answer": "Sets up the government.",
     "category": "Civics",
     "difficulty": "easy",
     "lang": "en"
   },
   {
-    "id": "q002_es",
-    "question": "¿Qué hace la Constitución?",
-    "answer": "Establece el gobierno, lo define y protege los derechos básicos.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q003",
-    "question": "What are the first three words of the Constitution?",
-    "answer": "We the People.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q003_es",
-    "question": "¿Cuáles son las primeras tres palabras de la Constitución?",
-    "answer": "We the People.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q004",
-    "question": "What is an amendment?",
-    "answer": "A change or addition to the Constitution.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q004_es",
-    "question": "¿Qué es una enmienda?",
-    "answer": "Un cambio o adición a la Constitución.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q005",
-    "question": "What do we call the first ten amendments?",
+    "id": "en_q003",
+    "question": "What are the first ten amendments to the Constitution called?",
     "answer": "The Bill of Rights.",
     "category": "Civics",
     "difficulty": "easy",
     "lang": "en"
   },
   {
-    "id": "q005_es",
-    "question": "¿Cómo se llaman las primeras diez enmiendas?",
-    "answer": "La Carta de Derechos.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q006",
-    "question": "What is one freedom from the First Amendment?",
+    "id": "en_q004",
+    "question": "What is one right or freedom from the First Amendment?",
     "answer": "Freedom of speech.",
     "category": "Civics",
     "difficulty": "easy",
     "lang": "en"
   },
   {
-    "id": "q006_es",
-    "question": "¿Cuál es una libertad de la Primera Enmienda?",
-    "answer": "La libertad de expresión.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q007",
+    "id": "en_q005",
     "question": "How many amendments does the Constitution have?",
     "answer": "27.",
     "category": "Civics",
@@ -104,47 +40,23 @@
     "lang": "en"
   },
   {
-    "id": "q007_es",
-    "question": "¿Cuántas enmiendas tiene la Constitución?",
-    "answer": "27.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q008",
+    "id": "en_q006",
     "question": "What did the Declaration of Independence do?",
-    "answer": "Declared independence from Great Britain.",
+    "answer": "Announced independence from Great Britain.",
     "category": "Civics",
     "difficulty": "easy",
     "lang": "en"
   },
   {
-    "id": "q008_es",
-    "question": "¿Qué hizo la Declaración de Independencia?",
-    "answer": "Declaró la independencia de Gran Bretaña.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q009",
+    "id": "en_q007",
     "question": "What are two rights in the Declaration of Independence?",
     "answer": "Life and liberty.",
     "category": "Civics",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "lang": "en"
   },
   {
-    "id": "q009_es",
-    "question": "¿Cuáles son dos derechos en la Declaración de Independencia?",
-    "answer": "La vida y la libertad.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q010",
+    "id": "en_q008",
     "question": "What is freedom of religion?",
     "answer": "You can practice any religion or not practice a religion.",
     "category": "Civics",
@@ -152,1930 +64,2066 @@
     "lang": "en"
   },
   {
-    "id": "q010_es",
+    "id": "en_q009",
+    "question": "What is the economic system in the United States?",
+    "answer": "Capitalist economy.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q010",
+    "question": "What is the rule of law?",
+    "answer": "Everyone must follow the law.",
+    "category": "Civics",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q011",
+    "question": "Name one branch of the government.",
+    "answer": "Legislative.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q012",
+    "question": "What stops one branch of government from becoming too powerful?",
+    "answer": "Checks and balances.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q013",
+    "question": "Who is in charge of the executive branch?",
+    "answer": "The President.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q014",
+    "question": "Who makes federal laws?",
+    "answer": "Congress.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q015",
+    "question": "What are the two parts of the U.S. Congress?",
+    "answer": "The Senate and House of Representatives.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q016",
+    "question": "How many U.S. Senators are there?",
+    "answer": "100.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q017",
+    "question": "How long is a U.S. Senator elected for?",
+    "answer": "Six years.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q018",
+    "question": "How many voting members are in the House of Representatives?",
+    "answer": "435.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q019",
+    "question": "How long is a Representative elected for?",
+    "answer": "Two years.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q020",
+    "question": "Who does a U.S. Senator represent?",
+    "answer": "All people of the state.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q021",
+    "question": "Why do some states have more Representatives than others?",
+    "answer": "Because of the state's population.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q022",
+    "question": "How old must citizens be to vote for President?",
+    "answer": "18 and older.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q023",
+    "question": "What is one responsibility only for United States citizens?",
+    "answer": "Vote in a federal election.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q024",
+    "question": "What are two rights of everyone living in the United States?",
+    "answer": "Freedom of expression and freedom of speech.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q025",
+    "question": "What do we show loyalty to when we say the Pledge of Allegiance?",
+    "answer": "The United States.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q026",
+    "question": "What is one promise you make when you become a United States citizen?",
+    "answer": "Give up loyalty to other countries.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q027",
+    "question": "How old do citizens have to be to vote?",
+    "answer": "18 years old.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q028",
+    "question": "What are two ways that Americans can participate in their democracy?",
+    "answer": "Vote and join a political party.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q029",
+    "question": "When is the last day you can send in federal income tax forms?",
+    "answer": "April 15.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q030",
+    "question": "When must all men register for the Selective Service?",
+    "answer": "At age 18.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q031",
+    "question": "What is one reason colonists came to America?",
+    "answer": "Freedom.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q032",
+    "question": "Who lived in America before the Europeans arrived?",
+    "answer": "Native Americans.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q033",
+    "question": "What group of people was taken to America and sold as slaves?",
+    "answer": "Africans.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q034",
+    "question": "Why did the colonists fight the British?",
+    "answer": "Because of high taxes.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q035",
+    "question": "Who wrote the Declaration of Independence?",
+    "answer": "Thomas Jefferson.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q036",
+    "question": "When was the Declaration of Independence adopted?",
+    "answer": "July 4, 1776.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q037",
+    "question": "There were 13 original states. True or false?",
+    "answer": "True.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q038",
+    "question": "What happened at the Constitutional Convention?",
+    "answer": "The Constitution was written.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q039",
+    "question": "When was the Constitution written?",
+    "answer": "1787.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q040",
+    "question": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
+    "answer": "James Madison.",
+    "category": "History",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q041",
+    "question": "What is one thing Benjamin Franklin is famous for?",
+    "answer": "He was a U.S. diplomat.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q042",
+    "question": "Who is the Father of Our Country?",
+    "answer": "George Washington.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q043",
+    "question": "Who was the first President?",
+    "answer": "George Washington.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q044",
+    "question": "What territory did the United States buy from France in 1803?",
+    "answer": "The Louisiana Territory.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q045",
+    "question": "Name one war fought by the United States in the 1800s.",
+    "answer": "The Civil War.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q046",
+    "question": "What was one important thing that Abraham Lincoln did?",
+    "answer": "Freed the slaves.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q047",
+    "question": "What did the Emancipation Proclamation do?",
+    "answer": "Freed the slaves.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q048",
+    "question": "What did Susan B. Anthony do?",
+    "answer": "Fought for women's rights.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q049",
+    "question": "Name one war fought by the United States in the 1900s.",
+    "answer": "World War II.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q050",
+    "question": "Who was President during World War I?",
+    "answer": "Woodrow Wilson.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q051",
+    "question": "Who was President during the Great Depression and World War II?",
+    "answer": "Franklin Roosevelt.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q052",
+    "question": "Who did the United States fight in World War II?",
+    "answer": "Japan, Germany, and Italy.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q053",
+    "question": "Before he was President, Eisenhower was a general. What war was he in?",
+    "answer": "World War II.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q054",
+    "question": "During the Cold War, what was the main concern of the United States?",
+    "answer": "Communism.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q055",
+    "question": "What movement tried to end racial discrimination?",
+    "answer": "The civil rights movement.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q056",
+    "question": "What did Martin Luther King Jr. do?",
+    "answer": "Fought for civil rights.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q057",
+    "question": "What major event happened on September 11, 2001?",
+    "answer": "Terrorists attacked the United States.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q058",
+    "question": "Name one American Indian tribe in the United States.",
+    "answer": "Cherokee.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q059",
+    "question": "What ocean is on the East Coast of the United States?",
+    "answer": "Atlantic Ocean.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q060",
+    "question": "What ocean is on the West Coast of the United States?",
+    "answer": "Pacific Ocean.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q061",
+    "question": "Name one U.S. territory.",
+    "answer": "Puerto Rico.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q062",
+    "question": "Name one state that borders Canada.",
+    "answer": "New York.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q063",
+    "question": "Name one state that borders Mexico.",
+    "answer": "Texas.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q064",
+    "question": "What is the capital of the United States?",
+    "answer": "Washington, D.C.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q065",
+    "question": "Where is the Statue of Liberty?",
+    "answer": "New York Harbor.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q066",
+    "question": "What do the stars on the flag mean?",
+    "answer": "The states.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q067",
+    "question": "What do the stripes on the flag mean?",
+    "answer": "The original 13 colonies.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q068",
+    "question": "What is the national anthem of the United States?",
+    "answer": "The Star-Spangled Banner.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q069",
+    "question": "When do we celebrate Independence Day?",
+    "answer": "July 4.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q070",
+    "question": "Name two national U.S. holidays.",
+    "answer": "Thanksgiving and Independence Day.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q071",
+    "question": "What does Congress do?",
+    "answer": "Makes laws.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q072",
+    "question": "Who vetoes bills?",
+    "answer": "The President.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q073",
+    "question": "What does the judicial branch do?",
+    "answer": "Explains laws.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q074",
+    "question": "What is the highest court in the United States?",
+    "answer": "The Supreme Court.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q075",
+    "question": "How many justices are on the Supreme Court?",
+    "answer": "Nine.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q076",
+    "question": "Who signs bills to become laws?",
+    "answer": "The President.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q077",
+    "question": "Who is the Commander in Chief of the military?",
+    "answer": "The President.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q078",
+    "question": "Who becomes President if both the President and Vice President can no longer serve?",
+    "answer": "The Speaker of the House.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+  {
+    "id": "en_q079",
+    "question": "Who elects the President of the United States?",
+    "answer": "The Electoral College.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q080",
+    "question": "How long is a presidential term?",
+    "answer": "Four years.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q081",
+    "question": "What political party is traditionally associated with the donkey symbol?",
+    "answer": "The Democratic Party.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q082",
+    "question": "What political party is traditionally associated with the elephant symbol?",
+    "answer": "The Republican Party.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q083",
+    "question": "What are the two major political parties in the United States?",
+    "answer": "Democratic and Republican.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q084",
+    "question": "What is one power of the federal government?",
+    "answer": "To print money.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q085",
+    "question": "What is one power reserved for the states?",
+    "answer": "Provide schooling and education.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q086",
+    "question": "What is an amendment?",
+    "answer": "A change to the Constitution.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q087",
+    "question": "What is one responsibility of a U.S. citizen?",
+    "answer": "Serve on a jury.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q088",
+    "question": "Why is the flag important to Americans?",
+    "answer": "It represents the United States.",
+    "category": "Symbols",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q089",
+    "question": "Who can vote in federal elections?",
+    "answer": "United States citizens.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q090",
+    "question": "What is one reason people immigrate to the United States?",
+    "answer": "For freedom.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q091",
+    "question": "What is the capital of Texas?",
+    "answer": "Austin.",
+    "category": "Geography",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q092",
+    "question": "Which document begins with 'We the People'?",
+    "answer": "The Constitution.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q093",
+    "question": "What is one branch of the federal government?",
+    "answer": "Executive.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q094",
+    "question": "What does the President's Cabinet do?",
+    "answer": "Advises the President.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q095",
+    "question": "What is one right guaranteed by the Second Amendment?",
+    "answer": "The right to bear arms.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q096",
+    "question": "Who approves federal judges?",
+    "answer": "The Senate.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q097",
+    "question": "What is one duty of the Supreme Court?",
+    "answer": "Resolve disputes about the law.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+  {
+    "id": "en_q098",
+    "question": "What is the purpose of elections?",
+    "answer": "To choose leaders.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q099",
+    "question": "Why do citizens pay taxes?",
+    "answer": "To fund government services.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q100",
+    "question": "What is one freedom guaranteed by the First Amendment?",
+    "answer": "Freedom of religion.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q101",
+    "question": "What does the President do?",
+    "answer": "Enforces laws.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q102",
+    "question": "What is one right only for U.S. citizens?",
+    "answer": "Run for federal office.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q103",
+    "question": "What is the purpose of the Constitution?",
+    "answer": "Defines the powers of government.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q104",
+    "question": "Why is voting important?",
+    "answer": "Citizens choose their leaders.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q105",
+    "question": "What does the term democracy mean?",
+    "answer": "Government by the people.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q106",
+    "question": "What is one goal of the Bill of Rights?",
+    "answer": "Protect individual freedoms.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q107",
+    "question": "What is the main job of Congress?",
+    "answer": "Create laws.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q108",
+    "question": "What is judicial review?",
+    "answer": "The power to review laws.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+  {
+    "id": "en_q109",
+    "question": "Who becomes President if the President resigns?",
+    "answer": "The Vice President.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q110",
+    "question": "How many years are in a Senate term?",
+    "answer": "Six.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q111",
+    "question": "How many years are in a House term?",
+    "answer": "Two.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q112",
+    "question": "What is one responsibility of the President?",
+    "answer": "Signs bills into law.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q113",
+    "question": "What does the Constitution establish?",
+    "answer": "The national government.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q114",
+    "question": "What is one example of civic participation?",
+    "answer": "Voting in elections.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q115",
+    "question": "Who signs treaties with other countries?",
+    "answer": "The President.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q116",
+    "question": "What does the Senate do with treaties?",
+    "answer": "Approves them.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+  {
+    "id": "en_q117",
+    "question": "What is one role of state governments?",
+    "answer": "Provide public safety.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q118",
+    "question": "What is freedom of the press?",
+    "answer": "Media can publish news and opinions freely.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q119",
+    "question": "Why did the Founding Fathers create checks and balances?",
+    "answer": "To prevent abuse of power.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "en"
+  },
+  {
+    "id": "en_q120",
+    "question": "What does the Vice President do?",
+    "answer": "Serves as President of the Senate.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q121",
+    "question": "What does the phrase 'We the People' mean?",
+    "answer": "Government gets power from the people.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q122",
+    "question": "Why are amendments important?",
+    "answer": "They allow the Constitution to change over time.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+  {
+    "id": "en_q123",
+    "question": "What is one characteristic of a democratic government?",
+    "answer": "Citizens elect leaders.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q124",
+    "question": "What is one purpose of paying taxes?",
+    "answer": "Support public programs.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q125",
+    "question": "What is one responsibility of local governments?",
+    "answer": "Maintain police and fire departments.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "en"
+  },
+
+  {
+    "id": "en_q126",
+    "question": "What is one reason the Constitution is important?",
+    "answer": "It protects citizens' rights.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q127",
+    "question": "Why is freedom of speech important?",
+    "answer": "People can express their opinions.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q128",
+    "question": "What is one way citizens can help their community?",
+    "answer": "Volunteer.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q129",
+    "question": "What is one benefit of becoming a U.S. citizen?",
+    "answer": "The right to vote.",
+    "category": "Government",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+  {
+    "id": "en_q130",
+    "question": "What is one important American value?",
+    "answer": "Freedom.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "en"
+  },
+
+  {
+    "id": "es_q001",
+    "question": "¿Cuál es la ley suprema de la nación?",
+    "answer": "La Constitución.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+  {
+    "id": "es_q002",
+    "question": "¿Qué hace la Constitución?",
+    "answer": "Establece el gobierno.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+  {
+    "id": "es_q003",
+    "question": "¿Cómo se llaman las primeras diez enmiendas de la Constitución?",
+    "answer": "La Carta de Derechos.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+  {
+    "id": "es_q004",
+    "question": "¿Cuál es una libertad de la Primera Enmienda?",
+    "answer": "La libertad de expresión.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+  {
+    "id": "es_q005",
+    "question": "¿Cuántas enmiendas tiene la Constitución?",
+    "answer": "27.",
+    "category": "Civics",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+
+  {
+    "id": "es_q006",
+    "question": "¿Qué hizo la Declaración de Independencia?",
+    "answer": "Anunció la independencia de Gran Bretaña.",
+    "category": "History",
+    "difficulty": "easy",
+    "lang": "es"
+  },
+  {
+    "id": "es_q007",
+    "question": "¿Cuáles son dos derechos en la Declaración de Independencia?",
+    "answer": "La vida y la libertad.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
+  },
+  {
+    "id": "es_q008",
     "question": "¿Qué es la libertad de religión?",
-    "answer": "Puedes practicar cualquier religión o ninguna.",
+    "answer": "Puede practicar cualquier religión o ninguna.",
     "category": "Civics",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q011",
-    "question": "Civics practice question 11?",
-    "answer": "Sample answer for citizenship test practice.",
+    "id": "es_q009",
+    "question": "¿Cuál es el sistema económico de Estados Unidos?",
+    "answer": "Economía capitalista.",
     "category": "Civics",
     "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q011_es",
-    "question": "¿Pregunta de práctica de civismo 11?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q012",
-    "question": "Civics practice question 12?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q012_es",
-    "question": "¿Pregunta de práctica de civismo 12?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q013",
-    "question": "Civics practice question 13?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q013_es",
-    "question": "¿Pregunta de práctica de civismo 13?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q014",
-    "question": "Civics practice question 14?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q014_es",
-    "question": "¿Pregunta de práctica de civismo 14?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q015",
-    "question": "Civics practice question 15?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q015_es",
-    "question": "¿Pregunta de práctica de civismo 15?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q016",
-    "question": "Civics practice question 16?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q016_es",
-    "question": "¿Pregunta de práctica de civismo 16?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q017",
-    "question": "Civics practice question 17?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q017_es",
-    "question": "¿Pregunta de práctica de civismo 17?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q018",
-    "question": "Civics practice question 18?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q018_es",
-    "question": "¿Pregunta de práctica de civismo 18?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q019",
-    "question": "Civics practice question 19?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q019_es",
-    "question": "¿Pregunta de práctica de civismo 19?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q020",
-    "question": "Civics practice question 20?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q020_es",
-    "question": "¿Pregunta de práctica de civismo 20?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q021",
-    "question": "Civics practice question 21?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q021_es",
-    "question": "¿Pregunta de práctica de civismo 21?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q022",
-    "question": "Civics practice question 22?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q022_es",
-    "question": "¿Pregunta de práctica de civismo 22?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q023",
-    "question": "Civics practice question 23?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q023_es",
-    "question": "¿Pregunta de práctica de civismo 23?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q024",
-    "question": "Civics practice question 24?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q024_es",
-    "question": "¿Pregunta de práctica de civismo 24?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q025",
-    "question": "Civics practice question 25?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q025_es",
-    "question": "¿Pregunta de práctica de civismo 25?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q026",
-    "question": "Civics practice question 26?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q026_es",
-    "question": "¿Pregunta de práctica de civismo 26?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q027",
-    "question": "Civics practice question 27?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q027_es",
-    "question": "¿Pregunta de práctica de civismo 27?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q028",
-    "question": "Civics practice question 28?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q028_es",
-    "question": "¿Pregunta de práctica de civismo 28?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q029",
-    "question": "Civics practice question 29?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q029_es",
-    "question": "¿Pregunta de práctica de civismo 29?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q030",
-    "question": "Civics practice question 30?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q030_es",
-    "question": "¿Pregunta de práctica de civismo 30?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q031",
-    "question": "Civics practice question 31?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q031_es",
-    "question": "¿Pregunta de práctica de civismo 31?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q032",
-    "question": "Civics practice question 32?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q032_es",
-    "question": "¿Pregunta de práctica de civismo 32?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q033",
-    "question": "Civics practice question 33?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q033_es",
-    "question": "¿Pregunta de práctica de civismo 33?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q034",
-    "question": "Civics practice question 34?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q034_es",
-    "question": "¿Pregunta de práctica de civismo 34?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q035",
-    "question": "Civics practice question 35?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q035_es",
-    "question": "¿Pregunta de práctica de civismo 35?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q036",
-    "question": "Civics practice question 36?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q036_es",
-    "question": "¿Pregunta de práctica de civismo 36?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q037",
-    "question": "Civics practice question 37?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q037_es",
-    "question": "¿Pregunta de práctica de civismo 37?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q038",
-    "question": "Civics practice question 38?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q038_es",
-    "question": "¿Pregunta de práctica de civismo 38?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q039",
-    "question": "Civics practice question 39?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q039_es",
-    "question": "¿Pregunta de práctica de civismo 39?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q040",
-    "question": "Civics practice question 40?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q040_es",
-    "question": "¿Pregunta de práctica de civismo 40?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q041",
-    "question": "Civics practice question 41?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q041_es",
-    "question": "¿Pregunta de práctica de civismo 41?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q042",
-    "question": "Civics practice question 42?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q042_es",
-    "question": "¿Pregunta de práctica de civismo 42?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q043",
-    "question": "Civics practice question 43?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q043_es",
-    "question": "¿Pregunta de práctica de civismo 43?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q044",
-    "question": "Civics practice question 44?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q044_es",
-    "question": "¿Pregunta de práctica de civismo 44?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q045",
-    "question": "Civics practice question 45?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q045_es",
-    "question": "¿Pregunta de práctica de civismo 45?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q046",
-    "question": "Civics practice question 46?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q046_es",
-    "question": "¿Pregunta de práctica de civismo 46?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q047",
-    "question": "Civics practice question 47?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q047_es",
-    "question": "¿Pregunta de práctica de civismo 47?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q048",
-    "question": "Civics practice question 48?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q048_es",
-    "question": "¿Pregunta de práctica de civismo 48?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q049",
-    "question": "Civics practice question 49?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q049_es",
-    "question": "¿Pregunta de práctica de civismo 49?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q050",
-    "question": "Civics practice question 50?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q050_es",
-    "question": "¿Pregunta de práctica de civismo 50?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q051",
-    "question": "Civics practice question 51?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q051_es",
-    "question": "¿Pregunta de práctica de civismo 51?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q052",
-    "question": "Civics practice question 52?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q052_es",
-    "question": "¿Pregunta de práctica de civismo 52?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q053",
-    "question": "Civics practice question 53?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q053_es",
-    "question": "¿Pregunta de práctica de civismo 53?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q054",
-    "question": "Civics practice question 54?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q054_es",
-    "question": "¿Pregunta de práctica de civismo 54?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q055",
-    "question": "Civics practice question 55?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q055_es",
-    "question": "¿Pregunta de práctica de civismo 55?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q056",
-    "question": "Civics practice question 56?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q056_es",
-    "question": "¿Pregunta de práctica de civismo 56?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q057",
-    "question": "Civics practice question 57?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q057_es",
-    "question": "¿Pregunta de práctica de civismo 57?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q058",
-    "question": "Civics practice question 58?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q058_es",
-    "question": "¿Pregunta de práctica de civismo 58?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q059",
-    "question": "Civics practice question 59?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q059_es",
-    "question": "¿Pregunta de práctica de civismo 59?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q060",
-    "question": "Civics practice question 60?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q060_es",
-    "question": "¿Pregunta de práctica de civismo 60?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q061",
-    "question": "Civics practice question 61?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q061_es",
-    "question": "¿Pregunta de práctica de civismo 61?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q062",
-    "question": "Civics practice question 62?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q062_es",
-    "question": "¿Pregunta de práctica de civismo 62?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q063",
-    "question": "Civics practice question 63?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q063_es",
-    "question": "¿Pregunta de práctica de civismo 63?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q064",
-    "question": "Civics practice question 64?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q064_es",
-    "question": "¿Pregunta de práctica de civismo 64?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q065",
-    "question": "Civics practice question 65?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q065_es",
-    "question": "¿Pregunta de práctica de civismo 65?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "es"
-  },
-  {
-    "id": "q066",
-    "question": "Civics practice question 66?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q066_es",
-    "question": "¿Pregunta de práctica de civismo 66?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
     "lang": "es"
-  },
-  {
-    "id": "q067",
-    "question": "Civics practice question 67?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
-  },
-  {
-    "id": "q067_es",
-    "question": "¿Pregunta de práctica de civismo 67?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
+  },  {
+    "id": "es_q010",
+    "question": "¿Qué significa el estado de derecho?",
+    "answer": "Todos deben obedecer la ley.",
     "category": "Civics",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "lang": "es"
-  },
-  {
-    "id": "q068",
-    "question": "Civics practice question 68?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
+
   {
-    "id": "q068_es",
-    "question": "¿Pregunta de práctica de civismo 68?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q011",
+    "question": "Nombre una rama del gobierno.",
+    "answer": "Legislativa.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
-  },
-  {
-    "id": "q069",
-    "question": "Civics practice question 69?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
   {
-    "id": "q069_es",
-    "question": "¿Pregunta de práctica de civismo 69?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q012",
+    "question": "¿Qué evita que una rama del gobierno sea demasiado poderosa?",
+    "answer": "El sistema de pesos y contrapesos.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
-  },
-  {
-    "id": "q070",
-    "question": "Civics practice question 70?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
   {
-    "id": "q070_es",
-    "question": "¿Pregunta de práctica de civismo 70?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q013",
+    "question": "¿Quién está a cargo del poder ejecutivo?",
+    "answer": "El Presidente.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
-  },
-  {
-    "id": "q071",
-    "question": "Civics practice question 71?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
   {
-    "id": "q071_es",
-    "question": "¿Pregunta de práctica de civismo 71?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q014",
+    "question": "¿Quién crea las leyes federales?",
+    "answer": "El Congreso.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
-  },
-  {
-    "id": "q072",
-    "question": "Civics practice question 72?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
   {
-    "id": "q072_es",
-    "question": "¿Pregunta de práctica de civismo 72?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q015",
+    "question": "¿Cuáles son las dos partes del Congreso?",
+    "answer": "El Senado y la Cámara de Representantes.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
-  },
-  {
-    "id": "q073",
-    "question": "Civics practice question 73?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
   },
   {
-    "id": "q073_es",
-    "question": "¿Pregunta de práctica de civismo 73?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q016",
+    "question": "¿Cuántos senadores hay en Estados Unidos?",
+    "answer": "100.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q074",
-    "question": "Civics practice question 74?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q017",
+    "question": "¿Por cuántos años se elige a un senador?",
+    "answer": "Seis años.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q074_es",
-    "question": "¿Pregunta de práctica de civismo 74?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q018",
+    "question": "¿Cuántos miembros votantes tiene la Cámara de Representantes?",
+    "answer": "435.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q075",
-    "question": "Civics practice question 75?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q019",
+    "question": "¿Por cuántos años se elige a un representante?",
+    "answer": "Dos años.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q075_es",
-    "question": "¿Pregunta de práctica de civismo 75?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q020",
+    "question": "¿A quién representa un senador?",
+    "answer": "A todas las personas del estado.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q076",
-    "question": "Civics practice question 76?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q021",
+    "question": "¿Por qué algunos estados tienen más representantes que otros?",
+    "answer": "Por la población del estado.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q076_es",
-    "question": "¿Pregunta de práctica de civismo 76?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q022",
+    "question": "¿Qué edad deben tener los ciudadanos para votar por el Presidente?",
+    "answer": "18 años o más.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q077",
-    "question": "Civics practice question 77?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q023",
+    "question": "¿Cuál es una responsabilidad exclusiva de los ciudadanos estadounidenses?",
+    "answer": "Votar en una elección federal.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q077_es",
-    "question": "¿Pregunta de práctica de civismo 77?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q024",
+    "question": "¿Cuáles son dos derechos de las personas que viven en Estados Unidos?",
+    "answer": "La libertad de expresión y la libertad de palabra.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q078",
-    "question": "Civics practice question 78?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q025",
+    "question": "¿A qué mostramos lealtad cuando decimos el Juramento a la Bandera?",
+    "answer": "A Estados Unidos.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q078_es",
-    "question": "¿Pregunta de práctica de civismo 78?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q026",
+    "question": "¿Qué promesa hace cuando se convierte en ciudadano estadounidense?",
+    "answer": "Renunciar a la lealtad a otros países.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q079",
-    "question": "Civics practice question 79?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q027",
+    "question": "¿Qué edad deben tener los ciudadanos para votar?",
+    "answer": "18 años.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q079_es",
-    "question": "¿Pregunta de práctica de civismo 79?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q028",
+    "question": "¿Cuáles son dos maneras en que los estadounidenses participan en su democracia?",
+    "answer": "Votar y unirse a un partido político.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q080",
-    "question": "Civics practice question 80?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q029",
+    "question": "¿Cuál es el último día para enviar los formularios federales de impuestos?",
+    "answer": "15 de abril.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q080_es",
-    "question": "¿Pregunta de práctica de civismo 80?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q030",
+    "question": "¿Cuándo deben registrarse los hombres para el Servicio Selectivo?",
+    "answer": "A los 18 años.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
+
   {
-    "id": "q081",
-    "question": "Civics practice question 81?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q031",
+    "question": "¿Cuál es una razón por la que los colonos vinieron a América?",
+    "answer": "La libertad.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q081_es",
-    "question": "¿Pregunta de práctica de civismo 81?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q032",
+    "question": "¿Quiénes vivían en América antes de la llegada de los europeos?",
+    "answer": "Los nativos americanos.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q082",
-    "question": "Civics practice question 82?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q033",
+    "question": "¿Qué grupo de personas fue llevado a América y vendido como esclavo?",
+    "answer": "Los africanos.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q082_es",
-    "question": "¿Pregunta de práctica de civismo 82?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q034",
+    "question": "¿Por qué lucharon los colonos contra los británicos?",
+    "answer": "Por los altos impuestos.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q083",
-    "question": "Civics practice question 83?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q035",
+    "question": "¿Quién escribió la Declaración de Independencia?",
+    "answer": "Thomas Jefferson.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q083_es",
-    "question": "¿Pregunta de práctica de civismo 83?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q036",
+    "question": "¿Cuándo fue adoptada la Declaración de Independencia?",
+    "answer": "4 de julio de 1776.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q084",
-    "question": "Civics practice question 84?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q037",
+    "question": "¿Había 13 estados originales?",
+    "answer": "Sí.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q084_es",
-    "question": "¿Pregunta de práctica de civismo 84?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q038",
+    "question": "¿Qué ocurrió en la Convención Constitucional?",
+    "answer": "Se escribió la Constitución.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q085",
-    "question": "Civics practice question 85?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q039",
+    "question": "¿Cuándo se escribió la Constitución?",
+    "answer": "1787.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q085_es",
-    "question": "¿Pregunta de práctica de civismo 85?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q040",
+    "question": "Nombre a uno de los autores de los Federalist Papers.",
+    "answer": "James Madison.",
+    "category": "History",
+    "difficulty": "hard",
     "lang": "es"
   },
+
   {
-    "id": "q086",
-    "question": "Civics practice question 86?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q041",
+    "question": "¿Por qué es famoso Benjamin Franklin?",
+    "answer": "Fue diplomático estadounidense.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q086_es",
-    "question": "¿Pregunta de práctica de civismo 86?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q042",
+    "question": "¿Quién es el Padre de Nuestro País?",
+    "answer": "George Washington.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q087",
-    "question": "Civics practice question 87?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q043",
+    "question": "¿Quién fue el primer Presidente?",
+    "answer": "George Washington.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q087_es",
-    "question": "¿Pregunta de práctica de civismo 87?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q044",
+    "question": "¿Qué territorio compró Estados Unidos a Francia en 1803?",
+    "answer": "El territorio de Luisiana.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q088",
-    "question": "Civics practice question 88?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q045",
+    "question": "Nombre una guerra peleada por Estados Unidos en los años 1800.",
+    "answer": "La Guerra Civil.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
+
   {
-    "id": "q088_es",
-    "question": "¿Pregunta de práctica de civismo 88?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q046",
+    "question": "¿Qué hizo Abraham Lincoln?",
+    "answer": "Liberó a los esclavos.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q089",
-    "question": "Civics practice question 89?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q047",
+    "question": "¿Qué hizo la Proclamación de Emancipación?",
+    "answer": "Liberó a los esclavos.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q089_es",
-    "question": "¿Pregunta de práctica de civismo 89?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q048",
+    "question": "¿Qué hizo Susan B. Anthony?",
+    "answer": "Luchó por los derechos de las mujeres.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q090",
-    "question": "Civics practice question 90?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q049",
+    "question": "Nombre una guerra peleada por Estados Unidos en los años 1900.",
+    "answer": "La Segunda Guerra Mundial.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q090_es",
-    "question": "¿Pregunta de práctica de civismo 90?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q050",
+    "question": "¿Quién era Presidente durante la Primera Guerra Mundial?",
+    "answer": "Woodrow Wilson.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
+
   {
-    "id": "q091",
-    "question": "Civics practice question 91?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q051",
+    "question": "¿Quién era Presidente durante la Gran Depresión y la Segunda Guerra Mundial?",
+    "answer": "Franklin Roosevelt.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q091_es",
-    "question": "¿Pregunta de práctica de civismo 91?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q052",
+    "question": "¿Contra quién luchó Estados Unidos en la Segunda Guerra Mundial?",
+    "answer": "Japón, Alemania e Italia.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q092",
-    "question": "Civics practice question 92?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q053",
+    "question": "Antes de ser Presidente, Eisenhower fue general. ¿En qué guerra participó?",
+    "answer": "La Segunda Guerra Mundial.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q092_es",
-    "question": "¿Pregunta de práctica de civismo 92?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q054",
+    "question": "Durante la Guerra Fría, ¿cuál era la principal preocupación de Estados Unidos?",
+    "answer": "El comunismo.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q093",
-    "question": "Civics practice question 93?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q055",
+    "question": "¿Qué movimiento intentó terminar con la discriminación racial?",
+    "answer": "El movimiento por los derechos civiles.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q093_es",
-    "question": "¿Pregunta de práctica de civismo 93?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q056",
+    "question": "¿Qué hizo Martin Luther King Jr.?",
+    "answer": "Luchó por los derechos civiles.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q094",
-    "question": "Civics practice question 94?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q057",
+    "question": "¿Qué acontecimiento importante ocurrió el 11 de septiembre de 2001?",
+    "answer": "Terroristas atacaron Estados Unidos.",
+    "category": "History",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q094_es",
-    "question": "¿Pregunta de práctica de civismo 94?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q058",
+    "question": "Nombre una tribu indígena americana en Estados Unidos.",
+    "answer": "Cherokee.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q095",
-    "question": "Civics practice question 95?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q059",
+    "question": "¿Qué océano está en la costa este de Estados Unidos?",
+    "answer": "Océano Atlántico.",
+    "category": "Geography",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q095_es",
-    "question": "¿Pregunta de práctica de civismo 95?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q060",
+    "question": "¿Qué océano está en la costa oeste de Estados Unidos?",
+    "answer": "Océano Pacífico.",
+    "category": "Geography",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q096",
-    "question": "Civics practice question 96?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q061",
+    "question": "Nombre un territorio de Estados Unidos.",
+    "answer": "Puerto Rico.",
+    "category": "Geography",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q096_es",
-    "question": "¿Pregunta de práctica de civismo 96?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q062",
+    "question": "Nombre un estado que limita con Canadá.",
+    "answer": "Nueva York.",
+    "category": "Geography",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q097",
-    "question": "Civics practice question 97?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q063",
+    "question": "Nombre un estado que limita con México.",
+    "answer": "Texas.",
+    "category": "Geography",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q097_es",
-    "question": "¿Pregunta de práctica de civismo 97?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q064",
+    "question": "¿Cuál es la capital de Estados Unidos?",
+    "answer": "Washington, D.C.",
+    "category": "Geography",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q098",
-    "question": "Civics practice question 98?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q065",
+    "question": "¿Dónde está la Estatua de la Libertad?",
+    "answer": "En el puerto de Nueva York.",
+    "category": "Geography",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q098_es",
-    "question": "¿Pregunta de práctica de civismo 98?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q066",
+    "question": "¿Qué representan las estrellas de la bandera?",
+    "answer": "Los estados.",
+    "category": "Symbols",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q099",
-    "question": "Civics practice question 99?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q067",
+    "question": "¿Qué representan las franjas de la bandera?",
+    "answer": "Las 13 colonias originales.",
+    "category": "Symbols",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q099_es",
-    "question": "¿Pregunta de práctica de civismo 99?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q068",
+    "question": "¿Cuál es el himno nacional de Estados Unidos?",
+    "answer": "The Star-Spangled Banner.",
+    "category": "Symbols",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q100",
-    "question": "Civics practice question 100?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q069",
+    "question": "¿Cuándo celebramos el Día de la Independencia?",
+    "answer": "El 4 de julio.",
+    "category": "Symbols",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q100_es",
-    "question": "¿Pregunta de práctica de civismo 100?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q070",
+    "question": "Nombre dos días festivos nacionales de Estados Unidos.",
+    "answer": "Thanksgiving y el Día de la Independencia.",
+    "category": "Symbols",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q101",
-    "question": "Civics practice question 101?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q071",
+    "question": "¿Qué hace el Congreso?",
+    "answer": "Crea leyes.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q101_es",
-    "question": "¿Pregunta de práctica de civismo 101?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q072",
+    "question": "¿Quién veta los proyectos de ley?",
+    "answer": "El Presidente.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q102",
-    "question": "Civics practice question 102?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q073",
+    "question": "¿Qué hace el poder judicial?",
+    "answer": "Interpreta las leyes.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q102_es",
-    "question": "¿Pregunta de práctica de civismo 102?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q074",
+    "question": "¿Cuál es el tribunal más alto de Estados Unidos?",
+    "answer": "La Corte Suprema.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q103",
-    "question": "Civics practice question 103?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q075",
+    "question": "¿Cuántos jueces hay en la Corte Suprema?",
+    "answer": "Nueve.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q103_es",
-    "question": "¿Pregunta de práctica de civismo 103?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q076",
+    "question": "¿Quién firma los proyectos de ley para convertirlos en ley?",
+    "answer": "El Presidente.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q104",
-    "question": "Civics practice question 104?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q077",
+    "question": "¿Quién es el comandante en jefe de las fuerzas armadas?",
+    "answer": "El Presidente.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q104_es",
-    "question": "¿Pregunta de práctica de civismo 104?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q078",
+    "question": "¿Quién se convierte en Presidente si el Presidente y el Vicepresidente ya no pueden servir?",
+    "answer": "El Presidente de la Cámara de Representantes.",
+    "category": "Government",
+    "difficulty": "hard",
     "lang": "es"
   },
   {
-    "id": "q105",
-    "question": "Civics practice question 105?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q079",
+    "question": "¿Quién elige al Presidente de Estados Unidos?",
+    "answer": "El Colegio Electoral.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q105_es",
-    "question": "¿Pregunta de práctica de civismo 105?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q080",
+    "question": "¿Cuánto dura un mandato presidencial?",
+    "answer": "Cuatro años.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q106",
-    "question": "Civics practice question 106?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q081",
+    "question": "¿Qué partido político está asociado con el símbolo del burro?",
+    "answer": "El Partido Demócrata.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q106_es",
-    "question": "¿Pregunta de práctica de civismo 106?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q082",
+    "question": "¿Qué partido político está asociado con el símbolo del elefante?",
+    "answer": "El Partido Republicano.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q107",
-    "question": "Civics practice question 107?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q083",
+    "question": "¿Cuáles son los dos principales partidos políticos en Estados Unidos?",
+    "answer": "Demócrata y Republicano.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q107_es",
-    "question": "¿Pregunta de práctica de civismo 107?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q084",
+    "question": "¿Cuál es un poder del gobierno federal?",
+    "answer": "Imprimir dinero.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q108",
-    "question": "Civics practice question 108?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q085",
+    "question": "¿Cuál es un poder reservado para los estados?",
+    "answer": "Proveer educación.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
+
   {
-    "id": "q108_es",
-    "question": "¿Pregunta de práctica de civismo 108?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q086",
+    "question": "¿Qué es una enmienda?",
+    "answer": "Un cambio a la Constitución.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q109",
-    "question": "Civics practice question 109?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q087",
+    "question": "¿Cuál es una responsabilidad de un ciudadano estadounidense?",
+    "answer": "Servir en un jurado.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q109_es",
-    "question": "¿Pregunta de práctica de civismo 109?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q088",
+    "question": "¿Por qué es importante la bandera para los estadounidenses?",
+    "answer": "Representa a Estados Unidos.",
+    "category": "Symbols",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q110",
-    "question": "Civics practice question 110?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q089",
+    "question": "¿Quién puede votar en elecciones federales?",
+    "answer": "Los ciudadanos estadounidenses.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q110_es",
-    "question": "¿Pregunta de práctica de civismo 110?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q090",
+    "question": "¿Cuál es una razón por la que las personas inmigran a Estados Unidos?",
+    "answer": "Por libertad.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q111",
-    "question": "Civics practice question 111?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q091",
+    "question": "¿Cuál es la capital de Texas?",
+    "answer": "Austin.",
+    "category": "Geography",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q111_es",
-    "question": "¿Pregunta de práctica de civismo 111?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q092",
+    "question": "¿Qué documento comienza con 'We the People'?",
+    "answer": "La Constitución.",
+    "category": "History",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q112",
-    "question": "Civics practice question 112?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q093",
+    "question": "Nombre una rama del gobierno federal.",
+    "answer": "Ejecutiva.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q112_es",
-    "question": "¿Pregunta de práctica de civismo 112?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q094",
+    "question": "¿Qué hace el gabinete del Presidente?",
+    "answer": "Asesora al Presidente.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q113",
-    "question": "Civics practice question 113?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q095",
+    "question": "¿Qué derecho garantiza la Segunda Enmienda?",
+    "answer": "El derecho a portar armas.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
+
   {
-    "id": "q113_es",
-    "question": "¿Pregunta de práctica de civismo 113?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q096",
+    "question": "¿Quién aprueba a los jueces federales?",
+    "answer": "El Senado.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q114",
-    "question": "Civics practice question 114?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q097",
+    "question": "¿Cuál es una función de la Corte Suprema?",
+    "answer": "Resolver disputas sobre la ley.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "es"
   },
   {
-    "id": "q114_es",
-    "question": "¿Pregunta de práctica de civismo 114?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q098",
+    "question": "¿Cuál es el propósito de las elecciones?",
+    "answer": "Elegir líderes.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q115",
-    "question": "Civics practice question 115?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q099",
+    "question": "¿Por qué pagan impuestos los ciudadanos?",
+    "answer": "Para financiar servicios del gobierno.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q115_es",
-    "question": "¿Pregunta de práctica de civismo 115?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q100",
+    "question": "¿Qué libertad garantiza la Primera Enmienda?",
+    "answer": "La libertad de religión.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q116",
-    "question": "Civics practice question 116?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q101",
+    "question": "¿Qué hace el Presidente?",
+    "answer": "Hace cumplir las leyes.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q116_es",
-    "question": "¿Pregunta de práctica de civismo 116?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q102",
+    "question": "¿Cuál es un derecho exclusivo de los ciudadanos estadounidenses?",
+    "answer": "Postularse para un cargo federal.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q117",
-    "question": "Civics practice question 117?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q103",
+    "question": "¿Cuál es el propósito de la Constitución?",
+    "answer": "Definir los poderes del gobierno.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q117_es",
-    "question": "¿Pregunta de práctica de civismo 117?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q104",
+    "question": "¿Por qué es importante votar?",
+    "answer": "Los ciudadanos eligen a sus líderes.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q118",
-    "question": "Civics practice question 118?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q105",
+    "question": "¿Qué significa democracia?",
+    "answer": "Gobierno del pueblo.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
+
   {
-    "id": "q118_es",
-    "question": "¿Pregunta de práctica de civismo 118?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q106",
+    "question": "¿Cuál es un objetivo de la Carta de Derechos?",
+    "answer": "Proteger las libertades individuales.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q119",
-    "question": "Civics practice question 119?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q107",
+    "question": "¿Cuál es el trabajo principal del Congreso?",
+    "answer": "Crear leyes.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q119_es",
-    "question": "¿Pregunta de práctica de civismo 119?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q108",
+    "question": "¿Qué es la revisión judicial?",
+    "answer": "El poder de revisar leyes.",
+    "category": "Government",
+    "difficulty": "hard",
     "lang": "es"
   },
   {
-    "id": "q120",
-    "question": "Civics practice question 120?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q109",
+    "question": "¿Quién se convierte en Presidente si el Presidente renuncia?",
+    "answer": "El Vicepresidente.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q120_es",
-    "question": "¿Pregunta de práctica de civismo 120?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q110",
+    "question": "¿Cuántos años dura el mandato de un senador?",
+    "answer": "Seis.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
+
   {
-    "id": "q121",
-    "question": "Civics practice question 121?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q111",
+    "question": "¿Cuántos años dura el mandato de un representante?",
+    "answer": "Dos.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q121_es",
-    "question": "¿Pregunta de práctica de civismo 121?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q112",
+    "question": "¿Cuál es una responsabilidad del Presidente?",
+    "answer": "Firmar proyectos de ley.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q122",
-    "question": "Civics practice question 122?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q113",
+    "question": "¿Qué establece la Constitución?",
+    "answer": "El gobierno nacional.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q122_es",
-    "question": "¿Pregunta de práctica de civismo 122?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q114",
+    "question": "¿Cuál es un ejemplo de participación cívica?",
+    "answer": "Votar en elecciones.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q123",
-    "question": "Civics practice question 123?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q115",
+    "question": "¿Quién firma tratados con otros países?",
+    "answer": "El Presidente.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
+
   {
-    "id": "q123_es",
-    "question": "¿Pregunta de práctica de civismo 123?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q116",
+    "question": "¿Qué hace el Senado con los tratados?",
+    "answer": "Los aprueba.",
+    "category": "Government",
+    "difficulty": "hard",
     "lang": "es"
   },
   {
-    "id": "q124",
-    "question": "Civics practice question 124?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q117",
+    "question": "¿Cuál es una función de los gobiernos estatales?",
+    "answer": "Proveer seguridad pública.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q124_es",
-    "question": "¿Pregunta de práctica de civismo 124?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q118",
+    "question": "¿Qué es la libertad de prensa?",
+    "answer": "Los medios pueden publicar noticias libremente.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q125",
-    "question": "Civics practice question 125?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q119",
+    "question": "¿Por qué los Padres Fundadores crearon pesos y contrapesos?",
+    "answer": "Para evitar abusos de poder.",
+    "category": "Government",
+    "difficulty": "hard",
+    "lang": "es"
   },
   {
-    "id": "q125_es",
-    "question": "¿Pregunta de práctica de civismo 125?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q120",
+    "question": "¿Qué hace el Vicepresidente?",
+    "answer": "Sirve como presidente del Senado.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
+
   {
-    "id": "q126",
-    "question": "Civics practice question 126?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q121",
+    "question": "¿Qué significa la frase 'We the People'?",
+    "answer": "El gobierno obtiene poder del pueblo.",
+    "category": "History",
+    "difficulty": "medium",
+    "lang": "es"
   },
   {
-    "id": "q126_es",
-    "question": "¿Pregunta de práctica de civismo 126?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
-    "difficulty": "easy",
+    "id": "es_q122",
+    "question": "¿Por qué son importantes las enmiendas?",
+    "answer": "Permiten cambiar la Constitución con el tiempo.",
+    "category": "Government",
+    "difficulty": "medium",
     "lang": "es"
   },
   {
-    "id": "q127",
-    "question": "Civics practice question 127?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q123",
+    "question": "¿Cuál es una característica de un gobierno democrático?",
+    "answer": "Los ciudadanos eligen líderes.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q127_es",
-    "question": "¿Pregunta de práctica de civismo 127?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q124",
+    "question": "¿Cuál es un propósito de pagar impuestos?",
+    "answer": "Apoyar programas públicos.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q128",
-    "question": "Civics practice question 128?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
-    "difficulty": "easy",
-    "lang": "en"
+    "id": "es_q125",
+    "question": "¿Cuál es una responsabilidad de los gobiernos locales?",
+    "answer": "Mantener departamentos de policía y bomberos.",
+    "category": "Government",
+    "difficulty": "medium",
+    "lang": "es"
   },
+
   {
-    "id": "q128_es",
-    "question": "¿Pregunta de práctica de civismo 128?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q126",
+    "question": "¿Por qué es importante la Constitución?",
+    "answer": "Protege los derechos de los ciudadanos.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q129",
-    "question": "Civics practice question 129?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q127",
+    "question": "¿Por qué es importante la libertad de expresión?",
+    "answer": "Las personas pueden expresar sus opiniones.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q129_es",
-    "question": "¿Pregunta de práctica de civismo 129?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q128",
+    "question": "¿Cómo pueden ayudar los ciudadanos a su comunidad?",
+    "answer": "Haciendo voluntariado.",
+    "category": "Government",
     "difficulty": "easy",
     "lang": "es"
   },
   {
-    "id": "q130",
-    "question": "Civics practice question 130?",
-    "answer": "Sample answer for citizenship test practice.",
-    "category": "Civics",
+    "id": "es_q129",
+    "question": "¿Cuál es un beneficio de convertirse en ciudadano estadounidense?",
+    "answer": "El derecho a votar.",
+    "category": "Government",
     "difficulty": "easy",
-    "lang": "en"
+    "lang": "es"
   },
   {
-    "id": "q130_es",
-    "question": "¿Pregunta de práctica de civismo 130?",
-    "answer": "Respuesta de ejemplo para el examen de ciudadanía.",
-    "category": "Civics",
+    "id": "es_q130",
+    "question": "¿Cuál es un valor importante de Estados Unidos?",
+    "answer": "La libertad.",
+    "category": "History",
     "difficulty": "easy",
     "lang": "es"
   }
