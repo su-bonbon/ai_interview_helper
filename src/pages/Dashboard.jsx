@@ -3,20 +3,15 @@ import { useNavigate, useOutletContext, useSearchParams } from "react-router-dom
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
-import { createPolarCheckout } from "../lib/polarCheckout.js";
 
 const copy = {
   en: {
     title: "Welcome back",
     subtitle: "Your interview prep dashboard is ready.",
     loading: "Loading your dashboard...",
-    lockedTitle: "Unlock the interview dashboard",
-    lockedBody:
-      "Activate your subscription to access interview questions, answers, and audio practice.",
-    lockedCta: "Activate subscription",
     unlockedTitle: "Interview dashboard",
     unlockedBody:
-      "You have full access to questions, answers, and guided practice.",
+      "Free access to questions, answers, and guided practice.",
     confidenceLabel: "Confidence",
     practiceLabel: "Practice sessions",
     daysLabel: "Days to interview",
@@ -47,13 +42,9 @@ const copy = {
     title: "Bienvenido de nuevo",
     subtitle: "Tu panel de preparación está listo.",
     loading: "Cargando tu panel...",
-    lockedTitle: "Activa el panel de entrevista",
-    lockedBody:
-      "Activa tu suscripción para acceder a preguntas, respuestas y audio.",
-    lockedCta: "Activar suscripción",
     unlockedTitle: "Panel de entrevista",
     unlockedBody:
-      "Tienes acceso completo a preguntas, respuestas y práctica guiada.",
+      "Acceso gratis a preguntas, respuestas y práctica guiada.",
     confidenceLabel: "Confianza",
     practiceLabel: "Sesiones de práctica",
     daysLabel: "Días para la entrevista",
@@ -88,7 +79,6 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
-  const [isSubscribed, setIsSubscribed] = useState(false);
   const [confidence, setConfidence] = useState(0.72);
   const [practiceCount, setPracticeCount] = useState(12);
   const [daysToInterview, setDaysToInterview] = useState(18);
@@ -96,8 +86,6 @@ export default function Dashboard() {
   const [hardTotal, setHardTotal] = useState(60);
   const [interviewDate, setInterviewDate] = useState("");
   const [showInterviewPrompt, setShowInterviewPrompt] = useState(false);
-  const [checkoutError, setCheckoutError] = useState("");
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
   const today = new Date();
   const parseLocalDate = (value) => {
     if (!value) return null;
@@ -124,7 +112,6 @@ export default function Dashboard() {
     try {
       const snap = await getDoc(doc(db, "users", user.uid));
       const data = snap.exists() ? snap.data() : null;
-      setIsSubscribed(Boolean(data?.isSubscribed));
       if (typeof data?.confidence === "number") {
         setConfidence(Math.min(Math.max(data.confidence, 0), 1));
       }
@@ -161,7 +148,7 @@ export default function Dashboard() {
           );
           setDaysToInterview(Math.max(diff, 0));
         }
-      } else if (data?.isSubscribed) {
+      } else {
         setShowInterviewPrompt(true);
       }
     } catch (err) {
@@ -185,36 +172,10 @@ export default function Dashboard() {
 
   useEffect(() => {
     const status = searchParams.get("checkout");
-    if (status === "success") {
-      const user = auth.currentUser;
-      if (user) {
-        setLoading(true);
-        loadUserData(user).then(() => {
-          setSearchParams({}, { replace: true });
-        });
-      }
+    if (status) {
+      setSearchParams({}, { replace: true });
     }
   }, [searchParams, setSearchParams]);
-
-  const handleCheckout = async () => {
-    setCheckoutError("");
-    setCheckoutLoading(true);
-    try {
-      const user = auth.currentUser;
-      const { url } = await createPolarCheckout({
-        customerEmail: user?.email || undefined,
-        externalCustomerId: user?.uid || undefined,
-      });
-      if (url) window.location.href = url;
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Checkout failed. Please try again.";
-      setCheckoutError(message);
-      console.error(err);
-    } finally {
-      setCheckoutLoading(false);
-    }
-  };
 
   return (
     <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-16">
@@ -227,7 +188,7 @@ export default function Dashboard() {
           <p className="text-slate-600">{t.unlockedBody}</p>
 
           <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr_1fr]">
-            <div className={`rounded-2xl border border-black/5 bg-white/90 p-5 ${!isSubscribed ? "opacity-60" : ""}`}>
+            <div className="rounded-2xl border border-black/5 bg-white/90 p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-slate-700">{t.confidenceLabel}</p>
                 <p className="text-sm font-bold text-slate-800">
@@ -262,10 +223,8 @@ export default function Dashboard() {
             </div>
             <button
               type="button"
-              onClick={() => {
-                if (isSubscribed) setShowInterviewPrompt(true);
-              }}
-              className={`rounded-2xl border border-black/5 bg-white/90 p-5 text-left ${!isSubscribed ? "opacity-60 blur-[0.5px] cursor-default" : "hover:shadow-sm transition"}`}
+              onClick={() => setShowInterviewPrompt(true)}
+              className="rounded-2xl border border-black/5 bg-white/90 p-5 text-left hover:shadow-sm transition"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -392,23 +351,6 @@ export default function Dashboard() {
         {loading ? (
           <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
             <p className="text-slate-600">{t.loading}</p>
-          </div>
-        ) : !isSubscribed ? (
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center">
-            <div className="text-center max-w-sm px-6">
-              <h3 className="text-xl font-bold">{t.lockedTitle}</h3>
-              <p className="text-slate-600 mt-2">{t.lockedBody}</p>
-              <button
-                className="mt-5 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25"
-                onClick={handleCheckout}
-                disabled={checkoutLoading}
-              >
-                {checkoutLoading ? "Starting checkout..." : t.lockedCta}
-              </button>
-              {checkoutError ? (
-                <p className="mt-3 text-xs text-red-600">{checkoutError}</p>
-              ) : null}
-            </div>
           </div>
         ) : showInterviewPrompt ? (
           <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-50">

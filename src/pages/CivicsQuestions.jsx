@@ -3,7 +3,6 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where, limit, doc, getDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../lib/firebase.js";
-import { createPolarCheckout } from "../lib/polarCheckout.js";
 
 const copy = {
   en: {
@@ -32,9 +31,6 @@ const copy = {
     score: "Score",
     timeLabel: "Time",
     loading: "Loading questions...",
-    lockedTitle: "Unlock civics questions",
-    lockedBody: "Activate your subscription to access all civics questions.",
-    lockedCta: "Activate subscription",
     emptyTitle: "No questions found",
     emptyBody: "Upload questions to Firestore to see them here.",
   },
@@ -64,9 +60,6 @@ const copy = {
     score: "Puntaje",
     timeLabel: "Tiempo",
     loading: "Cargando preguntas...",
-    lockedTitle: "Activa las preguntas",
-    lockedBody: "Activa tu suscripción para acceder a todas las preguntas.",
-    lockedCta: "Activar suscripción",
     emptyTitle: "No hay preguntas",
     emptyBody: "Sube preguntas a Firestore para verlas aquí.",
   },
@@ -91,9 +84,6 @@ export default function CivicsQuestions() {
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState("all");
   const [hardSet, setHardSet] = useState(() => new Set());
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
-  const [checkoutError, setCheckoutError] = useState("");
   const [activeTab, setActiveTab] = useState("Flashcards");
   const [testAnswerVisible, setTestAnswerVisible] = useState(false);
   const [testScore, setTestScore] = useState({ correct: 0, incorrect: 0 });
@@ -111,7 +101,6 @@ export default function CivicsQuestions() {
       }
       try {
         const snap = await getDoc(doc(db, "users", user.uid));
-        setIsSubscribed(Boolean(snap.data()?.isSubscribed));
         if (typeof snap.data()?.practiceCount === "number") {
           setPracticeCount(snap.data().practiceCount);
         }
@@ -221,25 +210,6 @@ export default function CivicsQuestions() {
       });
     } catch (err) {
       console.error("Hard questions update error:", err);
-    }
-  };
-
-  const handleCheckout = async () => {
-    setCheckoutError("");
-    setCheckoutLoading(true);
-    try {
-      const user = auth.currentUser;
-      const { url } = await createPolarCheckout({
-        customerEmail: user?.email || undefined,
-        externalCustomerId: user?.uid || undefined,
-      });
-      if (url) window.location.href = url;
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Checkout failed. Please try again.";
-      setCheckoutError(message);
-    } finally {
-      setCheckoutLoading(false);
     }
   };
 
@@ -752,24 +722,6 @@ export default function CivicsQuestions() {
         </aside>
       </div>
 
-      {!loading && !isSubscribed ? (
-        <div className="fixed inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="text-center max-w-sm px-6">
-            <h3 className="text-xl font-bold">{t.lockedTitle}</h3>
-            <p className="text-slate-600 mt-2">{t.lockedBody}</p>
-            <button
-              className="mt-5 h-11 rounded-xl bg-[#0b50da] px-6 text-white font-bold shadow-lg shadow-[#0b50da]/25"
-              onClick={handleCheckout}
-              disabled={checkoutLoading}
-            >
-              {checkoutLoading ? "Starting checkout..." : t.lockedCta}
-            </button>
-            {checkoutError ? (
-              <p className="mt-3 text-xs text-red-600">{checkoutError}</p>
-            ) : null}
-          </div>
-        </div>
-      ) : null}
     </section>
   );
 }

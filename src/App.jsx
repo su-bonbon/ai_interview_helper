@@ -1,13 +1,11 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
-import { createPolarCheckout } from "./lib/polarCheckout.js";
-import { auth } from "./lib/firebase.js";
 import { copy as layoutCopy } from "./components/Layout.jsx";
 import checkoutImage from "./assets/checkout.jpeg";
 
 const copy = {
   en: {
-    heroTag: "Bilingual U.S. citizenship prep · lifetime access",
+    heroTag: "Free bilingual U.S. citizenship prep",
     heroTitle: "U.S. Citizenship",
     heroTitleAccent: "Interview Prep",
     heroBody:
@@ -21,8 +19,8 @@ const copy = {
     stripBody: "Clear steps, consistent practice, and real interview flow.",
     sectionTitle: "What you get",
     sectionBody:
-      "A complete, affordable toolkit for real interviews and real families.",
-    sectionFoot: "Everything above is included in the $4.99 plan.",
+      "A free toolkit for real interviews and real families, supported by ads.",
+    sectionFoot: "All core study tools are free to use.",
     offer1: "100 Civics Questions (easy mode)",
     offer2: "Real interview simulation script",
     offer3: "Yes/No question explanations",
@@ -38,10 +36,10 @@ const copy = {
     trust2Body: "Reviewed by certified immigration consultants.",
     trust3Title: "Community-first",
     trust3Body: "Designed for families navigating USCIS.",
-    priceTitle: "$4.99 lifetime access",
+    priceTitle: "Free access",
     priceBody:
-      "One payment gives you lifetime access to every study module, interview script, checklist, and pronunciation drill—everything is included.",
-    priceCta: "Get full access",
+      "Study civics questions, interview scripts, checklists, and pronunciation drills without a subscription.",
+    priceCta: "Start studying",
     finalTitle: "Ready for interview day?",
     finalBody: "Start with the civics basics, then practice the real flow.",
     finalCta: "Start now",
@@ -55,7 +53,7 @@ const copy = {
     pathStep3Body: "Review checklists, curveballs, and day‑of tips.",
   },
   es: {
-    heroTag: "Preparación bilingüe · acceso de por vida",
+    heroTag: "Preparación bilingüe gratis",
     heroTitle: "Preparación",
     heroTitleAccent: "Ciudadanía EE. UU.",
     heroBody:
@@ -68,8 +66,8 @@ const copy = {
     stripTitle: "Con la confianza de familias ante USCIS",
     stripBody: "Pasos claros, práctica constante y flujo real de entrevista.",
     sectionTitle: "Lo que incluye",
-    sectionBody: "Un kit completo y accesible para entrevistas reales.",
-    sectionFoot: "Todo lo anterior está incluido en el plan de $4.99.",
+    sectionBody: "Un kit gratis para entrevistas reales, sostenido por anuncios.",
+    sectionFoot: "Todas las herramientas principales son gratis.",
     offer1: "100 preguntas cívicas (modo fácil)",
     offer2: "Guion de simulación real",
     offer3: "Explicaciones de preguntas Sí/No",
@@ -85,10 +83,10 @@ const copy = {
     trust2Body: "Revisado por consultores certificados.",
     trust3Title: "Primero la comunidad",
     trust3Body: "Diseñado para familias ante USCIS.",
-    priceTitle: "$4.99 acceso de por vida",
+    priceTitle: "Acceso gratis",
     priceBody:
-      "Un pago te da acceso de por vida a todos los módulos, guiones, listas y audios—todo está incluido.",
-    priceCta: "Acceso completo",
+      "Estudia preguntas cívicas, guiones, listas y pronunciación sin suscripción.",
+    priceCta: "Comenzar a estudiar",
     finalTitle: "¿Listo para el día de entrevista?",
     finalBody: "Empieza con civismo y practica el flujo real.",
     finalCta: "Comenzar ahora",
@@ -119,18 +117,6 @@ export default function App() {
   const t = copy[lang];
   const navCopy = layoutCopy[lang];
   const pageWidth = "mx-auto max-w-screen-2xl px-3 sm:px-4 lg:px-6";
-  const handleCheckout = async () => {
-    const user = auth.currentUser;
-    try {
-      const { url } = await createPolarCheckout({
-        customerEmail: user?.email || undefined,
-        externalCustomerId: user?.uid || undefined,
-      });
-      if (url) window.location.href = url;
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   useEffect(() => {
     const targets = document.querySelectorAll("[data-reveal]");
@@ -293,13 +279,12 @@ export default function App() {
               <p className="text-white/80 leading-relaxed">{t.priceBody}</p>
             </div>
             <div className="mt-8 flex flex-col gap-3 pb-4 sm:pb-0">
-              <button
-                type="button"
-                onClick={handleCheckout}
+              <Link
+                to="/login"
                 className="h-12 rounded-xl bg-white text-[#0b50da] font-bold flex items-center justify-center"
               >
                 {t.priceCta}
-              </button>
+              </Link>
               <Link
                 to="/login"
                 className="h-12 rounded-xl border border-white/40 flex items-center justify-center text-white font-semibold"
@@ -331,11 +316,11 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/10 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
-                Secure checkout
+                Free practice
               </p>
-              <h3 className="mt-2 text-2xl font-black">One payment</h3>
+              <h3 className="mt-2 text-2xl font-black">No subscription</h3>
               <p className="mt-2 text-sm text-white/80">
-                Lifetime access to every interview resource.
+                Open access to the core interview resources.
               </p>
             </div>
           </div>

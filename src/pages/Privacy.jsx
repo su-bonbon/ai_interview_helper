@@ -3,14 +3,14 @@ import { useOutletContext } from "react-router-dom";
 const copy = {
   en: {
     title: "Privacy Policy",
-    updated: "Last updated: March 1, 2025",
+    updated: "Last updated: May 26, 2026",
     intro:
       "We respect your privacy. This policy explains what we collect, how we use it, and the choices you have.",
     sections: [
       {
         title: "Information we collect",
         body:
-          "We collect account information like email, usage data to improve the product, and payment status to manage access.",
+          "We collect account information like email and usage data to provide and improve the product.",
       },
       {
         title: "How we use information",
@@ -20,7 +20,7 @@ const copy = {
       {
         title: "Sharing",
         body:
-          "We do not sell your personal data. We may share data with trusted providers for hosting, payments, and analytics.",
+          "We do not sell your personal data. We may share data with trusted providers for hosting, advertising, and analytics.",
       },
       {
         title: "Your choices",
@@ -31,14 +31,14 @@ const copy = {
   },
   es: {
     title: "Política de privacidad",
-    updated: "Última actualización: 1 de marzo de 2025",
+    updated: "Última actualización: 26 de mayo de 2026",
     intro:
       "Respetamos tu privacidad. Esta política explica qué recopilamos, cómo lo usamos y tus opciones.",
     sections: [
       {
         title: "Información que recopilamos",
         body:
-          "Recopilamos información de cuenta como email, datos de uso y estado de pago para gestionar el acceso.",
+          "Recopilamos información de cuenta como email y datos de uso para ofrecer y mejorar el producto.",
       },
       {
         title: "Cómo usamos la información",
@@ -48,7 +48,7 @@ const copy = {
       {
         title: "Compartir información",
         body:
-          "No vendemos datos personales. Podemos compartir datos con proveedores de hosting, pagos y analítica.",
+          "No vendemos datos personales. Podemos compartir datos con proveedores de hosting, anuncios y analítica.",
       },
       {
         title: "Tus opciones",

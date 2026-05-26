@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 const copy = {
   en: {
     title: "Terms of Service",
-    updated: "Last updated: March 1, 2025",
+    updated: "Last updated: May 26, 2026",
     intro:
       "By using this service, you agree to the terms below. These terms outline your rights and responsibilities.",
     sections: [
@@ -13,9 +13,9 @@ const copy = {
           "You may use the platform for personal interview preparation. Do not misuse the service or attempt unauthorized access.",
       },
       {
-        title: "Payments",
+        title: "Free access",
         body:
-          "Lifetime access is granted after successful payment. All sales are final unless required by law.",
+          "The core study tools are currently provided for free. We may support the service with advertising.",
       },
       {
         title: "Content",
@@ -31,7 +31,7 @@ const copy = {
   },
   es: {
     title: "Términos del servicio",
-    updated: "Última actualización: 1 de marzo de 2025",
+    updated: "Última actualización: 26 de mayo de 2026",
     intro:
       "Al usar este servicio, aceptas los términos a continuación. Estos términos describen tus derechos y responsabilidades.",
     sections: [
@@ -41,9 +41,9 @@ const copy = {
           "Puedes usar la plataforma para preparación personal. No uses el servicio de forma indebida.",
       },
       {
-        title: "Pagos",
+        title: "Acceso gratis",
         body:
-          "El acceso de por vida se otorga tras el pago. Todas las ventas son finales salvo que la ley lo requiera.",
+          "Las herramientas principales de estudio se ofrecen gratis actualmente. Podemos sostener el servicio con anuncios.",
       },
       {
         title: "Contenido",
