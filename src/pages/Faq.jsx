@@ -6,6 +6,7 @@ import qna2 from "../assets/qna2.jpg";
 import qna3 from "../assets/qna3.jpg";
 import qna4 from "../assets/qna4.jpg";
 import qna5 from "../assets/qna5.jpg";
+import qna6 from "../assets/qna6.jpg";
 import qna7 from "../assets/qna7.jpg";
 import qna8 from "../assets/qna8.jpg";
 import qna9 from "../assets/qna9.jpg";
@@ -36,6 +37,7 @@ export default function Faq() {
       "qna3.jpg": qna3,
       "qna4.jpg": qna4,
       "qna5.jpg": qna5,
+      "qna6.jpg": qna6,
       "qna7.jpg": qna7,
       "qna8.jpg": qna8,
       "qna9.jpg": qna9,
@@ -114,22 +116,24 @@ export default function Faq() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-black/5 bg-white p-6 sm:p-8 shadow-sm min-h-[560px] h-full flex flex-col">
+        <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-6 sm:p-8 shadow-sm min-h-[560px] h-full flex flex-col">
+          {activeImage ? (
+            <>
+              <img
+                src={activeImage}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-35"
+                loading="lazy"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-white/55" aria-hidden="true" />
+            </>
+          ) : null}
           {activeItem ? (
-            <div className="flex flex-col gap-4 h-full">
+            <div className="relative z-10 flex h-full flex-col gap-4">
               <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                 Answer
               </p>
-              <div className="overflow-hidden rounded-2xl">
-                {activeImage ? (
-                  <img
-                    src={activeImage}
-                    alt=""
-                    className="h-40 w-full object-cover sm:h-48"
-                    loading="lazy"
-                  />
-                ) : null}
-              </div>
               <div className="flex-1 overflow-y-auto pr-2">
                 <h2 className="text-2xl font-black text-slate-900">
                   {activeItem.q}

@@ -35,8 +35,8 @@ const copy = {
     card4Body: "Common follow‑ups that catch people off guard.",
     card5Title: "Day‑of Checklist",
     card5Body: "What to bring and how to prepare.",
-    card6Title: "Pronunciation Audio",
-    card6Body: "Audio drills for clear answers.",
+    card6Title: "Answer Practice",
+    card6Body: "Simple prompts for clearer interview answers.",
   },
   es: {
     title: "Bienvenido de nuevo",
@@ -68,8 +68,8 @@ const copy = {
     card4Body: "Seguimientos comunes del oficial.",
     card5Title: "Checklist del día",
     card5Body: "Qué llevar y cómo prepararte.",
-    card6Title: "Audio de pronunciación",
-    card6Body: "Ejercicios para responder claro.",
+    card6Title: "Práctica de respuestas",
+    card6Body: "Prompts simples para responder con más claridad.",
   },
 };
 
@@ -340,7 +340,7 @@ export default function Dashboard() {
             </button>
             <button className="group text-left rounded-2xl bg-gradient-to-br from-[#e9f7ff] to-[#f4fbff] p-5 border border-black/5 hover:shadow-md transition">
               <div className="h-11 w-11 rounded-xl bg-[#1b9aaa] text-white flex items-center justify-center">
-                <span className="material-symbols-outlined">graphic_eq</span>
+                <span className="material-symbols-outlined">quiz</span>
               </div>
               <p className="mt-5 text-sm font-semibold text-slate-800">{t.card6Title}</p>
               <p className="text-xs text-slate-600 mt-2">{t.card6Body}</p>

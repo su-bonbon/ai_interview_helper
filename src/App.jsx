@@ -14,7 +14,7 @@ const copy = {
     heroSecondary: "View Study Guides",
     stat1: "100 Civics Questions",
     stat2: "Bilingual Lessons",
-    stat3: "Audio Practice",
+    stat3: "Practice Planner",
     stripTitle: "Trusted by families preparing for USCIS",
     stripBody: "Clear steps, consistent practice, and real interview flow.",
     sectionTitle: "What you get",
@@ -27,7 +27,7 @@ const copy = {
     offer4: "Officer curveball questions",
     offer5: "Interview day checklist",
     offer6: "Fail-safe guide to avoid rejection",
-    offer7: "Audio files for pronunciation",
+    offer7: "Answer practice prompts",
     offer8: "Progress tracking & reminders",
     trustTitle: "Why people trust us",
     trust1Title: "Bilingual Friendly",
@@ -38,7 +38,7 @@ const copy = {
     trust3Body: "Designed for families navigating USCIS.",
     priceTitle: "Free access",
     priceBody:
-      "Study civics questions, interview scripts, checklists, and pronunciation drills without a subscription.",
+      "Study civics questions, interview scripts, checklists, and answer prompts without a subscription.",
     priceCta: "Start studying",
     finalTitle: "Ready for interview day?",
     finalBody: "Start with the civics basics, then practice the real flow.",
@@ -62,7 +62,7 @@ const copy = {
     heroSecondary: "Ver guías de estudio",
     stat1: "100 Preguntas Cívicas",
     stat2: "Lecciones bilingües",
-    stat3: "Práctica de audio",
+    stat3: "Plan de práctica",
     stripTitle: "Con la confianza de familias ante USCIS",
     stripBody: "Pasos claros, práctica constante y flujo real de entrevista.",
     sectionTitle: "Lo que incluye",
@@ -74,7 +74,7 @@ const copy = {
     offer4: "Preguntas trampa frecuentes",
     offer5: "Lista de verificación del día",
     offer6: "Guía para evitar el rechazo",
-    offer7: "Audios para pronunciación",
+    offer7: "Prompts para practicar respuestas",
     offer8: "Seguimiento y recordatorios",
     trustTitle: "Por qué confían en nosotros",
     trust1Title: "Bilingüe",
@@ -85,7 +85,7 @@ const copy = {
     trust3Body: "Diseñado para familias ante USCIS.",
     priceTitle: "Acceso gratis",
     priceBody:
-      "Estudia preguntas cívicas, guiones, listas y pronunciación sin suscripción.",
+      "Estudia preguntas cívicas, guiones, listas y prompts de respuesta sin suscripción.",
     priceCta: "Comenzar a estudiar",
     finalTitle: "¿Listo para el día de entrevista?",
     finalBody: "Empieza con civismo y practica el flujo real.",
@@ -103,12 +103,12 @@ const copy = {
 
 const offerIcons = [
   "menu_book",
-  "record_voice_over",
+  "assignment_turned_in",
   "task_alt",
   "psychology",
   "checklist",
   "verified",
-  "graphic_eq",
+  "quiz",
   "history_edu",
 ];
 
@@ -185,7 +185,7 @@ export default function App() {
               </span>
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-lg text-[#0b50da]">
-                  graphic_eq
+                  event_note
                 </span>
                 {t.stat3}
               </span>
@@ -212,7 +212,7 @@ export default function App() {
               {
                 title: t.pathStep2Title,
                 body: t.pathStep2Body,
-                icon: "record_voice_over",
+                icon: "assignment_turned_in",
                 color: "text-[#00a86b]",
                 bg: "bg-[#00a86b]/10",
               },
@@ -294,7 +294,7 @@ export default function App() {
             </div>
             <div className="mt-auto grid gap-3 rounded-2xl bg-white/10 p-4 text-sm">
               <div className="flex items-center justify-between">
-                <span>Audio drills</span>
+                <span>Answer prompts</span>
                 <span className="font-semibold">Included</span>
               </div>
               <div className="flex items-center justify-between">
