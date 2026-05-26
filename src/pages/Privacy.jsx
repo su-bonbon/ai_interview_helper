@@ -10,7 +10,7 @@ const copy = {
       {
         title: "Information we collect",
         body:
-          "We collect account information like email and usage data to provide and improve the product.",
+          "We collect basic usage data to provide and improve the product. Study preferences such as interview dates or marked questions may be stored locally in your browser.",
       },
       {
         title: "How we use information",
@@ -18,14 +18,19 @@ const copy = {
           "We use data to provide the service, personalize your experience, and keep the platform secure.",
       },
       {
+        title: "Advertising and cookies",
+        body:
+          "We use Google products, including analytics and advertising services, which may use cookies, web beacons, IP addresses, device identifiers, and similar technologies to measure performance and show relevant ads.",
+      },
+      {
         title: "Sharing",
         body:
-          "We do not sell your personal data. We may share data with trusted providers for hosting, advertising, and analytics.",
+          "We do not sell your personal data. We may share limited data with trusted providers for hosting, analytics, advertising, and security.",
       },
       {
         title: "Your choices",
         body:
-          "You can update your account information or request deletion by contacting support.",
+          "You can clear locally saved study data from your browser settings. You can also contact support with privacy questions or deletion requests.",
       },
     ],
   },
@@ -38,7 +43,7 @@ const copy = {
       {
         title: "Información que recopilamos",
         body:
-          "Recopilamos información de cuenta como email y datos de uso para ofrecer y mejorar el producto.",
+          "Recopilamos datos básicos de uso para ofrecer y mejorar el producto. Preferencias como fechas de entrevista o preguntas marcadas pueden guardarse localmente en tu navegador.",
       },
       {
         title: "Cómo usamos la información",
@@ -46,14 +51,19 @@ const copy = {
           "Usamos los datos para ofrecer el servicio, personalizar tu experiencia y mantener la seguridad.",
       },
       {
+        title: "Anuncios y cookies",
+        body:
+          "Usamos productos de Google, incluidos servicios de analítica y publicidad, que pueden utilizar cookies, balizas web, direcciones IP, identificadores de dispositivo y tecnologías similares para medir rendimiento y mostrar anuncios relevantes.",
+      },
+      {
         title: "Compartir información",
         body:
-          "No vendemos datos personales. Podemos compartir datos con proveedores de hosting, anuncios y analítica.",
+          "No vendemos datos personales. Podemos compartir datos limitados con proveedores confiables de hosting, autenticación, analítica, anuncios y seguridad.",
       },
       {
         title: "Tus opciones",
         body:
-          "Puedes actualizar tu información o solicitar eliminación contactando a soporte.",
+          "Puedes borrar los datos de estudio guardados localmente desde la configuración de tu navegador. También puedes contactar a soporte con preguntas de privacidad o solicitudes de eliminación.",
       },
     ],
   },

@@ -1,6 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useEffect } from "react";
-import { copy as layoutCopy } from "./components/Layout.jsx";
 import checkoutImage from "./assets/checkout.jpeg";
 
 const copy = {
@@ -10,9 +9,9 @@ const copy = {
     heroTitleAccent: "Interview Prep",
     heroBody:
       "Focused, bilingual preparation for the U.S. citizenship interview—built for immigrant communities with clarity, confidence, and cultural context.",
-    heroPrimary: "Start Interview Prep",
+    heroPrimary: "Practice Civics Questions",
     heroSecondary: "View Study Guides",
-    stat1: "100 Civics Questions",
+    stat1: "Civics Question Practice",
     stat2: "Bilingual Lessons",
     stat3: "Practice Planner",
     stripTitle: "Trusted by families preparing for USCIS",
@@ -21,7 +20,7 @@ const copy = {
     sectionBody:
       "A free toolkit for real interviews and real families, supported by ads.",
     sectionFoot: "All core study tools are free to use.",
-    offer1: "100 Civics Questions (easy mode)",
+    offer1: "Official-style civics question practice",
     offer2: "Real interview simulation script",
     offer3: "Yes/No question explanations",
     offer4: "Officer curveball questions",
@@ -32,25 +31,38 @@ const copy = {
     trustTitle: "Why people trust us",
     trust1Title: "Bilingual Friendly",
     trust1Body: "Every lesson is offered in English and Spanish.",
-    trust2Title: "Expert Verified",
-    trust2Body: "Reviewed by certified immigration consultants.",
+    trust2Title: "Plain-language guidance",
+    trust2Body: "Built around the interview topics applicants are expected to understand.",
     trust3Title: "Community-first",
     trust3Body: "Designed for families navigating USCIS.",
     priceTitle: "Free access",
     priceBody:
-      "Study civics questions, interview scripts, checklists, and answer prompts without a subscription.",
+      "Study civics questions, interview scripts, checklists, and answer prompts without creating an account.",
     priceCta: "Start studying",
+    planCta: "Open study plan",
     finalTitle: "Ready for interview day?",
     finalBody: "Start with the civics basics, then practice the real flow.",
     finalCta: "Start now",
     pathTitle: "Success path",
     pathBody: "A clear, focused sequence that builds confidence fast.",
     pathStep1Title: "Learn the civics",
-    pathStep1Body: "Master the 100 questions with bilingual explanations.",
+    pathStep1Body: "Build recall with bilingual civics question practice.",
     pathStep2Title: "Practice the real flow",
     pathStep2Body: "Simulate the interview with scripted prompts.",
     pathStep3Title: "Pass with confidence",
     pathStep3Body: "Review checklists, curveballs, and day‑of tips.",
+    guideTitle: "What the citizenship interview usually includes",
+    guideIntro:
+      "The naturalization interview can feel intimidating because it combines conversation, application review, English reading and writing, and civics questions. A steady routine helps applicants know what to expect before interview day.",
+    guide1Title: "Civics questions",
+    guide1Body:
+      "Practice should go beyond memorizing short answers. The goal is to recognize the topic, understand the meaning, and answer clearly even when you feel nervous.",
+    guide2Title: "Reading and writing",
+    guide2Body:
+      "The English test usually uses simple sentences, but pressure can make easy tasks feel harder. Repeated practice with short prompts helps reduce hesitation.",
+    guide3Title: "N-400 review",
+    guide3Body:
+      "Officers may review personal history, travel, work, family, and eligibility questions from the application. Preparing these answers in advance can make the interview feel more predictable.",
   },
   es: {
     heroTag: "Preparación bilingüe gratis",
@@ -58,9 +70,9 @@ const copy = {
     heroTitleAccent: "Ciudadanía EE. UU.",
     heroBody:
       "Preparación bilingüe y enfocada para la entrevista de ciudadanía de EE. UU., pensada para comunidades inmigrantes.",
-    heroPrimary: "Comenzar preparación",
+    heroPrimary: "Practicar civismo",
     heroSecondary: "Ver guías de estudio",
-    stat1: "100 Preguntas Cívicas",
+    stat1: "Práctica de preguntas cívicas",
     stat2: "Lecciones bilingües",
     stat3: "Plan de práctica",
     stripTitle: "Con la confianza de familias ante USCIS",
@@ -68,7 +80,7 @@ const copy = {
     sectionTitle: "Lo que incluye",
     sectionBody: "Un kit gratis para entrevistas reales, sostenido por anuncios.",
     sectionFoot: "Todas las herramientas principales son gratis.",
-    offer1: "100 preguntas cívicas (modo fácil)",
+    offer1: "Práctica de civismo estilo oficial",
     offer2: "Guion de simulación real",
     offer3: "Explicaciones de preguntas Sí/No",
     offer4: "Preguntas trampa frecuentes",
@@ -79,25 +91,38 @@ const copy = {
     trustTitle: "Por qué confían en nosotros",
     trust1Title: "Bilingüe",
     trust1Body: "Todo el contenido en inglés y español.",
-    trust2Title: "Verificado",
-    trust2Body: "Revisado por consultores certificados.",
+    trust2Title: "Guía en lenguaje claro",
+    trust2Body: "Basado en los temas de entrevista que los solicitantes deben entender.",
     trust3Title: "Primero la comunidad",
     trust3Body: "Diseñado para familias ante USCIS.",
     priceTitle: "Acceso gratis",
     priceBody:
-      "Estudia preguntas cívicas, guiones, listas y prompts de respuesta sin suscripción.",
+      "Estudia preguntas cívicas, guiones, listas y prompts de respuesta sin crear una cuenta.",
     priceCta: "Comenzar a estudiar",
+    planCta: "Abrir plan de estudio",
     finalTitle: "¿Listo para el día de entrevista?",
     finalBody: "Empieza con civismo y practica el flujo real.",
     finalCta: "Comenzar ahora",
     pathTitle: "Ruta al éxito",
     pathBody: "Una secuencia clara para ganar confianza rápido.",
     pathStep1Title: "Aprende civismo",
-    pathStep1Body: "Domina las 100 preguntas con explicación bilingüe.",
+    pathStep1Body: "Refuerza memoria con práctica bilingüe de civismo.",
     pathStep2Title: "Practica el flujo real",
     pathStep2Body: "Simula la entrevista con guiones reales.",
     pathStep3Title: "Aprueba con confianza",
     pathStep3Body: "Revisa checklist, trampas y tips del día.",
+    guideTitle: "Qué suele incluir la entrevista de ciudadanía",
+    guideIntro:
+      "La entrevista de naturalización puede sentirse intimidante porque combina conversación, revisión de la solicitud, lectura y escritura en inglés, y preguntas de civismo. Una rutina constante ayuda a saber qué esperar antes del día de la entrevista.",
+    guide1Title: "Preguntas de civismo",
+    guide1Body:
+      "La práctica debe ir más allá de memorizar respuestas cortas. La meta es reconocer el tema, entender el significado y responder con claridad aun con nervios.",
+    guide2Title: "Lectura y escritura",
+    guide2Body:
+      "El examen de inglés suele usar oraciones simples, pero la presión puede hacerlo sentir más difícil. Practicar prompts cortos reduce la duda.",
+    guide3Title: "Revisión del N-400",
+    guide3Body:
+      "El oficial puede revisar historial personal, viajes, trabajo, familia y preguntas de elegibilidad de la solicitud. Preparar estas respuestas hace que la entrevista sea más predecible.",
   },
 };
 
@@ -115,7 +140,6 @@ const offerIcons = [
 export default function App() {
   const { lang } = useOutletContext();
   const t = copy[lang];
-  const navCopy = layoutCopy[lang];
   const pageWidth = "mx-auto max-w-screen-2xl px-3 sm:px-4 lg:px-6";
 
   useEffect(() => {
@@ -158,13 +182,13 @@ export default function App() {
             </p>
             <div className="flex flex-col gap-3 sm:flex-row reveal reveal-4">
               <Link
-                to="/login"
+                to="/civics"
                 className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-6 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25 hover:translate-y-[-1px] transition hover-lift"
               >
                 {t.heroPrimary}
               </Link>
               <Link
-                to="/login"
+                to="/faq"
                 className="inline-flex h-12 items-center justify-center rounded-xl border border-black/10 bg-white px-6 text-base font-bold text-slate-800 hover:border-black/20 transition hover-lift"
               >
                 {t.heroSecondary}
@@ -225,9 +249,7 @@ export default function App() {
               },
             ].map((step, idx) => (
               <div key={step.title} className="relative flex gap-4 items-start w-full">
-                {idx < 2 ? (
-                  <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 lg:block" />
-                ) : null}
+                <div className="absolute right-0 top-6 hidden h-px w-[calc(100%-60px)] bg-slate-200 lg:block" />
                 <div
                   className={`h-12 w-12 min-w-[48px] rounded-2xl ${step.bg} ${step.color} flex items-center justify-center`}
                 >
@@ -280,16 +302,16 @@ export default function App() {
             </div>
             <div className="mt-8 flex flex-col gap-3 pb-4 sm:pb-0">
               <Link
-                to="/login"
+                to="/civics"
                 className="h-12 rounded-xl bg-white text-[#0b50da] font-bold flex items-center justify-center"
               >
                 {t.priceCta}
               </Link>
               <Link
-                to="/login"
+                to="/study-plan"
                 className="h-12 rounded-xl border border-white/40 flex items-center justify-center text-white font-semibold"
               >
-                {navCopy.navLogin}
+                {t.planCta}
               </Link>
             </div>
             <div className="mt-auto grid gap-3 rounded-2xl bg-white/10 p-4 text-sm">
@@ -318,11 +340,37 @@ export default function App() {
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
                 Free practice
               </p>
-              <h3 className="mt-2 text-2xl font-black">No subscription</h3>
+              <h3 className="mt-2 text-2xl font-black">No account needed</h3>
               <p className="mt-2 text-sm text-white/80">
                 Open access to the core interview resources.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12">
+        <div className="rounded-[28px] border border-black/5 bg-white p-8 shadow-sm">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-black">{t.guideTitle}</h2>
+            <p className="mt-3 text-slate-600 leading-relaxed">{t.guideIntro}</p>
+          </div>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {[
+              { title: t.guide1Title, body: t.guide1Body, icon: "menu_book" },
+              { title: t.guide2Title, body: t.guide2Body, icon: "edit_note" },
+              { title: t.guide3Title, body: t.guide3Body, icon: "fact_check" },
+            ].map((item) => (
+              <div key={item.title} className="border-t border-black/5 pt-5">
+                <span className="material-symbols-outlined text-3xl text-[#0b50da]">
+                  {item.icon}
+                </span>
+                <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {item.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -361,7 +409,7 @@ export default function App() {
             <p className="text-slate-600 mt-2">{t.finalBody}</p>
           </div>
           <Link
-            to="/login"
+            to="/civics"
             className="inline-flex h-12 items-center justify-center rounded-xl bg-[#0b50da] px-8 text-white text-base font-bold shadow-lg shadow-[#0b50da]/25 hover-lift"
           >
             {t.finalCta}

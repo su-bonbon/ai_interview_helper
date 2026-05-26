@@ -1,36 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo1.png";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../lib/firebase.js";
 
 export const copy = {
   en: {
     navTitle: "Citizenship Success",
     navToggle: "Español",
-    navLogin: "Login",
-    navLogout: "Sign out",
-    navDashboard: "Dashboard",
+    navCivics: "Civics",
+    navStudyPlan: "Study Plan",
     navFaq: "FAQ",
+    navAbout: "About",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacy",
     footerTerms: "Terms",
     footerContact: "Contact",
     footerFaq: "FAQ",
+    footerAbout: "About",
     footerNote: "© 2024 Citizenship Success. Helping families bridge borders.",
   },
   es: {
     navTitle: "Citizenship Success",
     navToggle: "English",
-    navLogin: "Login",
-    navLogout: "Cerrar sesión",
-    navDashboard: "Panel",
+    navCivics: "Civismo",
+    navStudyPlan: "Plan",
     navFaq: "FAQ",
+    navAbout: "Acerca de",
     footerTitle: "Citizenship Success",
     footerPrivacy: "Privacidad",
     footerTerms: "Términos",
     footerContact: "Contacto",
     footerFaq: "Preguntas",
+    footerAbout: "Acerca de",
     footerNote: "© 2024 Citizenship Success. Apoyando a las familias.",
   },
 };
@@ -39,14 +39,6 @@ export default function Layout() {
   const [lang, setLang] = useState("en");
   const t = copy[lang];
   const isEnglish = lang === "en";
-  const [isAuthed, setIsAuthed] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsAuthed(Boolean(user));
-    });
-    return () => unsubscribe();
-  }, []);
 
   return (
     <div className="bg-[#f6f4f0] text-slate-900 font-display">
@@ -63,38 +55,29 @@ export default function Layout() {
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold ml-auto">
               <Link
+                to="/civics"
+                className="text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navCivics}
+              </Link>
+              <Link
+                to="/study-plan"
+                className="text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navStudyPlan}
+              </Link>
+              <Link
                 to="/faq"
                 className="text-slate-600 hover:text-[#0b50da] transition-colors"
               >
                 {t.navFaq}
               </Link>
-              {isAuthed ? (
-                <Link
-                  to="/dashboard"
-                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
-                >
-                  {t.navDashboard}
-                </Link>
-              ) : null}
-              {isAuthed ? (
-                <button
-                  type="button"
-                  onClick={async () => {
-                    await signOut(auth);
-                    window.location.href = "/";
-                  }}
-                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
-                >
-                  {t.navLogout}
-                </button>
-              ) : (
-                <Link
-                  to="/login"
-                  className="text-slate-600 hover:text-[#0b50da] transition-colors"
-                >
-                  {t.navLogin}
-                </Link>
-              )}
+              <Link
+                to="/about"
+                className="hidden sm:inline text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navAbout}
+              </Link>
               <button
                 type="button"
                 onClick={() => setLang(isEnglish ? "es" : "en")}
@@ -128,6 +111,9 @@ export default function Layout() {
               </Link>
               <Link to="/faq" className="hover:text-[#0b50da] transition-colors">
                 {t.footerFaq}
+              </Link>
+              <Link to="/about" className="hover:text-[#0b50da] transition-colors">
+                {t.footerAbout}
               </Link>
               <Link to="/contact" className="hover:text-[#0b50da] transition-colors">
                 {t.footerContact}

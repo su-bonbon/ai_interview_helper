@@ -7,7 +7,10 @@ const copy = {
     emailLabel: "Email",
     email: "support@citizenshipsuccess.com",
     note:
-      "For account or billing questions, include the email you used to sign up.",
+      "For privacy, accessibility, or content questions, include enough detail for us to understand the issue.",
+    extraTitle: "What we can help with",
+    extra:
+      "You can contact us about study content, accessibility issues, privacy requests, or corrections to educational material. We do not provide legal advice, but we welcome feedback that makes the study experience clearer and more useful.",
   },
   es: {
     title: "Contacto",
@@ -15,7 +18,10 @@ const copy = {
     emailLabel: "Correo",
     email: "support@citizenshipsuccess.com",
     note:
-      "Para consultas de cuenta o pagos, incluye el email con el que te registraste.",
+      "Para consultas de privacidad, accesibilidad o contenido, incluye suficiente detalle para entender el problema.",
+    extraTitle: "Cómo podemos ayudar",
+    extra:
+      "Puedes contactarnos sobre contenido de estudio, problemas de accesibilidad, solicitudes de privacidad o correcciones al material educativo. No ofrecemos asesoría legal, pero agradecemos comentarios que hagan la experiencia de estudio más clara y útil.",
   },
 };
 
@@ -35,6 +41,10 @@ export default function Contact() {
             {t.email}
           </p>
           <p className="mt-4 text-sm text-slate-500">{t.note}</p>
+        </div>
+        <div className="mt-5 rounded-2xl border border-black/5 bg-white p-6">
+          <h2 className="text-lg font-bold">{t.extraTitle}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">{t.extra}</p>
         </div>
       </div>
     </section>

@@ -20,12 +20,12 @@ const copy = {
       {
         title: "Content",
         body:
-          "All content is provided for educational purposes and should not be considered legal advice.",
+          "All content is provided for educational purposes and should not be considered legal advice. We are not affiliated with USCIS or any government agency.",
       },
       {
         title: "Account",
         body:
-          "You are responsible for maintaining the confidentiality of your account credentials.",
+          "Some study preferences may be saved in your browser. You are responsible for clearing local browser data if you use a shared device.",
       },
     ],
   },
@@ -48,12 +48,12 @@ const copy = {
       {
         title: "Contenido",
         body:
-          "El contenido es educativo y no constituye asesoría legal.",
+          "El contenido es educativo y no constituye asesoría legal. No estamos afiliados con USCIS ni con ninguna agencia gubernamental.",
       },
       {
-        title: "Cuenta",
+        title: "Datos locales",
         body:
-          "Eres responsable de mantener la confidencialidad de tus credenciales.",
+          "Algunas preferencias de estudio pueden guardarse en tu navegador. Eres responsable de borrar los datos locales si usas un dispositivo compartido.",
       },
     ],
   },

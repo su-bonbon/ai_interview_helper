@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { collection, getDocs, query, where, limit, doc, getDoc, updateDoc } from "firebase/firestore";
-import { auth, db } from "../lib/firebase.js";
+import { useOutletContext } from "react-router-dom";
+import { collection, getDocs, query, where, limit } from "firebase/firestore";
+import { db } from "../lib/firebase.js";
+import localQuestionData from "../assets/citizenship_questions_260.json";
 
 const copy = {
   en: {
@@ -73,41 +73,47 @@ const normalizeDifficulty = (value) => {
   return "easy";
 };
 
+const getLocalQuestions = (lang) =>
+  localQuestionData
+    .filter((item) => item.lang === lang)
+    .map(({ id, ...item }) => ({ id, ...item }));
+
+const hardKey = "citizenship-success-hard-questions";
+const practiceKey = "citizenship-success-practice-count";
+
 export default function CivicsQuestions() {
   const { lang } = useOutletContext();
   const t = copy[lang];
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [search, setSearch] = useState("");
   const [difficulty, setDifficulty] = useState("all");
-  const [hardSet, setHardSet] = useState(() => new Set());
+  const [hardSet, setHardSet] = useState(() => {
+    try {
+      return new Set(JSON.parse(window.localStorage.getItem(hardKey) || "[]"));
+    } catch {
+      return new Set();
+    }
+  });
   const [activeTab, setActiveTab] = useState("Flashcards");
   const [testAnswerVisible, setTestAnswerVisible] = useState(false);
   const [testScore, setTestScore] = useState({ correct: 0, incorrect: 0 });
-  const [practiceCount, setPracticeCount] = useState(0);
+  const [practiceCount, setPracticeCount] = useState(() =>
+    Number(window.localStorage.getItem(practiceKey) || 0)
+  );
   const [testQuestions, setTestQuestions] = useState([]);
   const [testIndex, setTestIndex] = useState(0);
   const [testShowAnswer, setTestShowAnswer] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        navigate("/login");
-        return;
-      }
-      try {
-        const snap = await getDoc(doc(db, "users", user.uid));
-        if (typeof snap.data()?.practiceCount === "number") {
-          setPracticeCount(snap.data().practiceCount);
-        }
-      } catch (err) {
-        console.error("User load error:", err);
-      }
+    const localQuestions = getLocalQuestions(lang);
+    setQuestions(localQuestions);
+    setLoading(true);
 
+    const loadQuestions = async () => {
       try {
         const base = collection(db, "questions");
         const langQuery = query(base, where("lang", "==", lang), limit(200));
@@ -125,25 +131,17 @@ export default function CivicsQuestions() {
           }));
         }
 
-        setQuestions(items);
+        setQuestions(items.length ? items : localQuestions);
       } catch (err) {
         console.error("Question load error:", err);
+        setQuestions(localQuestions);
       } finally {
         setLoading(false);
       }
-    });
+    };
 
-    return () => unsubscribe();
-  }, [lang, navigate]);
-
-  useEffect(() => {
-    const user = auth.currentUser;
-    if (!user || !questions.length) return;
-    const hardQuestionsTotal = questions.length;
-    updateDoc(doc(db, "users", user.uid), { hardQuestionsTotal }).catch((err) => {
-      console.error("Hard total update error:", err);
-    });
-  }, [questions.length]);
+    loadQuestions();
+  }, [lang]);
 
   const filteredQuestions = useMemo(() => {
     return questions.filter((item) => {
@@ -198,24 +196,10 @@ export default function CivicsQuestions() {
       next.add(currentQuestion.id);
     }
     setHardSet(next);
-
-    const user = auth.currentUser;
-    if (!user) return;
-    const hardQuestionsChecked = next.size;
-    const hardQuestionsTotal = filteredQuestions.length;
-    try {
-      await updateDoc(doc(db, "users", user.uid), {
-        hardQuestionsChecked,
-        hardQuestionsTotal,
-      });
-    } catch (err) {
-      console.error("Hard questions update error:", err);
-    }
+    window.localStorage.setItem(hardKey, JSON.stringify([...next]));
   };
 
   const updateConfidence = async ({ correctDelta, incorrectDelta }) => {
-    const user = auth.currentUser;
-    if (!user) return;
     const nextCorrect = testScore.correct + correctDelta;
     const nextIncorrect = testScore.incorrect + incorrectDelta;
     const total = nextCorrect + nextIncorrect;
@@ -225,15 +209,11 @@ export default function CivicsQuestions() {
     const confidence = (correctRate * 0.7) + (practiceConsistency * 0.3);
 
     setPracticeCount(nextPracticeCount);
-
-    try {
-      await updateDoc(doc(db, "users", user.uid), {
-        practiceCount: nextPracticeCount,
-        confidence,
-      });
-    } catch (err) {
-      console.error("Confidence update error:", err);
-    }
+    window.localStorage.setItem(practiceKey, String(nextPracticeCount));
+    window.localStorage.setItem(
+      "citizenship-success-confidence",
+      String(confidence)
+    );
   };
 
   useEffect(() => {
