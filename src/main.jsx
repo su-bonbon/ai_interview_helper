@@ -9,6 +9,8 @@ import Contact from "./pages/Contact.jsx";
 import Faq from "./pages/Faq.jsx";
 import About from "./pages/About.jsx";
 import StudyPlan from "./pages/StudyPlan.jsx";
+import Guides from "./pages/Guides.jsx";
+import GuideArticle from "./pages/GuideArticle.jsx";
 import Layout from "./components/Layout.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
@@ -22,6 +24,8 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/civics" element={<CivicsQuestions />} />
           <Route path="/study-plan" element={<StudyPlan />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/guides/:slug" element={<GuideArticle />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/contact" element={<Contact />} />

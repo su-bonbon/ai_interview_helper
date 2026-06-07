@@ -8,6 +8,7 @@ export const copy = {
     navToggle: "Español",
     navCivics: "Civics",
     navStudyPlan: "Study Plan",
+    navGuides: "Guides",
     navFaq: "FAQ",
     navAbout: "About",
     footerTitle: "Citizenship Success",
@@ -16,6 +17,7 @@ export const copy = {
     footerContact: "Contact",
     footerFaq: "FAQ",
     footerAbout: "About",
+    footerGuides: "Guides",
     footerNote: "© 2024 Citizenship Success. Helping families bridge borders.",
   },
   es: {
@@ -23,6 +25,7 @@ export const copy = {
     navToggle: "English",
     navCivics: "Civismo",
     navStudyPlan: "Plan",
+    navGuides: "Guías",
     navFaq: "FAQ",
     navAbout: "Acerca de",
     footerTitle: "Citizenship Success",
@@ -31,6 +34,7 @@ export const copy = {
     footerContact: "Contacto",
     footerFaq: "Preguntas",
     footerAbout: "Acerca de",
+    footerGuides: "Guías",
     footerNote: "© 2024 Citizenship Success. Apoyando a las familias.",
   },
 };
@@ -41,17 +45,15 @@ export default function Layout() {
   const isEnglish = lang === "en";
 
   return (
-    <div className="bg-[#f6f4f0] text-slate-900 font-display">
+    <div className="bg-[#f3f6f8] text-slate-950 font-display">
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 hero-noise pointer-events-none" />
-        <div className="absolute -top-40 -right-24 h-72 w-72 rounded-full bg-[#c61f1f]/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-20 h-72 w-72 rounded-full bg-[#1f7a3e]/10 blur-3xl pointer-events-none" />
 
-        <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#f6f4f0]/80 backdrop-blur">
+        <nav className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-screen-2xl items-center gap-4 px-3 sm:px-6 lg:px-10 py-4">
             <Link to="/" className="flex items-center gap-3">
               <img src={logo} alt="Citizenship Success" className="h-10 w-10 sm:h-12 sm:w-12" />
-              <h2 className="text-base sm:text-lg font-bold tracking-tight">{t.navTitle}</h2>
+              <h2 className="text-base sm:text-lg font-black tracking-tight">{t.navTitle}</h2>
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold ml-auto">
               <Link
@@ -65,6 +67,12 @@ export default function Layout() {
                 className="text-slate-600 hover:text-[#0b50da] transition-colors"
               >
                 {t.navStudyPlan}
+              </Link>
+              <Link
+                to="/guides"
+                className="text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navGuides}
               </Link>
               <Link
                 to="/faq"
@@ -111,6 +119,9 @@ export default function Layout() {
               </Link>
               <Link to="/faq" className="hover:text-[#0b50da] transition-colors">
                 {t.footerFaq}
+              </Link>
+              <Link to="/guides" className="hover:text-[#0b50da] transition-colors">
+                {t.footerGuides}
               </Link>
               <Link to="/about" className="hover:text-[#0b50da] transition-colors">
                 {t.footerAbout}

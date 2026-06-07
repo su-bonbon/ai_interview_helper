@@ -16,6 +16,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://usinterviewprep.com/guides</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usinterviewprep.com/guides/civics-test</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usinterviewprep.com/guides/reading-writing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usinterviewprep.com/guides/n400-review</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usinterviewprep.com/guides/interview-day</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://usinterviewprep.com/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
