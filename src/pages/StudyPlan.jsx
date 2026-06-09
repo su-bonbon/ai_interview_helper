@@ -19,6 +19,45 @@ const copy = {
     dateSaved: "Interview date saved.",
     dateCleared: "Interview date cleared.",
     chooseDate: "Choose a date first.",
+    yesNoTitle: "Yes/No interview prep",
+    yesNoSubtitle:
+      "Practice the N-400 eligibility questions with calm, truthful answers.",
+    yesNoIntro:
+      "These questions can feel stressful because some use formal words and some may need a short explanation. The goal is not to memorize a speech. The goal is to understand your own application, answer honestly, and know what documents or details you may need.",
+    yesNoRuleTitle: "Simple answer rule",
+    yesNoRule:
+      "Answer yes or no first. If the truthful answer needs context, add one short sentence and offer documentation when relevant.",
+    yesNoWarning:
+      "This is educational practice, not legal advice. If your truthful answer involves criminal history, immigration problems, unpaid taxes, or anything you are unsure about, speak with a qualified immigration attorney before the interview.",
+    yesNoFocusTitle: "Focus areas",
+    yesNoPromptsTitle: "Practice prompts",
+    openSection: "Open section",
+    hideSection: "Hide section",
+    yesNoFocus: [
+      {
+        title: "Understand the wording",
+        body: "Slow down when words sound formal. Ask the officer to repeat or explain if you do not understand.",
+        icon: "record_voice_over",
+      },
+      {
+        title: "Prepare short explanations",
+        body: "If your answer is yes, practice a clear one-sentence explanation instead of a long story.",
+        icon: "short_text",
+      },
+      {
+        title: "Bring proof when needed",
+        body: "Taxes, citations, travel, or court-related answers are easier when your documents are organized.",
+        icon: "folder_open",
+      },
+    ],
+    yesNoPrompts: [
+      "Have you ever claimed to be a U.S. citizen?",
+      "Have you ever voted in a U.S. election?",
+      "Have you ever failed to file required taxes?",
+      "Have you ever been cited, arrested, charged, or convicted?",
+      "Have you ever given false information to a government official?",
+      "Are you willing to take the Oath of Allegiance?",
+    ],
     cards: [
       {
         title: "Civics Questions",
@@ -36,7 +75,7 @@ const copy = {
         title: "Yes/No Questions",
         body: "Prepare for eligibility questions that can feel confusing under pressure.",
         icon: "help",
-        href: "/faq",
+        href: "/study-plan#yes-no-practice",
       },
       {
         title: "Officer Follow-ups",
@@ -75,6 +114,45 @@ const copy = {
     dateSaved: "Fecha de entrevista guardada.",
     dateCleared: "Fecha de entrevista borrada.",
     chooseDate: "Elige una fecha primero.",
+    yesNoTitle: "Preparación de preguntas Sí/No",
+    yesNoSubtitle:
+      "Practica las preguntas de elegibilidad del N-400 con respuestas calmadas y honestas.",
+    yesNoIntro:
+      "Estas preguntas pueden sentirse estresantes porque algunas usan palabras formales y otras pueden necesitar una explicación breve. La meta no es memorizar un discurso. La meta es entender tu propia solicitud, responder con honestidad y saber qué documentos o detalles podrías necesitar.",
+    yesNoRuleTitle: "Regla simple para responder",
+    yesNoRule:
+      "Responde sí o no primero. Si tu respuesta verdadera necesita contexto, agrega una frase corta y ofrece documentos cuando sea relevante.",
+    yesNoWarning:
+      "Esta es práctica educativa, no asesoría legal. Si tu respuesta verdadera incluye historial criminal, problemas migratorios, impuestos pendientes o algo que no entiendes bien, habla con un abogado de inmigración calificado antes de la entrevista.",
+    yesNoFocusTitle: "Áreas de enfoque",
+    yesNoPromptsTitle: "Prompts de práctica",
+    openSection: "Abrir sección",
+    hideSection: "Ocultar sección",
+    yesNoFocus: [
+      {
+        title: "Entiende las palabras",
+        body: "Ve despacio cuando una palabra suene formal. Pide al oficial que repita o explique si no entiendes.",
+        icon: "record_voice_over",
+      },
+      {
+        title: "Prepara explicaciones cortas",
+        body: "Si tu respuesta es sí, practica una explicación clara de una frase en vez de una historia larga.",
+        icon: "short_text",
+      },
+      {
+        title: "Lleva pruebas si hace falta",
+        body: "Impuestos, citaciones, viajes o asuntos de corte son más fáciles cuando tus documentos están organizados.",
+        icon: "folder_open",
+      },
+    ],
+    yesNoPrompts: [
+      "¿Alguna vez dijiste ser ciudadano estadounidense?",
+      "¿Alguna vez votaste en una elección de Estados Unidos?",
+      "¿Alguna vez no presentaste impuestos requeridos?",
+      "¿Alguna vez recibiste una citación, arresto, cargo o condena?",
+      "¿Alguna vez diste información falsa a un oficial del gobierno?",
+      "¿Estás dispuesto a tomar el Juramento de Lealtad?",
+    ],
     cards: [
       {
         title: "Preguntas de civismo",
@@ -92,7 +170,7 @@ const copy = {
         title: "Preguntas Sí/No",
         body: "Prepárate para preguntas de elegibilidad que pueden confundir bajo presión.",
         icon: "help",
-        href: "/faq",
+        href: "/study-plan#yes-no-practice",
       },
       {
         title: "Seguimientos del oficial",
@@ -124,6 +202,7 @@ export default function StudyPlan() {
   const [interviewDate, setInterviewDate] = useState("");
   const [savedDate, setSavedDate] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
+  const [isYesNoOpen, setIsYesNoOpen] = useState(false);
 
   useEffect(() => {
     const storedDate = window.localStorage.getItem(storageKey) || "";
@@ -156,6 +235,22 @@ export default function StudyPlan() {
     setInterviewDate("");
     setSavedDate("");
     setStatusMessage(t.dateCleared);
+  };
+
+  const toggleYesNoSection = () => {
+    setIsYesNoOpen((current) => {
+      const next = !current;
+
+      if (next) {
+        window.setTimeout(() => {
+          document
+            .getElementById("yes-no-practice")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 0);
+      }
+
+      return next;
+    });
   };
 
   return (
@@ -231,21 +326,138 @@ export default function StudyPlan() {
       <div className="mt-10">
         <h2 className="text-2xl font-black">{t.cardsTitle}</h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {t.cards.map((card) => (
-            <Link
-              key={card.title}
-              to={card.href}
-              className="group rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div className="h-11 w-11 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
-                <span className="material-symbols-outlined">{card.icon}</span>
-              </div>
-              <h3 className="mt-5 text-lg font-bold text-slate-900">{card.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.body}</p>
-            </Link>
-          ))}
+          {t.cards.map((card) => {
+            const isYesNoCard = card.href === "/study-plan#yes-no-practice";
+            const cardContent = (
+              <>
+                <div className="h-11 w-11 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
+                  <span className="material-symbols-outlined">{card.icon}</span>
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-slate-900">
+                  {card.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {card.body}
+                </p>
+                {isYesNoCard && (
+                  <div className="mt-4 flex items-center gap-2 text-sm font-black text-[#0b50da]">
+                    <span>{isYesNoOpen ? t.hideSection : t.openSection}</span>
+                    <span className="material-symbols-outlined text-lg">
+                      {isYesNoOpen ? "expand_less" : "expand_more"}
+                    </span>
+                  </div>
+                )}
+              </>
+            );
+
+            if (isYesNoCard) {
+              return (
+                <button
+                  key={card.title}
+                  type="button"
+                  onClick={toggleYesNoSection}
+                  className="group rounded-2xl border border-black/5 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  aria-expanded={isYesNoOpen}
+                  aria-controls="yes-no-practice"
+                >
+                  {cardContent}
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={card.title}
+                to={card.href}
+                className="group rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                {cardContent}
+              </Link>
+            );
+          })}
         </div>
       </div>
+
+      {isYesNoOpen && (
+        <section
+          id="yes-no-practice"
+          className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+        >
+          <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="bg-[#0f2f2a] p-6 text-white sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#9fc5ff]">
+                N-400
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight">
+                {t.yesNoTitle}
+              </h2>
+              <p className="mt-3 text-base font-semibold leading-relaxed text-white/85">
+                {t.yesNoSubtitle}
+              </p>
+              <p className="mt-5 text-sm leading-relaxed text-white/75">
+                {t.yesNoIntro}
+              </p>
+              <div className="mt-6 rounded-2xl border border-white/15 bg-white/10 p-5">
+                <p className="text-sm font-black text-white">{t.yesNoRuleTitle}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">
+                  {t.yesNoRule}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <h3 className="text-xl font-black text-slate-950">
+                {t.yesNoFocusTitle}
+              </h3>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {t.yesNoFocus.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-4"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b50da]/10 text-[#0b50da]">
+                      <span className="material-symbols-outlined text-xl">
+                        {item.icon}
+                      </span>
+                    </div>
+                    <h4 className="mt-4 text-base font-black text-slate-950">
+                      {item.title}
+                    </h4>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-[#f4f8ef] p-5">
+                <h3 className="text-xl font-black text-slate-950">
+                  {t.yesNoPromptsTitle}
+                </h3>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {t.yesNoPrompts.map((prompt, index) => (
+                    <div
+                      key={prompt}
+                      className="flex gap-3 rounded-xl bg-white p-4"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1f7a3e] text-xs font-black text-white">
+                        {index + 1}
+                      </span>
+                      <p className="text-sm font-semibold leading-relaxed text-slate-700">
+                        {prompt}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <p className="mt-4 text-xs font-semibold leading-relaxed text-slate-500">
+                {t.yesNoWarning}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
     </section>
   );
 }
