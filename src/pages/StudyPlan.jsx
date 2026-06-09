@@ -35,6 +35,65 @@ const copy = {
     commonQuestionsTitle: "Common N-400 interview questions",
     commonQuestionsBody:
       "Use these examples to practice clear answers before interview day. Some questions are simple personal review questions, and some are eligibility or oath questions that may require extra care.",
+    followupsTitle: "Officer follow-up practice",
+    followupsSubtitle:
+      "Practice short, steady answers when the officer asks for one more detail.",
+    followupsIntro:
+      "Follow-up questions are not always a bad sign. Officers may be checking dates, consistency, documents, or whether you understood the first question. The goal is to stay calm, answer directly, and avoid guessing.",
+    followupsFormulaTitle: "Calm answer formula",
+    sampleAnswerLabel: "Sample calm answer",
+    followupsFormula: [
+      "Pause for one breath",
+      "Answer the question directly",
+      "Add one short detail",
+      "Offer a document if it matters",
+    ],
+    followupsWarning:
+      "If a follow-up is about arrests, immigration violations, false claims to citizenship, serious tax issues, or anything you do not understand, prepare with qualified legal help.",
+    followupCategories: [
+      {
+        icon: "flight_takeoff",
+        title: "Travel",
+        question: "Why were you outside the U.S. for that long?",
+        answer:
+          "I visited family. I returned before six months and kept my home and ties in the United States.",
+      },
+      {
+        icon: "home_pin",
+        title: "Address changes",
+        question: "When exactly did you move?",
+        answer:
+          "I moved in March 2023. My current address is the one listed on my application update.",
+      },
+      {
+        icon: "work",
+        title: "Work history",
+        question: "Why did you leave that job?",
+        answer:
+          "I left for a better schedule. My next job started shortly after, and I can explain the dates.",
+      },
+      {
+        icon: "receipt_long",
+        title: "Taxes",
+        question: "Do you have a payment plan?",
+        answer:
+          "Yes. I filed my taxes and have an installment agreement. I brought proof of the plan and payments.",
+      },
+      {
+        icon: "confirmation_number",
+        title: "Citations",
+        question: "What happened with that ticket?",
+        answer:
+          "It was a speeding ticket. I paid it, and I brought the record in case you need to see it.",
+      },
+      {
+        icon: "edit_document",
+        title: "N-400 corrections",
+        question: "Why was this not listed before?",
+        answer:
+          "I misunderstood the question when I filed. I want to correct it now and answer accurately.",
+      },
+    ],
     fieldOfficeEyebrow: "Anonymous interview story",
     fieldOfficeTitle: "What a real N-400 interview can feel like",
     fieldOfficeBody:
@@ -204,7 +263,7 @@ const copy = {
         title: "Officer Follow-ups",
         body: "Practice staying calm when an officer asks a question in a new way.",
         icon: "psychology",
-        href: "/faq",
+        href: "/study-plan#officer-followups",
       },
       {
         title: "Interview Day Checklist",
@@ -252,6 +311,65 @@ const copy = {
     commonQuestionsTitle: "Preguntas comunes de entrevista N-400",
     commonQuestionsBody:
       "Usa estos ejemplos para practicar respuestas claras antes del día de entrevista. Algunas preguntas revisan información personal, y otras son de elegibilidad o juramento y pueden requerir más cuidado.",
+    followupsTitle: "Práctica de seguimientos del oficial",
+    followupsSubtitle:
+      "Practica respuestas cortas y tranquilas cuando el oficial pide un detalle más.",
+    followupsIntro:
+      "Las preguntas de seguimiento no siempre son una mala señal. El oficial puede estar revisando fechas, consistencia, documentos o si entendiste la primera pregunta. La meta es mantener la calma, responder directo y no adivinar.",
+    followupsFormulaTitle: "Fórmula para responder con calma",
+    sampleAnswerLabel: "Ejemplo de respuesta tranquila",
+    followupsFormula: [
+      "Pausa y respira una vez",
+      "Responde la pregunta directamente",
+      "Agrega un detalle corto",
+      "Ofrece un documento si importa",
+    ],
+    followupsWarning:
+      "Si el seguimiento trata de arrestos, violaciones migratorias, reclamos falsos de ciudadanía, impuestos serios o algo que no entiendes, prepárate con ayuda legal calificada.",
+    followupCategories: [
+      {
+        icon: "flight_takeoff",
+        title: "Viajes",
+        question: "¿Por qué estuviste fuera de EE. UU. tanto tiempo?",
+        answer:
+          "Visité a mi familia. Regresé antes de seis meses y mantuve mi casa y vínculos en Estados Unidos.",
+      },
+      {
+        icon: "home_pin",
+        title: "Cambios de dirección",
+        question: "¿Cuándo exactamente te mudaste?",
+        answer:
+          "Me mudé en marzo de 2023. Mi dirección actual es la que aparece en mi actualización.",
+      },
+      {
+        icon: "work",
+        title: "Historial de trabajo",
+        question: "¿Por qué dejaste ese trabajo?",
+        answer:
+          "Lo dejé por un mejor horario. Mi siguiente trabajo empezó poco después y puedo explicar las fechas.",
+      },
+      {
+        icon: "receipt_long",
+        title: "Impuestos",
+        question: "¿Tienes un plan de pagos?",
+        answer:
+          "Sí. Presenté mis impuestos y tengo un acuerdo de pagos. Traje prueba del plan y de los pagos.",
+      },
+      {
+        icon: "confirmation_number",
+        title: "Citaciones",
+        question: "¿Qué pasó con esa multa?",
+        answer:
+          "Fue una multa de velocidad. La pagué y traje el registro por si necesita verlo.",
+      },
+      {
+        icon: "edit_document",
+        title: "Correcciones del N-400",
+        question: "¿Por qué esto no estaba listado antes?",
+        answer:
+          "No entendí bien la pregunta cuando envié la solicitud. Quiero corregirlo ahora y responder con precisión.",
+      },
+    ],
     fieldOfficeEyebrow: "Historia anónima de entrevista",
     fieldOfficeTitle: "Cómo puede sentirse una entrevista N-400 real",
     fieldOfficeBody:
@@ -421,7 +539,7 @@ const copy = {
         title: "Seguimientos del oficial",
         body: "Practica mantener la calma cuando la pregunta cambia de forma.",
         icon: "psychology",
-        href: "/faq",
+        href: "/study-plan#officer-followups",
       },
       {
         title: "Checklist del día",
@@ -449,6 +567,7 @@ export default function StudyPlan() {
   const [statusMessage, setStatusMessage] = useState("");
   const [isInterviewFlowOpen, setIsInterviewFlowOpen] = useState(false);
   const [isYesNoOpen, setIsYesNoOpen] = useState(false);
+  const [isFollowupsOpen, setIsFollowupsOpen] = useState(false);
   const [isAnswerPracticeOpen, setIsAnswerPracticeOpen] = useState(false);
 
   useEffect(() => {
@@ -504,6 +623,14 @@ export default function StudyPlan() {
     setIsInterviewFlowOpen((current) => {
       const next = !current;
       if (next) scrollToSection("real-interview-flow");
+      return next;
+    });
+  };
+
+  const toggleFollowupsSection = () => {
+    setIsFollowupsOpen((current) => {
+      const next = !current;
+      if (next) scrollToSection("officer-followups");
       return next;
     });
   };
@@ -593,14 +720,21 @@ export default function StudyPlan() {
             const isInterviewFlowCard =
               card.href === "/study-plan#real-interview-flow";
             const isYesNoCard = card.href === "/study-plan#yes-no-practice";
+            const isFollowupsCard =
+              card.href === "/study-plan#officer-followups";
             const isAnswerPracticeCard = card.href === "/study-plan#answer-practice";
             const isExpandableCard =
-              isInterviewFlowCard || isYesNoCard || isAnswerPracticeCard;
+              isInterviewFlowCard ||
+              isYesNoCard ||
+              isFollowupsCard ||
+              isAnswerPracticeCard;
             const isOpen = isInterviewFlowCard
               ? isInterviewFlowOpen
               : isYesNoCard
                 ? isYesNoOpen
-                : isAnswerPracticeOpen;
+                : isFollowupsCard
+                  ? isFollowupsOpen
+                  : isAnswerPracticeOpen;
             const cardContent = (
               <>
                 <div className="h-11 w-11 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
@@ -639,6 +773,10 @@ export default function StudyPlan() {
                       toggleYesNoSection();
                       return;
                     }
+                    if (isFollowupsCard) {
+                      toggleFollowupsSection();
+                      return;
+                    }
                     toggleAnswerPracticeSection();
                   }}
                   className="group rounded-2xl border border-black/5 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
@@ -648,7 +786,9 @@ export default function StudyPlan() {
                       ? "real-interview-flow"
                       : isYesNoCard
                         ? "yes-no-practice"
-                        : "answer-practice"
+                        : isFollowupsCard
+                          ? "officer-followups"
+                          : "answer-practice"
                   }
                 >
                   {cardContent}
@@ -864,6 +1004,96 @@ export default function StudyPlan() {
               <p className="mt-4 text-xs font-semibold leading-relaxed text-slate-500">
                 {t.yesNoWarning}
               </p>
+          </div>
+        </section>
+      )}
+
+      {isFollowupsOpen && (
+        <section
+          id="officer-followups"
+          className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+        >
+          <div className="grid gap-0 lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="bg-[#151b2d] p-6 text-white sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#9fc5ff]">
+                N-400
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+                {t.followupsTitle}
+              </h2>
+              <p className="mt-3 text-base font-semibold leading-relaxed text-white/85">
+                {t.followupsSubtitle}
+              </p>
+              <p className="mt-5 text-sm leading-relaxed text-white/70">
+                {t.followupsIntro}
+              </p>
+
+              <div className="mt-6 rounded-2xl border border-white/15 bg-white/10 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#9fc5ff] text-[#101827]">
+                    <span className="material-symbols-outlined text-xl">
+                      psychology
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-black">
+                    {t.followupsFormulaTitle}
+                  </h3>
+                </div>
+                <div className="mt-4 grid gap-2">
+                  {t.followupsFormula.map((step, index) => (
+                    <div
+                      key={step}
+                      className="flex items-center gap-3 rounded-xl bg-white/10 p-3"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-xs font-black text-[#151b2d]">
+                        {index + 1}
+                      </span>
+                      <span className="text-sm font-bold leading-relaxed text-white/85">
+                        {step}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div className="grid gap-3 md:grid-cols-2">
+                {t.followupCategories.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-5"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0b50da]/10 text-[#0b50da]">
+                        <span className="material-symbols-outlined text-xl">
+                          {item.icon}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                          {item.title}
+                        </p>
+                        <h3 className="mt-2 text-base font-black leading-tight text-slate-950">
+                          {item.question}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="mt-4 rounded-xl bg-white p-4">
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-[#1f7a3e]">
+                        {t.sampleAnswerLabel}
+                      </p>
+                      <p className="mt-2 text-sm font-medium leading-relaxed text-slate-700">
+                        {item.answer}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              <p className="mt-4 rounded-2xl border border-[#f6c453]/40 bg-[#fff8e1] p-4 text-xs font-semibold leading-relaxed text-slate-700">
+                {t.followupsWarning}
+              </p>
+            </div>
           </div>
         </section>
       )}
