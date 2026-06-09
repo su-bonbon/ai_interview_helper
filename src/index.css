@@ -162,6 +162,21 @@
   transform: translateY(0) scale(1);
 }
 
+.interview-map article::after {
+  background: linear-gradient(90deg, rgba(11, 80, 218, 0.26), rgba(31, 122, 62, 0.22));
+  content: "";
+  height: 2px;
+  position: absolute;
+  right: -0.75rem;
+  top: 2.35rem;
+  width: 1.5rem;
+}
+
+.interview-map article:nth-child(2n)::after,
+.interview-map article:last-child::after {
+  display: none;
+}
+
 body {
   min-height: max(884px, 100dvh);
 }
@@ -292,6 +307,10 @@ body {
 
   .hero-copy {
     text-shadow: 0 2px 18px rgba(2, 8, 23, 0.62);
+  }
+
+  .interview-map article::after {
+    display: none;
   }
 }
 

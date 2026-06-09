@@ -299,14 +299,25 @@ const articles = {
   },
 };
 
-export default function GuideArticle() {
+export default function GuideArticle({ slugOverride }) {
   const { slug } = useParams();
   const { lang } = useOutletContext();
-  const article = articles[slug];
+  const activeSlug = slugOverride || slug;
+  const article = articles[activeSlug];
 
   if (!article) return <Navigate to="/guides" replace />;
 
   const t = article[lang];
+  const isInterviewDay = activeSlug === "interview-day";
+  const studyPlanLabel = lang === "en" ? "Back to study plan" : "Volver al plan";
+  const guidesLabel = lang === "en" ? "Back to guides" : "Volver a guías";
+  const checklistCtaTitle =
+    lang === "en" ? "Keep this checklist with your plan" : "Guarda este checklist con tu plan";
+  const takeawayLabel = lang === "en" ? "Key takeaway" : "Idea clave";
+  const checklistCtaBody =
+    lang === "en"
+      ? "Use the Study Plan page to connect interview-day tasks with civics, answer practice, and the real interview flow."
+      : "Usa la página del plan para conectar las tareas del día con civismo, práctica de respuestas y el flujo real de entrevista.";
 
   return (
     <article className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
@@ -316,10 +327,10 @@ export default function GuideArticle() {
           <h1 className="mt-3 text-4xl font-black leading-tight">{t.title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">{t.intro}</p>
           <Link
-            to="/guides"
+            to={isInterviewDay ? "/study-plan" : "/guides"}
             className="mt-6 inline-flex text-sm font-black text-[#0b50da]"
           >
-            Back to guides
+            {isInterviewDay ? studyPlanLabel : guidesLabel}
           </Link>
         </div>
         <div>
@@ -334,9 +345,25 @@ export default function GuideArticle() {
               </section>
             ))}
             <div className="rounded-lg bg-slate-950 p-6 text-white">
-              <h2 className="text-xl font-black">Key takeaway</h2>
+              <h2 className="text-xl font-black">{takeawayLabel}</h2>
               <p className="mt-3 leading-7 text-white/80">{t.takeaway}</p>
             </div>
+            {isInterviewDay && (
+              <div className="rounded-lg border border-[#d7e3d3] bg-[#f4f8ef] p-6">
+                <h2 className="text-xl font-black text-slate-950">
+                  {checklistCtaTitle}
+                </h2>
+                <p className="mt-3 leading-7 text-slate-700">
+                  {checklistCtaBody}
+                </p>
+                <Link
+                  to="/study-plan"
+                  className="mt-5 inline-flex h-11 items-center justify-center rounded-lg bg-[#0b50da] px-5 text-sm font-black text-white"
+                >
+                  {studyPlanLabel}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

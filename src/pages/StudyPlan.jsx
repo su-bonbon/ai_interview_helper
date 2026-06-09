@@ -1,5 +1,6 @@
 import { Link, useOutletContext } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
+import checklistImage from "../assets/interview-checklist.jpg";
 
 const copy = {
   en: {
@@ -31,6 +32,60 @@ const copy = {
       "This is educational practice, not legal advice. If your truthful answer involves criminal history, immigration problems, unpaid taxes, or anything you are unsure about, speak with a qualified immigration attorney before the interview.",
     yesNoFocusTitle: "Focus areas",
     yesNoPromptsTitle: "Practice prompts",
+    commonQuestionsTitle: "Common N-400 interview questions",
+    commonQuestionsBody:
+      "Use these examples to practice clear answers before interview day. Some questions are simple personal review questions, and some are eligibility or oath questions that may require extra care.",
+    fieldOfficeEyebrow: "Anonymous interview story",
+    fieldOfficeTitle: "What a real N-400 interview can feel like",
+    fieldOfficeBody:
+      "This practical map is based on an anonymous recent interview experience. Every case is different, but the sequence helps you picture what interview day can feel like from the door to oath scheduling.",
+    fieldOfficeStats: [
+      { value: "10 min", label: "early entry window" },
+      { value: "20 min", label: "interview length" },
+      { value: "6", label: "civics questions asked" },
+    ],
+    fieldOfficeFlow: [
+      {
+        icon: "schedule",
+        title: "Arrive close to appointment time",
+        body: "In this example, entry was allowed about 10 minutes before the appointment.",
+      },
+      {
+        icon: "badge",
+        title: "Letter, ID, and security",
+        body: "Interview letter and driver's license were checked before airport-style screening.",
+      },
+      {
+        icon: "how_to_reg",
+        title: "Reception check-in",
+        body: "Reception checked documents again, took a photo, then directed the applicant to wait.",
+      },
+      {
+        icon: "meeting_room",
+        title: "Officer call and oath",
+        body: "The officer brought the applicant into the room, swore them in, and checked GC and passport.",
+      },
+      {
+        icon: "school",
+        title: "English and civics tests",
+        body: "Reading, writing, and six civics questions came before the deeper N-400 review.",
+      },
+      {
+        icon: "task_alt",
+        title: "Approval recommendation",
+        body: "The officer said the tests were passed and gave a printed result notice.",
+      },
+    ],
+    oathStatusTitle: "After the interview",
+    oathStatusBody:
+      "A same-day oath was offered, then declined because of travel. The case later moved through online status updates until the oath ceremony was scheduled.",
+    oathStatuses: [
+      "Recommended for approval",
+      "Oath ceremony in line to be scheduled",
+      "Oath ceremony canceled",
+      "Oath ceremony to be scheduled",
+      "Oath Ceremony Scheduled",
+    ],
     openSection: "Open section",
     hideSection: "Hide section",
     yesNoFocus: [
@@ -58,6 +113,74 @@ const copy = {
       "Have you ever given false information to a government official?",
       "Are you willing to take the Oath of Allegiance?",
     ],
+    questionCategories: [
+      {
+        category: "Personal Information",
+        questions: [
+          "What is your full legal name?",
+          "Have you ever used any other names?",
+          "What is your date of birth?",
+          "Where were you born?",
+        ],
+      },
+      {
+        category: "Residency and Travel",
+        questions: [
+          "What is your current home address?",
+          "Have you moved since filing your N-400?",
+          "Have you travelled outside the United States in the past five years?",
+          "How many total days did you spend outside the U.S.?",
+        ],
+      },
+      {
+        category: "Family and Marital History",
+        questions: [
+          "Are you currently married?",
+          "How many times have you been married?",
+          "Do you have any children?",
+          "Where do your children live?",
+        ],
+      },
+      {
+        category: "Employment and School",
+        questions: [
+          "Are you currently employed?",
+          "What is your occupation?",
+          "Where have you worked or studied in the last five years?",
+        ],
+      },
+      {
+        category: "Criminal History and Moral Character",
+        questions: [
+          "Have you ever been arrested or convicted of a crime?",
+          "Have you ever committed a crime for which you were not arrested?",
+          "Have you ever lied to gain immigration benefits?",
+        ],
+      },
+      {
+        category: "Military Service",
+        questions: [
+          "Have you ever served in the U.S. military?",
+          "Have you ever deserted from military service?",
+          "Have you ever been involved in paramilitary or vigilante groups?",
+        ],
+      },
+      {
+        category: "Affiliations and Allegiances",
+        questions: [
+          "Have you ever been a member of any organisation, club, or group?",
+          "Have you ever been part of a communist or totalitarian party?",
+          "Do you support the U.S. Constitution and the form of government of the United States?",
+        ],
+      },
+      {
+        category: "Oath and Final Questions",
+        questions: [
+          "Are you willing to take the full Oath of Allegiance?",
+          "If the law requires it, are you willing to bear arms or perform non-combatant services in the U.S. armed forces?",
+        ],
+      },
+    ],
     cards: [
       {
         title: "Civics Questions",
@@ -69,7 +192,7 @@ const copy = {
         title: "Real Interview Flow",
         body: "Review the common sequence of the interview from check-in to decision.",
         icon: "assignment_turned_in",
-        href: "/faq",
+        href: "/study-plan#real-interview-flow",
       },
       {
         title: "Yes/No Questions",
@@ -87,13 +210,13 @@ const copy = {
         title: "Interview Day Checklist",
         body: "Use a practical list for documents, timing, and final review.",
         icon: "checklist",
-        href: "/faq",
+        href: "/interview-day",
       },
       {
         title: "Answer Practice",
         body: "Use short prompts to answer more clearly and confidently.",
         icon: "quiz",
-        href: "/civics",
+        href: "/study-plan#answer-practice",
       },
     ],
   },
@@ -126,6 +249,60 @@ const copy = {
       "Esta es práctica educativa, no asesoría legal. Si tu respuesta verdadera incluye historial criminal, problemas migratorios, impuestos pendientes o algo que no entiendes bien, habla con un abogado de inmigración calificado antes de la entrevista.",
     yesNoFocusTitle: "Áreas de enfoque",
     yesNoPromptsTitle: "Prompts de práctica",
+    commonQuestionsTitle: "Preguntas comunes de entrevista N-400",
+    commonQuestionsBody:
+      "Usa estos ejemplos para practicar respuestas claras antes del día de entrevista. Algunas preguntas revisan información personal, y otras son de elegibilidad o juramento y pueden requerir más cuidado.",
+    fieldOfficeEyebrow: "Historia anónima de entrevista",
+    fieldOfficeTitle: "Cómo puede sentirse una entrevista N-400 real",
+    fieldOfficeBody:
+      "Este mapa práctico se basa en una experiencia reciente y anónima de entrevista. Cada caso es diferente, pero la secuencia ayuda a imaginar el día desde la entrada hasta la programación del juramento.",
+    fieldOfficeStats: [
+      { value: "10 min", label: "entrada anticipada" },
+      { value: "20 min", label: "duración de entrevista" },
+      { value: "6", label: "preguntas de civismo" },
+    ],
+    fieldOfficeFlow: [
+      {
+        icon: "schedule",
+        title: "Llegar cerca de la cita",
+        body: "En este ejemplo, permitían entrar aproximadamente 10 minutos antes de la cita.",
+      },
+      {
+        icon: "badge",
+        title: "Carta, ID y seguridad",
+        body: "Revisaron la carta de entrevista y licencia antes del control tipo aeropuerto.",
+      },
+      {
+        icon: "how_to_reg",
+        title: "Registro en recepción",
+        body: "Recepción revisó documentos otra vez, tomó una foto y pidió esperar el llamado.",
+      },
+      {
+        icon: "meeting_room",
+        title: "Llamada del oficial y juramento",
+        body: "La oficial llevó al solicitante a la sala, tomó juramento y revisó green card y pasaporte.",
+      },
+      {
+        icon: "school",
+        title: "Inglés y civismo",
+        body: "Lectura, escritura y seis preguntas de civismo llegaron antes de revisar el N-400.",
+      },
+      {
+        icon: "task_alt",
+        title: "Recomendación de aprobación",
+        body: "La oficial dijo que las pruebas estaban aprobadas y entregó un aviso impreso.",
+      },
+    ],
+    oathStatusTitle: "Después de la entrevista",
+    oathStatusBody:
+      "Ofrecieron juramento el mismo día, pero fue rechazado por un viaje. Luego el caso avanzó por estados en línea hasta que se programó la ceremonia.",
+    oathStatuses: [
+      "Recomendado para aprobación",
+      "Ceremonia en línea para programarse",
+      "Ceremonia cancelada",
+      "Ceremonia por programarse",
+      "Ceremonia programada",
+    ],
     openSection: "Abrir sección",
     hideSection: "Ocultar sección",
     yesNoFocus: [
@@ -153,6 +330,74 @@ const copy = {
       "¿Alguna vez diste información falsa a un oficial del gobierno?",
       "¿Estás dispuesto a tomar el Juramento de Lealtad?",
     ],
+    questionCategories: [
+      {
+        category: "Información personal",
+        questions: [
+          "¿Cuál es tu nombre legal completo?",
+          "¿Alguna vez has usado otros nombres?",
+          "¿Cuál es tu fecha de nacimiento?",
+          "¿Dónde naciste?",
+        ],
+      },
+      {
+        category: "Residencia y viajes",
+        questions: [
+          "¿Cuál es tu dirección actual?",
+          "¿Te mudaste desde que presentaste tu N-400?",
+          "¿Has viajado fuera de Estados Unidos en los últimos cinco años?",
+          "¿Cuántos días en total pasaste fuera de Estados Unidos?",
+        ],
+      },
+      {
+        category: "Familia y matrimonio",
+        questions: [
+          "¿Estás casado actualmente?",
+          "¿Cuántas veces te has casado?",
+          "¿Tienes hijos?",
+          "¿Dónde viven tus hijos?",
+        ],
+      },
+      {
+        category: "Trabajo y estudios",
+        questions: [
+          "¿Trabajas actualmente?",
+          "¿Cuál es tu ocupación?",
+          "¿Dónde has trabajado o estudiado en los últimos cinco años?",
+        ],
+      },
+      {
+        category: "Historial criminal y buen carácter moral",
+        questions: [
+          "¿Alguna vez fuiste arrestado o condenado por un delito?",
+          "¿Alguna vez cometiste un delito por el que no fuiste arrestado?",
+          "¿Alguna vez mentiste para obtener beneficios migratorios?",
+        ],
+      },
+      {
+        category: "Servicio militar",
+        questions: [
+          "¿Alguna vez serviste en las fuerzas armadas de Estados Unidos?",
+          "¿Alguna vez desertaste del servicio militar?",
+          "¿Alguna vez participaste en grupos paramilitares o vigilantes?",
+        ],
+      },
+      {
+        category: "Afiliaciones y lealtades",
+        questions: [
+          "¿Alguna vez fuiste miembro de una organización, club o grupo?",
+          "¿Alguna vez formaste parte de un partido comunista o totalitario?",
+          "¿Apoyas la Constitución de Estados Unidos y su forma de gobierno?",
+        ],
+      },
+      {
+        category: "Juramento y preguntas finales",
+        questions: [
+          "¿Estás dispuesto a tomar el Juramento de Lealtad completo?",
+          "Si la ley lo requiere, ¿estás dispuesto a portar armas o realizar servicios no combatientes en las fuerzas armadas de Estados Unidos?",
+        ],
+      },
+    ],
     cards: [
       {
         title: "Preguntas de civismo",
@@ -164,7 +409,7 @@ const copy = {
         title: "Flujo de entrevista real",
         body: "Revisa la secuencia común desde el registro hasta la decisión.",
         icon: "assignment_turned_in",
-        href: "/faq",
+        href: "/study-plan#real-interview-flow",
       },
       {
         title: "Preguntas Sí/No",
@@ -182,13 +427,13 @@ const copy = {
         title: "Checklist del día",
         body: "Usa una lista práctica de documentos, tiempo y repaso final.",
         icon: "checklist",
-        href: "/faq",
+        href: "/interview-day",
       },
       {
         title: "Práctica de respuestas",
         body: "Usa prompts cortos para responder con más claridad y confianza.",
         icon: "quiz",
-        href: "/civics",
+        href: "/study-plan#answer-practice",
       },
     ],
   },
@@ -202,7 +447,9 @@ export default function StudyPlan() {
   const [interviewDate, setInterviewDate] = useState("");
   const [savedDate, setSavedDate] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
+  const [isInterviewFlowOpen, setIsInterviewFlowOpen] = useState(false);
   const [isYesNoOpen, setIsYesNoOpen] = useState(false);
+  const [isAnswerPracticeOpen, setIsAnswerPracticeOpen] = useState(false);
 
   useEffect(() => {
     const storedDate = window.localStorage.getItem(storageKey) || "";
@@ -237,18 +484,34 @@ export default function StudyPlan() {
     setStatusMessage(t.dateCleared);
   };
 
+  const scrollToSection = (id) => {
+    window.setTimeout(() => {
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  };
+
   const toggleYesNoSection = () => {
     setIsYesNoOpen((current) => {
       const next = !current;
+      if (next) scrollToSection("yes-no-practice");
+      return next;
+    });
+  };
 
-      if (next) {
-        window.setTimeout(() => {
-          document
-            .getElementById("yes-no-practice")
-            ?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 0);
-      }
+  const toggleInterviewFlowSection = () => {
+    setIsInterviewFlowOpen((current) => {
+      const next = !current;
+      if (next) scrollToSection("real-interview-flow");
+      return next;
+    });
+  };
 
+  const toggleAnswerPracticeSection = () => {
+    setIsAnswerPracticeOpen((current) => {
+      const next = !current;
+      if (next) scrollToSection("answer-practice");
       return next;
     });
   };
@@ -327,7 +590,17 @@ export default function StudyPlan() {
         <h2 className="text-2xl font-black">{t.cardsTitle}</h2>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.cards.map((card) => {
+            const isInterviewFlowCard =
+              card.href === "/study-plan#real-interview-flow";
             const isYesNoCard = card.href === "/study-plan#yes-no-practice";
+            const isAnswerPracticeCard = card.href === "/study-plan#answer-practice";
+            const isExpandableCard =
+              isInterviewFlowCard || isYesNoCard || isAnswerPracticeCard;
+            const isOpen = isInterviewFlowCard
+              ? isInterviewFlowOpen
+              : isYesNoCard
+                ? isYesNoOpen
+                : isAnswerPracticeOpen;
             const cardContent = (
               <>
                 <div className="h-11 w-11 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
@@ -339,26 +612,44 @@ export default function StudyPlan() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   {card.body}
                 </p>
-                {isYesNoCard && (
+                {isExpandableCard && (
                   <div className="mt-4 flex items-center gap-2 text-sm font-black text-[#0b50da]">
-                    <span>{isYesNoOpen ? t.hideSection : t.openSection}</span>
+                    <span>
+                      {isOpen ? t.hideSection : t.openSection}
+                    </span>
                     <span className="material-symbols-outlined text-lg">
-                      {isYesNoOpen ? "expand_less" : "expand_more"}
+                      {isOpen ? "expand_less" : "expand_more"}
                     </span>
                   </div>
                 )}
               </>
             );
 
-            if (isYesNoCard) {
+            if (isExpandableCard) {
               return (
                 <button
                   key={card.title}
                   type="button"
-                  onClick={toggleYesNoSection}
+                  onClick={() => {
+                    if (isInterviewFlowCard) {
+                      toggleInterviewFlowSection();
+                      return;
+                    }
+                    if (isYesNoCard) {
+                      toggleYesNoSection();
+                      return;
+                    }
+                    toggleAnswerPracticeSection();
+                  }}
                   className="group rounded-2xl border border-black/5 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                  aria-expanded={isYesNoOpen}
-                  aria-controls="yes-no-practice"
+                  aria-expanded={isOpen}
+                  aria-controls={
+                    isInterviewFlowCard
+                      ? "real-interview-flow"
+                      : isYesNoCard
+                        ? "yes-no-practice"
+                        : "answer-practice"
+                  }
                 >
                   {cardContent}
                 </button>
@@ -378,13 +669,130 @@ export default function StudyPlan() {
         </div>
       </div>
 
+      {isInterviewFlowOpen && (
+        <section
+          id="real-interview-flow"
+          className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+        >
+          <div className="grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="relative overflow-hidden bg-[#112f2b] p-6 text-white sm:p-8">
+              <img
+                src={checklistImage}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-20"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(17, 47, 43, 0.98), rgba(16, 33, 56, 0.93))",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10">
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-[#f6c453]">
+                  {t.fieldOfficeEyebrow}
+                </p>
+                <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">
+                  {t.fieldOfficeTitle}
+                </h2>
+                <p className="mt-4 text-base font-medium leading-relaxed text-white/80">
+                  {t.fieldOfficeBody}
+                </p>
+                <div className="mt-6 grid grid-cols-3 gap-2">
+                  {t.fieldOfficeStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="rounded-lg border border-white/12 bg-white/10 p-3 backdrop-blur"
+                    >
+                      <p className="text-2xl font-black leading-none text-white">
+                        {stat.value}
+                      </p>
+                      <p className="mt-2 text-[0.68rem] font-bold uppercase leading-tight tracking-[0.14em] text-white/60">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 rounded-lg border border-white/12 bg-white/10 p-4">
+                  <p className="text-sm font-black text-[#f6c453]">
+                    {t.oathStatusTitle}
+                  </p>
+                  <p className="mt-2 text-sm font-medium leading-relaxed text-white/80">
+                    {t.oathStatusBody}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 sm:p-6">
+              <div className="interview-map grid gap-3 sm:grid-cols-2">
+                {t.fieldOfficeFlow.map((step, index) => (
+                  <article
+                    key={step.title}
+                    className="relative rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#e9f2ff] text-[#0b50da]">
+                        <span className="material-symbols-outlined text-[1.35rem]">
+                          {step.icon}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+                          0{index + 1}
+                        </p>
+                        <h3 className="mt-1 text-lg font-black leading-tight text-slate-950">
+                          {step.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
+                      {step.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-4 rounded-xl border border-[#d7e3d3] bg-[#f4f8ef] p-4">
+                <div className="flex flex-wrap gap-2">
+                  {t.oathStatuses.map((status, index) => (
+                    <span
+                      key={status}
+                      className={[
+                        "inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs font-black",
+                        index === t.oathStatuses.length - 1
+                          ? "border-[#1f7a3e] bg-[#1f7a3e] text-white"
+                          : "border-[#c8d9c2] bg-white text-slate-700",
+                      ].join(" ")}
+                    >
+                      <span
+                        className={[
+                          "h-2 w-2 rounded-full",
+                          index === t.oathStatuses.length - 1
+                            ? "bg-white"
+                            : "bg-[#0b50da]",
+                        ].join(" ")}
+                        aria-hidden="true"
+                      />
+                      {status}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {isYesNoOpen && (
         <section
           id="yes-no-practice"
           className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
         >
-          <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="bg-[#0f2f2a] p-6 text-white sm:p-8">
+          <div className="bg-[#0f2f2a] p-6 text-white sm:p-8">
+            <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+              <div>
               <p className="text-xs font-black uppercase tracking-[0.24em] text-[#9fc5ff]">
                 N-400
               </p>
@@ -397,6 +805,7 @@ export default function StudyPlan() {
               <p className="mt-5 text-sm leading-relaxed text-white/75">
                 {t.yesNoIntro}
               </p>
+              </div>
               <div className="mt-6 rounded-2xl border border-white/15 bg-white/10 p-5">
                 <p className="text-sm font-black text-white">{t.yesNoRuleTitle}</p>
                 <p className="mt-2 text-sm leading-relaxed text-white/80">
@@ -404,8 +813,9 @@ export default function StudyPlan() {
                 </p>
               </div>
             </div>
+          </div>
 
-            <div className="p-6 sm:p-8">
+          <div className="p-6 sm:p-8">
               <h3 className="text-xl font-black text-slate-950">
                 {t.yesNoFocusTitle}
               </h3>
@@ -454,6 +864,50 @@ export default function StudyPlan() {
               <p className="mt-4 text-xs font-semibold leading-relaxed text-slate-500">
                 {t.yesNoWarning}
               </p>
+          </div>
+        </section>
+      )}
+
+      {isAnswerPracticeOpen && (
+        <section
+          id="answer-practice"
+          className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8"
+        >
+          <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+            <div className="rounded-2xl bg-[#eef4ff] p-5">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#0b50da]">
+                N-400
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950">
+                {t.commonQuestionsTitle}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-700">
+                {t.commonQuestionsBody}
+              </p>
+            </div>
+
+            <div className="grid gap-3">
+              {t.questionCategories.map((group) => (
+                <details
+                  key={group.category}
+                  className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4"
+                >
+                  <summary className="cursor-pointer text-base font-black text-slate-950">
+                    {group.category}
+                  </summary>
+                  <ul className="mt-3 space-y-2">
+                    {group.questions.map((question) => (
+                      <li
+                        key={question}
+                        className="flex gap-2 text-sm font-medium leading-relaxed text-slate-700"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0b50da]" />
+                        <span>{question}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
             </div>
           </div>
         </section>

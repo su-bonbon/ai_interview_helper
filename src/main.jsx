@@ -12,6 +12,7 @@ import StudyPlan from "./pages/StudyPlan.jsx";
 import Guides from "./pages/Guides.jsx";
 import GuideArticle from "./pages/GuideArticle.jsx";
 import Layout from "./components/Layout.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
 
@@ -19,11 +20,16 @@ const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<App />} />
           <Route path="/civics" element={<CivicsQuestions />} />
           <Route path="/study-plan" element={<StudyPlan />} />
+          <Route
+            path="/interview-day"
+            element={<GuideArticle slugOverride="interview-day" />}
+          />
           <Route path="/guides" element={<Guides />} />
           <Route path="/guides/:slug" element={<GuideArticle />} />
           <Route path="/privacy" element={<Privacy />} />
