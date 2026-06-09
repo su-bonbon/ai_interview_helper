@@ -16,6 +16,8 @@ const copy = {
     milestoneTitle: "Next milestone",
     milestoneBody: "Complete one focused practice session today.",
     startPractice: "Start civics practice",
+    planLabel: "Plan",
+    cardsEyebrow: "Toolkit",
     cardsTitle: "Practice areas",
     dateSaved: "Interview date saved.",
     dateCleared: "Interview date cleared.",
@@ -292,6 +294,8 @@ const copy = {
     milestoneTitle: "Siguiente meta",
     milestoneBody: "Completa hoy una sesión de práctica enfocada.",
     startPractice: "Practicar civismo",
+    planLabel: "Plan",
+    cardsEyebrow: "Herramientas",
     cardsTitle: "Áreas de práctica",
     dateSaved: "Fecha de entrevista guardada.",
     dateCleared: "Fecha de entrevista borrada.",
@@ -559,6 +563,39 @@ const copy = {
 
 const storageKey = "citizenship-success-interview-date";
 
+const practiceCardStyles = [
+  {
+    panel: "border-[#b9d2ff] bg-[#f4f8ff]",
+    icon: "bg-[#0b50da] text-white",
+    marker: "bg-[#0b50da]",
+  },
+  {
+    panel: "border-[#c8d9c2] bg-[#f4f8ef]",
+    icon: "bg-[#1f7a3e] text-white",
+    marker: "bg-[#1f7a3e]",
+  },
+  {
+    panel: "border-[#f0dca8] bg-[#fff8e1]",
+    icon: "bg-[#b26b00] text-white",
+    marker: "bg-[#f6c453]",
+  },
+  {
+    panel: "border-[#d6c6ef] bg-[#f7f2ff]",
+    icon: "bg-[#6d3bbd] text-white",
+    marker: "bg-[#6d3bbd]",
+  },
+  {
+    panel: "border-[#bfd8d1] bg-[#eef8f5]",
+    icon: "bg-[#0f766e] text-white",
+    marker: "bg-[#0f766e]",
+  },
+  {
+    panel: "border-[#d7dce6] bg-white",
+    icon: "bg-slate-950 text-white",
+    marker: "bg-slate-950",
+  },
+];
+
 export default function StudyPlan() {
   const { lang } = useOutletContext();
   const t = copy[lang];
@@ -644,79 +681,141 @@ export default function StudyPlan() {
   };
 
   return (
-    <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
-      <div className="flex flex-col gap-2">
-        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Plan</p>
-        <h1 className="text-3xl font-black">{t.title}</h1>
-        <p className="text-slate-600">{t.subtitle}</p>
-      </div>
-
-      <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-3xl border border-black/5 bg-white p-6 shadow-sm">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h2 className="text-xl font-bold">{t.dateTitle}</h2>
-              <p className="mt-2 text-sm text-slate-600">{t.dateBody}</p>
-            </div>
-            <span className="material-symbols-outlined text-3xl text-[#0b50da]">
-              calendar_month
-            </span>
-          </div>
-          <label className="mt-6 block text-xs uppercase tracking-[0.2em] text-slate-500">
-            {t.dateLabel}
-          </label>
-          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-            <input
-              type="date"
-              className="h-11 rounded-xl border border-slate-200 px-3 text-sm"
-              value={interviewDate}
-              onChange={(event) => {
-                setInterviewDate(event.target.value);
-                setStatusMessage("");
-              }}
+    <section className="mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:px-10">
+      <div className="overflow-hidden rounded-3xl bg-slate-950 text-white">
+        <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative min-h-[360px] p-6 sm:p-8 lg:p-10">
+            <img
+              src={checklistImage}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover opacity-25"
+              aria-hidden="true"
             />
-            <button
-              type="button"
-              onClick={saveDate}
-              disabled={!interviewDate}
-              className="h-11 rounded-xl bg-[#0b50da] px-5 text-sm font-bold text-white transition disabled:cursor-not-allowed disabled:bg-slate-300"
-            >
-              {t.saveDate}
-            </button>
-            <button
-              type="button"
-              onClick={clearDate}
-              className="h-11 rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-600"
-            >
-              {t.clearDate}
-            </button>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(2, 6, 23, 0.96), rgba(15, 47, 42, 0.9) 54%, rgba(11, 80, 218, 0.62))",
+              }}
+              aria-hidden="true"
+            />
+            <div className="relative z-10 flex min-h-[300px] flex-col justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#9fc5ff]">
+                  {t.planLabel}
+                </p>
+                <h1 className="mt-4 max-w-2xl text-4xl font-black leading-tight sm:text-5xl">
+                  {t.title}
+                </h1>
+                <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-white/80 sm:text-lg">
+                  {t.subtitle}
+                </p>
+              </div>
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {t.cards.slice(0, 3).map((card, index) => (
+                  <div
+                    key={card.title}
+                    className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur"
+                  >
+                    <span className="text-xs font-black text-[#f6c453]">
+                      0{index + 1}
+                    </span>
+                    <p className="mt-2 text-sm font-black leading-tight text-white">
+                      {card.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          {statusMessage && (
-            <p className="mt-4 text-sm font-semibold text-[#1f7a3e]">
-              {statusMessage}
-            </p>
-          )}
-        </div>
 
-        <div className="rounded-3xl border border-black/5 bg-gradient-to-br from-[#0b50da] to-[#0a2f6b] p-6 text-white shadow-sm">
-          <p className="text-sm font-semibold text-white/75">{t.milestoneTitle}</p>
-          <p className="mt-3 text-3xl font-black">
-            {daysToInterview === null ? t.noDate : `${daysToInterview} ${t.daysLabel}`}
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/80">{t.milestoneBody}</p>
-          <Link
-            to="/civics"
-            className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-white px-5 text-sm font-bold text-[#0b50da]"
-          >
-            {t.startPractice}
-          </Link>
+          <div className="bg-white p-5 text-slate-950 sm:p-7 lg:p-8">
+            <div className="grid gap-4">
+              <div className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-black">{t.dateTitle}</h2>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {t.dateBody}
+                    </p>
+                  </div>
+                  <span className="material-symbols-outlined text-3xl text-[#0b50da]">
+                    calendar_month
+                  </span>
+                </div>
+                <label className="mt-5 block text-xs font-black uppercase tracking-[0.2em] text-slate-500">
+                  {t.dateLabel}
+                </label>
+                <div className="mt-2 grid gap-3 sm:grid-cols-[1fr_auto_auto]">
+                  <input
+                    type="date"
+                    className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm"
+                    value={interviewDate}
+                    onChange={(event) => {
+                      setInterviewDate(event.target.value);
+                      setStatusMessage("");
+                    }}
+                  />
+                  <button
+                    type="button"
+                    onClick={saveDate}
+                    disabled={!interviewDate}
+                    className="h-11 rounded-xl bg-[#0b50da] px-5 text-sm font-bold text-white transition disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                    {t.saveDate}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={clearDate}
+                    className="h-11 rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-600"
+                  >
+                    {t.clearDate}
+                  </button>
+                </div>
+                {statusMessage && (
+                  <p className="mt-4 text-sm font-semibold text-[#1f7a3e]">
+                    {statusMessage}
+                  </p>
+                )}
+              </div>
+
+              <div className="rounded-2xl bg-[#0b50da] p-5 text-white">
+                <p className="text-sm font-semibold text-white/75">
+                  {t.milestoneTitle}
+                </p>
+                <p className="mt-3 text-3xl font-black">
+                  {daysToInterview === null
+                    ? t.noDate
+                    : `${daysToInterview} ${t.daysLabel}`}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-white/80">
+                  {t.milestoneBody}
+                </p>
+                <Link
+                  to="/civics"
+                  className="mt-5 inline-flex h-11 items-center justify-center rounded-xl bg-white px-5 text-sm font-bold text-[#0b50da]"
+                >
+                  {t.startPractice}
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-black">{t.cardsTitle}</h2>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#0b50da]">
+              {t.cardsEyebrow}
+            </p>
+            <h2 className="mt-2 text-2xl font-black">{t.cardsTitle}</h2>
+          </div>
+          <div className="hidden h-px flex-1 bg-slate-300 sm:block" />
+        </div>
         <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {t.cards.map((card) => {
+          {t.cards.map((card, index) => {
+            const style = practiceCardStyles[index % practiceCardStyles.length];
             const isInterviewFlowCard =
               card.href === "/study-plan#real-interview-flow";
             const isYesNoCard = card.href === "/study-plan#yes-no-practice";
@@ -737,8 +836,16 @@ export default function StudyPlan() {
                   : isAnswerPracticeOpen;
             const cardContent = (
               <>
-                <div className="h-11 w-11 rounded-xl bg-[#0b50da]/10 text-[#0b50da] flex items-center justify-center">
-                  <span className="material-symbols-outlined">{card.icon}</span>
+                <div className="flex items-start justify-between gap-4">
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${style.icon}`}
+                  >
+                    <span className="material-symbols-outlined">{card.icon}</span>
+                  </div>
+                  <span
+                    className={`mt-1 h-2.5 w-2.5 rounded-full ${style.marker}`}
+                    aria-hidden="true"
+                  />
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-slate-900">
                   {card.title}
@@ -779,7 +886,7 @@ export default function StudyPlan() {
                     }
                     toggleAnswerPracticeSection();
                   }}
-                  className="group rounded-2xl border border-black/5 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className={`group rounded-2xl border p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${style.panel}`}
                   aria-expanded={isOpen}
                   aria-controls={
                     isInterviewFlowCard
@@ -800,7 +907,7 @@ export default function StudyPlan() {
               <Link
                 key={card.title}
                 to={card.href}
-                className="group rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className={`group rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${style.panel}`}
               >
                 {cardContent}
               </Link>

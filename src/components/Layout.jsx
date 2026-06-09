@@ -105,9 +105,7 @@ export default function Layout() {
         <footer className="border-t border-black/5 bg-white">
           <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-6 px-3 sm:px-6 lg:px-10 py-10 text-center">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-3xl text-[#0b50da]">
-                notifications_active
-              </span>
+              <img src={logo} alt="" className="h-9 w-9" aria-hidden="true" />
               <span className="text-xl font-black">{t.footerTitle}</span>
             </div>
             <div className="flex gap-6 text-sm font-semibold text-slate-500">

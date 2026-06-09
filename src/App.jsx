@@ -248,6 +248,11 @@ const homeContent = {
     toolsTitle: "Practice in the same order the interview usually unfolds",
     toolsBody:
       "Start with civics recall, then practice reading and writing, then review your N-400 answers and interview-day documents. The free tools are organized to support that routine without requiring an account.",
+    checklistCardEyebrow: "Interview day",
+    checklistCardTitle: "Checklist before you leave",
+    checklistCardBody:
+      "Review documents, timing, ID, and final prep so interview morning feels calmer.",
+    checklistCardCta: "Open checklist",
   },
   es: {
     founderEyebrow: "Por qué existe este sitio",
@@ -328,6 +333,11 @@ const homeContent = {
     toolsTitle: "Practica en el mismo orden en que suele avanzar la entrevista",
     toolsBody:
       "Empieza con civismo, luego practica lectura y escritura, después revisa tus respuestas del N-400 y documentos para el día de la entrevista. Las herramientas gratis están organizadas para apoyar esa rutina sin crear una cuenta.",
+    checklistCardEyebrow: "Día de entrevista",
+    checklistCardTitle: "Checklist antes de salir",
+    checklistCardBody:
+      "Revisa documentos, horario, identificación y preparación final para llegar con más calma.",
+    checklistCardCta: "Abrir checklist",
   },
 };
 
@@ -838,23 +848,32 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-xl bg-white reveal min-h-[260px] sm:min-h-[320px]">
+          <Link
+            to="/interview-day"
+            className="group relative overflow-hidden rounded-xl bg-white reveal min-h-[260px] sm:min-h-[320px]"
+          >
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${checklistImage})` }}
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/80">
-                Free practice
+                {content.checklistCardEyebrow}
               </p>
-              <h3 className="mt-2 text-2xl font-black">No account needed</h3>
+              <h3 className="mt-2 text-2xl font-black">
+                {content.checklistCardTitle}
+              </h3>
               <p className="mt-2 text-base font-medium text-white/90">
-                Open access to the core interview resources.
+                {content.checklistCardBody}
               </p>
+              <div className="mt-4 inline-flex w-fit items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-black text-slate-950">
+                <span>{content.checklistCardCta}</span>
+                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
         </div>
       </section>
