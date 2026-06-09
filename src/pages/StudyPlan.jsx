@@ -16,8 +16,9 @@ const copy = {
     milestoneBody: "Complete one focused practice session today.",
     startPractice: "Start civics practice",
     cardsTitle: "Practice areas",
-    localNote:
-      "Your date is saved only in this browser. No account is required.",
+    dateSaved: "Interview date saved.",
+    dateCleared: "Interview date cleared.",
+    chooseDate: "Choose a date first.",
     cards: [
       {
         title: "Civics Questions",
@@ -71,8 +72,9 @@ const copy = {
     milestoneBody: "Completa hoy una sesión de práctica enfocada.",
     startPractice: "Practicar civismo",
     cardsTitle: "Áreas de práctica",
-    localNote:
-      "Tu fecha se guarda solo en este navegador. No necesitas una cuenta.",
+    dateSaved: "Fecha de entrevista guardada.",
+    dateCleared: "Fecha de entrevista borrada.",
+    chooseDate: "Elige una fecha primero.",
     cards: [
       {
         title: "Preguntas de civismo",
@@ -120,9 +122,13 @@ export default function StudyPlan() {
   const { lang } = useOutletContext();
   const t = copy[lang];
   const [interviewDate, setInterviewDate] = useState("");
+  const [savedDate, setSavedDate] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
-    setInterviewDate(window.localStorage.getItem(storageKey) || "");
+    const storedDate = window.localStorage.getItem(storageKey) || "";
+    setInterviewDate(storedDate);
+    setSavedDate(storedDate);
   }, []);
 
   const daysToInterview = useMemo(() => {
@@ -136,13 +142,20 @@ export default function StudyPlan() {
   }, [interviewDate]);
 
   const saveDate = () => {
-    if (!interviewDate) return;
+    if (!interviewDate) {
+      setStatusMessage(t.chooseDate);
+      return;
+    }
     window.localStorage.setItem(storageKey, interviewDate);
+    setSavedDate(interviewDate);
+    setStatusMessage(t.dateSaved);
   };
 
   const clearDate = () => {
     window.localStorage.removeItem(storageKey);
     setInterviewDate("");
+    setSavedDate("");
+    setStatusMessage(t.dateCleared);
   };
 
   return (
@@ -172,12 +185,16 @@ export default function StudyPlan() {
               type="date"
               className="h-11 rounded-xl border border-slate-200 px-3 text-sm"
               value={interviewDate}
-              onChange={(event) => setInterviewDate(event.target.value)}
+              onChange={(event) => {
+                setInterviewDate(event.target.value);
+                setStatusMessage("");
+              }}
             />
             <button
               type="button"
               onClick={saveDate}
-              className="h-11 rounded-xl bg-[#0b50da] px-5 text-sm font-bold text-white"
+              disabled={!interviewDate}
+              className="h-11 rounded-xl bg-[#0b50da] px-5 text-sm font-bold text-white transition disabled:cursor-not-allowed disabled:bg-slate-300"
             >
               {t.saveDate}
             </button>
@@ -189,7 +206,11 @@ export default function StudyPlan() {
               {t.clearDate}
             </button>
           </div>
-          <p className="mt-4 text-xs text-slate-500">{t.localNote}</p>
+          {statusMessage && (
+            <p className="mt-4 text-sm font-semibold text-[#1f7a3e]">
+              {statusMessage}
+            </p>
+          )}
         </div>
 
         <div className="rounded-3xl border border-black/5 bg-gradient-to-br from-[#0b50da] to-[#0a2f6b] p-6 text-white shadow-sm">
