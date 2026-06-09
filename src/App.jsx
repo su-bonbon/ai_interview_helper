@@ -408,6 +408,8 @@ export default function App() {
           src={heroImage}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
           aria-hidden="true"
         />
         <div className="hero-scrim absolute inset-0" aria-hidden="true" />
@@ -592,6 +594,8 @@ export default function App() {
                   src={item.image}
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                   aria-hidden="true"
                 />
                 <div
@@ -649,6 +653,8 @@ export default function App() {
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               style={{ opacity: 0.18 }}
+              loading="lazy"
+              decoding="async"
               aria-hidden="true"
             />
             <div
@@ -738,6 +744,8 @@ export default function App() {
               src={checklistImage}
               alt=""
               className="absolute inset-0 h-full w-full object-cover opacity-24"
+              loading="lazy"
+              decoding="async"
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-[#123e37]/95 via-[#123e37]/85 to-[#0b50da]/60" />

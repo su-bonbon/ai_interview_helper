@@ -335,7 +335,13 @@ export default function GuideArticle({ slugOverride }) {
         </div>
         <div>
           <div className="overflow-hidden rounded-lg border border-black/10">
-            <img src={article.image} alt="" className="h-80 w-full object-cover" />
+            <img
+              src={article.image}
+              alt={t.title}
+              className="h-80 w-full object-cover"
+              loading="eager"
+              decoding="async"
+            />
           </div>
           <div className="mt-8 space-y-7">
             {t.sections.map((section) => (

@@ -124,6 +124,7 @@ export default function Faq() {
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover opacity-35"
                 loading="lazy"
+                decoding="async"
                 aria-hidden="true"
               />
               <div className="absolute inset-0 bg-white/55" aria-hidden="true" />

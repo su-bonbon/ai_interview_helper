@@ -106,8 +106,10 @@ export default function Guides() {
             <div className="relative h-64 overflow-hidden">
               <img
                 src={guide.image}
-                alt=""
+                alt={guide.title}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 to-transparent" />
             </div>

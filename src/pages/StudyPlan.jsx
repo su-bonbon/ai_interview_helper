@@ -689,6 +689,8 @@ export default function StudyPlan() {
               src={checklistImage}
               alt=""
               className="absolute inset-0 h-full w-full object-cover opacity-25"
+              fetchPriority="high"
+              decoding="async"
               aria-hidden="true"
             />
             <div
@@ -927,6 +929,8 @@ export default function StudyPlan() {
                 src={checklistImage}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover opacity-20"
+                loading="lazy"
+                decoding="async"
                 aria-hidden="true"
               />
               <div

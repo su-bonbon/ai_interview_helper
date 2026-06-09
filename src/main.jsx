@@ -11,7 +11,9 @@ import About from "./pages/About.jsx";
 import StudyPlan from "./pages/StudyPlan.jsx";
 import Guides from "./pages/Guides.jsx";
 import GuideArticle from "./pages/GuideArticle.jsx";
+import NotFound from "./pages/NotFound.jsx";
 import Layout from "./components/Layout.jsx";
+import RouteMetadata from "./components/RouteMetadata.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import { initAnalytics } from "./lib/firebase.js";
 import "./index.css";
@@ -21,6 +23,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ScrollToTop />
+      <RouteMetadata />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<App />} />
@@ -37,6 +40,7 @@ root.render(
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
