@@ -37,6 +37,125 @@ const copy = {
     commonQuestionsTitle: "Common N-400 interview questions",
     commonQuestionsBody:
       "Use these examples to practice clear answers before interview day. Some questions are simple personal review questions, and some are eligibility or oath questions that may require extra care.",
+    writingTitle: "Writing test word bank",
+    writingSubtitle:
+      "Review common words that may appear in the English writing sentence.",
+    writingBody:
+      "The writing test usually asks you to write one sentence in English. These words help you practice the vocabulary that often appears in USCIS-style writing prompts.",
+    writingTipTitle: "Practice method",
+    writingTip:
+      "Read one category, cover the list, then write five words from memory. After that, use two or three words in a short sentence.",
+    writingSourceLabel: "Reference",
+    writingSourceText: "USCIS official writing practice PDF",
+    writingCategories: [
+      {
+        category: "People",
+        words: [
+          "Adams",
+          "Lincoln",
+          "Washington",
+          "Civil War",
+          "Congress",
+          "Father of Our Country",
+          "President",
+          "Senators",
+        ],
+      },
+      {
+        category: "Civics",
+        words: [
+          "American Indians",
+          "capital",
+          "citizens",
+          "flag",
+          "free",
+          "freedom of speech",
+          "right",
+          "state/states",
+          "taxes",
+          "vote",
+        ],
+      },
+      {
+        category: "Places",
+        words: [
+          "Alaska",
+          "California",
+          "Canada",
+          "Delaware",
+          "Mexico",
+          "New York City",
+          "United States",
+          "Washington",
+          "Washington, D.C.",
+          "White House",
+        ],
+      },
+      {
+        category: "Months",
+        words: ["February", "May", "June", "July", "September", "October", "November"],
+      },
+      {
+        category: "Holidays",
+        words: [
+          "Presidents' Day",
+          "Memorial Day",
+          "Flag Day",
+          "Independence Day",
+          "Labor Day",
+          "Columbus Day",
+          "Thanksgiving",
+        ],
+      },
+      {
+        category: "Verbs",
+        words: [
+          "can",
+          "come",
+          "elect",
+          "have/has",
+          "is/was/be",
+          "lives/lived",
+          "meets",
+          "pay",
+          "want",
+        ],
+      },
+      {
+        category: "Other function words",
+        words: [
+          "and",
+          "during",
+          "for",
+          "here",
+          "in",
+          "of",
+          "on",
+          "the",
+          "to",
+          "we",
+        ],
+      },
+      {
+        category: "Other content words",
+        words: [
+          "blue",
+          "dollar bill",
+          "fifty/50",
+          "first",
+          "largest",
+          "most",
+          "north",
+          "one",
+          "one hundred/100",
+          "people",
+          "red",
+          "second",
+          "south",
+          "white",
+        ],
+      },
+    ],
     followupsTitle: "Officer follow-up practice",
     followupsSubtitle:
       "Practice short, steady answers when the officer asks for one more detail.",
@@ -262,6 +381,12 @@ const copy = {
         href: "/study-plan#yes-no-practice",
       },
       {
+        title: "Writing Test Words",
+        body: "Study common words used in English writing test sentences.",
+        icon: "edit_note",
+        href: "/study-plan#writing-test",
+      },
+      {
         title: "Officer Follow-ups",
         body: "Practice staying calm when an officer asks a question in a new way.",
         icon: "psychology",
@@ -315,6 +440,125 @@ const copy = {
     commonQuestionsTitle: "Preguntas comunes de entrevista N-400",
     commonQuestionsBody:
       "Usa estos ejemplos para practicar respuestas claras antes del día de entrevista. Algunas preguntas revisan información personal, y otras son de elegibilidad o juramento y pueden requerir más cuidado.",
+    writingTitle: "Banco de palabras para escritura",
+    writingSubtitle:
+      "Repasa palabras comunes que pueden aparecer en la oración escrita en inglés.",
+    writingBody:
+      "La prueba de escritura normalmente pide escribir una oración en inglés. Estas palabras ayudan a practicar vocabulario frecuente en prompts estilo USCIS.",
+    writingTipTitle: "Método de práctica",
+    writingTip:
+      "Lee una categoría, cubre la lista y escribe cinco palabras de memoria. Después usa dos o tres palabras en una oración corta.",
+    writingSourceLabel: "Referencia",
+    writingSourceText: "PDF oficial de práctica de escritura de USCIS",
+    writingCategories: [
+      {
+        category: "Personas",
+        words: [
+          "Adams",
+          "Lincoln",
+          "Washington",
+          "Civil War",
+          "Congress",
+          "Father of Our Country",
+          "President",
+          "Senators",
+        ],
+      },
+      {
+        category: "Civismo",
+        words: [
+          "American Indians",
+          "capital",
+          "citizens",
+          "flag",
+          "free",
+          "freedom of speech",
+          "right",
+          "state/states",
+          "taxes",
+          "vote",
+        ],
+      },
+      {
+        category: "Lugares",
+        words: [
+          "Alaska",
+          "California",
+          "Canada",
+          "Delaware",
+          "Mexico",
+          "New York City",
+          "United States",
+          "Washington",
+          "Washington, D.C.",
+          "White House",
+        ],
+      },
+      {
+        category: "Meses",
+        words: ["February", "May", "June", "July", "September", "October", "November"],
+      },
+      {
+        category: "Días festivos",
+        words: [
+          "Presidents' Day",
+          "Memorial Day",
+          "Flag Day",
+          "Independence Day",
+          "Labor Day",
+          "Columbus Day",
+          "Thanksgiving",
+        ],
+      },
+      {
+        category: "Verbos",
+        words: [
+          "can",
+          "come",
+          "elect",
+          "have/has",
+          "is/was/be",
+          "lives/lived",
+          "meets",
+          "pay",
+          "want",
+        ],
+      },
+      {
+        category: "Otras palabras funcionales",
+        words: [
+          "and",
+          "during",
+          "for",
+          "here",
+          "in",
+          "of",
+          "on",
+          "the",
+          "to",
+          "we",
+        ],
+      },
+      {
+        category: "Otras palabras de contenido",
+        words: [
+          "blue",
+          "dollar bill",
+          "fifty/50",
+          "first",
+          "largest",
+          "most",
+          "north",
+          "one",
+          "one hundred/100",
+          "people",
+          "red",
+          "second",
+          "south",
+          "white",
+        ],
+      },
+    ],
     followupsTitle: "Práctica de seguimientos del oficial",
     followupsSubtitle:
       "Practica respuestas cortas y tranquilas cuando el oficial pide un detalle más.",
@@ -540,6 +784,12 @@ const copy = {
         href: "/study-plan#yes-no-practice",
       },
       {
+        title: "Palabras de escritura",
+        body: "Estudia palabras comunes usadas en oraciones de escritura en inglés.",
+        icon: "edit_note",
+        href: "/study-plan#writing-test",
+      },
+      {
         title: "Seguimientos del oficial",
         body: "Practica mantener la calma cuando la pregunta cambia de forma.",
         icon: "psychology",
@@ -604,6 +854,7 @@ export default function StudyPlan() {
   const [statusMessage, setStatusMessage] = useState("");
   const [isInterviewFlowOpen, setIsInterviewFlowOpen] = useState(false);
   const [isYesNoOpen, setIsYesNoOpen] = useState(false);
+  const [isWritingOpen, setIsWritingOpen] = useState(false);
   const [isFollowupsOpen, setIsFollowupsOpen] = useState(false);
   const [isAnswerPracticeOpen, setIsAnswerPracticeOpen] = useState(false);
 
@@ -652,6 +903,14 @@ export default function StudyPlan() {
     setIsYesNoOpen((current) => {
       const next = !current;
       if (next) scrollToSection("yes-no-practice");
+      return next;
+    });
+  };
+
+  const toggleWritingSection = () => {
+    setIsWritingOpen((current) => {
+      const next = !current;
+      if (next) scrollToSection("writing-test");
       return next;
     });
   };
@@ -821,21 +1080,25 @@ export default function StudyPlan() {
             const isInterviewFlowCard =
               card.href === "/study-plan#real-interview-flow";
             const isYesNoCard = card.href === "/study-plan#yes-no-practice";
+            const isWritingCard = card.href === "/study-plan#writing-test";
             const isFollowupsCard =
               card.href === "/study-plan#officer-followups";
             const isAnswerPracticeCard = card.href === "/study-plan#answer-practice";
             const isExpandableCard =
               isInterviewFlowCard ||
               isYesNoCard ||
+              isWritingCard ||
               isFollowupsCard ||
               isAnswerPracticeCard;
             const isOpen = isInterviewFlowCard
               ? isInterviewFlowOpen
               : isYesNoCard
                 ? isYesNoOpen
-                : isFollowupsCard
-                  ? isFollowupsOpen
-                  : isAnswerPracticeOpen;
+                : isWritingCard
+                  ? isWritingOpen
+                  : isFollowupsCard
+                    ? isFollowupsOpen
+                    : isAnswerPracticeOpen;
             const cardContent = (
               <>
                 <div className="flex items-start justify-between gap-4">
@@ -882,6 +1145,10 @@ export default function StudyPlan() {
                       toggleYesNoSection();
                       return;
                     }
+                    if (isWritingCard) {
+                      toggleWritingSection();
+                      return;
+                    }
                     if (isFollowupsCard) {
                       toggleFollowupsSection();
                       return;
@@ -895,9 +1162,11 @@ export default function StudyPlan() {
                       ? "real-interview-flow"
                       : isYesNoCard
                         ? "yes-no-practice"
-                        : isFollowupsCard
-                          ? "officer-followups"
-                          : "answer-practice"
+                        : isWritingCard
+                          ? "writing-test"
+                          : isFollowupsCard
+                            ? "officer-followups"
+                            : "answer-practice"
                   }
                 >
                   {cardContent}
@@ -1115,6 +1384,87 @@ export default function StudyPlan() {
               <p className="mt-4 text-xs font-semibold leading-relaxed text-slate-500">
                 {t.yesNoWarning}
               </p>
+          </div>
+        </section>
+      )}
+
+      {isWritingOpen && (
+        <section
+          id="writing-test"
+          className="mt-6 overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+        >
+          <div className="grid gap-0 lg:grid-cols-[0.72fr_1.28fr]">
+            <div className="bg-[#fff8e1] p-6 sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#b26b00]">
+                English test
+              </p>
+              <h2 className="mt-3 text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
+                {t.writingTitle}
+              </h2>
+              <p className="mt-3 text-base font-semibold leading-relaxed text-slate-700">
+                {t.writingSubtitle}
+              </p>
+              <p className="mt-5 text-sm leading-relaxed text-slate-600">
+                {t.writingBody}
+              </p>
+              <div className="mt-6 rounded-2xl border border-[#f0dca8] bg-white p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#b26b00] text-white">
+                    <span className="material-symbols-outlined text-xl">
+                      edit_note
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-black text-slate-950">
+                    {t.writingTipTitle}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm font-medium leading-relaxed text-slate-700">
+                  {t.writingTip}
+                </p>
+              </div>
+              <div className="mt-4 rounded-2xl border border-[#f0dca8] bg-white/70 p-4">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#b26b00]">
+                  {t.writingSourceLabel}
+                </p>
+                <a
+                  href="https://www.uscis.gov/sites/default/files/document/guides/M-1178_Writing_Strips_E.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-2 text-sm font-black text-[#0b50da] hover:underline"
+                >
+                  <span>{t.writingSourceText}</span>
+                  <span className="material-symbols-outlined text-base">
+                    open_in_new
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div className="grid gap-3 md:grid-cols-2">
+                {t.writingCategories.map((group, index) => (
+                  <details
+                    key={group.category}
+                    open={index < 2}
+                    className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-4"
+                  >
+                    <summary className="cursor-pointer text-base font-black text-slate-950">
+                      {group.category}
+                    </summary>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {group.words.map((word) => (
+                        <span
+                          key={word}
+                          className="rounded-full border border-[#f0dca8] bg-white px-3 py-1.5 text-sm font-bold text-slate-700"
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
