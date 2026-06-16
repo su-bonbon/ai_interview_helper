@@ -645,14 +645,23 @@ export default function CivicsQuestions() {
           )}
           </div>
 
-          <div className="rounded-2xl border border-black/5 bg-white px-6 py-4 shadow-sm">
+        </div>
+
+        <aside className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm flex max-h-[420px] flex-col self-start lg:sticky lg:top-28 lg:mt-[70px] lg:h-[420px]">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-bold">{t.listTitle}</h3>
+            <span className="text-xs text-slate-400">
+              {filteredQuestions.length}
+            </span>
+          </div>
+          <div className="mt-4 rounded-2xl border border-black/5 bg-slate-50 px-4 py-3">
             <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
               <span>{t.progressLabel}</span>
               <span>
                 {Math.min(progressIndex + 1, progressTotal)} / {progressTotal}
               </span>
             </div>
-            <div className="mt-3 h-2 w-full rounded-full bg-slate-100">
+            <div className="mt-3 h-2 w-full rounded-full bg-slate-200">
               <div
                 className="h-2 rounded-full bg-[#0b50da]"
                 style={{
@@ -664,15 +673,6 @@ export default function CivicsQuestions() {
                 }}
               />
             </div>
-          </div>
-        </div>
-
-        <aside className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm flex max-h-[420px] flex-col self-start lg:sticky lg:top-28 lg:mt-[70px] lg:h-[420px]">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold">{t.listTitle}</h3>
-            <span className="text-xs text-slate-400">
-              {filteredQuestions.length}
-            </span>
           </div>
           <div className="mt-4 min-h-0 flex-1 space-y-2 overflow-y-auto pr-2">
             {filteredQuestions.map((item, idx) => (
