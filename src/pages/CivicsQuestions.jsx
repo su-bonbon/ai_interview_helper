@@ -305,7 +305,7 @@ export default function CivicsQuestions() {
         })}
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] items-stretch">
+      <div className="mt-8 grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="space-y-6">
           <div className="space-y-6">
           <div className="flex flex-wrap items-center gap-3">
@@ -343,7 +343,7 @@ export default function CivicsQuestions() {
           {activeTab === "Flashcards" ? (
             <>
               <div
-                className={`rounded-3xl border border-black/5 bg-white p-8 shadow-sm min-h-[420px] relative overflow-hidden flip-card ${
+                className={`h-[420px] rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8 relative overflow-hidden flip-card ${
                   showAnswer ? "is-flipped" : ""
                 }`}
                 role="button"
@@ -389,8 +389,8 @@ export default function CivicsQuestions() {
                 {loading ? (
                   <p className="text-slate-500">{t.loading}</p>
                 ) : currentQuestion ? (
-                  <div className="flip-card-inner">
-                    <div className="flip-card-face relative">
+                  <div className="flip-card-inner h-full">
+                    <div className="flip-card-face flex h-full flex-col">
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.cardLabel}</span>
                         <div className="flex items-center gap-3">
@@ -422,8 +422,8 @@ export default function CivicsQuestions() {
                           </button>
                         </div>
                       </div>
-                      <div className="flex h-[260px] items-center justify-center px-10 text-center">
-                        <h2 className="text-3xl font-black text-slate-900 leading-tight">
+                      <div className="flex min-h-0 flex-1 items-center justify-center px-8 text-center sm:px-10">
+                        <h2 className="text-2xl font-black text-slate-900 leading-tight sm:text-3xl">
                           {currentQuestion.question || currentQuestion.prompt}
                         </h2>
                       </div>
@@ -431,7 +431,7 @@ export default function CivicsQuestions() {
                         <span>{t.tapHint}</span>
                       </div>
                     </div>
-                    <div className="flip-card-face flip-card-back relative">
+                    <div className="flip-card-face flip-card-back flex h-full flex-col">
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.hideAnswer}</span>
                         <div className="flex items-center gap-3">
@@ -463,8 +463,8 @@ export default function CivicsQuestions() {
                           </button>
                         </div>
                       </div>
-                      <div className="flex h-[260px] items-center justify-center px-10 text-center">
-                        <h2 className="text-3xl font-black text-slate-900 leading-tight">
+                      <div className="flex min-h-0 flex-1 items-center justify-center px-8 text-center sm:px-10">
+                        <h2 className="text-2xl font-black text-slate-900 leading-tight sm:text-3xl">
                           {currentQuestion.answer || currentQuestion.response}
                         </h2>
                       </div>
@@ -582,7 +582,7 @@ export default function CivicsQuestions() {
               </div>
 
               <div
-                className={`mt-8 rounded-2xl border border-black/5 bg-slate-50 p-6 min-h-[300px] relative overflow-hidden flip-card ${
+                className={`mt-8 h-[320px] rounded-2xl border border-black/5 bg-slate-50 p-6 relative overflow-hidden flip-card ${
                   testShowAnswer ? "is-flipped" : ""
                 }`}
                 role="button"
@@ -596,15 +596,15 @@ export default function CivicsQuestions() {
                 }}
               >
                 {currentTestQuestion ? (
-                  <div className="flip-card-inner">
-                    <div className="flip-card-face">
+                  <div className="flip-card-inner h-full">
+                    <div className="flip-card-face flex h-full flex-col">
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.cardLabel}</span>
                         <span>
                           {testIndex + 1} / {testQuestions.length || 0}
                         </span>
                       </div>
-                      <div className="mt-8 flex h-[180px] items-center">
+                      <div className="mt-6 flex min-h-0 flex-1 items-center">
                         <h2 className="text-2xl font-bold text-slate-900 leading-tight">
                           {currentTestQuestion.question ||
                             currentTestQuestion.prompt}
@@ -615,14 +615,14 @@ export default function CivicsQuestions() {
                         <span className="uppercase tracking-[0.3em]">tap</span>
                       </div>
                     </div>
-                    <div className="flip-card-face flip-card-back">
+                    <div className="flip-card-face flip-card-back flex h-full flex-col">
                       <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.4em] text-slate-400">
                         <span>{t.hideAnswer}</span>
                         <span>
                           {testIndex + 1} / {testQuestions.length || 0}
                         </span>
                       </div>
-                      <div className="mt-8 flex h-[180px] items-center">
+                      <div className="mt-6 flex min-h-0 flex-1 items-center">
                         <h2 className="text-2xl font-bold text-slate-900 leading-tight">
                           {currentTestQuestion.answer ||
                             currentTestQuestion.response}
@@ -667,14 +667,14 @@ export default function CivicsQuestions() {
           </div>
         </div>
 
-        <aside className="rounded-3xl border border-black/5 bg-white p-6 shadow-sm h-full flex flex-col self-stretch">
+        <aside className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm flex max-h-[420px] flex-col self-start lg:sticky lg:top-28 lg:mt-[70px] lg:h-[420px]">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold">{t.listTitle}</h3>
             <span className="text-xs text-slate-400">
               {filteredQuestions.length}
             </span>
           </div>
-          <div className="mt-4 space-y-2 max-h-[480px] overflow-y-auto pr-2">
+          <div className="mt-4 min-h-0 flex-1 space-y-2 overflow-y-auto pr-2">
             {filteredQuestions.map((item, idx) => (
               <button
                 key={item.id ?? idx}
@@ -689,7 +689,7 @@ export default function CivicsQuestions() {
                     : "border-black/5 bg-white text-slate-600 hover:border-[#0b50da]/40"
                 }`}
               >
-                <p className="font-semibold text-slate-800">
+                <p className="civics-question-title font-semibold text-slate-800">
                   {item.question || item.prompt || "Untitled"}
                 </p>
                 <p className="mt-1 text-xs text-slate-400">

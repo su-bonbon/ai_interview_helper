@@ -162,6 +162,14 @@
   transform: translateY(0) scale(1);
 }
 
+.civics-question-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
 .interview-map article::after {
   background: linear-gradient(90deg, rgba(11, 80, 218, 0.26), rgba(31, 122, 62, 0.22));
   content: "";
