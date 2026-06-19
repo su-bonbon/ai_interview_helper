@@ -2,14 +2,14 @@ import { useOutletContext } from "react-router-dom";
 
 const copy = {
   en: {
-    title: "About Citizenship Success",
+    title: "About US Citizenship Prep",
     subtitle:
       "A free bilingual study resource for people preparing for the U.S. citizenship interview.",
     sections: [
       {
         title: "Our purpose",
         body:
-          "Citizenship Success helps applicants practice civics questions, understand the interview flow, and prepare with a steady study routine. The site focuses on clear explanations, realistic prompts, and bilingual support for families who want a calmer preparation process.",
+          "US Citizenship Prep helps applicants practice civics questions, understand the interview flow, and prepare with a steady study routine. The site focuses on clear explanations, realistic prompts, and bilingual support for families who want a calmer preparation process.",
       },
       {
         title: "What we publish",
@@ -24,14 +24,14 @@ const copy = {
     ],
   },
   es: {
-    title: "Acerca de Citizenship Success",
+    title: "Acerca de US Citizenship Prep",
     subtitle:
       "Un recurso bilingüe y gratuito para personas que se preparan para la entrevista de ciudadanía de EE. UU.",
     sections: [
       {
         title: "Nuestro propósito",
         body:
-          "Citizenship Success ayuda a los solicitantes a practicar preguntas cívicas, entender el flujo de la entrevista y prepararse con una rutina constante. El sitio ofrece explicaciones claras, prompts realistas y apoyo bilingüe para familias que desean estudiar con más calma.",
+          "US Citizenship Prep ayuda a los solicitantes a practicar preguntas cívicas, entender el flujo de la entrevista y prepararse con una rutina constante. El sitio ofrece explicaciones claras, prompts realistas y apoyo bilingüe para familias que desean estudiar con más calma.",
       },
       {
         title: "Qué publicamos",

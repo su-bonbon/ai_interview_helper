@@ -173,7 +173,7 @@ const homeContent = {
     founderEyebrow: "Why this site exists",
     founderTitle: "Built from a real immigration journey",
     founderBody: [
-      "I created Citizenship Success because I have been through the immigration process myself. After earning permanent residency and preparing for citizenship, I realized how scattered and stressful the available resources can feel, especially for applicants who are studying in a second language.",
+      "I created US Citizenship Prep because I have been through the immigration process myself. After earning permanent residency and preparing for citizenship, I realized how scattered and stressful the available resources can feel, especially for applicants who are studying in a second language.",
       "This site is built from the resources, routines, and interview preparation habits that helped me. The goal is simple: help other immigrants and families prepare with more clarity, less fear, and a stronger understanding of what the interview is really testing.",
     ],
     readFounder: "Read why I built this free resource",
@@ -258,7 +258,7 @@ const homeContent = {
     founderEyebrow: "Por qué existe este sitio",
     founderTitle: "Creado desde una experiencia real de inmigración",
     founderBody: [
-      "Creé Citizenship Success porque yo también he pasado por el proceso migratorio. Después de obtener la residencia permanente y prepararme para la ciudadanía, entendí lo dispersos y estresantes que pueden sentirse los recursos, especialmente para quienes estudian en un segundo idioma.",
+      "Creé US Citizenship Prep porque yo también he pasado por el proceso migratorio. Después de obtener la residencia permanente y prepararme para la ciudadanía, entendí lo dispersos y estresantes que pueden sentirse los recursos, especialmente para quienes estudian en un segundo idioma.",
       "Este sitio nace de los recursos, rutinas y hábitos de preparación que me ayudaron. La meta es ayudar a otros inmigrantes y familias a prepararse con más claridad, menos miedo y una mejor idea de lo que realmente evalúa la entrevista.",
     ],
     readFounder: "Leer por qué creé este recurso gratis",

@@ -4,38 +4,38 @@ import logo from "../assets/logo1.png";
 
 export const copy = {
   en: {
-    navTitle: "Citizenship Success",
+    navTitle: "US Citizenship Prep",
     navToggle: "Español",
     navCivics: "Civics",
     navStudyPlan: "Study Plan",
     navGuides: "Guides",
     navFaq: "FAQ",
     navAbout: "About",
-    footerTitle: "Citizenship Success",
+    footerTitle: "US Citizenship Prep",
     footerPrivacy: "Privacy",
     footerTerms: "Terms",
     footerContact: "Contact",
     footerFaq: "FAQ",
     footerAbout: "About",
     footerGuides: "Guides",
-    footerNote: "© 2024 Citizenship Success. Helping families bridge borders.",
+    footerNote: "© 2024 US Citizenship Prep. Free interview practice for immigrant families.",
   },
   es: {
-    navTitle: "Citizenship Success",
+    navTitle: "US Citizenship Prep",
     navToggle: "English",
     navCivics: "Civismo",
     navStudyPlan: "Plan",
     navGuides: "Guías",
     navFaq: "FAQ",
     navAbout: "Acerca de",
-    footerTitle: "Citizenship Success",
+    footerTitle: "US Citizenship Prep",
     footerPrivacy: "Privacidad",
     footerTerms: "Términos",
     footerContact: "Contacto",
     footerFaq: "Preguntas",
     footerAbout: "Acerca de",
     footerGuides: "Guías",
-    footerNote: "© 2024 Citizenship Success. Apoyando a las familias.",
+    footerNote: "© 2024 US Citizenship Prep. Práctica gratuita para la entrevista de ciudadanía.",
   },
 };
 
@@ -52,7 +52,7 @@ export default function Layout() {
         <nav className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-screen-2xl items-center gap-4 px-3 sm:px-6 lg:px-10 py-4">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Citizenship Success" className="h-10 w-10 sm:h-12 sm:w-12" />
+              <img src={logo} alt="US Citizenship Prep" className="h-10 w-10 sm:h-12 sm:w-12" />
               <h2 className="text-base sm:text-lg font-black tracking-tight">{t.navTitle}</h2>
             </Link>
             <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold ml-auto">
