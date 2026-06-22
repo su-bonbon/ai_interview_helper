@@ -18,6 +18,7 @@ export const copy = {
     footerFaq: "FAQ",
     footerAbout: "About",
     footerGuides: "Guides",
+    footerSources: "Sources",
     footerNote: "© 2024 US Citizenship Prep. Free interview practice for immigrant families.",
   },
   es: {
@@ -35,6 +36,7 @@ export const copy = {
     footerFaq: "Preguntas",
     footerAbout: "Acerca de",
     footerGuides: "Guías",
+    footerSources: "Fuentes",
     footerNote: "© 2024 US Citizenship Prep. Práctica gratuita para la entrevista de ciudadanía.",
   },
 };
@@ -123,6 +125,9 @@ export default function Layout() {
               </Link>
               <Link to="/about" className="hover:text-[#0b50da] transition-colors">
                 {t.footerAbout}
+              </Link>
+              <Link to="/sources" className="hover:text-[#0b50da] transition-colors">
+                {t.footerSources}
               </Link>
               <Link to="/contact" className="hover:text-[#0b50da] transition-colors">
                 {t.footerContact}

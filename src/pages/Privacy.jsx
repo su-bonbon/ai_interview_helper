@@ -58,7 +58,7 @@ const copy = {
       {
         title: "Compartir información",
         body:
-          "No vendemos datos personales. Podemos compartir datos limitados con proveedores confiables de hosting, autenticación, analítica, anuncios y seguridad.",
+          "No vendemos datos personales. Podemos compartir datos limitados con proveedores confiables de hosting, analítica, anuncios y seguridad.",
       },
       {
         title: "Tus opciones",

@@ -12,6 +12,7 @@ const copy = {
     methodTitle: "How these guides are different",
     method:
       "Each guide is written around a real preparation task: what to understand, what to practice, what commonly causes stress, and how to build a routine before interview day. The goal is not to collect random tips, but to give applicants a clear way to study and make decisions about their daily practice.",
+    sourcesCta: "Review our sources and editorial standards",
     read: "Read guide",
     guides: [
       {
@@ -36,10 +37,45 @@ const copy = {
         image: heroImage,
       },
       {
+        title: "N-400 Interview Questions",
+        body:
+          "Practice common N-400 interview questions about travel, work, taxes, eligibility, and personal history.",
+        href: "/n400-interview-questions",
+        image: heroImage,
+      },
+      {
+        title: "US Citizenship Mock Interview",
+        body:
+          "Walk through a realistic interview flow from check-in to civics, English, N-400 review, and decision.",
+        href: "/mock-interview",
+        image: heroImage,
+      },
+      {
+        title: "Citizenship Test Practice",
+        body:
+          "Free civics test practice for official-style citizenship questions and interview recall.",
+        href: "/civics-test-practice",
+        image: civicsImage,
+      },
+      {
+        title: "Citizenship Test in Spanish",
+        body:
+          "Bilingual study support for understanding citizenship test topics in Spanish and English.",
+        href: "/citizenship-test-spanish",
+        image: readingImage,
+      },
+      {
         title: "Interview Day Checklist",
         body:
           "A clear preparation list for documents, timing, mindset, and final review.",
         href: "/guides/interview-day",
+        image: checklistImage,
+      },
+      {
+        title: "Citizenship Interview Checklist",
+        body:
+          "A focused checklist for documents, timing, final review, and interview-day confidence.",
+        href: "/citizenship-interview-checklist",
         image: checklistImage,
       },
     ],
@@ -51,6 +87,7 @@ const copy = {
     methodTitle: "Qué hace diferentes a estas guías",
     method:
       "Cada guía se organiza alrededor de una tarea real de preparación: qué entender, qué practicar, qué suele causar estrés y cómo crear una rutina antes de la entrevista. La meta no es juntar consejos sueltos, sino dar una forma clara de estudiar y tomar decisiones cada día.",
+    sourcesCta: "Ver fuentes y estándares editoriales",
     read: "Leer guía",
     guides: [
       {
@@ -75,10 +112,45 @@ const copy = {
         image: heroImage,
       },
       {
+        title: "Preguntas de entrevista N-400",
+        body:
+          "Practica preguntas comunes sobre viajes, trabajo, impuestos, elegibilidad e historial personal.",
+        href: "/n400-interview-questions",
+        image: heroImage,
+      },
+      {
+        title: "Mock interview de ciudadanía",
+        body:
+          "Repasa un flujo realista desde el registro hasta civismo, inglés, revisión N-400 y decisión.",
+        href: "/mock-interview",
+        image: heroImage,
+      },
+      {
+        title: "Práctica del examen de ciudadanía",
+        body:
+          "Práctica gratuita de preguntas de civismo para recordar respuestas durante la entrevista.",
+        href: "/civics-test-practice",
+        image: civicsImage,
+      },
+      {
+        title: "Examen de ciudadanía en español",
+        body:
+          "Apoyo bilingüe para entender temas de ciudadanía en español e inglés.",
+        href: "/citizenship-test-spanish",
+        image: readingImage,
+      },
+      {
         title: "Checklist del día de entrevista",
         body:
           "Una lista clara para documentos, horarios, mentalidad y repaso final.",
         href: "/guides/interview-day",
+        image: checklistImage,
+      },
+      {
+        title: "Checklist para la entrevista de ciudadanía",
+        body:
+          "Una lista enfocada en documentos, tiempo, repaso final y confianza para la entrevista.",
+        href: "/citizenship-interview-checklist",
         image: checklistImage,
       },
     ],
@@ -126,6 +198,12 @@ export default function Guides() {
         <p className="mt-3 max-w-4xl text-base leading-8 text-slate-700">
           {t.method}
         </p>
+        <Link
+          to="/sources"
+          className="mt-5 inline-flex text-sm font-black text-[#0b50da] underline"
+        >
+          {t.sourcesCta}
+        </Link>
       </div>
     </section>
   );
