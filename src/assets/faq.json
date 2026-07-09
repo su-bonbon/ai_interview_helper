@@ -1,106 +1,126 @@
 {
   "en": [
     {
-      "q": "Who is this program designed for?",
-      "a": "This program is specifically designed for U.S. citizenship applicants who want to feel fully prepared, confident, and in control during their interview. It is ideal for those who feel overwhelmed by the process, are unsure what to expect, or want structured, step-by-step guidance in both English and Spanish.",
+      "q": "Who is US Citizenship Prep designed for?",
+      "a": "US Citizenship Prep is designed for lawful permanent residents preparing for the U.S. naturalization interview. It is especially useful for applicants who want a clear study routine for civics questions, English reading and writing, N-400 review, interview-day documents, and common officer follow-up questions. The site is educational and does not replace legal advice.",
       "image": "qna1.jpg"
     },
     {
-      "q": "When should I start preparing for the interview?",
-      "a": "You should start as early as possible, ideally right after submitting your N-400 application. Early preparation allows you to move beyond memorization and build real confidence through repetition and realistic practice.",
+      "q": "When should I start preparing for the citizenship interview?",
+      "a": "A good time to start is soon after filing the N-400, especially if English is your second language or your travel, tax, citation, or work history needs careful review. Early preparation lets you study in small sessions instead of trying to memorize everything in the final week.",
       "image": "qna2.jpg"
     },
     {
       "q": "What happens during the actual citizenship interview?",
-      "a": "During the interview, a USCIS officer will review your N-400 application, ask questions about your background, and test your English and civics knowledge. The interview includes speaking, reading, writing, and civics questions. Understanding this flow in advance helps you stay calm and perform confidently.",
+      "a": "A USCIS officer usually confirms your identity, places you under oath, tests your English reading and writing, asks civics questions, and reviews parts of your N-400 application. The order can vary by officer and field office, but applicants should be ready for both the test portion and the personal application review.",
       "image": "qna3.jpg"
     },
     {
-      "q": "What kind of questions will the officer ask about my application?",
-      "a": "The officer will ask questions directly from your N-400 form, including your personal information, travel history, employment, and eligibility. Many applicants find this part challenging because it requires clear and accurate answers in English. Our program prepares you for these real interview questions so you can respond naturally and confidently.",
+      "q": "What kind of N-400 questions should I practice?",
+      "a": "Practice your full legal name, current address, travel history, work and school history, marital history, children, tax filing, citations or arrests, memberships, and yes/no eligibility questions. Many questions are simple, but applicants can struggle when dates, addresses, or updates are not fresh in memory.",
       "image": "qna4.jpg"
     },
     {
       "q": "What does the civics test include?",
-      "a": "The civics test covers U.S. history and government. You may be asked up to 10 questions, and you must answer at least 6 correctly. Our program helps you understand and retain all 100 official questions with clear explanations and repetition.",
+      "a": "The civics test covers U.S. history and government. During the interview, the officer asks up to 10 civics questions and the applicant must answer 6 correctly to pass. This site helps you practice official-style civics questions out loud, mark difficult questions, and review by topic.",
       "image": "qna5.jpg"
     },
     {
       "q": "What should I expect in the reading and writing tests?",
-      "a": "You will be asked to read one sentence and write one sentence correctly in English. While the sentences are simple, many applicants struggle under pressure. We provide realistic practice to help you perform with confidence and accuracy.",
+      "a": "Most applicants are asked to read one sentence in English and write one sentence in English. The sentences are usually simple, but the formal setting can make them feel harder. Practice should focus on common civic words, careful spelling, and staying calm while reading or writing.",
       "image": "qna6.jpg"
     },
     {
       "q": "What if I make a mistake during the interview?",
-      "a": "Making small mistakes is normal and does not automatically mean you will fail. Officers are evaluating your overall ability to understand and respond. Our program trains you to stay calm, recover quickly, and continue answering with confidence.",
+      "a": "A small mistake does not automatically mean a failed interview. If you misunderstand a question, ask the officer to repeat or rephrase it. If you realize an answer was incomplete, correct yourself calmly. Accuracy and honesty matter more than sounding perfectly rehearsed.",
       "image": "qna7.jpg"
     },
     {
-      "q": "Can I take the interview in Spanish?",
-      "a": "Some applicants may qualify to take the civics test in their native language based on age and residency requirements. However, most applicants must complete parts of the interview in English. Our bilingual approach ensures you fully understand the material while preparing for English responses.",
+      "q": "Can I take the citizenship test in Spanish?",
+      "a": "Some applicants may qualify for a language exemption or accommodation based on age and length of permanent residency. Many applicants still need to complete parts of the interview in English. Use bilingual study to understand the meaning, then practice the answer format that applies to your case.",
       "image": "qna8.jpg"
     },
     {
-      "q": "How is this program different from free resources?",
-      "a": "Unlike scattered free resources, this program provides a complete, structured system that simulates the real interview experience. It combines civics, English, and application-based questions into one guided process, helping you build confidence—not just knowledge.",
+      "q": "How is this site different from scattered free resources?",
+      "a": "US Citizenship Prep organizes the study process around the interview flow: civics recall, reading and writing, N-400 review, yes/no questions, officer follow-ups, and interview-day documents. The goal is not to replace official USCIS resources, but to help applicants use study time more clearly.",
       "image": "qna9.jpg"
     },
     {
       "q": "How much time should I study each day?",
-      "a": "Consistent daily practice is more effective than long, irregular sessions. Even 20–30 minutes per day can lead to strong results when combined with structured guidance and repetition.",
+      "a": "Many applicants benefit from 20 to 30 minutes of focused practice most days. A useful session might include 10 civics questions, one reading or writing prompt, and a short review of one N-400 topic. Consistency is usually better than long, irregular study sessions.",
       "image": "qna10.jpg"
+    },
+    {
+      "q": "What documents should I review before interview day?",
+      "a": "Review your appointment notice, green card, photo ID, passports, tax records if relevant, citation or court records if relevant, and any documents related to changes after filing. Your exact document needs depend on your case and appointment notice.",
+      "image": "qna11.jpg"
+    },
+    {
+      "q": "Is this site affiliated with USCIS?",
+      "a": "No. US Citizenship Prep is an independent educational study resource and is not affiliated with USCIS or any government agency. For official forms, rules, and eligibility requirements, always check USCIS directly or speak with a qualified immigration attorney if your case is complicated.",
+      "image": "qna12.jpg"
     }
   ],
   "es": [
     {
-      "q": "¿Para quién está diseñado este programa?",
-      "a": "Este programa está diseñado para solicitantes de ciudadanía que desean sentirse preparados, seguros y con control durante su entrevista. Es ideal para quienes se sienten abrumados o no saben qué esperar.",
+      "q": "¿Para quién es US Citizenship Prep?",
+      "a": "US Citizenship Prep es para residentes permanentes que se preparan para la entrevista de naturalización. Es útil para practicar civismo, lectura y escritura en inglés, revisión del N-400, documentos y preguntas de seguimiento. El sitio es educativo y no reemplaza asesoría legal.",
       "image": "qna1.jpg"
     },
     {
-      "q": "¿Cuándo debo comenzar a prepararme?",
-      "a": "Debes comenzar lo antes posible, idealmente después de enviar tu solicitud N-400. Empezar temprano te ayuda a desarrollar confianza real, no solo memorizar.",
+      "q": "¿Cuándo debo empezar a prepararme?",
+      "a": "Un buen momento es poco después de enviar el N-400, especialmente si el inglés es tu segundo idioma o si tu historial de viajes, impuestos, citaciones o trabajo necesita revisión. Empezar temprano permite estudiar en sesiones pequeñas.",
       "image": "qna2.jpg"
     },
     {
-      "q": "¿Qué sucede durante la entrevista de ciudadanía?",
-      "a": "El oficial revisará tu solicitud N-400, hará preguntas personales y evaluará tu inglés y conocimientos de civismo. Conocer este proceso reduce la ansiedad.",
+      "q": "¿Qué pasa durante la entrevista de ciudadanía?",
+      "a": "Un oficial de USCIS normalmente confirma tu identidad, te pone bajo juramento, evalúa lectura y escritura en inglés, hace preguntas de civismo y revisa partes de tu N-400. El orden puede variar, pero conviene prepararse para ambas partes.",
       "image": "qna3.jpg"
     },
     {
-      "q": "¿Qué tipo de preguntas harán sobre mi solicitud?",
-      "a": "El oficial hará preguntas basadas en tu formulario N-400, incluyendo historial personal, viajes y trabajo. Practicar estas preguntas es clave para responder con confianza.",
+      "q": "¿Qué preguntas del N-400 debo practicar?",
+      "a": "Practica tu nombre legal, dirección actual, viajes, trabajo, escuela, matrimonio, hijos, impuestos, citaciones o arrestos, membresías y preguntas de elegibilidad Sí/No. Lo difícil muchas veces es recordar fechas y cambios con claridad.",
       "image": "qna4.jpg"
     },
     {
       "q": "¿Qué incluye el examen de civismo?",
-      "a": "Incluye preguntas sobre historia y gobierno de EE.UU. Debes responder correctamente al menos 6 de 10 preguntas.",
+      "a": "El examen cubre historia y gobierno de Estados Unidos. El oficial puede hacer hasta 10 preguntas y debes responder 6 correctamente. Este sitio ayuda a practicar preguntas estilo oficial en voz alta y repasar las difíciles.",
       "image": "qna5.jpg"
     },
     {
       "q": "¿Qué debo esperar en lectura y escritura?",
-      "a": "Leerás una oración y escribirás otra correctamente. Practicar reduce errores bajo presión.",
+      "a": "La mayoría de solicitantes debe leer una oración en inglés y escribir una oración en inglés. Las oraciones suelen ser simples, pero el ambiente formal puede aumentar los nervios. Practica palabras cívicas comunes y escritura clara.",
       "image": "qna6.jpg"
     },
     {
       "q": "¿Qué pasa si cometo un error?",
-      "a": "Errores pequeños son normales. Lo importante es tu capacidad general de comunicarte.",
+      "a": "Un error pequeño no significa automáticamente fallar. Si no entiendes, pide que repitan o expliquen la pregunta. Si notas que una respuesta quedó incompleta, corrígela con calma. La honestidad y exactitud importan mucho.",
       "image": "qna7.jpg"
     },
     {
-      "q": "¿Puedo hacer la entrevista en español?",
-      "a": "Algunos solicitantes califican para usar su idioma nativo, pero la mayoría necesita inglés.",
+      "q": "¿Puedo tomar el examen de ciudadanía en español?",
+      "a": "Algunos solicitantes pueden calificar para una excepción o adaptación por edad y tiempo como residentes permanentes. Muchos aún deben completar partes en inglés. Usa el español para entender y practica el formato que aplique a tu caso.",
       "image": "qna8.jpg"
     },
     {
-      "q": "¿En qué se diferencia este programa?",
-      "a": "Ofrece una estructura completa y práctica realista, no recursos dispersos.",
+      "q": "¿En qué se diferencia este sitio de otros recursos gratis?",
+      "a": "US Citizenship Prep organiza el estudio según el flujo de la entrevista: civismo, lectura y escritura, revisión del N-400, preguntas Sí/No, seguimientos del oficial y documentos. No reemplaza recursos oficiales, pero ayuda a estudiar con más orden.",
       "image": "qna9.jpg"
     },
     {
       "q": "¿Cuánto debo estudiar al día?",
-      "a": "20–30 minutos diarios con consistencia es suficiente para ver progreso.",
+      "a": "A muchos solicitantes les ayuda estudiar 20 a 30 minutos casi todos los días. Una sesión puede incluir 10 preguntas de civismo, una práctica de lectura o escritura y una revisión corta de un tema del N-400.",
       "image": "qna10.jpg"
+    },
+    {
+      "q": "¿Qué documentos debo revisar antes de la entrevista?",
+      "a": "Revisa tu aviso de cita, green card, identificación, pasaportes, impuestos si aplica, documentos de citaciones o corte si aplica y pruebas de cambios después de enviar la solicitud. Tus necesidades exactas dependen de tu caso.",
+      "image": "qna11.jpg"
+    },
+    {
+      "q": "¿Este sitio está afiliado con USCIS?",
+      "a": "No. US Citizenship Prep es un recurso educativo independiente y no está afiliado con USCIS ni con ninguna agencia gubernamental. Para reglas oficiales, formularios y elegibilidad, revisa USCIS o consulta con un abogado calificado.",
+      "image": "qna12.jpg"
     }
   ]
 }

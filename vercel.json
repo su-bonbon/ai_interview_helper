@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets/|favicon|robots.txt|sitemap.xml|ads.txt|llms.txt|_redirects).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(robots.txt|sitemap.xml|ads.txt|llms.txt)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
+}

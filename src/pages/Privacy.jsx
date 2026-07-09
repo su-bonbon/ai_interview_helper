@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 const copy = {
   en: {
     title: "Privacy Policy",
-    updated: "Last updated: May 26, 2026",
+    updated: "Last updated: July 9, 2026",
     intro:
       "We respect your privacy. This policy explains what we collect, how we use it, and the choices you have.",
     sections: [
@@ -20,7 +20,7 @@ const copy = {
       {
         title: "Advertising and cookies",
         body:
-          "We use Google products, including analytics and advertising services, which may use cookies, web beacons, IP addresses, device identifiers, and similar technologies to measure performance and show relevant ads.",
+          "We use Google products, including analytics and advertising services, which may use cookies, web beacons, IP addresses, device identifiers, and similar technologies to measure performance and show relevant ads. You can learn more at https://policies.google.com/technologies/partner-sites.",
       },
       {
         title: "Sharing",
@@ -36,7 +36,7 @@ const copy = {
   },
   es: {
     title: "Política de privacidad",
-    updated: "Última actualización: 26 de mayo de 2026",
+    updated: "Última actualización: 9 de julio de 2026",
     intro:
       "Respetamos tu privacidad. Esta política explica qué recopilamos, cómo lo usamos y tus opciones.",
     sections: [
@@ -53,7 +53,7 @@ const copy = {
       {
         title: "Anuncios y cookies",
         body:
-          "Usamos productos de Google, incluidos servicios de analítica y publicidad, que pueden utilizar cookies, balizas web, direcciones IP, identificadores de dispositivo y tecnologías similares para medir rendimiento y mostrar anuncios relevantes.",
+          "Usamos productos de Google, incluidos servicios de analítica y publicidad, que pueden utilizar cookies, balizas web, direcciones IP, identificadores de dispositivo y tecnologías similares para medir rendimiento y mostrar anuncios relevantes. Puedes leer más en https://policies.google.com/technologies/partner-sites.",
       },
       {
         title: "Compartir información",
