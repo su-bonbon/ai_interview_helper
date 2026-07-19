@@ -488,9 +488,11 @@ export default function App() {
             </div>
           </div>
 
-          <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur lg:flex">
+          <div className="scroll-explore-hint absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur lg:flex">
             <span>{t.scrollHint}</span>
-            <span className="material-symbols-outlined text-base">south</span>
+            <span className="scroll-explore-arrow material-symbols-outlined text-base">
+              south
+            </span>
           </div>
         </div>
       </header>
