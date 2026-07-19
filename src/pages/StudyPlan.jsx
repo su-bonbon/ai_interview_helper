@@ -1040,8 +1040,8 @@ export default function StudyPlan() {
                 )}
               </div>
 
-              <div className="rounded-2xl bg-[#0b50da] p-5 text-white">
-                <p className="text-sm font-semibold text-white/75">
+              <div className="rounded-2xl border border-[#d7e3d3] bg-[#f4f8ef] p-5 text-slate-950">
+                <p className="text-sm font-semibold text-[#1f7a3e]">
                   {t.milestoneTitle}
                 </p>
                 <p className="mt-3 text-3xl font-black">
@@ -1049,12 +1049,12 @@ export default function StudyPlan() {
                     ? t.noDate
                     : `${daysToInterview} ${t.daysLabel}`}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/80">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
                   {t.milestoneBody}
                 </p>
                 <Link
                   to="/civics"
-                  className="mt-5 inline-flex h-11 items-center justify-center rounded-xl bg-white px-5 text-sm font-bold text-[#0b50da]"
+                  className="mt-5 inline-flex h-11 items-center justify-center rounded-xl bg-[#1f7a3e] px-5 text-sm font-bold text-white transition hover:bg-[#196632]"
                 >
                   {t.startPractice}
                 </Link>
