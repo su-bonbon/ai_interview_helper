@@ -2,7 +2,6 @@ import { Link, Navigate, useOutletContext, useParams } from "react-router-dom";
 import civicsImage from "../assets/civics-practice.jpg";
 import readingImage from "../assets/reading-writing-practice.jpg";
 import checklistImage from "../assets/interview-checklist.jpg";
-import heroImage from "../assets/hero-citizenship-prep.jpg";
 
 const articles = {
   "civics-test": {
@@ -149,79 +148,6 @@ const articles = {
       ],
       takeaway:
         "La lectura y escritura se vuelven manejables cuando practicas oraciones cortas con regularidad y haces de la calma parte de la habilidad.",
-    },
-  },
-  "n400-review": {
-    image: heroImage,
-    en: {
-      eyebrow: "N-400 Review",
-      title: "How to Prepare for the N-400 Questions in the Interview",
-      intro:
-        "A major part of the citizenship interview is the review of your N-400 application. The officer may ask about your address history, work, travel, family, taxes, memberships, and eligibility questions. This is not meant to trick you. The officer is confirming information and checking that you understand your own application.",
-      sections: [
-        {
-          title: "Read your application before the interview",
-          body:
-            "Do not wait until the appointment to see your answers again. Read your N-400 slowly before interview day. Mark dates, addresses, trips, and names that are easy to forget. If something has changed since filing, make a note so you can explain the update clearly.",
-        },
-        {
-          title: "Practice personal answers in plain English",
-          body:
-            "You do not need complicated sentences. You need accurate answers. Practice saying your full name, current address, job, marital status, and travel history. If you do not understand a question, it is better to ask the officer to repeat it than to guess.",
-        },
-        {
-          title: "Give consistent information",
-          body:
-            "Consistency matters. If your application says one thing and your spoken answer sounds different, the officer may ask follow-up questions. Review your details so your answers match your records as much as possible.",
-        },
-        {
-          title: "Prepare for yes/no eligibility questions",
-          body:
-            "Some N-400 questions use formal words that can feel uncomfortable. Practice understanding the meaning in your own language first, then practice a clear English answer. If your truthful answer needs explanation, keep it short and direct.",
-        },
-        {
-          title: "Bring updates in an organized way",
-          body:
-            "If your address, job, travel, marital status, or family information changed after filing, prepare a simple explanation. Keep related documents together. Organized updates help the interview stay focused and reduce the chance that you forget an important detail.",
-        },
-      ],
-      takeaway:
-        "The N-400 review becomes less stressful when your own application feels familiar. Accuracy, calmness, and simple English matter more than memorized speeches.",
-    },
-    es: {
-      eyebrow: "Revisión N-400",
-      title: "Cómo prepararte para las preguntas del N-400",
-      intro:
-        "Una parte importante de la entrevista es la revisión de tu solicitud N-400. El oficial puede preguntar sobre direcciones, trabajo, viajes, familia, impuestos, membresías y elegibilidad. No es para engañarte; es para confirmar información y verificar que entiendes tu solicitud.",
-      sections: [
-        {
-          title: "Lee tu solicitud antes de la entrevista",
-          body:
-            "No esperes al día de la cita para volver a ver tus respuestas. Lee tu N-400 con calma. Marca fechas, direcciones, viajes y nombres fáciles de olvidar.",
-        },
-        {
-          title: "Practica respuestas personales en inglés simple",
-          body:
-            "No necesitas frases complicadas. Necesitas respuestas exactas. Practica tu nombre completo, dirección, trabajo, estado civil e historial de viajes.",
-        },
-        {
-          title: "Da información consistente",
-          body:
-            "La consistencia importa. Si tu solicitud dice una cosa y tu respuesta suena diferente, el oficial puede hacer preguntas de seguimiento.",
-        },
-        {
-          title: "Prepárate para preguntas Sí/No",
-          body:
-            "Algunas preguntas usan palabras formales. Entiende primero el significado en tu idioma y luego practica una respuesta clara en inglés.",
-        },
-        {
-          title: "Organiza cambios recientes",
-          body:
-            "Si cambió tu dirección, trabajo, viajes, estado civil o información familiar después de enviar la solicitud, prepara una explicación simple. Mantén documentos relacionados juntos para no olvidar detalles importantes.",
-        },
-      ],
-      takeaway:
-        "La revisión del N-400 es menos estresante cuando tu propia solicitud te resulta familiar. Importan la exactitud, la calma y el inglés simple.",
     },
   },
   "interview-day": {

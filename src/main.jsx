@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import CivicsQuestions from "./pages/CivicsQuestions.jsx";
 import Privacy from "./pages/Privacy.jsx";
@@ -36,6 +36,14 @@ root.render(
             element={<GuideArticle slugOverride="interview-day" />}
           />
           <Route path="/guides" element={<Guides />} />
+          <Route
+            path="/guides/interview-day"
+            element={<Navigate to="/interview-day" replace />}
+          />
+          <Route
+            path="/guides/n400-review"
+            element={<Navigate to="/n400-interview-questions" replace />}
+          />
           <Route path="/guides/:slug" element={<GuideArticle />} />
           <Route
             path="/n400-interview-questions"

@@ -1,8 +1,11 @@
 import { Link, useOutletContext } from "react-router-dom";
 import civicsImage from "../assets/civics-practice.jpg";
+import flashcardsImage from "../assets/flashcards-1.jpg";
+import interviewPrepImage from "../assets/interview-prep-1.jpg";
+import mockInterviewImage from "../assets/interview-prep-3.jpg";
+import spanishStudyImage from "../assets/interview-prep-4.jpg";
 import readingImage from "../assets/reading-writing-practice.jpg";
 import checklistImage from "../assets/interview-checklist.jpg";
-import heroImage from "../assets/hero-citizenship-prep.jpg";
 
 const copy = {
   en: {
@@ -30,46 +33,32 @@ const copy = {
         image: readingImage,
       },
       {
-        title: "Preparing for the N-400 Review",
-        body:
-          "How to review personal history, travel, work, and eligibility answers before the interview.",
-        href: "/guides/n400-review",
-        image: heroImage,
-      },
-      {
         title: "N-400 Interview Questions",
         body:
           "Practice common N-400 interview questions about travel, work, taxes, eligibility, and personal history.",
         href: "/n400-interview-questions",
-        image: heroImage,
+        image: interviewPrepImage,
       },
       {
         title: "US Citizenship Mock Interview",
         body:
           "Walk through a realistic interview flow from check-in to civics, English, N-400 review, and decision.",
         href: "/mock-interview",
-        image: heroImage,
+        image: mockInterviewImage,
       },
       {
         title: "Citizenship Test Practice",
         body:
           "Free civics test practice for official-style citizenship questions and interview recall.",
         href: "/civics-test-practice",
-        image: civicsImage,
+        image: flashcardsImage,
       },
       {
         title: "Citizenship Test in Spanish",
         body:
           "Bilingual study support for understanding citizenship test topics in Spanish and English.",
         href: "/citizenship-test-spanish",
-        image: readingImage,
-      },
-      {
-        title: "Interview Day Checklist",
-        body:
-          "A clear preparation list for documents, timing, mindset, and final review.",
-        href: "/guides/interview-day",
-        image: checklistImage,
+        image: spanishStudyImage,
       },
       {
         title: "Citizenship Interview Checklist",
@@ -105,46 +94,32 @@ const copy = {
         image: readingImage,
       },
       {
-        title: "Preparación para la revisión del N-400",
-        body:
-          "Cómo repasar historial personal, viajes, trabajo y elegibilidad antes de la entrevista.",
-        href: "/guides/n400-review",
-        image: heroImage,
-      },
-      {
         title: "Preguntas de entrevista N-400",
         body:
           "Practica preguntas comunes sobre viajes, trabajo, impuestos, elegibilidad e historial personal.",
         href: "/n400-interview-questions",
-        image: heroImage,
+        image: interviewPrepImage,
       },
       {
         title: "Mock interview de ciudadanía",
         body:
           "Repasa un flujo realista desde el registro hasta civismo, inglés, revisión N-400 y decisión.",
         href: "/mock-interview",
-        image: heroImage,
+        image: mockInterviewImage,
       },
       {
         title: "Práctica del examen de ciudadanía",
         body:
           "Práctica gratuita de preguntas de civismo para recordar respuestas durante la entrevista.",
         href: "/civics-test-practice",
-        image: civicsImage,
+        image: flashcardsImage,
       },
       {
         title: "Examen de ciudadanía en español",
         body:
           "Apoyo bilingüe para entender temas de ciudadanía en español e inglés.",
         href: "/citizenship-test-spanish",
-        image: readingImage,
-      },
-      {
-        title: "Checklist del día de entrevista",
-        body:
-          "Una lista clara para documentos, horarios, mentalidad y repaso final.",
-        href: "/guides/interview-day",
-        image: checklistImage,
+        image: spanishStudyImage,
       },
       {
         title: "Checklist para la entrevista de ciudadanía",

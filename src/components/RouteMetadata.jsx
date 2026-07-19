@@ -37,16 +37,6 @@ const metadataByPath = {
     description:
       "Understand what to expect in the citizenship reading and writing test and how to practice simple English sentences calmly.",
   },
-  "/guides/n400-review": {
-    title: "How to Prepare for N-400 Review Questions",
-    description:
-      "Prepare for N-400 interview questions about address history, work, travel, taxes, family, eligibility, and updates since filing.",
-  },
-  "/guides/interview-day": {
-    title: "Citizenship Interview Day Checklist Guide",
-    description:
-      "Prepare documents, timing, transportation, final review, and calm speaking habits for citizenship interview day.",
-  },
   "/interview-day": {
     title: "Citizenship Interview Day Checklist | US Citizenship Prep",
     description:
