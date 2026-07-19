@@ -223,13 +223,13 @@ const pages = [
 ];
 
 const pageLinks = [
-  ["/civics", "Civics questions"],
-  ["/study-plan", "Study plan"],
-  ["/guides", "Guides"],
-  ["/faq", "FAQ"],
-  ["/sources", "Sources"],
-  ["/privacy", "Privacy"],
-  ["/contact", "Contact"],
+  ["/civics/", "Civics questions"],
+  ["/study-plan/", "Study plan"],
+  ["/guides/", "Guides"],
+  ["/faq/", "FAQ"],
+  ["/sources/", "Sources"],
+  ["/privacy/", "Privacy"],
+  ["/contact/", "Contact"],
 ];
 
 const escapeHtml = (value) =>
@@ -289,7 +289,7 @@ const renderNoScript = (page) => `
     </noscript>`;
 
 const replaceMeta = (html, page) => {
-  const canonical = `${siteUrl}${page.route === "/" ? "/" : page.route}`;
+  const canonical = `${siteUrl}${page.route === "/" ? "/" : `${page.route}/`}`;
   return html
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`)
     .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`)

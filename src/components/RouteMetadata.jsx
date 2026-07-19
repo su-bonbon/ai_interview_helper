@@ -114,7 +114,8 @@ export default function RouteMetadata() {
 
   useEffect(() => {
     const cleanPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-    const canonicalUrl = `${siteUrl}${cleanPath}`;
+    const canonicalPath = cleanPath === "/" ? "/" : `${cleanPath}/`;
+    const canonicalUrl = `${siteUrl}${canonicalPath}`;
     const metadata = metadataByPath[cleanPath] || {
       title: defaultTitle,
       description: defaultDescription,
