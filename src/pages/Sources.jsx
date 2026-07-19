@@ -6,6 +6,24 @@ const copy = {
     subtitle:
       "How we create, review, and present citizenship interview preparation content.",
     updated: "Last updated: June 22, 2026",
+    processTitle: "How we turn sources into study guidance",
+    process: [
+      {
+        title: "Start with the interview task",
+        body:
+          "We begin with a practical question applicants face, such as how to review travel history, how to practice spoken civics recall, or what to bring for a tax or citation issue.",
+      },
+      {
+        title: "Separate official facts from study advice",
+        body:
+          "Official rules, forms, and test policies are treated differently from preparation suggestions. When a statement depends on USCIS policy, we point users back to official resources.",
+      },
+      {
+        title: "Add context from preparation experience",
+        body:
+          "Our original value is explaining how an applicant can use official information in a study routine: what to practice, what to organize, what to say briefly, and when to seek legal advice.",
+      },
+    ],
     sections: [
       {
         title: "Our editorial approach",
@@ -47,6 +65,24 @@ const copy = {
     subtitle:
       "Cómo creamos, revisamos y presentamos contenido para la preparación de la entrevista de ciudadanía.",
     updated: "Última actualización: 22 de junio de 2026",
+    processTitle: "Cómo convertimos fuentes en guía de estudio",
+    process: [
+      {
+        title: "Empezamos con una tarea real",
+        body:
+          "Comenzamos con una pregunta práctica del solicitante, como revisar viajes, practicar civismo en voz alta o preparar documentos sobre impuestos o citaciones.",
+      },
+      {
+        title: "Separamos datos oficiales de consejos de estudio",
+        body:
+          "Las reglas oficiales, formularios y políticas del examen se tratan de forma distinta a las sugerencias de preparación. Cuando algo depende de USCIS, dirigimos al usuario a fuentes oficiales.",
+      },
+      {
+        title: "Agregamos contexto de preparación",
+        body:
+          "Nuestro valor original es explicar cómo usar información oficial dentro de una rutina: qué practicar, qué organizar, cómo responder brevemente y cuándo buscar asesoría legal.",
+      },
+    ],
     sections: [
       {
         title: "Nuestro enfoque editorial",
@@ -107,6 +143,18 @@ export default function Sources() {
             <p className="mt-3 leading-7 text-slate-600">{section.body}</p>
           </article>
         ))}
+      </div>
+
+      <div className="mt-10 rounded-lg border border-black/10 bg-white p-6 sm:p-8">
+        <h2 className="text-2xl font-black">{t.processTitle}</h2>
+        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          {t.process.map((item) => (
+            <article key={item.title} className="rounded-lg bg-slate-50 p-5">
+              <h3 className="text-lg font-black">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+            </article>
+          ))}
+        </div>
       </div>
 
       <div className="mt-10 rounded-lg border border-black/10 bg-white p-6">

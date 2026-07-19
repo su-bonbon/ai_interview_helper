@@ -75,6 +75,14 @@ const pages = [
     sections: [
       ["Questions to review", "Practice your legal name, address, travel history, employment, taxes, citations, and oath-related questions."],
       ["How to answer", "Use short, honest, consistent answers and bring documents for updates or issues when relevant."],
+      [
+        "Why this page is different",
+        "This guide treats the N-400 review as a preparation task, not a keyword list. Applicants are encouraged to compare answers with the submitted form, note changes since filing, organize proof by topic, and practice short truthful explanations for travel, tax, citation, family, or employment updates.",
+      ],
+      [
+        "Common pressure points",
+        "Many applicants overprepare for civics and underprepare for the conversation about their own history. This page helps users identify details that may need calm clarification during the interview.",
+      ],
     ],
   },
   {
@@ -88,6 +96,14 @@ const pages = [
     sections: [
       ["Interview flow", "A typical interview may include identity confirmation, oath, reading, writing, civics questions, and application review."],
       ["Speaking practice", "Practice answering out loud so the real interview feels less surprising."],
+      [
+        "Realistic practice",
+        "Mock practice should include the formal moments applicants often forget: showing identification, being sworn in, asking for repetition, reading and writing one sentence, and moving from civics questions into N-400 review.",
+      ],
+      [
+        "Why it helps",
+        "The goal is not to memorize a script. The goal is to make the interview sequence familiar enough that applicants can listen carefully and answer clearly under pressure.",
+      ],
     ],
   },
   {
@@ -101,6 +117,14 @@ const pages = [
     sections: [
       ["Study routine", "Study 10 to 15 questions at a time, answer out loud, and review hard questions repeatedly."],
       ["Test topics", "Review American government, history, rights, responsibilities, geography, symbols, and holidays."],
+      [
+        "Recall over recognition",
+        "The civics test is spoken during the interview, so applicants should practice producing answers without multiple-choice cues. Hard questions should become a review list instead of a reason to restart from the beginning.",
+      ],
+      [
+        "How to use mistakes",
+        "Missed questions show exactly where study time should go. This page encourages smaller sets, repeated spoken recall, and review of the meaning behind each answer.",
+      ],
     ],
   },
   {
@@ -114,6 +138,14 @@ const pages = [
     sections: [
       ["Bilingual study", "Use Spanish to understand the meaning, then practice short English answers out loud."],
       ["Language note", "Some applicants may qualify for language accommodations, but many applicants still complete parts of the interview in English."],
+      [
+        "Practical bilingual method",
+        "Spanish can support comprehension without replacing required English practice. Applicants can use Spanish explanations to understand civics concepts and then practice final answers in the language required for their interview situation.",
+      ],
+      [
+        "Vocabulary to watch",
+        "Words like oath, allegiance, citation, taxes, travel, and bear arms can create confusion. This page helps applicants notice those terms before interview day.",
+      ],
     ],
   },
   {
@@ -127,6 +159,14 @@ const pages = [
     sections: [
       ["Documents", "Review your appointment notice, green card, photo ID, passports, and case-specific documents."],
       ["Final review", "Lightly review marked civics questions, N-400 updates, and interview-day logistics."],
+      [
+        "More than packing",
+        "A useful checklist connects documents to interview topics. Applicants should know which papers support travel updates, tax payment plans, citations, marital changes, or other corrections since filing.",
+      ],
+      [
+        "Interview morning",
+        "Planning transportation, parking, security, and arrival time reduces preventable stress so applicants can focus on listening and answering clearly.",
+      ],
     ],
   },
   {
@@ -164,7 +204,14 @@ const pages = [
     intro:
       "US Citizenship Prep is a free bilingual study resource for people preparing for the U.S. citizenship interview.",
     sections: [
-      ["Purpose", "We help applicants practice civics questions, understand interview flow, and prepare with a steady study routine."],
+      [
+        "Purpose",
+        "The site was built from the founder's own immigrant and naturalization preparation experience. It turns scattered resources and interview preparation habits into a free study toolkit for other applicants and families.",
+      ],
+      [
+        "Personal perspective",
+        "The guidance emphasizes that citizenship preparation is not only memorizing civics answers. Applicants also need to review the N-400, prepare updates, organize documents, and practice answering honestly under pressure.",
+      ],
       ["Important note", "We are not a law firm, government agency, or USCIS representative."],
     ],
   },
@@ -179,6 +226,14 @@ const pages = [
     sections: [
       ["Official sources", "Users should verify forms, rules, and eligibility requirements with USCIS."],
       ["Editorial limits", "This site is educational only and does not provide legal advice."],
+      [
+        "Editorial process",
+        "We separate official facts from study advice. When a topic depends on USCIS policy, we point users back to official resources. Our original role is explaining how to turn that information into practical preparation.",
+      ],
+      [
+        "Corrections",
+        "We review pages for clarity and usefulness as the site grows, especially when resource links change or applicants need more context around a preparation topic.",
+      ],
     ],
   },
   {

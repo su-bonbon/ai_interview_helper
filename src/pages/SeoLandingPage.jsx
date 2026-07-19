@@ -174,6 +174,14 @@ const pageContent = {
 
 const depthContent = {
   "/n400-interview-questions": {
+    insightTitle: "Why this part deserves more attention than applicants expect",
+    insight:
+      "Many applicants spend most of their time on civics questions because those questions feel measurable. In the actual interview, the N-400 review can be the part that reveals whether you understand your own application. A good answer is not long or dramatic. It is truthful, consistent with the form, and supported by documents when the topic needs proof.",
+    checkpoints: [
+      "Review every address, job, school, trip, marriage, child, and citation before the appointment.",
+      "Prepare a short explanation for anything that changed after filing.",
+      "Bring proof for tax payment plans, court records, travel updates, or corrections when relevant.",
+    ],
     routineTitle: "A practical N-400 review routine",
     routine: [
       "Print or open a copy of your submitted N-400 and read one section at a time.",
@@ -199,6 +207,14 @@ const depthContent = {
     ],
   },
   "/mock-interview": {
+    insightTitle: "Why mock practice should include the uncomfortable parts",
+    insight:
+      "A mock interview is most useful when it feels slightly formal. Practice being sworn in, showing identification, answering basic personal questions, reading and writing one sentence, and then moving into civics and N-400 review. This helps your body recognize the sequence before the real appointment, so the room feels less unfamiliar.",
+    checkpoints: [
+      "Practice with another person reading questions aloud instead of only studying silently.",
+      "Include identity checks, oath language, English reading and writing, civics, and N-400 review.",
+      "Pause when confused and practice asking, 'Can you repeat the question?' calmly.",
+    ],
     routineTitle: "How to run a simple mock interview at home",
     routine: [
       "Start with identity questions: name, address, date of birth, and green card details.",
@@ -224,6 +240,14 @@ const depthContent = {
     ],
   },
   "/civics-test-practice": {
+    insightTitle: "Why spoken recall matters more than clicking the right answer",
+    insight:
+      "The civics test is spoken during the naturalization interview. That means recognition on a screen is not enough. You need to hear the question, understand what is being asked, and produce a clear answer without scrolling through choices. This is why the best study routine uses short sets, spoken answers, and repeated review of hard questions.",
+    checkpoints: [
+      "Answer out loud before checking the answer.",
+      "Separate hard questions instead of restarting the entire list every time.",
+      "Review meaning, not only wording, so a question still makes sense when asked differently.",
+    ],
     routineTitle: "A study routine for the civics test",
     routine: [
       "Study 10 to 15 civics questions at a time instead of trying to review every question in one sitting.",
@@ -249,6 +273,14 @@ const depthContent = {
     ],
   },
   "/citizenship-test-spanish": {
+    insightTitle: "How bilingual study can help without weakening English practice",
+    insight:
+      "Spanish can be a bridge for understanding, especially when a civics concept or eligibility word feels abstract. The key is to separate comprehension from final delivery. Use Spanish to understand the idea, then practice the answer in the language required for your situation. This keeps preparation honest and practical.",
+    checkpoints: [
+      "Use Spanish explanations to understand the topic clearly.",
+      "Practice the final answer in English when English is required for your interview.",
+      "Make a small vocabulary list for words like oath, allegiance, citation, taxes, and travel.",
+    ],
     routineTitle: "How to use Spanish and English together",
     routine: [
       "Read the meaning of each topic in Spanish first if that helps you understand it clearly.",
@@ -274,6 +306,14 @@ const depthContent = {
     ],
   },
   "/citizenship-interview-checklist": {
+    insightTitle: "Why a checklist is more than a packing list",
+    insight:
+      "A strong interview-day checklist reduces preventable stress. It is not only about bringing documents. It is also about knowing where you are going, which updates you need to mention, what proof supports those updates, and how you will keep your answers clear when the appointment feels formal.",
+    checkpoints: [
+      "Put documents in topic order so you can find them quickly.",
+      "Review changes since filing, including address, work, travel, family, citations, and taxes.",
+      "Plan transportation and arrival time early enough to avoid rushing through security.",
+    ],
     routineTitle: "A week-before interview checklist",
     routine: [
       "Confirm the date, time, address, parking, and travel plan for your field office.",
@@ -357,6 +397,31 @@ export default function SeoLandingPage({ slug }) {
             loading="eager"
             decoding="async"
           />
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-lg border border-black/10 bg-white p-6 sm:p-8">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-slate-400">
+              Practical Context
+            </p>
+            <h2 className="mt-3 text-3xl font-black">{depth.insightTitle}</h2>
+            <p className="mt-4 text-base leading-8 text-slate-700">{depth.insight}</p>
+          </div>
+          <div className="rounded-lg bg-[#f5f7fb] p-5">
+            <h3 className="text-lg font-black">What to check before you move on</h3>
+            <ul className="mt-4 space-y-3">
+              {depth.checkpoints.map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700">
+                  <span className="material-symbols-outlined mt-0.5 text-base text-[#0b50da]">
+                    check_circle
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
