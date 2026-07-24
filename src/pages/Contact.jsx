@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 const copy = {
   en: {
     title: "Contact",
-    subtitle: "We usually respond within 1–2 business days.",
+    subtitle: "We usually respond within 2 business days.",
     emailLabel: "Email",
     email: "support@usinterviewprep.com",
     note:
@@ -20,7 +20,7 @@ const copy = {
   },
   es: {
     title: "Contacto",
-    subtitle: "Respondemos en 1–2 días hábiles.",
+    subtitle: "Respondemos en 2 días hábiles.",
     emailLabel: "Correo",
     email: "support@usinterviewprep.com",
     note:
@@ -40,12 +40,13 @@ const copy = {
 export default function Contact() {
   const { lang } = useOutletContext();
   const t = copy[lang];
+
   return (
-    <section className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-14">
+    <section className="mx-auto max-w-screen-2xl px-4 py-14 sm:px-6 lg:px-10">
       <div className="max-w-3xl">
         <h1 className="text-3xl font-black">{t.title}</h1>
         <p className="mt-2 text-slate-600">{t.subtitle}</p>
-        <div className="mt-8 rounded-2xl border border-black/5 bg-white p-6">
+        <div className="mt-8 rounded-lg border border-black/10 bg-white p-6">
           <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
             {t.emailLabel}
           </p>
@@ -57,18 +58,18 @@ export default function Contact() {
           </a>
           <p className="mt-4 text-sm text-slate-500">{t.note}</p>
         </div>
-        <div className="mt-5 rounded-2xl border border-black/5 bg-white p-6">
+        <div className="mt-5 rounded-lg border border-black/10 bg-white p-6">
           <h2 className="text-lg font-bold">{t.extraTitle}</h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600">{t.extra}</p>
         </div>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <div className="rounded-2xl border border-black/5 bg-white p-6">
+          <div className="rounded-lg border border-black/10 bg-white p-6">
             <h2 className="text-lg font-bold">{t.responseTitle}</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               {t.response}
             </p>
           </div>
-          <div className="rounded-2xl border border-black/5 bg-white p-6">
+          <div className="rounded-lg border border-black/10 bg-white p-6">
             <h2 className="text-lg font-bold">{t.correctionsTitle}</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               {t.corrections}

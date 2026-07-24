@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo1.png";
+import ContactWidget from "./ContactWidget.jsx";
 
 export const copy = {
   en: {
@@ -103,6 +104,7 @@ export default function Layout() {
         </nav>
 
         <Outlet context={{ lang }} />
+        <ContactWidget lang={lang} />
 
         <footer className="border-t border-black/5 bg-white">
           <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-6 px-3 sm:px-6 lg:px-10 py-10 text-center">
