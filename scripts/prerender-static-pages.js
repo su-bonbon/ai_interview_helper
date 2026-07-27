@@ -4,6 +4,12 @@ import path from "node:path";
 const siteUrl = "https://usinterviewprep.com";
 const distDir = path.resolve("dist");
 const templatePath = path.join(distDir, "index.html");
+const questionDataPath = path.resolve("src/assets/citizenship_questions_260.json");
+const questionData = JSON.parse(await readFile(questionDataPath, "utf8"));
+const englishCivicsQuestions = questionData
+  .filter((item) => item.lang === "en")
+  .slice(0, 60)
+  .map((item) => `${item.question} Answer: ${item.answer}`);
 
 const pages = [
   {
@@ -287,12 +293,298 @@ const pageLinks = [
   ["/contact/", "Contact"],
 ];
 
+const extraContentByRoute = {
+  "/": {
+    sections: [
+      [
+        "Why this site exists",
+        "This site was created from a real immigrant preparation experience. The founder went through the permanent resident path, prepared for naturalization, completed the citizenship interview, and saw how easy it is for applicants to focus only on memorizing civics answers while missing the broader interview preparation. The goal is to organize the scattered parts of preparation into one free, practical resource.",
+      ],
+      [
+        "What makes the content useful",
+        "The homepage connects the main interview moments: civics recall, English reading and writing, N-400 review, officer follow-up questions, document preparation, and interview-day planning. Each topic is written as a study task with context, not as a short directory of links.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Core preparation areas",
+        items: [
+          "Civics recall with spoken practice instead of silent recognition.",
+          "N-400 review for travel, work, family, taxes, citations, and updates since filing.",
+          "Reading and writing practice with common citizenship words.",
+          "Mock interview flow from check-in to decision and oath scheduling.",
+          "Interview-day checklist for documents, timing, transportation, and final review.",
+        ],
+      },
+    ],
+  },
+  "/civics": {
+    sections: [
+      [
+        "How to use the civics question list",
+        "The civics section is built for spoken recall. Applicants should read a question, answer out loud, check the answer, then mark anything that feels uncertain. The goal is not to scroll through every answer once. The goal is to make the answers available under interview pressure.",
+      ],
+      [
+        "Why marked questions matter",
+        "Hard questions are the most valuable part of practice because they show where memory is weak. A strong routine is to review a small group, mark missed items, and return to those marked questions the next day before adding new material.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Sample civics questions included in practice",
+        items: englishCivicsQuestions,
+      },
+    ],
+  },
+  "/study-plan": {
+    sections: [
+      [
+        "A practical study rhythm",
+        "A useful citizenship study session does not need to be long. A focused session can include ten civics questions, one reading or writing prompt, one N-400 topic, and one document or interview-day task. Repeating that rhythm several times a week is usually more useful than cramming everything at the end.",
+      ],
+      [
+        "How the study plan reduces pressure",
+        "The study plan separates preparation into specific areas so applicants know what to do next. Instead of wondering whether to study history, English, documents, or personal history, users can move through the interview in the same order it often unfolds.",
+      ],
+      [
+        "When to get legal help",
+        "This site is educational. If an applicant has arrests, serious citations, immigration violations, possible false claims to citizenship, tax problems, or any answer they do not understand, preparation should include a qualified immigration attorney.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Study plan practice areas",
+        items: [
+          "Civics questions: answer aloud, mark hard questions, and review missed topics.",
+          "Real interview flow: picture check-in, oath, English tests, civics, N-400 review, and decision.",
+          "Yes/No questions: answer directly and prepare short truthful explanations when needed.",
+          "Writing test words: practice common people, civics, places, months, holidays, verbs, and function words.",
+          "Officer follow-ups: practice calm answers when a question is rephrased or narrowed.",
+          "Answer practice: use common personal questions to prepare clear, short responses.",
+          "Interview checklist: organize documents, timing, transportation, and final review.",
+        ],
+      },
+      {
+        title: "Common N-400 questions to rehearse",
+        items: [
+          "What is your full legal name?",
+          "What is your current home address?",
+          "Have you moved since filing your N-400?",
+          "Have you traveled outside the United States in the past five years?",
+          "Where have you worked or studied in the last five years?",
+          "Have you ever been arrested or convicted of a crime?",
+          "Have you ever lied to gain immigration benefits?",
+          "Do you support the U.S. Constitution and the form of government of the United States?",
+          "Are you willing to take the full Oath of Allegiance?",
+        ],
+      },
+    ],
+  },
+  "/guides": {
+    sections: [
+      [
+        "How the guide library is organized",
+        "The guide library is intentionally organized around the parts of the interview that cause the most confusion: civics, English reading and writing, mock interview flow, bilingual preparation, N-400 questions, and interview-day documents. Each guide is meant to answer what to practice, why it matters, and how to use the information during a real appointment.",
+      ],
+      [
+        "Why duplicate guide pages were removed",
+        "The site now avoids keeping multiple pages with nearly identical checklist or N-400 content. When a broader topic already has a stronger dedicated page, old guide-format duplicates are redirected to the more complete resource so users and crawlers see one clear primary page.",
+      ],
+    ],
+  },
+  "/n400-interview-questions": {
+    sections: [
+      [
+        "Why the N-400 review is not just paperwork",
+        "The N-400 review is often where the interview becomes personal. The officer may ask about dates, addresses, work history, travel, family, taxes, citations, organizations, and oath-related answers. The best preparation is to understand your own form well enough to answer directly without guessing.",
+      ],
+      [
+        "How to prepare updates since filing",
+        "Many applicants have updates after filing: a new address, a new job, a trip, a child, a marital change, a ticket, or a tax payment plan. These updates should be written down before the appointment and supported with documents when possible.",
+      ],
+      [
+        "What a clear answer sounds like",
+        "A clear answer is short, truthful, and specific. If the officer asks whether you traveled recently, start with yes or no, then give the dates or reason if needed. If the topic involves a document, offer the document instead of giving a long speech.",
+      ],
+    ],
+    lists: [
+      {
+        title: "N-400 review checklist",
+        items: [
+          "Read the submitted N-400 from beginning to end before interview day.",
+          "Mark any answer that changed after filing.",
+          "Prepare short explanations for travel, work, address, tax, family, and citation updates.",
+          "Put supporting documents in topic order.",
+          "Practice asking the officer to repeat or rephrase a question if needed.",
+          "Do not hide omissions. Correct them calmly when the topic comes up.",
+        ],
+      },
+    ],
+  },
+  "/mock-interview": {
+    sections: [
+      [
+        "What a realistic mock interview includes",
+        "A realistic mock interview should include identity confirmation, oath language, one reading sentence, one writing sentence, civics questions, N-400 review, and officer follow-up questions. Practicing only civics can leave applicants surprised by the rest of the appointment.",
+      ],
+      [
+        "Why formality matters",
+        "The room can make easy answers feel harder. Mock practice should feel a little formal so applicants can practice listening carefully, pausing before answering, and correcting themselves without panic.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Mock interview prompts",
+        items: [
+          "Please raise your right hand. Do you promise to tell the truth?",
+          "Can I see your green card and appointment notice?",
+          "Have you moved since you filed your application?",
+          "Have you traveled outside the United States recently?",
+          "What does the Constitution do?",
+          "Do you support the Constitution and the form of government of the United States?",
+        ],
+      },
+    ],
+  },
+  "/civics-test-practice": {
+    sections: [
+      [
+        "Practice for spoken recall",
+        "The civics test is spoken, so the practice method matters. Applicants should hear or read the question, answer before looking at the answer, and repeat hard questions until the answer comes naturally.",
+      ],
+      [
+        "Avoid shallow practice",
+        "Clicking through cards quickly can create a false sense of confidence. A better method is to explain the meaning of a question in simple words, then say the official-style answer out loud.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Civics topics to review",
+        items: [
+          "Principles of American democracy",
+          "System of government",
+          "Rights and responsibilities",
+          "Colonial period and independence",
+          "Recent American history",
+          "Geography, symbols, and holidays",
+        ],
+      },
+      {
+        title: "Sample civics practice questions",
+        items: englishCivicsQuestions.slice(0, 30),
+      },
+    ],
+  },
+  "/citizenship-test-spanish": {
+    sections: [
+      [
+        "Use Spanish for understanding, then practice the required answer",
+        "Bilingual preparation can help applicants understand the meaning of a civics concept or N-400 term before practicing the answer they may need to give in English. The important step is not to stop at translation. Users should still practice listening and speaking in the language required for their situation.",
+      ],
+      [
+        "Words that often need extra attention",
+        "Applicants studying in Spanish often benefit from reviewing words such as oath, allegiance, citation, taxes, travel, arrest, conviction, support, Constitution, government, and bear arms. These words can sound formal even when the expected answer is short.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Bilingual study routine",
+        items: [
+          "Read the topic explanation in Spanish if it helps comprehension.",
+          "Practice the final interview answer in English when English is required.",
+          "Keep a small vocabulary list of formal N-400 and oath words.",
+          "Ask someone to read questions aloud so listening practice feels more realistic.",
+          "Review official USCIS language accommodation rules if you think an exception may apply.",
+        ],
+      },
+    ],
+  },
+  "/citizenship-interview-checklist": {
+    sections: [
+      [
+        "Connect documents to interview topics",
+        "A checklist is strongest when documents are organized by topic. Travel records, tax payment plans, court records, citation documents, marriage records, and updated address or employment information should be easy to find if the officer asks.",
+      ],
+      [
+        "Prepare the morning before it happens",
+        "Interview-day planning includes transportation, parking, security, timing, and a light final review. The purpose is to remove avoidable stress so the applicant can listen carefully and answer calmly.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Documents and details to consider",
+        items: [
+          "Interview appointment notice",
+          "Green card and photo ID",
+          "Current and expired passports",
+          "Tax records or IRS payment plan proof when relevant",
+          "Court or citation records when relevant",
+          "Marriage, divorce, or child-related documents when relevant",
+          "Notes about changes since filing the N-400",
+        ],
+      },
+    ],
+  },
+  "/interview-day": {
+    sections: [
+      [
+        "What to do before leaving",
+        "Before leaving, applicants should confirm the field office address, appointment time, transportation, parking, building entry rules, and document folder. The goal is to avoid arriving rushed or searching for documents at the last moment.",
+      ],
+      [
+        "How to answer during the appointment",
+        "During the appointment, listen to the full question, answer directly, and ask for repetition if needed. A calm pace is better than rushing. If an answer changed since filing, explain the update and offer documents when appropriate.",
+      ],
+    ],
+  },
+  "/faq": {
+    sections: [
+      [
+        "How the FAQ supports applicants",
+        "The FAQ answers practical questions that come up during preparation, including when to start, what happens during the interview, how the civics test works, what to expect in reading and writing, what documents to review, and when legal advice may be needed.",
+      ],
+      [
+        "Why answers are written in plain language",
+        "Applicants often search for direct answers while nervous. The FAQ uses plain language and reminds users that the site is educational, independent from USCIS, and not a substitute for official rules or legal advice.",
+      ],
+    ],
+  },
+};
+
 const escapeHtml = (value) =>
   value
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+
+const renderBlocks = (page) => {
+  const extra = extraContentByRoute[page.route] || {};
+  const sections = [...page.sections, ...(extra.sections || [])];
+  const lists = extra.lists || [];
+
+  return `
+        ${sections
+          .map(
+            ([title, body]) => `
+        <section>
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(body)}</p>
+        </section>`
+          )
+          .join("")}
+        ${lists
+          .map(
+            (list) => `
+        <section>
+          <h2>${escapeHtml(list.title)}</h2>
+          <ul>
+            ${list.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </section>`
+          )
+          .join("")}`;
+};
 
 const renderStaticRoot = (page) => `
     <div id="root">
@@ -302,15 +594,7 @@ const renderStaticRoot = (page) => `
           <h1 style="font-size: 42px; line-height: 1.08; margin: 12px 0;">${escapeHtml(page.h1)}</h1>
           <p style="font-size: 18px; color: #475569; max-width: 760px;">${escapeHtml(page.intro)}</p>
         </header>
-        ${page.sections
-          .map(
-            ([title, body]) => `
-        <section>
-          <h2>${escapeHtml(title)}</h2>
-          <p>${escapeHtml(body)}</p>
-        </section>`
-          )
-          .join("")}
+        ${renderBlocks(page)}
         <section>
           <h2>Important pages</h2>
           <ul>
@@ -327,13 +611,7 @@ const renderNoScript = (page) => `
       <main style="font-family: Arial, sans-serif; max-width: 760px; margin: 48px auto; padding: 0 20px; line-height: 1.6;">
         <h1>${escapeHtml(page.h1)}</h1>
         <p>${escapeHtml(page.intro)}</p>
-        ${page.sections
-          .map(
-            ([title, body]) => `
-        <h2>${escapeHtml(title)}</h2>
-        <p>${escapeHtml(body)}</p>`
-          )
-          .join("")}
+        ${renderBlocks(page)}
         <h2>Study Tools</h2>
         <ul>
           ${pageLinks
