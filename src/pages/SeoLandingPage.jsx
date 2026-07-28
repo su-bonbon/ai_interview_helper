@@ -3,6 +3,7 @@ import civicsImage from "../assets/civics-practice.jpg";
 import checklistImage from "../assets/interview-checklist.jpg";
 import heroImage from "../assets/hero-citizenship-prep.jpg";
 import readingImage from "../assets/reading-writing-practice.jpg";
+import EditorialTrustBlock from "../components/EditorialTrustBlock.jsx";
 
 const pageContent = {
   "/n400-interview-questions": {
@@ -505,6 +506,10 @@ export default function SeoLandingPage({ slug }) {
           </Link>
         </aside>
       </section>
+
+      <div className="mt-10">
+        <EditorialTrustBlock lang={lang} />
+      </div>
 
       <section className="mt-12 rounded-lg border border-black/10 bg-white p-6 sm:p-8">
         <div className="max-w-3xl">

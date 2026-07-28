@@ -2,6 +2,7 @@ import { Link, Navigate, useOutletContext, useParams } from "react-router-dom";
 import civicsImage from "../assets/civics-practice.jpg";
 import readingImage from "../assets/reading-writing-practice.jpg";
 import checklistImage from "../assets/interview-checklist.jpg";
+import EditorialTrustBlock from "../components/EditorialTrustBlock.jsx";
 
 const articles = {
   "civics-test": {
@@ -296,6 +297,7 @@ export default function GuideArticle({ slugOverride }) {
                 </Link>
               </div>
             )}
+            <EditorialTrustBlock lang={lang} />
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
+import EditorialTrustBlock from "../components/EditorialTrustBlock.jsx";
 
 const copy = {
   en: {
@@ -197,6 +198,10 @@ export default function InterviewExperience() {
           ))}
         </div>
       </section>
+
+      <div className="mt-10">
+        <EditorialTrustBlock lang={lang} />
+      </div>
 
       <section className="mt-10 rounded-lg bg-slate-950 p-6 text-white sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-8">
         <div>

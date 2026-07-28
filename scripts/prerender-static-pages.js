@@ -71,6 +71,68 @@ const pages = [
     ],
   },
   {
+    route: "/guides/civics-test",
+    title: "How to Study for the Citizenship Civics Test",
+    description:
+      "Learn a practical study routine for USCIS civics questions, including small sets, spoken recall, mistake review, and weekly practice.",
+    h1: "How to Study for the Citizenship Civics Test Without Freezing",
+    intro:
+      "The civics test is short, but it can feel stressful because you must answer out loud in front of an officer. Strong preparation means understanding the idea behind each question, practicing recall in small groups, and building confidence before interview day.",
+    sections: [
+      [
+        "Start with meaning, then memorize",
+        "Repetition helps, but it works better after you understand the meaning of the question. When you connect a short answer to a simple idea, it becomes easier to remember under pressure.",
+      ],
+      [
+        "Study in small sets",
+        "Break the material into groups of ten to fifteen questions. Practice one set until you can answer most of it without looking, then mix older questions with newer ones at the end of the week.",
+      ],
+      [
+        "Practice out loud",
+        "The interview is spoken, so silent reading is not enough. Say the answer out loud in a clear, steady voice. You do not need to sound perfect. You need to be understandable.",
+      ],
+      [
+        "Use mistakes as a study map",
+        "When you miss a question, mark it and return to it later. A missed answer shows exactly where to spend more time.",
+      ],
+      [
+        "Build a weekly review rhythm",
+        "A useful week might include three short flashcard sessions, one mixed review, and one timed practice. On the final day, review only the questions you marked as difficult.",
+      ],
+    ],
+  },
+  {
+    route: "/guides/reading-writing",
+    title: "Citizenship Reading and Writing Test Expectations",
+    description:
+      "Understand what to expect in the citizenship reading and writing test and how to practice simple English sentences calmly.",
+    h1: "What to Expect in the Reading and Writing Test",
+    intro:
+      "The reading and writing portion of the naturalization interview is usually simple in structure, but many applicants struggle because the moment feels formal. You may be asked to read one sentence in English and write one sentence in English.",
+    sections: [
+      [
+        "The sentences are short, but pressure changes everything",
+        "A sentence that looks easy at home can feel harder in an interview room. Practice should include the emotional part of the task: sit at a table, read one sentence out loud, then write one sentence carefully.",
+      ],
+      [
+        "Focus on common civic words",
+        "Many reading and writing sentences include words such as citizen, President, Congress, vote, flag, state, and government. Start with words likely to appear in naturalization topics.",
+      ],
+      [
+        "Write for clarity, not beauty",
+        "Your handwriting does not need to be beautiful, but it should be readable. Leave space between words, capitalize the first word when you can, and put a period at the end.",
+      ],
+      [
+        "Practice a repeatable routine",
+        "Use the same routine each time: listen, repeat the sentence quietly in your head, write slowly, then check for missing words. This gives your brain something stable to follow when nervous.",
+      ],
+      [
+        "Avoid over-practicing random sentences",
+        "Use sentences connected to citizenship, government, holidays, places, and simple civic ideas. This keeps preparation close to the type of language applicants are likely to hear during the interview.",
+      ],
+    ],
+  },
+  {
     route: "/n400-interview-questions",
     title: "N-400 Interview Questions | US Citizenship Prep",
     description:
@@ -626,7 +688,17 @@ const escapeHtml = (value) =>
 
 const renderBlocks = (page) => {
   const extra = extraContentByRoute[page.route] || {};
-  const sections = [...page.sections, ...(extra.sections || [])];
+  const editorialSections = [
+    [
+      "Editorial trust and independence",
+      "US Citizenship Prep is an independent educational resource. The guidance is shaped by first-hand naturalization interview preparation experience and checked against official USCIS resources when a topic depends on forms, test policy, or eligibility rules. This site is not affiliated with USCIS and does not provide legal advice.",
+    ],
+    [
+      "When to use official or legal help",
+      "Applicants should verify official requirements with USCIS. If a case includes arrests, serious citations, immigration history issues, tax concerns, or uncertain eligibility, preparation should include a qualified immigration attorney.",
+    ],
+  ];
+  const sections = [...page.sections, ...(extra.sections || []), ...editorialSections];
   const lists = extra.lists || [];
 
   return `
