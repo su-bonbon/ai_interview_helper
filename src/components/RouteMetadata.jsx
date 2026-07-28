@@ -82,6 +82,11 @@ const metadataByPath = {
     description:
       "Learn why US Citizenship Prep provides free bilingual citizenship interview study tools and educational preparation guides.",
   },
+  "/citizenship-interview-experience": {
+    title: "My Citizenship Interview Experience | US Citizenship Prep",
+    description:
+      "Read a first-person citizenship interview experience with N-400 preparation lessons, document tips, and interview-day takeaways.",
+  },
   "/privacy": {
     title: "Privacy Policy | US Citizenship Prep",
     description:

@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 const copy = {
   en: {
@@ -11,6 +11,7 @@ const copy = {
     experienceTitle: "What my interview taught me",
     experienceBody:
       "My own interview reinforced a simple lesson: preparation is not only memorizing civics answers. The officer may review your application carefully, ask about updates since filing, and expect honest, consistent answers. I brought documentation for topics that could have raised questions, including tax payment information, and I corrected small omissions instead of trying to hide them. That experience shaped the way this site is organized: study the test, but also prepare your story, your documents, and your calm answer habits.",
+    experienceCta: "Read the full interview experience",
     principlesTitle: "The site is built around three preparation habits",
     principles: [
       "Practice the test, but also review your own application.",
@@ -51,6 +52,7 @@ const copy = {
     experienceTitle: "Lo que aprendí de mi entrevista",
     experienceBody:
       "Mi entrevista me enseñó algo simple: prepararse no es solo memorizar respuestas de civismo. El oficial puede revisar la solicitud con cuidado, preguntar por cambios desde que aplicaste y esperar respuestas honestas y consistentes. Por eso este sitio organiza la preparación alrededor del examen, pero también de tu historia, tus documentos y la práctica de responder con calma.",
+    experienceCta: "Leer la experiencia completa",
     principlesTitle: "El sitio se basa en tres hábitos de preparación",
     principles: [
       "Practica el examen, pero también revisa tu propia solicitud.",
@@ -113,6 +115,13 @@ export default function About() {
             </p>
             <h2 className="mt-3 text-3xl font-black">{t.experienceTitle}</h2>
             <p className="mt-4 text-base leading-8 text-slate-700">{t.experienceBody}</p>
+            <Link
+              to="/citizenship-interview-experience"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#0b50da] underline"
+            >
+              {t.experienceCta}
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </Link>
           </article>
 
           <div className="mt-10">

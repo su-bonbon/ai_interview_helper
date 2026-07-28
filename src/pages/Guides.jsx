@@ -6,6 +6,7 @@ import mockInterviewImage from "../assets/interview-prep-3.jpg";
 import spanishStudyImage from "../assets/interview-prep-4.jpg";
 import readingImage from "../assets/reading-writing-practice.jpg";
 import checklistImage from "../assets/interview-checklist.jpg";
+import heroImage from "../assets/hero-citizenship-prep.jpg";
 
 const copy = {
   en: {
@@ -67,6 +68,13 @@ const copy = {
         href: "/citizenship-interview-checklist",
         image: checklistImage,
       },
+      {
+        title: "My Citizenship Interview Experience",
+        body:
+          "A first-person reflection on what mattered most: N-400 review, documents, honesty, and calm answers.",
+        href: "/citizenship-interview-experience",
+        image: heroImage,
+      },
     ],
   },
   es: {
@@ -127,6 +135,13 @@ const copy = {
           "Una lista enfocada en documentos, tiempo, repaso final y confianza para la entrevista.",
         href: "/citizenship-interview-checklist",
         image: checklistImage,
+      },
+      {
+        title: "Mi experiencia en la entrevista de ciudadanía",
+        body:
+          "Una reflexión en primera persona sobre N-400, documentos, honestidad y respuestas calmadas.",
+        href: "/citizenship-interview-experience",
+        image: heroImage,
       },
     ],
   },

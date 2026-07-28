@@ -71,6 +71,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://usinterviewprep.com/citizenship-interview-experience/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://usinterviewprep.com/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

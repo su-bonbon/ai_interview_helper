@@ -222,6 +222,37 @@ const pages = [
     ],
   },
   {
+    route: "/citizenship-interview-experience",
+    title: "My Citizenship Interview Experience | US Citizenship Prep",
+    description:
+      "Read a first-person citizenship interview experience with N-400 preparation lessons, document tips, and interview-day takeaways.",
+    h1: "My Citizenship Interview Experience and What I Prepared Differently",
+    intro:
+      "This first-person guide explains what my naturalization interview taught me, why I built US Citizenship Prep around more than civics memorization, and how applicants can use that experience as a study framework.",
+    sections: [
+      [
+        "The biggest surprise was not the civics test",
+        "Before the interview, it is easy to focus almost entirely on civics questions because they feel concrete. My interview reminded me that the civics and English portion matters, but the deeper preparation is often your N-400 review: your history, your updates, your documents, and whether your answers are consistent.",
+      ],
+      [
+        "I prepared around three pillars",
+        "The three areas I took most seriously were legal status and compliance, tax filing and payment history, and criminal record or moral character questions. Those topics can feel uncomfortable, but ignoring them does not make them easier.",
+      ],
+      [
+        "Documentation changed my confidence",
+        "For anything that could create a follow-up question, I wanted proof ready. In my case, tax documentation mattered because I had payment terms to show. Having documents organized changed how prepared I felt, even when the officer did not need every page.",
+      ],
+      [
+        "Honesty helped more than perfect memory",
+        "One practical lesson was that small omissions should be corrected calmly. I had forgotten to list a couple of speeding tickets because I did not think of them the same way as more serious citations. During the interview, I explained that and the officer updated the form.",
+      ],
+      [
+        "Why I made this site free",
+        "After the process, I wanted to make a study resource for people in a similar situation. Many applicants are already paying filing fees, collecting documents, translating ideas between languages, and managing family stress. Basic interview practice should not be another barrier.",
+      ],
+    ],
+  },
+  {
     route: "/sources",
     title: "Sources and Editorial Standards | US Citizenship Prep",
     description:
@@ -287,6 +318,7 @@ const pageLinks = [
   ["/civics/", "Civics questions"],
   ["/study-plan/", "Study plan"],
   ["/guides/", "Guides"],
+  ["/citizenship-interview-experience/", "Interview experience"],
   ["/faq/", "FAQ"],
   ["/sources/", "Sources"],
   ["/privacy/", "Privacy"],
@@ -547,6 +579,40 @@ const extraContentByRoute = {
         "Why answers are written in plain language",
         "Applicants often search for direct answers while nervous. The FAQ uses plain language and reminds users that the site is educational, independent from USCIS, and not a substitute for official rules or legal advice.",
       ],
+    ],
+  },
+  "/citizenship-interview-experience": {
+    sections: [
+      [
+        "How to use this experience",
+        "This page is not meant to predict every interview. It gives applicants a practical lens: memorize civics, but also read the submitted N-400, prepare updates since filing, organize documents by topic, and practice direct truthful answers.",
+      ],
+      [
+        "When preparation should include legal advice",
+        "Educational preparation is not enough for every case. If an applicant has arrests, serious citations, immigration violations, unresolved tax problems, possible false claims, or anything they do not understand, a qualified immigration attorney should be part of preparation.",
+      ],
+    ],
+    lists: [
+      {
+        title: "What I would tell another applicant to review",
+        items: [
+          "Read your submitted N-400 before interview day, not only the week you filed it.",
+          "Write down anything that changed after filing: address, work, travel, family, citations, or taxes.",
+          "Bring proof for topics that may need support, especially taxes, court records, travel, or corrections.",
+          "Practice civics answers out loud, but also practice personal answers in short English sentences.",
+          "If you do not understand a question, ask the officer to repeat or rephrase it instead of guessing.",
+          "If a truthful answer involves criminal history, immigration problems, serious tax issues, or something you do not understand, speak with a qualified immigration attorney.",
+        ],
+      },
+      {
+        title: "How this experience shaped the site",
+        items: [
+          "Civics practice is built for spoken recall because the interview is spoken, not multiple choice.",
+          "The study plan includes personal-history questions because the N-400 review can matter more than applicants expect.",
+          "Officer follow-up prompts help applicants stay calm when a question is asked in a different way.",
+          "The interview checklist connects documents to topics so applicants are not searching through papers under pressure.",
+        ],
+      },
     ],
   },
 };

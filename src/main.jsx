@@ -14,6 +14,7 @@ import GuideArticle from "./pages/GuideArticle.jsx";
 import SeoLandingPage from "./pages/SeoLandingPage.jsx";
 import Sources from "./pages/Sources.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import InterviewExperience from "./pages/InterviewExperience.jsx";
 import Layout from "./components/Layout.jsx";
 import RouteMetadata from "./components/RouteMetadata.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -70,6 +71,10 @@ root.render(
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/about" element={<About />} />
+          <Route
+            path="/citizenship-interview-experience"
+            element={<InterviewExperience />}
+          />
           <Route path="/sources" element={<Sources />} />
           <Route path="*" element={<NotFound />} />
         </Route>

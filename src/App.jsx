@@ -184,6 +184,7 @@ const homeContent = {
     experienceBody:
       "I recently completed my citizenship interview and am waiting for the Oath Ceremony. I applied under the general application criteria as a lawful permanent resident for more than five years. From my experience, the civics and English test matters, but the deeper review is often your N-400 application, your history, and whether your answers are consistent and honest.",
     readExperience: "Read the full interview context",
+    quickContext: "Quick context",
     pillarsTitle: "The three areas I prepared around",
     pillars: [
       {
@@ -269,6 +270,7 @@ const homeContent = {
     experienceBody:
       "Completé recientemente mi entrevista de ciudadanía y estoy esperando la ceremonia de juramento. Apliqué bajo los criterios generales como residente permanente legal por más de cinco años. Según mi experiencia, el examen de civismo e inglés importa, pero la revisión más profunda suele ser el formulario N-400, tu historial y la consistencia de tus respuestas.",
     readExperience: "Leer el contexto completo de la entrevista",
+    quickContext: "Contexto rápido",
     pillarsTitle: "Las tres áreas que preparé",
     pillars: [
       {
@@ -677,9 +679,16 @@ export default function App() {
               <p className="mt-5 text-base font-medium leading-relaxed text-white/90">
                 {content.experienceShort}
               </p>
+              <Link
+                to="/citizenship-interview-experience"
+                className="mt-5 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-black text-slate-950 transition hover:bg-[#f6c453]"
+              >
+                {content.readExperience}
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </Link>
               <details className="mt-5 rounded-lg border border-white/15 bg-white/10 p-4">
-                <summary className="cursor-pointer text-sm font-black text-white">
-                  {content.readExperience}
+                <summary className="cursor-pointer text-sm font-black text-white/90">
+                  {content.quickContext}
                 </summary>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-white/80">
                   {content.experienceBody}
