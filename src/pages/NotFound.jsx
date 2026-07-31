@@ -11,6 +11,9 @@ const copy = {
     civics: "Practice civics",
     studyPlan: "Open study plan",
     guides: "Read guides",
+    topics: "Browse topics",
+    n400: "N-400 questions",
+    checklist: "Interview checklist",
   },
   es: {
     eyebrow: "404",
@@ -21,6 +24,9 @@ const copy = {
     civics: "Practicar civismo",
     studyPlan: "Abrir plan",
     guides: "Leer guías",
+    topics: "Ver temas",
+    n400: "Preguntas N-400",
+    checklist: "Checklist",
   },
 };
 
@@ -55,12 +61,19 @@ export default function NotFound() {
       <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-600">
         {t.body}
       </p>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {[
           { label: t.home, href: "/", icon: "home" },
           { label: t.civics, href: "/civics", icon: "menu_book" },
           { label: t.studyPlan, href: "/study-plan", icon: "calendar_month" },
           { label: t.guides, href: "/guides", icon: "article" },
+          { label: t.topics, href: "/topics", icon: "hub" },
+          { label: t.n400, href: "/n400-interview-questions", icon: "assignment" },
+          {
+            label: t.checklist,
+            href: "/citizenship-interview-checklist",
+            icon: "checklist",
+          },
         ].map((item) => (
           <Link
             key={item.href}

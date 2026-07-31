@@ -10,6 +10,7 @@ export const copy = {
     navCivics: "Civics",
     navStudyPlan: "Study Plan",
     navGuides: "Guides",
+    navTopics: "Topics",
     navFaq: "FAQ",
     navAbout: "About",
     footerTitle: "US Citizenship Prep",
@@ -29,6 +30,7 @@ export const copy = {
     navCivics: "Civismo",
     navStudyPlan: "Plan",
     navGuides: "Guías",
+    navTopics: "Temas",
     navFaq: "FAQ",
     navAbout: "Acerca de",
     footerTitle: "US Citizenship Prep",
@@ -80,6 +82,12 @@ export default function Layout() {
                 {t.navGuides}
               </Link>
               <Link
+                to="/topics"
+                className="hidden md:inline text-slate-600 hover:text-[#0b50da] transition-colors"
+              >
+                {t.navTopics}
+              </Link>
+              <Link
                 to="/faq"
                 className="text-slate-600 hover:text-[#0b50da] transition-colors"
               >
@@ -114,7 +122,7 @@ export default function Layout() {
               <img src={logo} alt="" className="h-9 w-9" aria-hidden="true" />
               <span className="text-xl font-black">{t.footerTitle}</span>
             </div>
-            <div className="flex gap-6 text-sm font-semibold text-slate-500">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-slate-500">
               <Link to="/privacy" className="hover:text-[#0b50da] transition-colors">
                 {t.footerPrivacy}
               </Link>
