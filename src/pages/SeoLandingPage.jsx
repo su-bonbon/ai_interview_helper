@@ -105,6 +105,39 @@ const pageContent = {
       ["Should I study all questions?", "Yes, but study in smaller groups so recall becomes easier under pressure."],
     ],
   },
+  "/citizenship-civics-questions-and-answers": {
+    image: civicsImage,
+    eyebrow: "Civics Questions and Answers",
+    title: "Citizenship Civics Questions and Answers",
+    description:
+      "A plain-English guide to U.S. citizenship civics questions and answers, including how to study them, how to answer out loud, and where to practice the full list for free.",
+    primaryCta: "Practice questions",
+    primaryHref: "/civics",
+    secondaryCta: "Open civics test practice",
+    secondaryHref: "/civics-test-practice",
+    sections: [
+      {
+        title: "What people usually mean by civic question and answer",
+        body:
+          "Many applicants search for a civic question and answer list when they are really looking for citizenship civics questions and answers for the naturalization interview. The USCIS civics portion is spoken, so the goal is to practice questions and answers in a way you can remember out loud.",
+      },
+      {
+        title: "How the answers should sound",
+        body:
+          "Answers should be short, clear, and easy to say under pressure. You do not need to explain every historical detail during the test, but understanding the meaning behind an answer makes recall easier.",
+      },
+      {
+        title: "Where to practice the full list",
+        body:
+          "Use the flashcards to practice all available civics questions, mark hard answers, and return to missed questions until they feel natural. This page is the study guide; the civics tool is where you practice.",
+      },
+    ],
+    faqs: [
+      ["Is it civic questions or civics questions?", "For the citizenship test, people usually say civics questions because the topic is U.S. civics: government, history, rights, responsibilities, geography, symbols, and holidays."],
+      ["Do I need to memorize every answer word for word?", "No. You should know an acceptable answer and be able to say it clearly. Understanding the idea helps more than repeating words without meaning."],
+      ["Where can I practice questions and answers?", "Use the free civics flashcards on this site to practice questions, reveal answers, and mark hard questions for review."],
+    ],
+  },
   "/citizenship-test-spanish": {
     image: readingImage,
     eyebrow: "Citizenship Test in Spanish",
@@ -271,6 +304,39 @@ const depthContent = {
       "Skipping questions that seem easy and then freezing during the interview.",
       "Studying too many questions at once without review.",
       "Ignoring the meaning behind the answer.",
+    ],
+  },
+  "/citizenship-civics-questions-and-answers": {
+    insightTitle: "Why a question-and-answer list is only the starting point",
+    insight:
+      "A citizenship civics questions and answers page is useful only if it helps you practice recall. Reading a list once can feel productive, but the interview requires you to hear a question and answer out loud. The best routine is to understand the topic, cover the answer, say it, then check yourself.",
+    checkpoints: [
+      "Use the phrase citizenship civics questions and answers when searching for naturalization test practice.",
+      "Practice answers out loud instead of only reading them silently.",
+      "Move missed questions into a hard-question review list.",
+    ],
+    routineTitle: "How to study civics questions and answers",
+    routine: [
+      "Start with 10 questions and answer each one before looking at the answer.",
+      "Say the answer out loud in a short sentence or phrase.",
+      "If you miss an answer, mark it and review the meaning behind the question.",
+      "Repeat hard questions the next day before adding new questions.",
+    ],
+    sampleTitle: "Sample citizenship civics questions and answers",
+    samples: [
+      "What is the supreme law of the land? Answer: the Constitution.",
+      "What does the Constitution do? Answer: sets up the government, defines the government, and protects basic rights of Americans.",
+      "What is one right or freedom from the First Amendment? Answer: speech, religion, assembly, press, or petition the government.",
+      "Who is in charge of the executive branch? Answer: the President.",
+      "What are two rights of everyone living in the United States? Answer: freedom of expression and freedom of speech.",
+      "When do we celebrate Independence Day? Answer: July 4.",
+    ],
+    mistakesTitle: "Question-and-answer study mistakes to avoid",
+    mistakes: [
+      "Searching broad phrases like civic question and answer without adding citizenship or civics.",
+      "Reading the answer immediately before trying to recall it.",
+      "Studying too many questions at once and not reviewing missed answers.",
+      "Memorizing sounds without understanding the basic meaning.",
     ],
   },
   "/citizenship-test-spanish": {

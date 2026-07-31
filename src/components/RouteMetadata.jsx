@@ -5,6 +5,7 @@ const siteUrl = "https://usinterviewprep.com";
 const defaultTitle = "Free U.S. Citizenship Interview Prep";
 const defaultDescription =
   "Free bilingual U.S. citizenship interview prep with civics questions, mock interviews, checklists, and practice prompts.";
+const lastReviewed = "2026-07-30";
 
 const metadataByPath = {
   "/": {
@@ -57,6 +58,11 @@ const metadataByPath = {
     description:
       "Free citizenship test practice for USCIS civics questions with flashcards, hard question review, and interview-ready recall practice.",
   },
+  "/citizenship-civics-questions-and-answers": {
+    title: "Citizenship Civics Questions and Answers | US Citizenship Prep",
+    description:
+      "Study U.S. citizenship civics questions and answers with examples, spoken recall tips, and links to free flashcard practice.",
+  },
   "/citizenship-test-spanish": {
     title: "Citizenship Test Practice in Spanish and English",
     description:
@@ -82,6 +88,11 @@ const metadataByPath = {
     description:
       "Learn why US Citizenship Prep provides free bilingual citizenship interview study tools and educational preparation guides.",
   },
+  "/topics": {
+    title: "U.S. Citizenship Interview Prep Topics | US Citizenship Prep",
+    description:
+      "Browse a crawlable topic map for citizenship civics questions, N-400 interview questions, mock interviews, English practice, and checklists.",
+  },
   "/citizenship-interview-experience": {
     title: "My Citizenship Interview Experience | US Citizenship Prep",
     description:
@@ -102,6 +113,92 @@ const metadataByPath = {
     description:
       "Contact US Citizenship Prep about study content, accessibility, privacy, corrections, or educational resource questions.",
   },
+};
+
+const articlePaths = new Set([
+  "/guides/civics-test",
+  "/guides/reading-writing",
+  "/interview-day",
+  "/n400-interview-questions",
+  "/mock-interview",
+  "/civics-test-practice",
+  "/citizenship-civics-questions-and-answers",
+  "/citizenship-test-spanish",
+  "/citizenship-interview-checklist",
+  "/citizenship-interview-experience",
+  "/sources",
+  "/about",
+  "/topics",
+]);
+
+const createPageSchema = ({ cleanPath, canonicalUrl, metadata }) => {
+  const pageType = articlePaths.has(cleanPath) ? "Article" : "WebPage";
+  const pageName = metadata.title.replace(" | US Citizenship Prep", "");
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": pageType,
+    "@id": `${canonicalUrl}#content`,
+    "url": canonicalUrl,
+    "name": pageName,
+    "headline": pageName,
+    "description": metadata.description,
+    "inLanguage": ["en", "es"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "name": "US Citizenship Prep",
+      "url": `${siteUrl}/`,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "US Citizenship Prep",
+      "url": `${siteUrl}/`,
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "US Citizenship Prep Editorial Team",
+      "url": `${siteUrl}/about/`,
+    },
+    "dateModified": lastReviewed,
+    "reviewedBy": {
+      "@type": "Organization",
+      "name": "US Citizenship Prep Editorial Team",
+    },
+    "about": [
+      "U.S. citizenship interview",
+      "naturalization interview preparation",
+      "USCIS civics test",
+      "N-400 interview questions",
+    ],
+  };
+
+  if (pageType === "Article") {
+    schema.datePublished = "2026-06-22";
+    schema.mainEntityOfPage = canonicalUrl;
+  }
+
+  return [
+    schema,
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": pageName,
+          "item": canonicalUrl,
+        },
+      ],
+    },
+  ];
 };
 
 export default function RouteMetadata() {
@@ -148,6 +245,17 @@ export default function RouteMetadata() {
     document
       .querySelector('meta[name="twitter:description"]')
       ?.setAttribute("content", metadata.description);
+
+    let structuredData = document.querySelector("#route-structured-data");
+    if (!structuredData) {
+      structuredData = document.createElement("script");
+      structuredData.id = "route-structured-data";
+      structuredData.type = "application/ld+json";
+      document.head.appendChild(structuredData);
+    }
+    structuredData.textContent = JSON.stringify(
+      createPageSchema({ cleanPath, canonicalUrl, metadata })
+    );
   }, [pathname]);
 
   return null;

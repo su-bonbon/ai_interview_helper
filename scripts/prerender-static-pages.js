@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const siteUrl = "https://usinterviewprep.com";
+const lastReviewed = "2026-07-30";
 const distDir = path.resolve("dist");
 const templatePath = path.join(distDir, "index.html");
 const questionDataPath = path.resolve("src/assets/citizenship_questions_260.json");
@@ -9,6 +10,10 @@ const questionData = JSON.parse(await readFile(questionDataPath, "utf8"));
 const englishCivicsQuestions = questionData
   .filter((item) => item.lang === "en")
   .slice(0, 60)
+  .map((item) => `${item.question} Answer: ${item.answer}`);
+const sampleCivicsQuestionsAndAnswers = questionData
+  .filter((item) => item.lang === "en")
+  .slice(0, 40)
   .map((item) => `${item.question} Answer: ${item.answer}`);
 
 const pages = [
@@ -192,6 +197,33 @@ const pages = [
       [
         "How to use mistakes",
         "Missed questions show exactly where study time should go. This page encourages smaller sets, repeated spoken recall, and review of the meaning behind each answer.",
+      ],
+    ],
+  },
+  {
+    route: "/citizenship-civics-questions-and-answers",
+    title: "Citizenship Civics Questions and Answers | US Citizenship Prep",
+    description:
+      "Study U.S. citizenship civics questions and answers with examples, spoken recall tips, and links to free flashcard practice.",
+    h1: "Citizenship Civics Questions and Answers",
+    intro:
+      "A plain-English guide to U.S. citizenship civics questions and answers, including how to study them, how to answer out loud, and where to practice the full list for free.",
+    sections: [
+      [
+        "What people mean by civic question and answer",
+        "Many applicants search for a civic question and answer list when they are really looking for citizenship civics questions and answers for the naturalization interview. The USCIS civics portion is spoken, so the goal is to practice questions and answers in a way you can remember out loud.",
+      ],
+      [
+        "Why civics is the better citizenship keyword",
+        "For the U.S. citizenship test, civics questions usually refers to government, history, rights, responsibilities, geography, symbols, and holidays. Using citizenship civics questions and answers is more specific than a broad phrase like civic question and answer.",
+      ],
+      [
+        "How the answers should sound",
+        "Answers should be short, clear, and easy to say under pressure. You do not need to explain every historical detail during the test, but understanding the meaning behind an answer makes recall easier.",
+      ],
+      [
+        "Where to practice the full list",
+        "Use the flashcards to practice all available civics questions, mark hard answers, and return to missed questions until they feel natural. This page is the study guide; the civics tool is where users practice.",
       ],
     ],
   },
@@ -381,6 +413,7 @@ const pageLinks = [
   ["/study-plan/", "Study plan"],
   ["/guides/", "Guides"],
   ["/citizenship-interview-experience/", "Interview experience"],
+  ["/citizenship-civics-questions-and-answers/", "Civics questions and answers"],
   ["/faq/", "FAQ"],
   ["/sources/", "Sources"],
   ["/privacy/", "Privacy"],
@@ -569,6 +602,37 @@ const extraContentByRoute = {
       },
     ],
   },
+  "/citizenship-civics-questions-and-answers": {
+    sections: [
+      [
+        "How to use a question-and-answer page",
+        "A citizenship civics questions and answers page is useful only if it helps applicants practice recall. Reading a list once can feel productive, but the interview requires applicants to hear a question and answer out loud without multiple-choice cues.",
+      ],
+      [
+        "A practical spoken recall method",
+        "Start with 10 questions, cover the answer, say the answer out loud, then check yourself. Missed answers should become the next review list instead of a reason to restart every question from the beginning.",
+      ],
+      [
+        "Search phrase note",
+        "Applicants may search civic question and answer, civic questions and answers, civics questions and answers, citizenship questions and answers, or US citizenship test questions. This page connects those searches to the naturalization interview context.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Sample citizenship civics questions and answers",
+        items: sampleCivicsQuestionsAndAnswers,
+      },
+      {
+        title: "Study steps",
+        items: [
+          "Answer out loud before checking the answer.",
+          "Keep hard questions in a separate review group.",
+          "Review meaning, not only wording, so rephrased questions feel less surprising.",
+          "Practice with the full civics flashcard tool after reading the guide.",
+        ],
+      },
+    ],
+  },
   "/citizenship-test-spanish": {
     sections: [
       [
@@ -686,12 +750,100 @@ const escapeHtml = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+const escapeScriptJson = (value) => JSON.stringify(value).replaceAll("</", "<\\/");
+
+const articleRoutes = new Set([
+  "/guides/civics-test",
+  "/guides/reading-writing",
+  "/interview-day",
+  "/n400-interview-questions",
+  "/mock-interview",
+  "/civics-test-practice",
+  "/citizenship-civics-questions-and-answers",
+  "/citizenship-test-spanish",
+  "/citizenship-interview-checklist",
+  "/citizenship-interview-experience",
+  "/sources",
+  "/about",
+]);
+
+const createStaticSchema = (page) => {
+  const canonical = `${siteUrl}${page.route === "/" ? "/" : `${page.route}/`}`;
+  const pageName = page.title.replace(" | US Citizenship Prep", "");
+  const pageType = articleRoutes.has(page.route) ? "Article" : "WebPage";
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": pageType,
+    "@id": `${canonical}#content`,
+    "url": canonical,
+    "name": pageName,
+    "headline": page.h1,
+    "description": page.description,
+    "inLanguage": ["en", "es"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "name": "US Citizenship Prep",
+      "url": `${siteUrl}/`,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "US Citizenship Prep",
+      "url": `${siteUrl}/`,
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "US Citizenship Prep Editorial Team",
+      "url": `${siteUrl}/about/`,
+    },
+    "dateModified": lastReviewed,
+    "reviewedBy": {
+      "@type": "Organization",
+      "name": "US Citizenship Prep Editorial Team",
+    },
+    "about": [
+      "U.S. citizenship interview",
+      "naturalization interview preparation",
+      "USCIS civics test",
+      "N-400 interview questions",
+    ],
+  };
+
+  if (pageType === "Article") {
+    schema.datePublished = "2026-06-22";
+    schema.mainEntityOfPage = canonical;
+  }
+
+  return [
+    schema,
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": pageName,
+          "item": canonical,
+        },
+      ],
+    },
+  ];
+};
+
 const renderBlocks = (page) => {
   const extra = extraContentByRoute[page.route] || {};
   const editorialSections = [
     [
       "Editorial trust and independence",
-      "US Citizenship Prep is an independent educational resource. The guidance is shaped by first-hand naturalization interview preparation experience and checked against official USCIS resources when a topic depends on forms, test policy, or eligibility rules. This site is not affiliated with USCIS and does not provide legal advice.",
+      "Last reviewed: July 30, 2026. US Citizenship Prep is an independent educational resource. The guidance is shaped by first-hand naturalization interview preparation experience and checked against official USCIS resources when a topic depends on forms, test policy, or eligibility rules. This site is not affiliated with USCIS and does not provide legal advice.",
     ],
     [
       "When to use official or legal help",
@@ -761,6 +913,7 @@ const renderNoScript = (page) => `
 
 const replaceMeta = (html, page) => {
   const canonical = `${siteUrl}${page.route === "/" ? "/" : `${page.route}/`}`;
+  const schemaScript = `    <script id="route-structured-data" type="application/ld+json">${escapeScriptJson(createStaticSchema(page))}</script>\n`;
   return html
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`)
     .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`)
@@ -769,7 +922,9 @@ const replaceMeta = (html, page) => {
     .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`);
+    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`)
+    .replace(/    <script id="route-structured-data" type="application\/ld\+json">.*?<\/script>\n/s, "")
+    .replace("</head>", `${schemaScript}  </head>`);
 };
 
 const replaceRoot = (html, page) => {

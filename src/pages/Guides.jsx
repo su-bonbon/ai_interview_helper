@@ -55,6 +55,13 @@ const copy = {
         image: flashcardsImage,
       },
       {
+        title: "Citizenship Civics Questions and Answers",
+        body:
+          "A plain-English guide for applicants searching for civics questions, answers, and spoken recall practice.",
+        href: "/citizenship-civics-questions-and-answers",
+        image: civicsImage,
+      },
+      {
         title: "Citizenship Test in Spanish",
         body:
           "Bilingual study support for understanding citizenship test topics in Spanish and English.",
@@ -121,6 +128,13 @@ const copy = {
           "Práctica gratuita de preguntas de civismo para recordar respuestas durante la entrevista.",
         href: "/civics-test-practice",
         image: flashcardsImage,
+      },
+      {
+        title: "Preguntas y respuestas de civismo",
+        body:
+          "Una guía clara para encontrar preguntas, respuestas y práctica hablada para ciudadanía.",
+        href: "/citizenship-civics-questions-and-answers",
+        image: civicsImage,
       },
       {
         title: "Examen de ciudadanía en español",

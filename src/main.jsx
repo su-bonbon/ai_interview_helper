@@ -15,6 +15,7 @@ import SeoLandingPage from "./pages/SeoLandingPage.jsx";
 import Sources from "./pages/Sources.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import InterviewExperience from "./pages/InterviewExperience.jsx";
+import Topics from "./pages/Topics.jsx";
 import Layout from "./components/Layout.jsx";
 import RouteMetadata from "./components/RouteMetadata.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -59,6 +60,10 @@ root.render(
             element={<SeoLandingPage slug="civics-test-practice" />}
           />
           <Route
+            path="/citizenship-civics-questions-and-answers"
+            element={<SeoLandingPage slug="citizenship-civics-questions-and-answers" />}
+          />
+          <Route
             path="/citizenship-test-spanish"
             element={<SeoLandingPage slug="citizenship-test-spanish" />}
           />
@@ -71,6 +76,7 @@ root.render(
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/about" element={<About />} />
+          <Route path="/topics" element={<Topics />} />
           <Route
             path="/citizenship-interview-experience"
             element={<InterviewExperience />}

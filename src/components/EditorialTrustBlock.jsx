@@ -4,6 +4,7 @@ const copy = {
   en: {
     eyebrow: "Editorial trust",
     title: "Written from real preparation experience, checked against official sources",
+    reviewed: "Last reviewed: July 30, 2026",
     body:
       "US Citizenship Prep is an independent educational resource. The guidance is shaped by first-hand naturalization interview preparation experience, then organized around practical study tasks: civics recall, N-400 review, English reading and writing, documents, and interview-day planning.",
     legal:
@@ -15,6 +16,7 @@ const copy = {
   es: {
     eyebrow: "Confianza editorial",
     title: "Escrito desde experiencia real y revisado con fuentes oficiales",
+    reviewed: "Última revisión: 30 de julio de 2026",
     body:
       "US Citizenship Prep es un recurso educativo independiente. La guía nace de experiencia real de preparación para naturalización y se organiza alrededor de tareas prácticas: civismo, revisión N-400, lectura y escritura, documentos y planificación para el día de entrevista.",
     legal:
@@ -36,6 +38,7 @@ export default function EditorialTrustBlock({ lang = "en" }) {
       <h2 className="mt-3 max-w-3xl text-2xl font-black leading-tight text-slate-950">
         {t.title}
       </h2>
+      <p className="mt-3 text-sm font-black text-slate-500">{t.reviewed}</p>
       <p className="mt-4 max-w-4xl text-base leading-8 text-slate-700">{t.body}</p>
       <p className="mt-4 max-w-4xl text-sm font-semibold leading-7 text-slate-600">
         {t.legal}
