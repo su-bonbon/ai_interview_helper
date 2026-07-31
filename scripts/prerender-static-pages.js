@@ -316,6 +316,33 @@ const pages = [
     ],
   },
   {
+    route: "/topics",
+    title: "U.S. Citizenship Interview Prep Topics | US Citizenship Prep",
+    description:
+      "Browse a crawlable topic map for citizenship civics questions, N-400 interview questions, mock interviews, English practice, and checklists.",
+    h1: "U.S. Citizenship Interview Prep Topics",
+    intro:
+      "Use this crawlable topic hub to find the main citizenship interview preparation resources on US Citizenship Prep.",
+    sections: [
+      [
+        "Civics questions and answers",
+        "Find citizenship civics questions and answers, civics flashcards, citizenship test practice, and a guide for studying USCIS civics questions out loud.",
+      ],
+      [
+        "N-400 and mock interview practice",
+        "Prepare for N-400 interview questions, mock interview flow, travel history, work history, taxes, citations, and yes/no eligibility topics.",
+      ],
+      [
+        "English, documents, and interview day",
+        "Review reading and writing expectations, interview-day checklists, documents, study plans, and frequently asked questions.",
+      ],
+      [
+        "Bilingual and trust resources",
+        "Use Spanish-supported study pages, sources and editorial standards, about information, and contact options for corrections or accessibility issues.",
+      ],
+    ],
+  },
+  {
     route: "/citizenship-interview-experience",
     title: "My Citizenship Interview Experience | US Citizenship Prep",
     description:
@@ -412,8 +439,17 @@ const pageLinks = [
   ["/civics/", "Civics questions"],
   ["/study-plan/", "Study plan"],
   ["/guides/", "Guides"],
+  ["/topics/", "Topics"],
+  ["/n400-interview-questions/", "N-400 interview questions"],
+  ["/mock-interview/", "US citizenship mock interview"],
+  ["/civics-test-practice/", "Citizenship test practice"],
+  ["/citizenship-civics-questions-and-answers/", "Citizenship civics questions and answers"],
+  ["/citizenship-test-spanish/", "Citizenship test practice in Spanish"],
+  ["/citizenship-interview-checklist/", "Citizenship interview checklist"],
+  ["/guides/civics-test/", "How to study for the civics test"],
+  ["/guides/reading-writing/", "Reading and writing test expectations"],
+  ["/interview-day/", "Interview day checklist"],
   ["/citizenship-interview-experience/", "Interview experience"],
-  ["/citizenship-civics-questions-and-answers/", "Civics questions and answers"],
   ["/faq/", "FAQ"],
   ["/sources/", "Sources"],
   ["/privacy/", "Privacy"],
@@ -707,6 +743,49 @@ const extraContentByRoute = {
       ],
     ],
   },
+  "/topics": {
+    sections: [
+      [
+        "Why this page helps search engines and users",
+        "Google primarily discovers pages through links. This topic hub gives users and search crawlers a simple route to the most important citizenship interview preparation pages, with descriptive anchor text for each resource.",
+      ],
+      [
+        "How the topic groups are organized",
+        "The links are grouped by search intent: civics questions and answers, N-400 review, mock interview practice, English reading and writing, interview-day checklists, bilingual study, and editorial trust resources.",
+      ],
+    ],
+    lists: [
+      {
+        title: "Civics and test practice links",
+        items: [
+          "Citizenship civics questions and answers: /citizenship-civics-questions-and-answers/",
+          "Citizenship test practice: /civics-test-practice/",
+          "Civics flashcards: /civics/",
+          "How to study for the civics test: /guides/civics-test/",
+        ],
+      },
+      {
+        title: "Interview preparation links",
+        items: [
+          "N-400 interview questions: /n400-interview-questions/",
+          "US citizenship mock interview: /mock-interview/",
+          "Citizenship interview study plan: /study-plan/",
+          "Citizenship interview checklist: /citizenship-interview-checklist/",
+          "Reading and writing test expectations: /guides/reading-writing/",
+          "Interview day checklist: /interview-day/",
+        ],
+      },
+      {
+        title: "Trust and bilingual resource links",
+        items: [
+          "Citizenship test practice in Spanish: /citizenship-test-spanish/",
+          "My citizenship interview experience: /citizenship-interview-experience/",
+          "Sources and editorial standards: /sources/",
+          "About US Citizenship Prep: /about/",
+        ],
+      },
+    ],
+  },
   "/citizenship-interview-experience": {
     sections: [
       [
@@ -765,6 +844,7 @@ const articleRoutes = new Set([
   "/citizenship-interview-experience",
   "/sources",
   "/about",
+  "/topics",
 ]);
 
 const createStaticSchema = (page) => {
