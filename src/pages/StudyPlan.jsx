@@ -941,9 +941,9 @@ export default function StudyPlan() {
 
   return (
     <section className="mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:px-10">
-      <div className="overflow-hidden rounded-3xl bg-slate-950 text-white">
+      <div className="overflow-hidden rounded-3xl bg-white shadow-sm">
         <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="relative min-h-[360px] p-6 sm:p-8 lg:p-10">
+          <div className="relative min-h-[360px] bg-slate-950 p-6 text-white sm:p-8 lg:p-10">
             <img
               src={checklistImage}
               alt=""
